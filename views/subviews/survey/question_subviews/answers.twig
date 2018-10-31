@@ -1,0 +1,23 @@
+<div class="{{ aSurveyInfo.class.answercontainer }} col-xs-12" {{ aSurveyInfo.attr.answercontainer }}>
+{% if (aQuestion.help.show or (aQuestion.valid_message | raw | trim)  or (aQuestion.man_message | raw | trim)  or (aQuestion.file_valid_message | raw | trim)) %}
+    {% set describedbyhelp = ' ls-question-help-'~aQuestion.SGQ~' '  %}
+{% endif %}
+{% if aQuestion.mandatory %}
+    {% set describedbymandatory = ' ls-question-mandatory--'~aQuestion.SGQ~' '  %}
+{% endif %}
+    {% if (describedbyhelp or describedbymandatory) %}
+        {% set describe = describedbyhelp ~ describedbymandatory  %}
+        {% set describedby = 'aria-describedby="'~describe~'"' %}
+        {% set labelid = 'ls-question-text-'~aQuestion.SGQ %}
+        {% set labelledby = 'aria-labelledby="'~labelid~'"' %}
+        {% set newdescribedby  = 'ls-question-text-'~aQuestion.SGQ~' ls-question-help-'~aQuestion.SGQ %}
+        {% if(labelledby in aQuestion.answer) %}
+            {{ str_replace(labelledby,labelledby ~ describedby,aQuestion.answer) | raw }}
+        {% else %}
+            {# maybe direcly better ? since labelledby can have multiple id #}
+            {{ str_replace(labelid,labelid ~ describe,aQuestion.answer) | raw }}
+        {% endif %}
+    {% else %}
+        {{ aQuestion.answer | raw }}
+    {% endif %}
+</div>

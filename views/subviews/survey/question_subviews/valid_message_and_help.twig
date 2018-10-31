@@ -1,0 +1,5 @@
+<!-- LimeSurvey valid message and help -->
+<!-- Remove all extra to use empty if able -->
+{% if ((aQuestion.valid_message | raw | trim)  or (aQuestion.man_message | raw | trim)  or (aQuestion.file_valid_message | raw | trim) ) %}
+<div class="{{ aSurveyInfo.class.questionvalidcontainer }} text-info" {{ aSurveyInfo.attr.questionvalidcontainer }}>{{ str_replace(' role="alert"','',aQuestion.valid_message) | raw | trim }}{{ aQuestion.man_message | raw  | trim}}{{ aQuestion.file_valid_message | raw | trim}}</div>
+{% endif %}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    (¯`·._.·(¯`·._.· Vanilla Theme Manifest  ·._.·´¯)·._.·´¯)
+
+    Base configuration for Vanilla Theme.
+    The content of this file is imported into DB when you install the template.
+
+-->
+<config>
+    <!-- Those metadata are displayed in the theme configuration page.  -->
+    <metadata>
+        <name>accessible_vanilla</name>
+        <title>Bootstrap Vanilla</title>
+        <creationDate>2018-10-29</last_update>
+        <author>Denis Chenu</author>
+        <authorEmail>noreply@sondages.pro</authorEmail>
+        <authorUrl>http://www.sondages.pro</authorUrl>
+        <copyright>Copyright (C) 2018 Denis Chenu / Sondages Pro</copyright>
+        <license>GNU General Public License version 2 or later</license>
+        <version>3.0</version>
+        <apiVersion>3</apiVersion>
+        <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with accessibility</strong><br>Base on vanilla theme, usage of more aria and fix some role and aria from core.<br>Part of this theme are merged in core LimeSurvey when it's ready.]]></description>
+        <last_update>2018-10-31 14:12:50</last_update>
+    <extends>vanilla</extends></metadata>
+
+    <files>
+        <css>
+            <add>css/base.css</add>
+            <remove>css/ajaxify.css</remove>
+            <add>css/theme.css</add>
+            <add>css/custom.css</add>
+        </css>
+        <js>
+            <add>scripts/theme.js</add>
+            <add>scripts/aria-live.js</add>
+            <remove>scripts/ajaxify.js</remove>
+            <add>scripts/custom.js</add>
+        </js>
+        <print_css>
+            <add>css/print_theme.css</add>
+        </print_css>
+    </files>
+
+    <!-- You can add here any option you want. It will be available in twig file via aSurveyInfo.options.youroptionname -->
+    <options>
+        <animatebody>off</animatebody>
+        <hideprivacyinfo>off</hideprivacyinfo>
+        <container>on</container>
+        <bodyanimation>fadeInRight</bodyanimation>
+        <brandlogo>on</brandlogo>
+        <brandlogofile>./files/logo.png</brandlogofile>
+        <font>noto</font>
+        <showpopups>0</showpopups>
+    </options>
+
+    <!-- Here datas about how LimeSurvey should load the theme -->
+
+    <packages>
+        <add>moment</add>
+        <remove>pjax</remove>
+        <add>font-noto</add>
+    </packages>
+</config>
