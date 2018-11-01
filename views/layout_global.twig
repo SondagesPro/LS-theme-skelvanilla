@@ -74,10 +74,7 @@
     {{ include('./subviews/header/head.twig') }}
     {% endblock %}
     <body style="padding-top: 90px;" class=" {{ aSurveyInfo.class.body }} font-{{  aSurveyInfo.options.font }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {% if( aSurveyInfo.options.brandlogo == "on") %}brand-logo{%endif%}" {{ aSurveyInfo.attr.body }} >
-        {# Ajaxify cannot handle an element that is a direct child of body, so => create simple wrapper section #}
-        <article>
-
-            <div id="{{ aSurveyInfo.id.dynamicreload }}">
+            <main id="{{ aSurveyInfo.id.dynamicreload }}">
             {% block body %}
 
                 {# Bootstrap Navigation Bar: the top menu #}
@@ -112,9 +109,7 @@
                 ", "POS_END") }}
 
             {% endblock %}
-            </div>
-
-        </article>
+            </main>
         {% block footer %}
             {{ include('./subviews/footer/footer.twig') }}
         {% endblock %}
