@@ -8,13 +8,5 @@
     <label class="form-group {{ aSurveyInfo.class.clearalllabel }}" for="clear-all-id{{ navigatorid }}" >
         <input {{ aSurveyInfo.attr.clearallconfirm }} class="{{ aSurveyInfo.class.clearallconfirm }}" id="clear-all-id{{ navigatorid }}" ><span class="control-label">{{gT("Please confirm you want to clear your response?")}}</span>
     </label>
-    
-    <a 
-    href="#" 
-    data-limesurvey-submit='{ "clearall":"clearall" }'  
-    data-confirmedby='{ "confirm-clearall":"confirm" }' 
-    {{ aSurveyInfo.attr.clearallbutton }} 
-    class="{{ aSurveyInfo.class.clearallbutton }} btn btn-link" 
-    data-confirmlabel='{{gT("Please confirm you want to clear your response?" )}}'
-    >{{gT("Exit and clear survey")}}</a>
+    <button {{ aSurveyInfo.attr.clearallbutton }} class="{{ aSurveyInfo.class.clearallbutton }} btn btn-link">{{gT("Exit and clear survey")}}</button>
 </div>
