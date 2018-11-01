@@ -5,8 +5,8 @@
 #}
 
 <div class="{{ aSurveyInfo.class.clearallwrapper }} form-inline">
-    <label class="form-group {{ aSurveyInfo.class.clearalllabel }}" for="clear-all-"~navigatorid >
-        <input {{ aSurveyInfo.attr.clearallconfirm }} class="{{ aSurveyInfo.class.clearallconfirm }}" id="clear-all-"~navigatorid ><span class="control-label">{{gT("Please confirm you want to clear your response?")}}</span>
+    <label class="form-group {{ aSurveyInfo.class.clearalllabel }}" for="clear-all-id{{ navigatorid }}" >
+        <input {{ aSurveyInfo.attr.clearallconfirm }} class="{{ aSurveyInfo.class.clearallconfirm }}" id="clear-all-id{{ navigatorid }}" ><span class="control-label">{{gT("Please confirm you want to clear your response?")}}</span>
     </label>
     
     <a 

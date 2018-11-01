@@ -3,7 +3,7 @@
     {% set describedbyhelp = ' ls-question-help-'~aQuestion.SGQ~' '  %}
 {% endif %}
 {% if aQuestion.mandatory %}
-    {% set describedbymandatory = ' ls-question-mandatory--'~aQuestion.SGQ~' '  %}
+    {% set describedbymandatory = ' ls-question-mandatory-'~aQuestion.SGQ~' '  %}
 {% endif %}
     {% if (describedbyhelp or describedbymandatory) %}
         {% set describe = ((describedbyhelp ~ describedbymandatory) | trim) %}
