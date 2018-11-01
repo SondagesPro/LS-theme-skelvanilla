@@ -42,10 +42,14 @@
         {{ aQuestion.code }}
     </span>
 {% endif %}
-
+{% if ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) %}
+    {% set tagQuestion = 'h3' %}
+{% else %}
+    {% set tagQuestion = 'h2' %}
+{% endif %}
 {# The question text as entered by the survey creator in question editing #}
-<div class="{{ aSurveyInfo.class.questiontext }}" {{ aSurveyInfo.attr.questiontext }}>
+<{{ tagQuestion }} class="{{ aSurveyInfo.class.questiontext }}" {{ aSurveyInfo.attr.questiontext }}>
     <div id="ls-question-text-{{ aQuestion.SGQ }}" class="{{ aSurveyInfo.class.lsquestiontext }}" {{ aSurveyInfo.attr.lsquestiontext }}>
         {{ aQuestion.text | raw }}
     </div>
-</div>
+</{{ tagQuestion }}>

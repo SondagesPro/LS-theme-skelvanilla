@@ -1,0 +1,6 @@
+<!-- Group Name -->
+{% if ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) %}
+    <h2 class="{{ aSurveyInfo.class.grouptitle }} text-center h3 space-col" {{ aSurveyInfo.attr.grouptitle }}>
+        {{ processString(aGroup.name) }}
+    </h2>
+{% endif %}

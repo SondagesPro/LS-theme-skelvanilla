@@ -1,0 +1,6 @@
+<!-- START OF GROUP: {{ aGroup.name }} {{ aGroup.gid }}  -->
+<section id='group-{{ aGroup.gseq }}' class="{{ aSurveyInfo.class.groupoutercontainer }}{{ aGroup.class }} {{ aSurveyInfo.class.groupcontainer }}" {{ aSurveyInfo.attr.questiongroup }}>
+    {# The container div itself could often change from a template to another, so we clearly separate it. #}
+    {{ include('./subviews/survey/group_subviews/group_container.twig') }}
+</section>
+<!-- END OF GROUP: {{ aGroup.name }} {{ aGroup.gid }}  -->

@@ -1,0 +1,22 @@
+{% if ( ( (aGroup.showgroupinfo == 'D' or aGroup.showgroupinfo == 'B' ) and aGroup.description ) or ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) ) %}
+    <header>
+        {# Group Name #}
+        {{ include('./subviews/survey/group_subviews/group_name.twig') }}
+        {# Group Description #}
+        {{ include('./subviews/survey/group_subviews/group_desc.twig') }}
+    </header>
+{% endif %}
+{# PRESENT THE QUESTIONS #}
+
+<!-- PRESENT THE QUESTIONS -->
+{% for  aQuestion in aGroup.aQuestions %}
+     {{ include('./subviews/survey/question_container.twig') }}
+{% endfor %}
+
+<!-- Hidden inputs -->
+{% if aGroup.show_last_group == true %}
+    <input type='hidden' name='lastgroup' value='{{ aGroup.lastgroup }}' id='lastgroup' />
+{% endif %}
+{% if aGroup.show_last_answer == true %}
+    <input type='hidden' name='lastanswer' value='{{ aGroup.lastanswer }}' id='lastanswer' />
+{% endif %}
