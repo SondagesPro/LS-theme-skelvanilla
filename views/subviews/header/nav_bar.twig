@@ -29,9 +29,9 @@
         </button>
         <h1 class="{{ aSurveyInfo.class.navbarbrand }} "  {{ aSurveyInfo.attr.navbarbrand }}  >
             {% if( aSurveyInfo.options.brandlogo == "on") %}
-                <div class="logo-container">
+                <span class="logo-container">
                 {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
-                </div>
+                </span>
             {% endif %}
             {{ aSurveyInfo.name }}
         </h1>
