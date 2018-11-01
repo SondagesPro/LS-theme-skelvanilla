@@ -86,10 +86,10 @@ var TemplateAccessible = {
         });
     },
     hideQuestionWithRelevanceSubQuestion: function () {
-        if(!jQuery.isFunction(window.TemplateCoreClass) ) {
-            // console.log("TemplateCoreClass seems not loaded");
+        if(!jQuery.isFunction(window.templateCore.hideQuestionWithRelevanceSubQuestion) ) {
             return;
         }
+        /* the function is here, but is it launched ? */
         $("[id^='question']:not(.ls-irrelevant)").on('relevance:on', "[id^='javatbd']", function (event, data) {
             if (event.target != this) return; // not needed now, but after (2016-11-07)
             data = $.extend({style:'hidden'}, data);
@@ -116,5 +116,8 @@ var TemplateAccessible = {
                 }
             }
         });
+    },
+    hideMultipleColumn: function () {
+        /* @todo … */
     }
 }
