@@ -6,16 +6,16 @@
     {% set describedbymandatory = ' ls-question-mandatory--'~aQuestion.SGQ~' '  %}
 {% endif %}
     {% if (describedbyhelp or describedbymandatory) %}
-        {% set describe = describedbyhelp ~ describedbymandatory  %}
+        {% set describe = ((describedbyhelp ~ describedbymandatory) | trim) %}
         {% set describedby = 'aria-describedby="'~describe~'"' %}
         {% set labelid = 'ls-question-text-'~aQuestion.SGQ %}
         {% set labelledby = 'aria-labelledby="'~labelid~'"' %}
         {% set newdescribedby  = 'ls-question-text-'~aQuestion.SGQ~' ls-question-help-'~aQuestion.SGQ %}
         {% if(labelledby in aQuestion.answer) %}
-            {{ str_replace(labelledby,labelledby ~ describedby,aQuestion.answer) | raw }}
+            {{ str_replace(labelledby,labelledby ~ " " ~ describedby,aQuestion.answer) | raw }}
         {% else %}
             {# maybe direcly better ? since labelledby can have multiple id #}
-            {{ str_replace(labelid,labelid ~ describe,aQuestion.answer) | raw }}
+            {{ str_replace(labelid,labelid ~ " " ~ describe,aQuestion.answer) | raw }}
         {% endif %}
     {% else %}
         {{ aQuestion.answer | raw }}
