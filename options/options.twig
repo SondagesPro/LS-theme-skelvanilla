@@ -71,8 +71,8 @@
             {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                 <div class='row' id="general_inherit_active">
                     <div class='form-group row'>
-                        <label for='simple_edit_options_general_inherit' class='control-label'>{{gT("Inherit everything" )}}</label>
-                        <div class='col-sm-12'>
+                        <label for='simple_edit_options_general_inherit' class='control-label col-xs-4'>{{gT("Inherit everything" )}}</label>
+                        <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default">
                                     <input id="general_inherit_on" name='general_inherit' type='radio' value='on' class='selector_option_general_inherit ' data-id='simple_edit_options_general_inherit'/>
@@ -94,10 +94,10 @@
             {# First settings row #}
             <div class='row action_hide_on_inherit'>
                 {# Container #}
-                <div class='col-sm-12 col-md-2'>
+                <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_container' class='control-label'> {{ gT("Survey container") }} </label>
-                        <div class='col-sm-12'>
+                        <label for='simple_edit_options_container' class='control-label col-xs-4'> {{ gT("Survey container") }} </label>
+                        <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default">
                                     <input type='radio' name='container' value='on' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
@@ -120,10 +120,10 @@
                 </div>
 
                 {# hideprivacyinfo #}
-                <div class='col-sm-12 col-md-2'>
+                <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_hideprivacyinfo' class='control-label'>{{ gT("Hide privacy info") }}</label>
-                        <div class='col-sm-12'>
+                        <label for='simple_edit_options_hideprivacyinfo' class='control-label col-xs-4'>{{ gT("Hide privacy info") }}</label>
+                        <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default">
                                     <input type='radio' name='hideprivacyinfo' value='on' class='selector_option_radio_field simple_edit_options_hideprivacyinfo ' data-id='hideprivacyinfo'/>
@@ -146,10 +146,10 @@
                 </div>
 
                 {# Show popups #}
-                <div class='col-sm-12 col-md-4'>
+                <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_showpopups' class='control-label' {{ showpopups_disabled_qtip }}>{{ gT("Show popups") }}</label>
-                        <div class='col-sm-12'>
+                        <label for='simple_edit_options_showpopups' class='control-label col-xs-4' {{ showpopups_disabled_qtip }}>{{ gT("Show popups") }}</label>
+                        <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default control-label" {{ showpopups_disabled }}>
                                         <input type='radio' name='showpopups' value='1' {{ showpopups_disabled }} class='selector_option_radio_field simple_edit_options_showpopups ' data-id='showpopups'/>
@@ -171,6 +171,34 @@
                                         </label>
                                     {% endif %}
                             </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {# Tag for question #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_questionhtag' class='control-label col-xs-4'> {{ gT("h2 or h3 title for question") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='questionhtag' value='on' class='selector_option_radio_field simple_edit_options_questionhtag ' data-id='questionhtag'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='questionhtag' value='off' class='selector_option_radio_field simple_edit_options_questionhtag ' data-id='questionhtag'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='questionhtag' value='inherit' class='selector_option_radio_field simple_edit_options_questionhtag ' data-id='questionhtag'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                            <p class="help-block">{{ gT("Be sure to use only one line text without complex HTML.") }}</p>
+
                         </div>
                     </div>
                 </div>

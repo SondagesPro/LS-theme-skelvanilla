@@ -21,14 +21,18 @@
         {{ aQuestion.code }}
     </span>
 {% endif %}
-{% if ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) %}
-    {% set tagQuestion = 'h3' %}
-{% else %}
-    {% set tagQuestion = 'h2' %}
+{% set tagQuestion = 'div' %}
+{% if ( aSurveyInfo.options.questionhtag == 'on' ) %}
+    {% if ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) %}
+        {% set tagQuestion = 'h3' %}
+    {% else %}
+        {% set tagQuestion = 'h2' %}
+    {% endif %}
 {% endif %}
+
 {# The question text as entered by the survey creator in question editing #}
 <div class="{{ aSurveyInfo.class.questiontext }}" {{ aSurveyInfo.attr.questiontext }}>
-    <div id="ls-question-text-{{ aQuestion.SGQ }}" class="{{ aSurveyInfo.class.lsquestiontext }}" {{ aSurveyInfo.attr.lsquestiontext }}>
+    <{{ tagQuestion }} id="ls-question-text-{{ aQuestion.SGQ }}" class="{{ aSurveyInfo.class.lsquestiontext }} accessible-question-text" {{ aSurveyInfo.attr.lsquestiontext }}>
         {{ aQuestion.text | raw }}
-    </div>
+    </{{ tagQuestion }}>
 </div>

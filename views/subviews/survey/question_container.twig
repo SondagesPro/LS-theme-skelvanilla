@@ -18,7 +18,12 @@
     So we separate it
 #}
 <!-- Question {{ aQuestion.qid  }}  -->
-<section {{ aQuestion.attributes }} class="row {{ aQuestion.class }} {{ aQuestion.input_error_class }} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
+{% if ( aSurveyInfo.options.questionhtag == 'on' ) %}
+    {% set tagSection = 'section' %}
+{% else %}
+    {% set tagSection = 'div' %}
+{% endif %}
+<{{ tagSection }} {{ aQuestion.attributes }} class="row {{ aQuestion.class }} {{ aQuestion.input_error_class }} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
     {{ include('./subviews/survey/question.twig') }}
-</section>
+</{{ tagSection }}>
 <!-- End of question  {{ aQuestion.qid  }}  -->

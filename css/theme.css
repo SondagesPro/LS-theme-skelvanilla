@@ -2,7 +2,7 @@
     Work in progress : need to move and remove a lot
 */
 /* in h2 or h2, need to remove margin and reset font-size */
-.question-text{
+.accessible-question-text{
     margin:0;
     font-size: inherit;/* @todo move it to less */
     line-height: inherit;/* @todo move it to less */

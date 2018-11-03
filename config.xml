@@ -21,7 +21,7 @@
         <version>3.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with accessibility</strong><br>Base on vanilla theme, usage of more aria and fix some role and aria from core.<br>Part of this theme are merged in core LimeSurvey when it's ready.]]></description>
-        <last_update>2018-11-01 18:30:33</last_update>
+        <last_update>2018-11-03 18:35:51</last_update>
     <extends>vanilla</extends></metadata>
 
     <files>
@@ -47,8 +47,9 @@
         <animatebody>off</animatebody>
         <hideprivacyinfo>off</hideprivacyinfo>
         <container>on</container>
+        <questionhtag>off</questionhtag>
         <bodyanimation>fadeInRight</bodyanimation>
-        <brandlogo>on</brandlogo>
+        <brandlogo>off</brandlogo>
         <brandlogofile>./files/logo.png</brandlogofile>
         <font>noto</font>
         <showpopups>0</showpopups>
