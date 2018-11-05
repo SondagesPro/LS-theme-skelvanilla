@@ -287,12 +287,7 @@ body {
 .table-col-hover col.hover /* Actual solution : js only*/
 {
 }
-@media
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
-    .ls-answers > tbody > tr.ls-even:hover {
-    }
-}
+
 /**
  * Gender buttons
  */
@@ -646,32 +641,8 @@ div.yes-no .btn-group label {
 
 
 @media only screen and (max-device-width: 760px){
-
-  h1, .h3{
-    font-size:18px;
-  }
-
-  .h4{
-    font-size:16px;
-  }
-
   .question-container{
     margin-bottom:1em;
-  }
-
-  .question-title-container{
-    padding-top:5px;
-    padding-bottom: 5px;
-  }
-
-  .answer-container{
-    //padding-top:0.5em;
-    //padding-bottom:0.5em;
-  }
-
-  .ls-question-help,
-  .ls-questionhelp{
-    font-size:14px;
   }
 
   .ls-answers tbody:last-child tr:last-child{
@@ -695,10 +666,6 @@ div.yes-no .btn-group label {
     margin-bottom:0;
   }
 
-  .ls-questionhelp,
-  .help-block{
-    font-size:90%;
-  }
 }
 
 p.return-to-survey{
@@ -738,6 +705,3 @@ p.return-to-survey{
     border-right: none;
     outline: none;
 }
-
-/* Define the color for Awesome Bootsrap Checkboxes ; based on bg-primary background-color*/
-label::after{background-color:#337ab7}

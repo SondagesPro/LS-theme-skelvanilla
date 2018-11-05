@@ -21,25 +21,23 @@
         <version>3.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with accessibility</strong><br>Base on vanilla theme, usage of more aria and fix some role and aria from core.<br>Part of this theme are merged in core LimeSurvey when it's ready.]]></description>
-        <last_update>2018-11-03 18:35:51</last_update>
+        <last_update>2018-11-05 09:01:12</last_update>
     <extends>vanilla</extends></metadata>
 
     <files>
         <css>
-            <add>css/base.css</add>
             <remove>css/ajaxify.css</remove>
-            <add>css/theme.css</add>
-            <add>css/custom.css</add>
+            <remove>bootstrap.css</remove>
+            <remove>bootstrap.min.css</remove>
+            <add>css/lstheme.css</add>
+            <replace>css/theme.css</replace>
+            <replace>css/custom.css</replace>
         </css>
         <js>
-            <add>scripts/theme.js</add>
             <add>scripts/aria-live.js</add>
             <remove>scripts/ajaxify.js</remove>
-            <add>scripts/custom.js</add>
+            <replace>scripts/custom.js</replace>
         </js>
-        <print_css>
-            <add>css/print_theme.css</add>
-        </print_css>
     </files>
 
     <!-- You can add here any option you want. It will be available in twig file via aSurveyInfo.options.youroptionname -->
@@ -54,12 +52,202 @@
         <font>noto</font>
         <showpopups>0</showpopups>
     </options>
-
-    <!-- Here datas about how LimeSurvey should load the theme -->
-
     <packages>
         <add>moment</add>
         <remove>pjax</remove>
         <add>font-noto</add>
     </packages>
+    <!-- Here datas about how LimeSurvey should load the theme -->
+    <engine>
+        <template_editor>
+            <screens>
+                <question>
+                    <file type="view" role="layout">layout_global.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="content">./subviews/content/main.twig</file>
+                    <file type="view" role="subview">./subviews/survey/group.twig</file>
+                    <file type="view" role="subview">./subviews/survey/group_subviews/group_container.twig</file>
+                    <file type="view" role="subview">./subviews/survey/group_subviews/group_desc.twig</file>
+                    <file type="view" role="subview">./subviews/survey/group_subviews/group_name.twig</file>
+                    <file type="view" role="subview">./subviews/survey/question.twig</file>
+                    <file type="view" role="subview">./subviews/survey/question_container.twig</file>
+                    <file type="view" role="subview">./subviews/survey/question_subviews/question_text_container.twig</file>
+                    <file type="view" role="subview">./subviews/survey/question_subviews/question_text_content.twig</file>
+                    <file type="view" role="subview">./subviews/survey/question_subviews/answers.twig</file>
+                    <file type="view" role="subview">./subviews/survey/question_subviews/survey_question_help.twig</file>
+                    <file type="view" role="subview">./subviews/survey/question_subviews/valid_message_and_help.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </question>
+
+                <surveylist>
+                    <file type="view" role="layout">layout_survey_list.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="subview">./subviews/content/mainrow.twig</file>
+                    <file type="view" role="subview">./subviews/content/outerframe.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/language_changer_form.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </surveylist>
+
+                <welcome>
+                    <file type="view" role="layout">layout_global.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="subview">./subviews/content/mainrow.twig</file>
+                    <file type="view" role="subview">./subviews/content/outerframe.twig</file>
+                    <file type="view" role="content">./subviews/content/firstpage.twig</file>
+                    <file type="view" role="subview">./subviews/header/head.twig</file>
+                    <file type="view" role="subview">./subviews/header/custom_header.twig</file>
+                    <file type="view" role="subview">./subviews/header/nav_bar.twig</file>
+                    <file type="view" role="subview">./subviews/header/progress_bar.twig</file>
+                    <file type="view" role="subview">./subviews/messages/welcome.twig</file>
+                    <file type="view" role="subview">./subviews/messages/warnings.twig</file>
+                    <file type="view" role="subview">./subviews/messages/no_js_alert.twig</file>
+                    <file type="view" role="subview">./subviews/privacy/privacy.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/language_changer.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </welcome>
+
+                <completed>
+                    <file type="view" role="layout">layout_global.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="subview">./subviews/content/mainrow.twig</file>
+                    <file type="view" role="subview">./subviews/content/outerframe.twig</file>
+                    <file type="view" role="content">./subviews/content/submit.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </completed>
+
+                <assessments>
+                    <file type="view" role="layout">layout_global.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="subview">./subviews/content/mainrow.twig</file>
+                    <file type="view" role="subview">./subviews/content/outerframe.twig</file>
+                    <file type="view" role="content">./subviews/content/submit.twig</file>
+                    <file type="view" role="subview">./subviews/messages/assessments.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </assessments>
+
+                <error>
+                    <file type="view" role="layout">layout_errors.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                </error>
+
+                <clearall>
+                    <file type="view" role="layout">layout_global.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="subview">./subviews/content/mainrow.twig</file>
+                    <file type="view" role="subview">./subviews/content/outerframe.twig</file>
+                    <file type="view" role="content">./subviews/content/clearall.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </clearall>
+
+                <load>
+                    <file type="view" role="layout">layout_global.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="subview">./subviews/content/mainrow.twig</file>
+                    <file type="view" role="subview">./subviews/content/outerframe.twig</file>
+                    <file type="view" role="content">./subviews/content/load.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </load>
+
+                <save>
+                    <file type="view" role="layout">layout_global.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="subview">./subviews/content/mainrow.twig</file>
+                    <file type="view" role="subview">./subviews/content/outerframe.twig</file>
+                    <file type="view" role="content">./subviews/content/save.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </save>
+
+                <register>
+                    <file type="view" role="layout">layout_global.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="content">./subviews/content/register.twig</file>
+                    <file type="view" role="subview">./subviews/registration/register_error.twig</file>
+                    <file type="view" role="subview">./subviews/registration/register_head.twig</file>
+                    <file type="view" role="subview">./subviews/registration/register_message.twig</file>
+                    <file type="view" role="subview">./subviews/registration/register_success.twig</file>
+                    <file type="view" role="subview">./subviews/registration/register_form.twig</file>
+                    <file type="view" role="subview">./subviews/registration/required.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </register>
+
+                <printanswers>
+                    <file type="view" role="layout">layout_printanswers.twig</file>
+                    <file type="view" role="subview">./subviews/content/outerframe.twig</file>
+                    <file type="view" role="content">./subviews/content/printanswers.twig</file>
+                    <file type="view" role="subview">./subviews/printanswers/printanswers_question.twig</file>
+                    <file type="view" role="subview">./subviews/printanswers/printanswers_table.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </printanswers>
+
+                <pdf>
+                    <file type="view" role="layout">layout_print.twig</file>
+                </pdf>
+
+                <navigation>
+                    <file type="view" role="layout">layout_global.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="content">./subviews/content/main.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/ajax_indicator.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/clearall_links.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/save_links.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/language_changer_top_menu.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/language_changer.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/question_index_menu.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/navigator.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/navigator_complement.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/clearall_buttons.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/save_buttons.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/question_index_buttons.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/question_index_questions_buttons.twig</file>
+                    <file type="view" role="subview">./subviews/navigation/question_index_groups_buttons.twig</file>
+                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/theme.js</file>
+                    <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/custom.js</file>
+                </navigation>
+            </screens>
+        </template_editor>
+    </engine>
+
 </config>

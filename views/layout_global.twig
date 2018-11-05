@@ -22,7 +22,7 @@
     {{ include('./subviews/header/head.twig') }}
     {% endblock %}
     <body style="padding-top: 90px;" class=" {{ aSurveyInfo.class.body }} font-{{  aSurveyInfo.options.font }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {% if( aSurveyInfo.options.brandlogo == "on") %}brand-logo{%endif%}" {{ aSurveyInfo.attr.body }} >
-            <main id="{{ aSurveyInfo.id.dynamicreload }}">
+        <div id="{{ aSurveyInfo.id.dynamicreload }}">
             {% block body %}
 
                 {# Bootstrap Navigation Bar: the top menu #}
@@ -47,22 +47,17 @@
 
                 {# Bootstrap alert modal #}
                 {{ include('./subviews/messages/bootstrap_alert_modal.twig') }}
-
-                {# Basic ThemeScript options  #}
-                {{ registerScript("BasicThemeScripts", "
+            {% endblock %}
+            {% block footer %}
+                {{ include('./subviews/footer/footer.twig') }}
+            {% endblock %}
+        </div>
+        {% block themescripts %}
+            <script>
                 if(window.basicThemeScripts === undefined){ 
                     window.basicThemeScripts = new ThemeScripts(); 
                 } 
                 basicThemeScripts.initGlobal(); 
-                ", "POS_END") }}
-
-            {% endblock %}
-            </main>
-        {% block footer %}
-            {{ include('./subviews/footer/footer.twig') }}
-        {% endblock %}
-        {% block themescripts %}
-            <script>
                 window.basicThemeScripts.init();
                 window.TemplateAccessible.init();
             </script>
