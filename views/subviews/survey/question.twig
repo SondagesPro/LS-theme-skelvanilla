@@ -36,7 +36,7 @@
     {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
 
     {% if (aQuestion.help.show or (aQuestion.valid_message | raw | trim)  or (aQuestion.man_message | raw | trim)  or (aQuestion.file_valid_message | raw | trim) ) %}
-        <div id='ls-question-help-{{ aQuestion.SGQ }}' class="col-xs-12">
+        <div id='ls-question-help-{{ aQuestion.SGQ }}' class="clearfix">
         {# Valide message and help #}
         {{ include('./subviews/survey/question_subviews/valid_message_and_help.twig') }}
         {{ include('./subviews/survey/question_subviews/survey_question_help.twig') }}

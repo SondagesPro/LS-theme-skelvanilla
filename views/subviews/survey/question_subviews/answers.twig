@@ -1,4 +1,4 @@
-<div class="{{ aSurveyInfo.class.answercontainer }} col-xs-12" {{ aSurveyInfo.attr.answercontainer }}>
+<div class="{{ aSurveyInfo.class.answercontainer }} container-fluid" {{ aSurveyInfo.attr.answercontainer }}>
 {% if (aQuestion.help.show or (aQuestion.valid_message | raw | trim)  or (aQuestion.man_message | raw | trim)  or (aQuestion.file_valid_message | raw | trim)) %}
     {% set describedbyhelp = ' ls-question-help-'~aQuestion.SGQ~' '  %}
 {% endif %}

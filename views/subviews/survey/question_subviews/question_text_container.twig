@@ -1,9 +1,9 @@
 <!-- Question text -->
-{% if ( aSurveyInfo.options.questionhtag == 'on' ) %}
+{% if ( tagSection == 'section' ) %}
     {% set tagHeader = 'header' %}
 {% else %}
     {% set tagHeader = 'div' %}
 {% endif %}
-<{{ tagHeader }} class="{{ aSurveyInfo.class.questiontitlecontainer }} col-xs-12 " {{ aSurveyInfo.attr.questiontitlecontainer }} >
+<{{ tagHeader }} class="{{ aSurveyInfo.class.questiontitlecontainer }} " {{ aSurveyInfo.attr.questiontitlecontainer }} >
     {{ include('./subviews/survey/question_subviews/question_text_content.twig') }}
 </{{ tagHeader }}>

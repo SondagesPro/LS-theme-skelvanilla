@@ -21,7 +21,7 @@
         <version>3.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with accessibility</strong><br>Base on vanilla theme, usage of more aria and fix some role and aria from core.<br>Part of this theme are merged in core LimeSurvey when it's ready.]]></description>
-        <last_update>2018-11-05 14:56:39</last_update>
+        <last_update>2018-11-06 08:52:00</last_update>
     <extends>vanilla</extends></metadata>
 
     <files>
@@ -29,7 +29,10 @@
             <remove>css/ajaxify.css</remove>
             <remove>bootstrap.css</remove>
             <remove>bootstrap.min.css</remove>
-            <add>css/lsbootsrap.css</add>
+            <remove>template-core.css</remove>
+            <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</remove>
+            <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
+            <add>css/lsbootstrap.css</add>
             <replace>css/theme.css</replace>
             <replace>css/custom.css</replace>
         </css>
@@ -77,7 +80,7 @@
                     <file type="view" role="subview">./subviews/survey/question_subviews/answers.twig</file>
                     <file type="view" role="subview">./subviews/survey/question_subviews/survey_question_help.twig</file>
                     <file type="view" role="subview">./subviews/survey/question_subviews/valid_message_and_help.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -90,7 +93,7 @@
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="subview">./subviews/navigation/language_changer_form.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -112,7 +115,7 @@
                     <file type="view" role="subview">./subviews/messages/no_js_alert.twig</file>
                     <file type="view" role="subview">./subviews/privacy/privacy.twig</file>
                     <file type="view" role="subview">./subviews/navigation/language_changer.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -125,7 +128,7 @@
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/submit.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -139,7 +142,7 @@
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/submit.twig</file>
                     <file type="view" role="subview">./subviews/messages/assessments.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -157,7 +160,7 @@
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/clearall.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -170,7 +173,7 @@
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/load.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -183,7 +186,7 @@
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/save.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -200,7 +203,7 @@
                     <file type="view" role="subview">./subviews/registration/register_success.twig</file>
                     <file type="view" role="subview">./subviews/registration/register_form.twig</file>
                     <file type="view" role="subview">./subviews/registration/required.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -213,7 +216,7 @@
                     <file type="view" role="content">./subviews/content/printanswers.twig</file>
                     <file type="view" role="subview">./subviews/printanswers/printanswers_question.twig</file>
                     <file type="view" role="subview">./subviews/printanswers/printanswers_table.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -242,7 +245,7 @@
                     <file type="view" role="subview">./subviews/navigation/question_index_buttons.twig</file>
                     <file type="view" role="subview">./subviews/navigation/question_index_questions_buttons.twig</file>
                     <file type="view" role="subview">./subviews/navigation/question_index_groups_buttons.twig</file>
-                    <file type="css">./css/lsbootsrap.css</file>
+                    <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
