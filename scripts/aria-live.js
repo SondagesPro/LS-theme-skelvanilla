@@ -2,10 +2,11 @@ var TemplateAccessible = {
     init : function (options) {
         this.triggerEmClassChangeAccessible();
         this.triggerMandatoryUpdate();
-        this.triggerRelevanceOnOff();
         this.triggerHtmlUpdated();
+        this.triggerRelevanceOnOff();
     },
     triggerEmClassChangeAccessible: function () {
+        /* @todo : check :valid and setCustomValidity */
         $(document).on('classChangeError','.ls-em-tip', function () {
             if($(this).attr("role") != "alert") {
                 parentId = $(this).parent('.ls-question-help').attr("id");
@@ -24,12 +25,28 @@ var TemplateAccessible = {
         });
     },
     triggerMandatoryUpdate: function() {
-        /* @todo #1 add (and remove) required to dropdown, input:text, input:radio and textarea according to relevance */
-        /* @todo #2 dynamic "aria-invalid" on group for checkbox (multiple choice and array-number / checkbox */
-        /* @todo #3 dynamic "aria-invalid" on dropdown, input:text and textarea */
+        /* WIP */
+        $(".mandatory [id^='javatbd']").on('relevance:on',function(event,data) {
+        });
+        $(".mandatory [id^='javatbd']").on('relevance:off',function(event,data) {
+        });
+        $("[id^='question'].mandatory").on('relevance:on',function(event,data) {
+            if($(this).find("[id^='javatbd']").length == 0) {
+                $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select').attr('required',true);
+            }
+        });
+        $("[id^='question'].mandatory").on('relevance:off',function(event,data) {
+            if($(this).find("[id^='javatbd']").length == 0) {
+                $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select').removeAttr('required');
+            }
+        });
     },
     triggerHtmlUpdated : function() {
-        /* @todo use html:updated event to trigger aria-live */
+        $("[id^='LEMtailor_']").on("html:updated",function(event,data) {
+            if($(this).is(":visible") && !$(this).attr("aria-live")) {
+                $(this).attr("aria-live","polite");
+            }
+        });
     },
     triggerRelevanceOnOff: function() {
         this.triggerRelevanceOnOffQuestion();
@@ -96,7 +113,7 @@ var TemplateAccessible = {
         if(!jQuery.isFunction(window.templateCore.hideQuestionWithRelevanceSubQuestion) ) {
             return;
         }
-        /* the function is here, but is it launched ? */
+        /* What happen if the function is here, but is it launched ? */
         $("[id^='question']:not(.ls-irrelevant)").on('relevance:on', "[id^='javatbd']", function (event, data) {
             if (event.target != this) return; // not needed now, but after (2016-11-07)
             data = $.extend({style:'hidden'}, data);
