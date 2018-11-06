@@ -5622,9 +5622,9 @@ button.list-group-item-danger.active:focus {
   padding-bottom: 75%;
 }
 .well {
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
+  min-height: 1.5rem;
+  padding: 1.1rem;
+  margin-bottom: 1.3rem;
   background-color: #f8f8f8;
   border: 1px solid #e6e6e6;
   border-radius: 0.3rem;
@@ -5636,11 +5636,11 @@ button.list-group-item-danger.active:focus {
   border-color: rgba(0, 0, 0, 0.15);
 }
 .well-lg {
-  padding: 24px;
+  padding: 1.5rem;
   border-radius: 0.4rem;
 }
 .well-sm {
-  padding: 9px;
+  padding: 0.8rem;
   border-radius: 0.2rem;
 }
 .close {

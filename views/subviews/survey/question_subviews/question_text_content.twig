@@ -1,7 +1,7 @@
 {# If the question is mandatory, the asterisk will be shown  #}
 {% if aQuestion.mandatory != '' %}
     <!-- Add a visual information + just Mandatory string for aria : can be improved -->
-    <div class="{{ aSurveyInfo.class.questionasterix }} pull-left" {{ aSurveyInfo.attr.questionasterix }} >
+    <div id="question-asterisk-{{ aQuestion.qid }}" class="{{ aSurveyInfo.class.questionasterix }} pull-left" {{ aSurveyInfo.attr.questionasterix }} >
         <small class="{{ aSurveyInfo.class.questionasterixsmall }} text-danger fa fa-asterisk small" {{ aSurveyInfo.attr.questionasterixsmall }}></small>
         <span class="{{ aSurveyInfo.class.questionasterixspan }} sr-only text-danger" {{ aSurveyInfo.attr.questionasterixspan }} id="ls-question-mandatory-{{ aQuestion.SGQ }}" >
             {{ gT("(This question is mandatory)") }}
@@ -10,14 +10,14 @@
 {% endif %}
 {# If the question number is to be shown (set in survey settings) #}
 {% if (aShow.question_number) %}
-    <span class='label label-default question-number' {{ aSurveyInfo.attr.questionnumber }} >
+    <span class='label label-default question-number pull-left' {{ aSurveyInfo.attr.questionnumber }} >
         {{ aQuestion.number }}
     </span>
 {% endif %}
 
 {# If the question code is to be shown (set in survey settings) #}
 {% if (aShow.question_code) %}
-    <span class='label label-primary question-number' {{ aSurveyInfo.attr.questioncode }}>
+    <span class='label label-primary question-number pull-left' {{ aSurveyInfo.attr.questioncode }}>
         {{ aQuestion.code }}
     </span>
 {% endif %}

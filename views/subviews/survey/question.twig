@@ -34,21 +34,30 @@
 
     {# Question Text #}
     {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
-
-    {% if (aQuestion.help.show or (aQuestion.valid_message | raw | trim)  or (aQuestion.man_message | raw | trim)  or (aQuestion.file_valid_message | raw | trim) ) %}
-        <div id='ls-question-help-{{ aQuestion.SGQ }}' class="clearfix">
-        {# Valide message and help #}
-        {{ include('./subviews/survey/question_subviews/valid_message_and_help.twig') }}
+    {% set ariadescribe = ''  %}
+    {% if aQuestion.mandatory != '' %}
+        {% if(aQuestion.man_message) %}
+            {% set ariadescribe = ariadescribe ~ " question-mandatory-" ~ aQuestion.qid  %}
+        {% else %}
+            {% set ariadescribe = ariadescribe ~ " question-asterisk-" ~ aQuestion.qid  %}
+        {% endif %}
+    {% endif %}
+    {% if aQuestion.help.show %}
         {{ include('./subviews/survey/question_subviews/survey_question_help.twig') }}
-        </div>
-        {% set describedby = 'ls-question-help-'~aQuestion.SGQ  %}
-     {% else %}
-           {{ aQuestion.help.text | raw }}
-     {% endif %}
+        {% set ariadescribe = ariadescribe ~ " question-help-" ~ aQuestion.qid  %}
+    {% else %}
+        {{ aQuestion.help.text | raw }}
+    {% endif %}
+    {% if ( (aQuestion.valid_message | raw | trim) or (aQuestion.man_message | raw | trim) or (aQuestion.file_valid_message | raw | trim) ) %}
+        {{ include('./subviews/survey/question_subviews/valid_message_and_help.twig') }}
+        {% if(aQuestion.valid_message) %}
+            {% set ariadescribe = ariadescribe ~ " vmsg_" ~ aQuestion.qid  %}
+        {% endif %}
+        {% if(aQuestion.file_valid_message) %}
+            {% set ariadescribe = ariadescribe ~ " file_" ~ aQuestion.qid  %}
+        {% endif %}
+    {% endif %}
     {# Answers #}
+    {% set ariadescribe = ( ariadescribe | trim ) %}
     {{ include('./subviews/survey/question_subviews/answers.twig') }}
-
-    {# Survey question Help #}
-
-
     <!-- End of question {{ aQuestion.code }} -->
