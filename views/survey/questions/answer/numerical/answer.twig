@@ -32,7 +32,7 @@
     {% endif %}
     {# good pattern need radix … but don't have it currently. Need to limit number of character due to decimal part, how but twig + EM broke this … #}
     {# see https://bugs.limesurvey.org/view.php?id=14224 #}
-    {% set pattern = "[-]?([0-9]+([,\.][0-9]+)?" %}
+    {% set pattern = "[-]?([0-9]+([,\.][0-9]+))?" %}
     {% set title = gT('Only numbers may be entered in this field.') %}
     {% if integeronly %}
         {% set pattern = "[-]?([0-9]+)" %}
