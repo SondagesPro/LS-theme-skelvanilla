@@ -24,12 +24,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="LimeSurvey http://www.limesurvey.org" />
     {{ aSurveyInfo.metas }}
-    {% set errorMessage = '' %}
-    {% for aMessage in aSurveyInfo.errorHtml.messages  %}
-            {% set errorMessage = errorMessage ~ aMessage %}
-    {% endfor %}
     <title>
-        {% if(errorMessage) %}[ {{ gT('Error:') ~ ' ' ~ errorMessage }} ]{% endif %}
+        {% if(aSurveyInfo.errorHtml.messages) %}[ {{ gT('Error') }} ]{% endif %}
         {{ flatString(processString(aSurveyInfo.surveyls_title,1)) }}
     </title>
 
