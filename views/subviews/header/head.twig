@@ -13,25 +13,27 @@
 
     This file generates the headers.
     Most of the time, it is not the right place to add your own JS/CSS - instead, use the config.xml file for that.
-#}
-
+#}<head>
 {% if(aSurveyInfo.jYesNo) %}
     {{ registerScript('activateConfirmLanguage',"$.extend(LSvar.lang," ~ aSurveyInfo.jYesNo ~ ")", "POS_BEGIN") }}
 {% endif %}
 {{ registerScript('activateActionLink',"activateActionLink();", "POS_POSTSCRIPT") }}
 {{ registerScript('activateConfirmButton',"activateConfirmButton();", "POS_POSTSCRIPT") }}
-
-<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="LimeSurvey http://www.limesurvey.org" />
-
     {{ aSurveyInfo.metas }}
-
+    {% set errorMessage = '' %}
+    {% for aMessage in aSurveyInfo.errorHtml.messages  %}
+            {% set errorMessage = errorMessage ~ aMessage %}
+    {% endfor %}
     <title>
-        {{ processString(aSurveyInfo.surveyls_title,1) }}
+        {% if(errorMessage) %}[ {{ gT('Error:') ~ ' ' ~ errorMessage }} ]{% endif %}
+        {{ flatString(processString(aSurveyInfo.surveyls_title,1)) }}
     </title>
+
+
 
     <link rel="shortcut icon" href="{{ aSurveyInfo.oTemplate.sTemplateurl }}files/favicon.ico" />
     <script type="text/javascript">
@@ -39,8 +41,6 @@
             window.basicThemeScripts = new ThemeScripts(); 
         } 
     </script>
-
     {{ include('./subviews/header/custom_header.twig') }}
-
     {{ include('./subviews/header/google_analytics.twig') }}
 </head>
