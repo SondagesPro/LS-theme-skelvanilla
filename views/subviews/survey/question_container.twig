@@ -17,13 +17,35 @@
     Different classes, options, etc
     So we separate it
 #}
-<!-- Question {{ aQuestion.qid  }}  -->
+{# Some var globally used #}
+{% set tagSection = 'div' %}
+{% set tagHeader = 'div' %}
 {% if ( aSurveyInfo.options.questionhtag == 'on' ) %}
     {% set tagSection = 'section' %}
-{% else %}
-    {% set tagSection = 'div' %}
+    {% set tagHeader = 'header' %}
 {% endif %}
-<{{ tagSection }} {{ aQuestion.attributes }} class="well well-sm {{ aQuestion.class }} {{ aQuestion.input_error_class }} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
+{% set questioncolor = '' %}
+{% set questioncontainerclass = '' %}
+{% if ( aSurveyInfo.options.questioncolor and aSurveyInfo.options.questioncolor !='none' ) %}
+    {% set questioncolor = aSurveyInfo.options.questioncolor %}
+{% endif %}
+{% if ( aSurveyInfo.options.questionwrap =='well' ) %}
+    {% set questioncontainerclass = 'well well-sm' %}
+{% endif %}
+{% set panel = false %}
+{% if ( aSurveyInfo.options.questionwrap =='panel' ) %}
+    {% set panel = true %}
+    {% if ( questioncolor ) %}
+        {% set questioncontainerclass = 'panel panel-'~questioncolor %}
+        {% set questioncolor = '' %}
+    {% else %}
+        {% set questioncontainerclass = 'panel panel-default' %}
+    {% endif %}
+{% else %}
+    {% set questioncolor = 'text-'~questioncolor %}
+{% endif %}
+<!-- Question {{ aQuestion.qid  }}  -->
+<{{ tagSection }} {{ aQuestion.attributes }} class="{{ questioncontainerclass }} {{ aQuestion.class }} {{ aQuestion.input_error_class }} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
     {{ include('./subviews/survey/question.twig') }}
 </{{ tagSection }}>
 <!-- End of question  {{ aQuestion.qid  }}  -->

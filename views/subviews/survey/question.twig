@@ -25,15 +25,13 @@
     (here, you're inside the survey theme, applied to the survey in its settings).
 
 #}
-
-
 {# Showing question code/number is a survey level setting, so it's inside the array aSurveyInfo #}
 {% set aShow        = aSurveyInfo.aShow   %}
-
     <!-- Question {{ aQuestion.code }} -->
 
     {# Question Text #}
     {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
+    {% if panel %} <div class="panel-body"> {% endif %}
     {% set ariadescribe = ''  %}
     {% if aQuestion.mandatory != '' %}
         {% if(aQuestion.man_message) %}
@@ -42,11 +40,10 @@
             {% set ariadescribe = ariadescribe ~ " question-asterisk-" ~ aQuestion.qid  %}
         {% endif %}
     {% endif %}
+    {# To have default limesurvey behaviour : move this line at end #}
+    {{ include('./subviews/survey/question_subviews/survey_question_help.twig') }}
     {% if aQuestion.help.show %}
-        {{ include('./subviews/survey/question_subviews/survey_question_help.twig') }}
         {% set ariadescribe = ariadescribe ~ " question-help-" ~ aQuestion.qid  %}
-    {% else %}
-        {{ aQuestion.help.text | raw }}
     {% endif %}
     {% if ( (aQuestion.valid_message | raw | trim) or (aQuestion.man_message | raw | trim) or (aQuestion.file_valid_message | raw | trim) ) %}
         {{ include('./subviews/survey/question_subviews/valid_message_and_help.twig') }}
@@ -60,4 +57,8 @@
     {# Answers #}
     {% set ariadescribe = ( ariadescribe | trim ) %}
     {{ include('./subviews/survey/question_subviews/answers.twig') }}
+    {% if not aQuestion.help.show %}
+        {{ aQuestion.help.text | raw }}
+    {% endif %}
+    {% if panel %} </div> {% endif %}
     <!-- End of question {{ aQuestion.code }} -->

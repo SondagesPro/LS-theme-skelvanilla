@@ -24,7 +24,6 @@
     <body class=" {{ aSurveyInfo.class.body }} font-{{  aSurveyInfo.options.font }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {% if( aSurveyInfo.options.brandlogo == "on") %}brand-logo{%endif%}" {{ aSurveyInfo.attr.body }} >
         <div id="{{ aSurveyInfo.id.dynamicreload }}">
             {% block body %}
-
                 {# Bootstrap Navigation Bar: the top menu #}
                 {% block nav_bar %}
                     {{ include('./subviews/header/nav_bar.twig') }}

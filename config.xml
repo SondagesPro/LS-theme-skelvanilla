@@ -55,11 +55,13 @@
         <brandlogofile>./files/logo.png</brandlogofile>
         <font>noto</font>
         <showpopups>0</showpopups>
+        <questioncolor>primary</questioncolor>
+        <questionwrap>none</questionwrap>
+        <questionsize>h4</questionsize>
     </options>
     <packages>
         <add>moment</add>
         <remove>pjax</remove>
-        <add>font-noto</add>
     </packages>
     <!-- Here datas about how LimeSurvey should load the theme -->
     <engine>

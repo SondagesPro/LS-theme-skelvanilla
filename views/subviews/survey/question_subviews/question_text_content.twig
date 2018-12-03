@@ -17,7 +17,7 @@
 
 {# If the question code is to be shown (set in survey settings) #}
 {% if (aShow.question_code) %}
-    <span class='label label-primary question-number pull-left' {{ aSurveyInfo.attr.questioncode }}>
+    <span class='label label-info question-number pull-left' {{ aSurveyInfo.attr.questioncode }}>
         {{ aQuestion.code }}
     </span>
 {% endif %}
@@ -31,8 +31,8 @@
 {% endif %}
 
 {# The question text as entered by the survey creator in question editing #}
-<div class="{{ aSurveyInfo.class.questiontext }}" {{ aSurveyInfo.attr.questiontext }}>
-    <{{ tagQuestion }} id="ls-question-text-{{ aQuestion.SGQ }}" class="{{ aSurveyInfo.class.lsquestiontext }} accessible-question-text" {{ aSurveyInfo.attr.lsquestiontext }}>
+<div class="{{ aSurveyInfo.class.questiontext }} {{ aSurveyInfo.options.questionsize }}" {{ aSurveyInfo.attr.questiontext }}>
+    <{{ tagQuestion }} id="ls-question-text-{{ aQuestion.SGQ }}" class="{{ aSurveyInfo.class.lsquestiontext }} accessible-question-text {{ questioncolor }}" {{ aSurveyInfo.attr.lsquestiontext }}>
         {{ aQuestion.text | raw }}
     </{{ tagQuestion }}>
 </div>

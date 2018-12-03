@@ -15,47 +15,6 @@
 
 #}
 
-{{ registerPackage('font-roboto') }}
-{{ registerPackage('font-noto') }}
-{{ registerPackage('font-news_cycle') }}
-{{ registerPackage('font-ubuntu') }}
-{{ registerPackage('font-lato') }}
-{{ registerPackage('font-websafe') }}
-
-{# The default template offers the variety of styles #}
-{% set fontOptions = '' %}
-
-{# For surveyspecific settings add an inherit option #}
-{% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-    {% set fontOptions = fontOptions ~ '<option value = "inherit" > Inherit</option>' %}
-{% endif %}
-
-{% set fontOptions %}
-    {{fontOptions}}
-    <optgroup  label="{{ gT("Local Server") }}">
-            <option class="font-roboto"     value="roboto"     data-font-package="roboto"      >Roboto</option>
-            <option class="font-news_cycle" value="news_cycle" data-font-package="news_cycle"  >News Cycle</option>
-            <option class="font-lato"       value="lato"       data-font-package="lato"        >Lato</option>
-            <option class="font-noto"       value="noto"       data-font-package="noto"        >Noto Sans</option>
-            <option class="font-ubuntu"     value="ubuntu"     data-font-package="ubuntu"       >Ubuntu</option>
-    </optgroup>
-
-    <optgroup  label="{{ gT("User browser") }}">
-
-      <option class="font-georgia         " value="georgia"         data-font-package="websafe" >Georgia</option>
-      <option class="font-palatino        " value="palatino"        data-font-package="websafe" >Palatino Linotype</option>
-      <option class="font-times_new_roman " value="times_new_roman" data-font-package="websafe" >Times New Roman</option>
-      <option class="font-arial           " value="arial"           data-font-package="websafe" >Arial</option>
-      <option class="font-arial_black     " value="arial_black"     data-font-package="websafe" >Arial Black</option>
-      <option class="font-comic_sans      " value="comic_sans"      data-font-package="websafe" >Comic Sans</option>
-      <option class="font-impact          " value="impact"          data-font-package="websafe" >Impact</option>
-      <option class="font-lucida_sans     " value="lucida_sans"     data-font-package="websafe" >Lucida Sans</option>
-      <option class="font-trebuchet       " value="trebuchet"       data-font-package="websafe" >Trebuchet</option>
-      <option class="font-courier         " value="courier"         data-font-package="websafe" >Courier New</option>
-      <option class="font-lucida_console  " value="lucida_console"  data-font-package="websafe" >Lucida Console</option>
-    </optgroup>
-{% endset %}
-
 <div class="container-fluid" style="position:relative">
     {# Small loading animation to give the scripts time to parse and render the correct values #}
     <div class="" style="display:none;height:100%;width:100%;position:absolute;left:0;top:0;background:rgb(255,255,255);background:rgba(235,235,235,0.8);z-index:2000;">
@@ -198,11 +157,69 @@
                                 {% endif %}
                             </div>
                             <p class="help-block">{{ gT("Be sure to use only one line text without complex HTML.") }}</p>
-
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class='row action_hide_on_inherit'>
+                <hr/>
+            </div>
 
+            {# Decoration for question wrapper and question #}
+            <div class='row action_hide_on_inherit'>
+                {# Question size #}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_questionsize' class='control-label col-xs-4'> {{ gT("Question color") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_questionsize' name='questionsize'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="h5">h5</option>
+                                <option value="h4">h4</option>
+                                <option value="h3">h3</option>
+                                <option value="h2">h2</option>
+                                <option value="lead">lead</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Color are from your bootsrap theme.") }}</p>
+                    </div>
+                </div>
+                {# Question color #}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_questioncolor' class='control-label col-xs-4'> {{ gT("Question color") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_questioncolor' name='questioncolor'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="none">{{ gT("Body color (no color)") }}</option>
+                                <option value="primary">{{ gT("Primary color") }}</option>
+                                <option value="info">{{ gT("Info color") }}</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Color are from your bootsrap theme.") }}</p>
+                    </div>
+                </div>
+                {# Question wrapper #}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_questionwrap' class='control-label col-xs-4'> {{ gT("Question wrapper") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_questionwrap' name='questionwrap'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="none">{{ gT("No wrapper") }}</option>
+                                <option value="well">{{ gT("Wells wrapper") }}</option>
+                                <option value="panel">{{ gT("Panel wrapper") }}</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Simple usage ofr well or panel from bootrap, for panel : color is for background.") }}</p>
+                    </div>
+                </div>
             </div>
             <div class='row action_hide_on_inherit'>
                 <hr/>
@@ -260,29 +277,6 @@
 
             <div class='row ls-space margin top-15 bottom-15 '>
                 <hr/>
-            </div>
-
-            <div class='row'>
-                <div class='col-sm-12'>
-                    <div class='panel panel-default'>
-                        <div class='panel-heading'>{{ gT("Fruity fonts") }}</div>
-                        <div class='panel-body'>
-                            <div class='form-group row'>
-                                <label for='simple_edit_font' class='control-label'>{{ gT("Select font:") }}</label>
-                                <div class='col-sm-12'>
-                                    <select class='form-control selector_option_value_field' id='simple_edit_font' name='font' data-inheritvalue='{{oParentOptions.packages_to_load|json_encode}}'>
-                                        {{ fontOptions }}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='row hidden'>
-                <div class='col-sm-12'>
-                    <button class='btn btn-success col-md-2 col-sm-4 col-xs-6 action_update_options_string_button'>Save</button>
-                </div>
             </div>
         </form>
     </div>

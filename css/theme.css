@@ -2,11 +2,8 @@
     Work in progress : need to move and remove a lot
 */
 /* in h2 or h2, need to remove margin and reset font-size */
-.accessible-question-text{
-    margin:0;
-    font-size: inherit;/* @todo move it to less */
-    line-height: inherit;/* @todo move it to less */
-}
+.question-text{margin-bottom:0}
+.panel-heading .question-text,.well .question-text{margin-top:0}
 /* in h1, need to remove margin and reset font-size */
 .navbar-brand{margin:0;}
 .navbar-brand{line-height:3em}
@@ -342,8 +339,6 @@ table > tbody > tr > td.ddprefix {
 /**
  * Display adjust, question type by question type
  */
-
-
 .table > tbody > tr > th
 {
     vertical-align: middle;
@@ -362,24 +357,10 @@ table > tbody > tr > td.ddprefix {
     margin-bottom: 10px;
 }
 
-
-
-
-/* Give help text some space */
-.questionhelp {
-  padding-bottom:0.5em;
-}
-
-
 /* Asterix */
 .input-error .asterisk {
     font-size: 1.2em;
     margin-top:-0.2em;
-}
-
-#surveys-list-container
-{
-    margin-top: 50px;
 }
 
 /* text overflows, ellipsis and hyphens */
@@ -408,12 +389,6 @@ table > tbody > tr > td.ddprefix {
 div.yes-no .btn-group label {
   white-space:normal;
 }
-
-.privacy-header{
-    font-weight: bold;
-    font-style: italic;
-}
-
 p.return-to-survey{
     clear:left;
 }
@@ -421,33 +396,8 @@ p.return-to-survey{
 /* Make sure question index menu is not too long. */
 #index-menu ul.dropdown-menu {
     max-height: 50vh;
-    overflow-y: scroll;
 }
-    
+
 .text-break-pre {
     white-space: pre-line;
-}
-
-.child-row-spacing>.row{
-    padding-bottom: 8px;
-}
-.child-row-border-bottom>.row:last-child{
-    padding-bottom: 0;
-}
-
-.superset {
-    font-size: 50%;
-    vertical-align: top;
-}
-
-.limit-text-window {
-    max-height: 40rem;
-    max-height: 33vh;
-    padding: 15px 5px;
-    overflow: auto;
-    border-top: 1px solid #dedede;
-    border-bottom: 1px solid #dedede;
-    border-left: none;
-    border-right: none;
-    outline: none;
 }
