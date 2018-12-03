@@ -32,7 +32,6 @@
             <remove>template-core.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
-            <add>css/lsbootstrap.css</add>
             <replace>css/theme.css</replace>
             <replace>css/custom.css</replace>
         </css>
@@ -58,6 +57,7 @@
         <questioncolor>primary</questioncolor>
         <questionwrap>none</questionwrap>
         <questionsize>h4</questionsize>
+        <variation>default</variation>
     </options>
     <packages>
         <add>moment</add>

@@ -170,7 +170,7 @@
                 {# Question size #}
                 <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_questionsize' class='control-label col-xs-4'> {{ gT("Question color") }} </label>
+                        <label for='simple_edit_options_questionsize' class='control-label col-xs-4'> {{ gT("Question size") }} </label>
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_questionsize' name='questionsize'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
@@ -183,7 +183,7 @@
                                 <option value="lead">lead</option>
                             </select>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Color are from your bootsrap theme.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Size are from your bootsrap theme.") }}</p>
                     </div>
                 </div>
                 {# Question color #}
@@ -198,9 +198,11 @@
                                 <option value="none">{{ gT("Body color (no color)") }}</option>
                                 <option value="primary">{{ gT("Primary color") }}</option>
                                 <option value="info">{{ gT("Info color") }}</option>
+                                <option value="success">{{ gT("Success color") }}</option>
+                                <option value="warning">{{ gT("Warning color") }}</option>
                             </select>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Color are from your bootsrap theme.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Color are from your bootsrap theme. With panel : it's the panel color.") }}</p>
                     </div>
                 </div>
                 {# Question wrapper #}
@@ -222,6 +224,49 @@
                 </div>
             </div>
             <div class='row action_hide_on_inherit'>
+                <hr/>
+            </div>
+
+            {# CSS variation #}
+            <div class='row  action_hide_on_inherit'>
+                <div class='col-sm-12'>
+                    <div class='panel panel-default'>
+                        <div class='panel-heading'>{{ sprintf( gT("%s variations"), templateConfiguration.template_name) }} </div>
+                        <div class='panel-body'>
+                            <div class='form-group row'>
+                                <label for='simple_edit_options_variation' class='control-label'>{{ gT("Select variation:") }}</label>
+                                <div class='col-sm-12'>
+                                    <select class='form-control selector_option_value_field' id='simple_edit_options_variation' name='variation'>
+                                        <option value="default">{{ gT('None') }} - {{ gT('lsbootrsap.css updatable via theme editor') }}</option>
+                                        {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                            <option value="inherit"> {{ gT('Inherit') }}</option>
+                                        {% endif %}
+                                        <option value="css/variations/basic.min.css">Bootsrap</option>
+                                        <option value="css/variations/cerulean.min.css">Cerulean</option>
+                                        <option value="css/variations/cosmos.min.css">Cosmos</option>
+                                        <option value="css/variations/cyborg.min.css">Cyborg</option>
+                                        <option value="css/variations/darkly.min.css">Darkly</option>
+                                        <option value="css/variations/flatly.min.css">Flatly</option>
+                                        <option value="css/variations/journal.min.css">Journal</option>
+                                        <option value="css/variations/lumen.min.css">Lumen</option>
+                                        <option value="css/variations/paper.min.css">Paper</option>
+                                        <option value="css/variations/readable.min.css">Readable</option>
+                                        <option value="css/variations/sandstone.min.css">Sandstone</option>
+                                        <option value="css/variations/simplex.min.css">Simplex</option>
+                                        <option value="css/variations/slate.min.css">Slate</option>
+                                        <option value="css/variations/spacelab.min.css">Spacelab</option>
+                                        <option value="css/variations/superhero.min.css">Superhero</option>
+                                        <option value="css/variations/united.min.css">United</option>
+                                        <option value="css/variations/yeti.min.css">Yeti</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='row ls-space margin top-15 bottom-15 '>
                 <hr/>
             </div>
 

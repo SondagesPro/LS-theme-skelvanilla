@@ -17,6 +17,12 @@
     Remind A11Y issue can be reported to LimeSurvey core too : https://www.limesurvey.org/community/bug-tracker
 #}<!DOCTYPE html>
 <html lang="{{ aSurveyInfo.languagecode }}" dir="{{ aSurveyInfo.dir }}" class="{{ aSurveyInfo.languagecode }} dir-{{ aSurveyInfo.dir }} {{ aSurveyInfo.class.html }}" {{ aSurveyInfo.attr.html }}>
+{% if ( aSurveyInfo.options.variation == 'default' or not aSurveyInfo.options.variation  ) %}
+    {{ registerTemplateCssFile('css/lsbootstrap.css') }}
+{% else %}
+    {{ registerTemplateCssFile(aSurveyInfo.options.variation) }}
+{% endif %}
+<!-- {{ aSurveyInfo.options.variation }} -->
     {% block head %}
     {# Headers, metadata, etc #}
     {{ include('./subviews/header/head.twig') }}
