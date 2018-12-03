@@ -15,47 +15,7 @@
 
 #}
 
-{{ registerPackage('font-roboto') }}
-{{ registerPackage('font-noto') }}
-{{ registerPackage('font-news_cycle') }}
-{{ registerPackage('font-ubuntu') }}
-{{ registerPackage('font-lato') }}
-{{ registerPackage('font-websafe') }}
-
-{# The default template offers the variety of styles #}
-{% set fontOptions = '' %}
-
 {# For surveyspecific settings add an inherit option #}
-{% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-    {% set fontOptions = fontOptions ~ '<option value = "inherit" > Inherit</option>' %}
-{% endif %}
-
-{% set fontOptions %}
-    {{fontOptions}}
-    <optgroup  label="{{ gT("Local Server") }}">
-            <option class="font-roboto"     value="roboto"     data-font-package="roboto"      >Roboto</option>
-            <option class="font-news_cycle" value="news_cycle" data-font-package="news_cycle"  >News Cycle</option>
-            <option class="font-lato"       value="lato"       data-font-package="lato"        >Lato</option>
-            <option class="font-noto"       value="noto"       data-font-package="noto"        >Noto Sans</option>
-            <option class="font-ubuntu"     value="ubuntu"     data-font-package="ubuntu"       >Ubuntu</option>
-    </optgroup>
-
-    <optgroup  label="{{ gT("User browser") }}">
-
-      <option class="font-georgia         " value="georgia"         data-font-package="websafe" >Georgia</option>
-      <option class="font-palatino        " value="palatino"        data-font-package="websafe" >Palatino Linotype</option>
-      <option class="font-times_new_roman " value="times_new_roman" data-font-package="websafe" >Times New Roman</option>
-      <option class="font-arial           " value="arial"           data-font-package="websafe" >Arial</option>
-      <option class="font-arial_black     " value="arial_black"     data-font-package="websafe" >Arial Black</option>
-      <option class="font-comic_sans      " value="comic_sans"      data-font-package="websafe" >Comic Sans</option>
-      <option class="font-impact          " value="impact"          data-font-package="websafe" >Impact</option>
-      <option class="font-lucida_sans     " value="lucida_sans"     data-font-package="websafe" >Lucida Sans</option>
-      <option class="font-trebuchet       " value="trebuchet"       data-font-package="websafe" >Trebuchet</option>
-      <option class="font-courier         " value="courier"         data-font-package="websafe" >Courier New</option>
-      <option class="font-lucida_console  " value="lucida_console"  data-font-package="websafe" >Lucida Console</option>
-    </optgroup>
-{% endset %}
-
 <div class="container-fluid" style="position:relative">
     {# Small loading animation to give the scripts time to parse and render the correct values #}
     <div class="" style="display:none;height:100%;width:100%;position:absolute;left:0;top:0;background:rgb(255,255,255);background:rgba(235,235,235,0.8);z-index:2000;">
@@ -244,10 +204,18 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <option value="inherit">Inherit</option>
                                 {% endif %}
-
+                                {% set optgroup = '' %}
                                 {% for image in templateConfiguration.imageFileList %}
-                                    <option data-lightbox-src="{{image.preview}}" value="{{image.filepath}}">{{image.filename}}</option>
+                                {% if image.group != optgroup %}
+                                {% if optgroup != '' %}
+                                    </optgroup>
+                                {% endif %}
+                                    <optgroup label="{{image.group}}">
+                                {% set optgroup = image.group %}
+                                {% endif %}
+                                        <option data-lightbox-src="{{image.preview}}" value="{{image.filepath}}">{{image.filename}}</option>
                                 {% endfor %}
+                                    </optgroup>
                             </select>
                         </div>
                     </div>
@@ -255,33 +223,6 @@
                 <div class='col-sm-4 col-md-2'>
                     <br/>
                     <button class="btn btn-default selector__open_lightbox" data-target="#simple_edit_options_brandlogofile"> {{ gT('Preview image')}}</button>
-                </div>
-            </div>
-
-            <div class='row ls-space margin top-15 bottom-15 '>
-                <hr/>
-            </div>
-
-            <div class='row'>
-                <div class='col-sm-12'>
-                    <div class='panel panel-default'>
-                        <div class='panel-heading'>{{ gT("Fruity fonts") }}</div>
-                        <div class='panel-body'>
-                            <div class='form-group row'>
-                                <label for='simple_edit_font' class='control-label'>{{ gT("Select font:") }}</label>
-                                <div class='col-sm-12'>
-                                    <select class='form-control selector_option_value_field' id='simple_edit_font' name='font' data-inheritvalue='{{oParentOptions.packages_to_load|json_encode}}'>
-                                        {{ fontOptions }}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='row hidden'>
-                <div class='col-sm-12'>
-                    <button class='btn btn-success col-md-2 col-sm-4 col-xs-6 action_update_options_string_button'>Save</button>
                 </div>
             </div>
         </form>
@@ -303,7 +244,6 @@
                             {{ gT("Upload") }}
                         </label>
                     </span>
-
                         <input type='hidden' name='templatename' value='{{ templateConfiguration.template_name }}' />
                         <input type='hidden' name='templateconfig' value='{{ templateConfiguration.id }}' />
                         <input type='hidden' name='action' value='templateuploadimagefile' />

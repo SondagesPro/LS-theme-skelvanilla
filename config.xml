@@ -32,14 +32,16 @@
             <remove>template-core.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
+            <remove>noto.css</remove>
             <add>css/lsbootstrap.css</add>
             <replace>css/theme.css</replace>
             <replace>css/custom.css</replace>
         </css>
         <js>
+            <remove>scripts/ajaxify.js</remove>
+            <remove>pjax.js</remove>
             <add>scripts/theme.js</add>
             <add>scripts/aria-live.js</add>
-            <remove>scripts/ajaxify.js</remove>
             <add>scripts/custom.js</add>
         </js>
     </files>
@@ -53,7 +55,6 @@
         <bodyanimation>fadeInRight</bodyanimation>
         <brandlogo>off</brandlogo>
         <brandlogofile>./files/logo.png</brandlogofile>
-        <font>noto</font>
         <showpopups>0</showpopups>
     </options>
     <packages>
