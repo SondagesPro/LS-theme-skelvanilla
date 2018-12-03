@@ -27,19 +27,22 @@
     <files>
         <css>
             <remove>css/ajaxify.css</remove>
+            <remove>scripts/ajaxify.js</remove>
             <remove>bootstrap.css</remove>
             <remove>bootstrap.min.css</remove>
             <remove>template-core.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
+            <remove>noto.css</remove>
             <replace>css/theme.css</replace>
             <replace>css/custom.css</replace>
         </css>
         <js>
+            <remove>scripts/ajaxify.js</remove>
+            <remove>pjax.js</remove>
             <add>scripts/theme.js</add>
             <add>scripts/aria-live.js</add>
-            <remove>scripts/ajaxify.js</remove>
-            <add>scripts/custom.js</add>
+            <replace>scripts/custom.js</replace>
         </js>
     </files>
 
@@ -52,16 +55,17 @@
         <bodyanimation>fadeInRight</bodyanimation>
         <brandlogo>off</brandlogo>
         <brandlogofile>./files/logo.png</brandlogofile>
-        <font>noto</font>
         <showpopups>0</showpopups>
         <questioncolor>primary</questioncolor>
         <questionwrap>none</questionwrap>
         <questionsize>h4</questionsize>
         <variation>default</variation>
     </options>
+    <!-- Unable to remove package, it's removed in css/js … -->
     <packages>
         <add>moment</add>
         <remove>pjax</remove>
+        <remove>font-noto</remove>
     </packages>
     <!-- Here datas about how LimeSurvey should load the theme -->
     <engine>
