@@ -1,3 +1,9 @@
+/**
+ * Javascript for better accessibility.
+ * Original can be found on https://gitlab.com/SondagesPro/SurveyThemes/accessible_vanilla/blob/master/scripts/aria-live.js
+ * @author Denis Chenu <https://sondages.pro
+ * @license magnet:?xt=urn:btih:c80d50af7d3db9be66a4d0a86db0286e4fd33292&dn=bsd-3-clause.txt BSD 3 Clause
+ */
 var TemplateAccessible = {
     init : function (options) {
         this.triggerEmClassChangeAccessible();
@@ -15,13 +21,16 @@ var TemplateAccessible = {
                 $(this).attr("role","alert");
             }
         });
-       $(document).on('classChangeGood','.ls-em-tip', function () {
+        $(document).on('classChangeGood','.ls-em-tip', function () {
             $(this).removeAttr("role");
             if($(this).parent('.ls-question-help').find(".ls-em-error").length == 0) {
                 parentId = $(this).parent('.ls-question-help').attr("id");
                 $("[aria-describedby*='"+parentId+"']").removeAttr("aria-invalid");
                 $("[aria-labelledby*='"+parentId+"']").removeAttr("aria-invalid");
             }
+        });
+        $(document).on('classChangeGood classChangeError','.ls-em-tip', function () {
+            this.setCustomValidityBy($(this).parent('.ls-question-help'));
         });
     },
     triggerMandatoryUpdate: function() {
@@ -143,5 +152,14 @@ var TemplateAccessible = {
     },
     hideMultipleColumn: function () {
         /* @todo … */
+    },
+    setCustomValidityBy : function(element) {
+        if($(element).length == 0) {
+            return;
+        }
+        if(!$(element).hasClass("ls-question-help")) {
+            return;
+        }
+        /* @todo, but must fix relevance on subquestion before */
     }
 }

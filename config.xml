@@ -82,6 +82,7 @@
                     <file type="view" role="subview">./subviews/survey/question_subviews/valid_message_and_help.twig</file>
                     <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/aria-live.js</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
@@ -117,6 +118,7 @@
                     <file type="view" role="subview">./subviews/navigation/language_changer.twig</file>
                     <file type="css">./css/lsbootstrap.css</file>
                     <file type="css">./css/theme.css</file>
+                    <file type="js">./scripts/aria-live.js</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
