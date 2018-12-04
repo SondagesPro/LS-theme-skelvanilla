@@ -5,8 +5,9 @@
 .question-text{margin-bottom:0}
 .panel-heading .question-text,.well .question-text{margin-top:0}
 /* in h1, need to remove margin and reset font-size */
-.navbar-brand{margin:0;}
-.navbar-brand.with-logo{line-height:2em;height:2em;
+.navbar-brand{margin:0;height:auto;}
+.navbar-brand.with-logo{
+    line-height:2em;height:2em;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
@@ -16,9 +17,11 @@
 
 .question-container{margin-bottom:2em}
 
-@media (max-width: 761px) {
-    .navbar-brand{font-size: 12px;}/* @todo move it to less */
-}
+/* For footer, inpirated by layout-galla */
+html, body {height: 100%;}
+#dynamicReloadContainer{min-height: 100%;position: relative;}
+footer {width: 100%;position: absolute;bottom: 0;left: 0;}
+main{padding-bottom:3em}
 /* Limesurvey vanilla part */
 
 /* specific for survey listing */
@@ -55,14 +58,6 @@
 .top-container .top-content:empty{display:none}
 .group-description:empty{display:none}
 .group-title:empty{display:none}
-.top-container .progress {
-    height: 21px;
-    margin-bottom: 0;
-}
-.progress .progress-bar {
-    line-height:19px;
-}
-.top-container .form-change-lang {text-align:center}
 
 /**
  * Navigator
@@ -267,14 +262,6 @@ html body .navbar.navbar-default.navbar-fixed-top {
 .file-upload-modal,.modal{
     z-index: 2001;
 }
-
-/* Title of survey can be big, allow multiline, but leave the minimum */
-.navbar-brand {
-    height: auto;
-    min-height:60px;
-}
-
-
 /**********************************
 Responsive navbar-brand image CSS
 - Remove navbar-brand padding for firefox bug workaround
@@ -368,12 +355,6 @@ table > tbody > tr > td.ddprefix {
 .input-error .asterisk {
     font-size: 1.2em;
     margin-top:-0.2em;
-}
-
-/* text overflows, ellipsis and hyphens */
-.navbar-brand {
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 #outerframeContainer {
