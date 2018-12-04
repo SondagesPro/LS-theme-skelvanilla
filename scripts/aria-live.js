@@ -29,9 +29,9 @@ var TemplateAccessible = {
                 $("[aria-labelledby*='"+parentId+"']").removeAttr("aria-invalid");
             }
         });
-        $(document).on('classChangeGood classChangeError','.ls-em-tip', function () {
-            this.setCustomValidityBy($(this).parent('.ls-question-help'));
-        });
+        //~ $(document).on('classChangeGood classChangeError','.ls-em-tip', function () {
+            //~ TemplateAccessible.setCustomValidityBy($(this).parent('.ls-question-help'));
+        //~ });
     },
     triggerMandatoryUpdate: function() {
         /* WIP */

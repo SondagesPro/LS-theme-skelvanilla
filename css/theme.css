@@ -6,9 +6,16 @@
 .panel-heading .question-text,.well .question-text{margin-top:0}
 /* in h1, need to remove margin and reset font-size */
 .navbar-brand{margin:0;}
-.navbar-brand{line-height:3em}
-.navbar-brand .logo-container {height:3em;padding:0;padding:0 10px;float: left;}
-.navbar-brand .logo-container > img{max-height:3em;width:auto;}
+.navbar-brand.with-logo{line-height:2em;height:2em;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.navbar-brand .logo-container {height:2em;padding:0;padding:0 1em;float: left;display:inline-block;}
+.navbar-brand .logo-container > img{max-height:2em;width:auto;display:inline-block;}
+
+.question-container{margin-bottom:2em}
+
 @media (max-width: 761px) {
     .navbar-brand{font-size: 12px;}/* @todo move it to less */
 }

@@ -27,7 +27,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <h1 class="{{ aSurveyInfo.class.navbarbrand }} "  {{ aSurveyInfo.attr.navbarbrand }}  >
+        <h1 class="{{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
             {% if( aSurveyInfo.options.brandlogo == "on") %}
                 <span class="logo-container">
                 {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
