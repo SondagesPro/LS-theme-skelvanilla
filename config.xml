@@ -34,7 +34,7 @@
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
             <remove>noto.css</remove>
-            <add>css/skelvanilla.css</replace>
+            <add>css/skelvanilla.css</add>
             <replace>css/theme.css</replace>
             <replace>css/custom.css</replace>
         </css>
@@ -42,7 +42,7 @@
             <remove>scripts/ajaxify.js</remove>
             <remove>pjax.js</remove>
             <add>scripts/aria-live.js</add>
-            <add>scripts/skelvanilla.js</replace>
+            <add>scripts/skelvanilla.js</add>
             <add>scripts/theme.js</add>
             <replace>scripts/custom.js</replace>
         </js>

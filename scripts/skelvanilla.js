@@ -26,14 +26,6 @@ var ThemeScripts = function(){
     };
 
     /**
-     * fix padding of body according to navbar-fixed-top
-     * in endpage and in $(window).resize
-     */
-    var fixBodyPadding = function fixBodyPadding(){
-        /* The 60 px is fixed in template.css */
-        $('body').css('padding-top', Math.round($('.navbar-fixed-top').height()) +'px');
-    };
-    /**
      * Set suffix/prefix clone for little screen (at top)
      */
     var sliderSuffixClone = function sliderSuffixClone(){
@@ -140,19 +132,6 @@ var ThemeScripts = function(){
                 $('.navbar-right').hide();
             }
 
-            //Survey list container
-            if($('#surveys-list-container').length > 0){
-                var footerHeight = $('#surveyListFooter').outerHeight();
-                var headerHeight = 2*$('#navbar').outerHeight();
-                var bodyHeight = $(document).height()-(footerHeight+headerHeight);
-                logObject.log({
-                    footerHeight : footerHeight,
-                    headerHeight : headerHeight,
-                    bodyHeight : bodyHeight
-                });
-                $('#surveys-list-container').css('min-height', bodyHeight+'px');
-            }
-
             // Captcha action
             if($('#reloadCaptcha').length>0)
             {
@@ -182,13 +161,6 @@ var ThemeScripts = function(){
             fixBodyPadding();
         });
 
-        /**
-         * Code included inside this will run each time windows is resized
-         * @see https://api.jquery.com/resize/
-         */
-        $(window).resize(function () {
-            fixBodyPadding();
-        });
         var onkeyEventInput = function(e){
             var code = (e.keyCode ? e.keyCode : e.which);
             if (code==13 && e.ctrlKey != true) {
@@ -227,12 +199,10 @@ var ThemeScripts = function(){
 
     var initUserForms = function(){
         sliderSuffixClone();
-        fixBodyPadding();
         hideEmptyPart();
     };
     var initGlobal = function(){
         sliderSuffixClone();
-        fixBodyPadding();
         if(jQuery.isFunction(window.templateCore.hideQuestionWithRelevanceSubQuestion)) {
             window.templateCore.hideQuestionWithRelevanceSubQuestion();
         }
@@ -277,7 +247,6 @@ var ThemeScripts = function(){
         initWelcomePage: initWelcomePage,
         focusFirst: focusFirst,
         sliderSuffixClone : sliderSuffixClone,
-        fixBodyPadding : fixBodyPadding,
         hideQuestionWithRelevanceSubQuestion : window.templateCore.hideQuestionWithRelevanceSubQuestion,
         hideEmptyPart : hideEmptyPart,
         initTopMenuLanguageChanger: initTopMenuLanguageChanger,
