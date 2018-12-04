@@ -19,8 +19,22 @@
 
 <!-- Bootstrap Navigation Bar -->
 {% if(aSurveyInfo.class.navbar) %}
-<header class="{{ aSurveyInfo.class.navbar }} navbar-top" {{ aSurveyInfo.attr.navbar }}>
-    <div class="{{ aSurveyInfo.class.navbarheader }}  " {{ aSurveyInfo.attr.navbarheader }} >
+{% if(aSurveyInfo.options.fixedheader == 'on') %}
+<div class="invisible {{ aSurveyInfo.class.navbar }} navbar-static-top" aria-hidden="true">
+    <div class="{{ aSurveyInfo.class.navbarheader }}">
+        <div class="{{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}">
+            {% if( aSurveyInfo.options.brandlogo == "on") %}
+                <span class="logo-container">
+                {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
+                </span>
+            {% endif %}
+            {{ aSurveyInfo.name }}
+        </div>
+    </div>
+</div>
+{% endif %}
+<header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }}" {{ aSurveyInfo.attr.navbar }}>
+    <div class="{{ aSurveyInfo.class.navbarheader }}" {{ aSurveyInfo.attr.navbarheader }} >
         <button type="button" class="{{ aSurveyInfo.class.navbartoggle }}" {{ aSurveyInfo.attr.navbartoggle }}  >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>

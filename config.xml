@@ -21,7 +21,7 @@
         <version>3.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with accessibility</strong><br>Base on vanilla theme, usage of more aria and fix some role and aria from core.<br>Part of this theme are merged in core LimeSurvey when it's ready.]]></description>
-        <last_update>2018-12-04 11:11:49</last_update>
+        <last_update>2018-12-04 12:34:43</last_update>
     <extends>vanilla</extends></metadata>
 
     <files>
@@ -34,14 +34,16 @@
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
             <remove>noto.css</remove>
+            <add>css/skelvanilla.css</replace>
             <replace>css/theme.css</replace>
             <replace>css/custom.css</replace>
         </css>
         <js>
             <remove>scripts/ajaxify.js</remove>
             <remove>pjax.js</remove>
-            <add>scripts/theme.js</add>
             <add>scripts/aria-live.js</add>
+            <add>scripts/skelvanilla.js</replace>
+            <add>scripts/theme.js</add>
             <replace>scripts/custom.js</replace>
         </js>
     </files>
@@ -59,6 +61,7 @@
         <questioncolor>primary</questioncolor>
         <questionwrap>none</questionwrap>
         <questionsize>h4</questionsize>
+        <fixedheader>off</fixedheader>
         <variation>default</variation>
     </options>
     <!-- Unable to remove package, it's removed in css/js … -->
@@ -87,10 +90,12 @@
                     <file type="view" role="subview">./subviews/survey/question_subviews/survey_question_help.twig</file>
                     <file type="view" role="subview">./subviews/survey/question_subviews/valid_message_and_help.twig</file>
                     <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/skelvanilla.css</file>
                     <file type="css">./css/theme.css</file>
-                    <file type="js">./scripts/aria-live.js</file>
-                    <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/aria-live.js</file>
+                    <file type="js">./scripts/skelvanilla.js</file>
+                    <file type="js">./scripts/theme.js</file>
                     <file type="js">./scripts/custom.js</file>
                 </question>
 
@@ -101,9 +106,12 @@
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="subview">./subviews/navigation/language_changer_form.twig</file>
                     <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/skelvanilla.css</file>
                     <file type="css">./css/theme.css</file>
-                    <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
+                    <file type="js">./scripts/aria-live.js</file>
+                    <file type="js">./scripts/skelvanilla.js</file>
+                    <file type="js">./scripts/theme.js</file>
                     <file type="js">./scripts/custom.js</file>
                 </surveylist>
 

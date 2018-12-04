@@ -27,7 +27,7 @@
     {# Headers, metadata, etc #}
     {{ include('./subviews/header/head.twig') }}
     {% endblock %}
-    <body class=" {{ aSurveyInfo.class.body }} font-{{  aSurveyInfo.options.font }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {% if( aSurveyInfo.options.brandlogo == "on") %}brand-logo{%endif%}" {{ aSurveyInfo.attr.body }} >
+    <body class=" {{ aSurveyInfo.class.body }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {{ ( aSurveyInfo.options.brandlogo == "on") ? 'with-brand-logo' : '' }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'with-navbar-fixed-top' : '' }}" >
         <div id="{{ aSurveyInfo.id.dynamicreload }}">
             {% block body %}
                 {# Bootstrap Navigation Bar: the top menu #}

@@ -218,7 +218,37 @@
                                 <option value="panel">{{ gT("Panel wrapper") }}</option>
                             </select>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Simple usage ofr well or panel from bootrap, for panel : color is for background.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Simple usage of well or panel from bootrap, for panel : color is for background.") }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class='row action_hide_on_inherit'>
+                <hr/>
+            </div>
+            <div class='row action_hide_on_inherit'>
+                {# Fixed header #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_fixedheader' class='control-label col-xs-4'> {{ gT("Fixed header") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='fixedheader' value='on' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='fixedheader' value='off' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='fixedheader' value='inherit' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

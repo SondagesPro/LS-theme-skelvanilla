@@ -1,0 +1,1 @@
+/* An empty js files for global template manager javascript */
