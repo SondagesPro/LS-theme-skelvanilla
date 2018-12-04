@@ -14,10 +14,9 @@
     This file generates the top container. It's above the form itself, and contains the progress bar.
     The progress bar is a Bootstrap progress bar.
     @see: http://getbootstrap.com/components/#progress
-
 #}
 {# do not show on "completed/thank you page" page #}
-{% if not aSurveyInfo.aCompleted %}
+{% if (aSurveyInfo.aNavigator.show and aSurveyInfo.include_content != 'firstpage')  %}
     <div class="{{ aSurveyInfo.class.topcontainer }} lead"  {{ aSurveyInfo.attr.topcontainer  }} >
         <div class="{{ aSurveyInfo.class.topcontent  }} container-fluid" {{ aSurveyInfo.attr.topcontent  }} >
             {% if aSurveyInfo.format != 'A' and aSurveyInfo.showprogress is defined and aSurveyInfo.showprogress == 'Y' %}
