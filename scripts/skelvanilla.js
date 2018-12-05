@@ -156,9 +156,6 @@ var ThemeScripts = function(){
             // This function is defined in assets/packages/limesurvey/survey.js
             // eslint-disable-next-line no-undef
             activateLanguageChanger();
-            
-            //Fix the navigation overflow
-            fixBodyPadding();
         });
 
         var onkeyEventInput = function(e){

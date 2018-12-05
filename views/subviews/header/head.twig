@@ -24,9 +24,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="LimeSurvey http://www.limesurvey.org" />
     {{ aSurveyInfo.metas }}
+    {% set pagetitle = pagetitle ?: flatString(processString(aSurveyInfo.surveyls_title)) %}
     <title>
         {% if(aSurveyInfo.errorHtml.messages) %}[ {{ gT('Error') }} ]{% endif %}
-        {{ flatString(processString(aSurveyInfo.surveyls_title,1)) }}
+        {{ pagetitle }}
     </title>
 
 

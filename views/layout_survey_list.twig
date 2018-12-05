@@ -1,0 +1,65 @@
+{% extends "layout_global.twig" %}
+{% set pagetitle = aSurveyInfo.sSiteName %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block nav_bar %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+<main class="{{ aSurveyInfo.class.outerframe }} {% if (aSurveyInfo.options.container == 'on') %} container {% else %} container-fluid {% endif %}" id="{{ aSurveyInfo.id.outerframe }}" {{ aSurveyInfo.attr.outerframe }} >
+    <div class="{{ aSurveyInfo.class.surveylistrow }}" id="{{ aSurveyInfo.id.surveylistrow }}" {{ aSurveyInfo.attr.surveylistrow }}>
+
+        {# include the alert for no JavaScript #}
+        {{ include('./subviews/messages/no_js_alert.twig') }}
+
+        <div id="{{ aSurveyInfo.id.surveylistrowjumbotron }}" class="jumbotron" {{ aSurveyInfo.attr.surveylistrowjumbotron }}>
+            {% if( aSurveyInfo.options.surveylistlogo == 'on' and imageSrc(aSurveyInfo.options.surveylistlogofile,'') != aSurveyInfo.options.surveylistlogofile) %}
+                {{ image(aSurveyInfo.options.surveylistlogofile, aSurveyInfo.name, {"class": "img-responsive center-block"}) }}
+            {% endif %}
+            <h1>{{ aSurveyInfo.sSiteName }}</h1>
+            <div class="ls-js-hidden">
+                {{ include('./subviews/navigation/language_changer_form.twig') }}
+            </div>
+        </div>
+
+        <div class="{{ aSurveyInfo.class.surveylistrowdiva }}" {{ aSurveyInfo.attr.surveylistrowdiva }}>
+            <h2 class='{{ aSurveyInfo.class.surveylistrowdivadiv }} h3' {{ aSurveyInfo.attr.surveylistrowdivadiv }}>
+                {{ gT("The following surveys are available:") }}
+            </h2>
+        </div>
+
+        <div class="{{ aSurveyInfo.class.surveylistrowdivb }} container-fluid" {{ aSurveyInfo.attr.surveylistrowdivb }}>
+            <div class='{{ aSurveyInfo.class.surveylistrowdivbdiv }}' {{ aSurveyInfo.attr.surveylistrowdivbdiv }}>
+                <ul class='{{ aSurveyInfo.class.surveylistrowdivbdivul }} list-unstyled row' {{ aSurveyInfo.attr.surveylistrowdivbdivul }}>
+                    {% for key, oSurvey in aSurveyInfo.publicSurveys %}
+                    <li class="{{ aSurveyInfo.class.surveylistrowdivbdivulli }} btn-group col-sm-6 col-xs-12" {{ aSurveyInfo.attr.surveylistrowdivbdivulli }}>
+                        <a
+                            href="{{ oSurvey.sSurveyUrl }}"
+                            title="{{ gT('Start survey') }}"
+                            lang="{{ oSurvey.language }}"
+                            class="{{ aSurveyInfo.class.surveylistrowdivbdivullia }} btn btn-primary col-xs-12"  >
+                            {{ oSurvey.localizedTitle }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <p class="{{ aSurveyInfo.class.surveylistrowdivc }}" {{ aSurveyInfo.attr.surveylistrowdivc }}>
+            {{ sprintf( gT("Please contact %s for further assistance."), aSurveyInfo.sSiteAdminName) }}
+        </p>
+        {% if(aSurveyInfo.options.poweredlogo == 'on' or aSurveyInfo.options.poweredlink or aSurveyInfo.options.poweredtext) %}
+        <p class="lead text-center">
+            {% if(aSurveyInfo.options.poweredlink) %}<a href="{{ aSurveyInfo.options.poweredlink }}" class="text-primary">{% endif %}
+            {% if(aSurveyInfo.options.poweredlogo == 'on') %}
+                {{ image(aSurveyInfo.options.poweredlogofile, aSurveyInfo.options.poweredtext, {class: 'img-responsive center-block '}) }}
+            {% endif %}
+            {{ aSurveyInfo.options.poweredtext }}
+            {% if(aSurveyInfo.options.poweredlink) %}</a>{% endif %}
+        </p>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

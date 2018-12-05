@@ -21,7 +21,7 @@
         <version>3.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with accessibility</strong><br>Base on vanilla theme, usage of more aria and fix some role and aria from core.<br>Part of this theme are merged in core LimeSurvey when it's ready.]]></description>
-        <last_update>2018-12-04 12:34:43</last_update>
+        <last_update>2018-12-05 08:54:44</last_update>
     <extends>vanilla</extends></metadata>
 
     <files>
@@ -57,6 +57,12 @@
         <bodyanimation>fadeInRight</bodyanimation>
         <brandlogo>off</brandlogo>
         <brandlogofile>./files/logo.png</brandlogofile>
+        <surveylistlogo>on</surveylistlogo>
+        <surveylistlogofile>./files/survey_list_header.png</surveylistlogofile>
+        <poweredlogo>on</poweredlogo>
+        <poweredlogofile>./files/survey_list_header.png</poweredlogofile>
+        <poweredlink>https://sondages.pro</poweredlink>
+        <poweredtext>Theme by Sondages Pro</poweredtext>
         <showpopups>0</showpopups>
         <questioncolor>primary</questioncolor>
         <questionwrap>none</questionwrap>

@@ -53,7 +53,6 @@ var ThemeOptions = function(){
             $('#TemplateConfiguration_options').val('inherit');
             return;
         }
-
         globalForm.find('.selector_option_value_field').each(function(i,item){
             //disabled items should be inherit or false
             if($(item).prop('disabled')){
@@ -63,20 +62,24 @@ var ThemeOptions = function(){
             optionObject[$(item).attr('name')] = $(item).val();
         });
 
-        globalForm.find('.selector_option_radio_field ').each(function(i,item){
+        globalForm.find('.selector_option_radio_field').each(function(i,item){
             //disabled items should be inherit or false
             if($(item).prop('disabled')){
                 $(item).val((inheritPossible ? 'inherit' : false));
             }
-            
             if($(item).attr('type') == 'radio'){
                 if($(item).prop('checked')){
                     optionObject[$(item).attr('name')] = $(item).val();
                 }
             }
-
         });
-
+        globalForm.find('.text_option_string_field').each(function(i,item){
+            if($(item).val() == "" && $(item).attr('placeholder')) {
+                optionObject[$(item).attr('name')] = 'inherit';
+            } else {
+                optionObject[$(item).attr('name')] = $(item).val();
+            }
+        });
         var newOptionObject = $.extend(true, {}, optionObject);
         delete newOptionObject.general_inherit;
 
@@ -133,7 +136,14 @@ var ThemeOptions = function(){
             disableImagePreviewIfneeded(item);
         });
     };
-    
+
+    var prepareTextField = function(){
+        globalForm.find('.text_option_string_field').each(function(i,item){
+            var itemValue = parseOptionValue(item);
+            $(item).val(itemValue);
+        });
+    };
+
     // Generate the state of switches (On/Off/Inherit)
     var parseParentSwitchFields = function(){
         globalForm.find('.selector_option_radio_field').each(function(i,item){
@@ -189,8 +199,8 @@ var ThemeOptions = function(){
             updateFieldSettings(); 
             disableImagePreviewIfneeded(this);
         });
-
         globalForm.find('.selector_option_radio_field').on('change', updateFieldSettings);
+        globalForm.find('.text_option_string_field').on('blur focusout', updateFieldSettings);
 
     };
 
@@ -270,6 +280,7 @@ var ThemeOptions = function(){
         startupGeneralInherit();
 
         prepareSelectField();
+        prepareTextField();
         parseParentSwitchFields();
         prepareFontField();
 
@@ -306,7 +317,12 @@ $(document).off('pjax:scriptcomplete.templateOptions').on('ready pjax:scriptcomp
         e.preventDefault();
         var imgSrc = $($(this).data('target')).find('option:selected').data('lightbox-src');
         var imgTitle = $($(this).data('target')).val();
-        imgTitle = imgTitle.split('/').pop();
+        if(!imgSrc) {
+            return;
+        }
+        if(imgTitle) {
+            imgTitle = imgTitle.split('/').pop();
+        }
         if(imgTitle !== 'inherit'){
             $('#lightbox-modal').find('.selector__title').text(imgTitle);
             $('#lightbox-modal').find('.selector__image').attr({'src' : imgSrc, 'alt': imgTitle});
