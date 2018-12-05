@@ -1,10 +1,9 @@
 /*
-    This a copy of Vanilla theme.js filoe with some update for skelvanilla
+    This a copy of Vanilla theme.js file with some update for skelvanilla
     Broke dependency of Vanilla template
     Please, use theme.js or custom.js
 
 */
-
 
 /**
  * The general Template closure.
