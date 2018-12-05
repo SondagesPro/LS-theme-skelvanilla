@@ -50,7 +50,7 @@
                     {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
                     </span>
                 {% endif %}
-                {{ aSurveyInfo.name }}
+                {{ pagetitle ?: flatString(processString(aSurveyInfo.surveyls_title,1)) }}
             </h1>
         </div>
         <div id="{{ aSurveyInfo.id.navbar }}" class="{{ aSurveyInfo.class.navbarcollapse }}" {{ aSurveyInfo.attr.navbarcollapse }} >

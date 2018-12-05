@@ -17,7 +17,7 @@
             {% if( aSurveyInfo.options.surveylistlogo == 'on' and imageSrc(aSurveyInfo.options.surveylistlogofile,'') != aSurveyInfo.options.surveylistlogofile) %}
                 {{ image(aSurveyInfo.options.surveylistlogofile, aSurveyInfo.name, {"class": "img-responsive center-block"}) }}
             {% endif %}
-            <h1>{{ aSurveyInfo.sSiteName }}</h1>
+            <div class="h2">{{ aSurveyInfo.sSiteName }}</div>
             <div class="ls-js-hidden">
                 {{ include('./subviews/navigation/language_changer_form.twig') }}
             </div>
