@@ -42,7 +42,7 @@
             <remove>scripts/ajaxify.js</remove>
             <remove>pjax.js</remove>
             <add>scripts/aria-live.js</add>
-            <add>scripts/skelvanilla.js</add>
+            <add>scripts/theme-vanilla.js</add>
             <add>scripts/theme.js</add>
             <replace>scripts/custom.js</replace>
         </js>
