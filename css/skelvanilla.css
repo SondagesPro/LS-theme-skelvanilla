@@ -7,12 +7,12 @@
 /* in h1, need to remove margin and reset font-size */
 .navbar-brand{margin:0;height:auto;}
 .navbar-brand.with-logo{
-    line-height:2em;height:2em;
+    line-height:2em;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
-.navbar-brand .logo-container {height:2em;padding:0;padding:0 1em;float: left;display:inline-block;}
+.navbar-brand .logo-container {padding:0;padding:0 1em;float: left;display:inline-block;}
 .navbar-brand .logo-container > img{max-height:2em;width:auto;display:inline-block;}
 .question-container{margin-bottom:2em}
 
@@ -21,6 +21,9 @@ html, body {height: 100%;}
 #dynamicReloadContainer{min-height: 100%;position: relative;}
 footer {width: 100%;position: absolute;bottom: 0;left: 0;}
 main{padding-bottom:3em}
+
+
+
 /* Limesurvey vanilla part */
 
 /* specific for survey listing */
