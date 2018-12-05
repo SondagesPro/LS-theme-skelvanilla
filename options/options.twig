@@ -333,7 +333,9 @@
                         <div class='col-sm-12'>
                             <select class='form-control selector_option_value_field selector_radio_childfield selector_image_selector' data-parent="brandlogo" id='simple_edit_options_brandlogofile' name='brandlogofile'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit">Inherit</option>
+                                    <option value="inherit">{{ gT('Inherit') }}</option>
+                                {% else %}
+                                    <option data-lightbox-src="{{ imageSrc('./files/logo.png') }}" value="./files/logo.png">{{ gT('Default') }}</option>
                                 {% endif %}
                                 {% set optgroup = '' %}
                                 {% for image in templateConfiguration.imageFileList %}
@@ -391,7 +393,9 @@
                         <div class='col-sm-12'>
                             <select class='form-control selector_option_value_field selector_radio_childfield selector_image_selector' data-parent="surveylistlogo" id='simple_edit_options_surveylistlogofile' name='surveylistlogofile'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit">Inherit</option>
+                                    <option value="inherit">{{ gT('Inherit') }}</option>
+                                {% else %}
+                                    <option data-lightbox-src="{{ imageSrc('./files/survey_list_header.png') }}" value="./files/survey_list_header.png">{{ gT('Default') }}</option>
                                 {% endif %}
                                 {% set optgroup = '' %}
                                 {% for image in templateConfiguration.imageFileList %}
@@ -449,7 +453,9 @@
                         <div class='col-sm-12'>
                             <select class='form-control selector_option_value_field selector_radio_childfield selector_image_selector' data-parent="poweredlogo" id='simple_edit_options_poweredlogofile' name='poweredlogofile'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit">Inherit</option>
+                                    <option value="inherit">{{ gT('Inherit') }}</option>
+                                {% else %}
+                                    <option data-lightbox-src="{{ imageSrc('./files/poweredby.png') }}" value="./files/poweredby.png">{{ gT('Default') }}</option>
                                 {% endif %}
                                 {% set optgroup = '' %}
                                 {% for image in templateConfiguration.imageFileList %}

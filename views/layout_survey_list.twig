@@ -47,9 +47,6 @@
             </div>
         </div>
 
-        <p class="{{ aSurveyInfo.class.surveylistrowdivc }}" {{ aSurveyInfo.attr.surveylistrowdivc }}>
-            {{ sprintf( gT("Please contact %s for further assistance."), aSurveyInfo.sSiteAdminName) }}
-        </p>
         {% if(aSurveyInfo.options.poweredlogo == 'on' or aSurveyInfo.options.poweredlink or aSurveyInfo.options.poweredtext) %}
         <p class="lead text-center">
             {% if(aSurveyInfo.options.poweredlink) %}<a href="{{ aSurveyInfo.options.poweredlink }}" class="text-primary">{% endif %}
