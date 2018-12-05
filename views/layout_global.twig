@@ -15,7 +15,8 @@
     - A11Y issue : https://gitlab.com/SondagesPro/SurveyThemes/accessible_vanilla/issues
     - Contribution are welcome : https://gitlab.com/SondagesPro/SurveyThemes/accessible_vanilla/merge_requests
     Remind A11Y issue can be reported to LimeSurvey core too : https://www.limesurvey.org/community/bug-tracker
-#}<!DOCTYPE html>
+#}
+<!DOCTYPE html>
 <html lang="{{ aSurveyInfo.languagecode }}" dir="{{ aSurveyInfo.dir }}" class="{{ aSurveyInfo.languagecode }} dir-{{ aSurveyInfo.dir }} {{ aSurveyInfo.class.html }}" {{ aSurveyInfo.attr.html }}>
 {% if ( aSurveyInfo.options.variation == 'default' or not aSurveyInfo.options.variation  ) %}
     {{ registerTemplateCssFile('css/lsbootstrap.css') }}
@@ -60,8 +61,8 @@
                 basicThemeScripts.initGlobal(); 
                 window.basicThemeScripts.init();
                 window.TemplateAccessible.init();
+                skelVanilla.init();
             </script>
         {% endblock %}
-        
     </body>
 </html>

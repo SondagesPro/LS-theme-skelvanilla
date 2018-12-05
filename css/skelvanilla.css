@@ -58,7 +58,7 @@ li.radio-item input[type="radio"]:checked + label,li.checkbox-item input[type="c
   {background:#69757E;color:#FFF;}
 li.radio-text-item input[type="radio"]:checked + label,li.radio-text-item input[type="checkbox"]:checked + label
   {background:transparent;color:inherit;}
-li.radio-text-item.checked
+li.radio-text-item.answer-checked,li.checkbox-text-item.answer-checked
   {background:#69757E;color:#FFF;}
 /* hover */
 li.radio-item label:hover,li.checkbox-item  input.checkbox + label:hover
@@ -75,7 +75,13 @@ li.radio-item input[type="radio"][disabled] + label,li.checkbox-item input[type=
   background:transparent;
    cursor:inherit;color:#666;
 }
+.js table.ls-answers tbody tr td.radio-item:hover {background: #46555F;}
+.js td.radio-item.answer-checked{background-color:#69757E;}
+.js td.noanswer-item.answer-checked{background-color:transparent;}
+.js td.no-answer-item.answer-checked{background-color:transparent;}
 
+.js table.question tbody tr td.checkbox-item:hover {background: #46555F;}
+.js td.checkbox-item.answer-checked{background-color:#69757E;}
 
 /* Limesurvey vanilla part */
 
