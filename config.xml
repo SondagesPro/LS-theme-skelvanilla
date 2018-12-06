@@ -35,8 +35,8 @@
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
             <remove>noto.css</remove>
             <add>css/skelvanilla.css</add>
-            <replace>css/theme.css</replace>
-            <replace>css/custom.css</replace>
+            <remove>css/theme.css</remove>
+            <remove>css/custom.css</remove>
         </css>
         <js>
             <remove>scripts/ajaxify.js</remove>
@@ -44,11 +44,11 @@
             <add>scripts/aria-live.js</add>
             <add>scripts/theme-vanilla.js</add>
             <add>scripts/skelvanilla.js</add>
-            <add>scripts/theme.js</add>
-            <replace>scripts/custom.js</replace>
+            <remove>scripts/theme.js</remove>
+            <remove>scripts/custom.js</remove>
         </js>
     </files>
-
+    <!-- css/lsboostrap.css + css/theme.css + css/custom.css and scripts/theme.js, scripts/custom.js added in global_layout -->
     <!-- You can add here any option you want. It will be available in twig file via aSurveyInfo.options.youroptionname -->
     <options>
         <animatebody>off</animatebody>
