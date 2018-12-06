@@ -22,67 +22,6 @@ html, body {height: 100%;}
 footer {width: 100%;position: absolute;bottom: 0;left: 0;}
 main{padding-bottom:3em}
 
-/* radio list and checkbox list with border : WIP */
-.radio-list li.radio-item ,.checkbox-list li.checkbox-item{margin:0}
-.dir-ltr li.radio-item input[type="radio"],.dir-ltr li.checkbox-item input[type="checkbox"] {left: 0.5em;}
-.dir-rtl li.radio-item input[type="radio"],.dir-rtl li.checkbox-item input[type="checkbox"] {right: 0.5em;}
-.radio-list li.radio-item label , .checkbox-list li.checkbox-item label {padding:0.8em 2.5em;border:1px solid #CCC;cursor:pointer;border-width: 1px 1px 0;margin:0;min-height:1.4em;}
-.radio-list li.radio-item:last-child label,.checkbox-list li.checkbox-item:last-child label{border-bottom-width:1px;}
-
-.radio-list  li.radio-text-item ,.checkbox-list  li.checkbox-text-item {padding:0.8em 0; border:1px solid #CCC;cursor:pointer;border-width: 1px 1px 0;margin:0;min-height:1.4em;}
-.dir-ltr .radio-list  li.radio-text-item label,.dir-ltr .checkbox-list  li.checkbox-text-item label{padding-left:2.5em}
-.dir-ltr .radio-list  li.radio-text-item input[type="radio"],.dir-ltr .checkbox-list  li.checkbox-text-item input[type="checkbox"]{left:0.5em}
-.dir-rtl .radio-list  li.radio-text-item label,.dir-rtl .checkbox-list  li.checkbox-text-item label{padding-right:2.5em}
-.dir-rtl .radio-list  li.radio-text-item input[type="radio"],.dir-rtl .checkbox-list  li.checkbox-text-item input[type="checkbox"]{right:0.5em}
-.radio-list li.radio-text-item:last-child ,.checkbox-list li.checkbox-text-item:last-child {border-bottom-width:1px;}
-ul.form-inline li.radio-item label{border:1px solid #CCC;}
-
-/* Round border on list */
-.radio-list li:first-child label,.checkbox-list ul li:first-child label
-  {border-top-left-radius: 6px;border-top-right-radius: 6px;}
-.radio-list ul li:last-child label,.checkbox-list ul li:last-child label
-  { border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}
-.radio-list li.radio-text-item:last-child ,.checkbox-list li.checkbox-text-item:last-child
-  {border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}
-ul.form-inline li.radio-item label{border-radius: 6px;}
-
-/* coloring */
-li.radio-item label,li.checkbox-item label
-  {background-color: #FFF;}
-li.radio-item.other-item,li.checkbox-item.other-item,li.checkbox-text-item.other-item .option
-  {background-color: #FFF;}
-li.radio-item.other-item label,li.checkbox-item.other-item label
-  {background-color: transparent;}
-/* checked */
-li.radio-item input[type="radio"]:checked + label,li.checkbox-item input[type="checkbox"]:checked + label
-  {background:#69757E;color:#FFF;}
-li.radio-text-item input[type="radio"]:checked + label,li.radio-text-item input[type="checkbox"]:checked + label
-  {background:transparent;color:inherit;}
-li.radio-text-item.answer-checked,li.checkbox-text-item.answer-checked
-  {background:#69757E;color:#FFF;}
-/* hover */
-li.radio-item label:hover,li.checkbox-item  input.checkbox + label:hover
-  {background:#46555F;color:#fff}
-.js li.radio-text-item:hover
-  {background:#46555F;color:#fff}
-.js li.radio-text-item:hover label
-  {color:#fff}
-/* no answer */
-li.no-anwser-item input[type="radio"]:checked + label
-  {background:transparent;color:inherit;}
-li.radio-item input[type="radio"][disabled] + label,li.checkbox-item input[type="radio"][disabled] + label
-{
-  background:transparent;
-   cursor:inherit;color:#666;
-}
-.js table.ls-answers tbody tr td.radio-item:hover {background: #46555F;}
-.js td.radio-item.answer-checked{background-color:#69757E;}
-.js td.noanswer-item.answer-checked{background-color:transparent;}
-.js td.no-answer-item.answer-checked{background-color:transparent;}
-
-.js table.question tbody tr td.checkbox-item:hover {background: #46555F;}
-.js td.checkbox-item.answer-checked{background-color:#69757E;}
-
 /* Limesurvey vanilla part */
 
 /* specific for survey listing */

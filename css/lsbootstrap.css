@@ -1,8 +1,4 @@
 /*!
- * This is the default css used, if you set a theme : this css is not included
- * You can use any bootsrap.css generator to make a new one
- */
-/*!
  * Theme generator css for LimeSurvey template
  * Based on Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2018 Denis Chenu
@@ -1135,7 +1131,7 @@ small,
 mark,
 .mark {
   background-color: #fef5e4;
-  padding: .2em;
+  padding: 0.2em;
 }
 .text-left {
   text-align: left;
@@ -1438,13 +1434,71 @@ pre code {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
 }
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12 {
   float: left;
 }
 .col-xs-12 {
@@ -1601,7 +1655,18 @@ pre code {
   margin-left: 0%;
 }
 @media (min-width: 48em) {
-  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
     float: left;
   }
   .col-sm-12 {
@@ -1759,7 +1824,18 @@ pre code {
   }
 }
 @media (min-width: 62em) {
-  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
+  .col-md-11,
+  .col-md-12 {
     float: left;
   }
   .col-md-12 {
@@ -1917,7 +1993,18 @@ pre code {
   }
 }
 @media (min-width: 75em) {
-  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12 {
     float: left;
   }
   .col-lg-12 {
@@ -2441,7 +2528,7 @@ input[type="search"] {
   .input-group-sm input[type="time"],
   .input-group-sm input[type="datetime-local"],
   .input-group-sm input[type="month"] {
-    line-height: 1.48rem;
+    line-height: 1.64rem;
   }
   input[type="date"].input-lg,
   input[type="time"].input-lg,
@@ -2531,39 +2618,39 @@ fieldset[disabled] .checkbox label {
   padding-right: 0;
 }
 .input-sm {
-  height: 1.48rem;
-  padding: 0.24rem 0.71rem;
+  height: 1.64rem;
+  padding: 0.32rem 0.71rem;
   font-size: 0.85rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
 select.input-sm {
-  height: 1.48rem;
-  line-height: 1.48rem;
+  height: 1.64rem;
+  line-height: 1.64rem;
 }
 textarea.input-sm,
 select[multiple].input-sm {
   height: auto;
 }
 .form-group-sm .form-control {
-  height: 1.48rem;
-  padding: 0.24rem 0.71rem;
+  height: 1.64rem;
+  padding: 0.32rem 0.71rem;
   font-size: 0.85rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
 .form-group-sm select.form-control {
-  height: 1.48rem;
-  line-height: 1.48rem;
+  height: 1.64rem;
+  line-height: 1.64rem;
 }
 .form-group-sm textarea.form-control,
 .form-group-sm select[multiple].form-control {
   height: auto;
 }
 .form-group-sm .form-control-static {
-  height: 1.48rem;
+  height: 1.64rem;
   min-height: 2.35rem;
-  padding: 1.24rem 0.71rem;
+  padding: 1.32rem 0.71rem;
   font-size: 0.85rem;
   line-height: 1.5;
 }
@@ -2632,9 +2719,9 @@ select[multiple].input-lg {
 .input-sm + .form-control-feedback,
 .input-group-sm + .form-control-feedback,
 .form-group-sm .form-control + .form-control-feedback {
-  width: 1.48rem;
-  height: 1.48rem;
-  line-height: 1.48rem;
+  width: 1.64rem;
+  height: 1.64rem;
+  line-height: 1.64rem;
 }
 .has-success .help-block,
 .has-success .control-label,
@@ -2822,7 +2909,7 @@ select[multiple].input-lg {
 }
 @media (min-width: 48em) {
   .form-horizontal .form-group-sm .control-label {
-    padding-top: 1.24rem;
+    padding-top: 1.32rem;
     font-size: 0.85rem;
   }
 }
@@ -3265,7 +3352,7 @@ fieldset[disabled] .btn-link:focus {
 }
 .btn-sm,
 .btn-group-sm > .btn {
-  padding: 0.24rem 0.71rem;
+  padding: 0.32rem 0.71rem;
   font-size: 0.85rem;
   line-height: 1.5;
   border-radius: 0.2rem;
@@ -3680,8 +3767,8 @@ select[multiple].input-group-lg > .input-group-btn > .btn {
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
-  height: 1.48rem;
-  padding: 0.24rem 0.71rem;
+  height: 1.64rem;
+  padding: 0.32rem 0.71rem;
   font-size: 0.85rem;
   line-height: 1.5;
   border-radius: 0.2rem;
@@ -3689,8 +3776,8 @@ select[multiple].input-group-lg > .input-group-btn > .btn {
 select.input-group-sm > .form-control,
 select.input-group-sm > .input-group-addon,
 select.input-group-sm > .input-group-btn > .btn {
-  height: 1.48rem;
-  line-height: 1.48rem;
+  height: 1.64rem;
+  line-height: 1.64rem;
 }
 textarea.input-group-sm > .form-control,
 textarea.input-group-sm > .input-group-addon,
@@ -3728,7 +3815,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-radius: 0.3rem;
 }
 .input-group-addon.input-sm {
-  padding: 0.24rem 0.71rem;
+  padding: 0.32rem 0.71rem;
   font-size: 0.85rem;
   border-radius: 0.2rem;
 }
@@ -4095,7 +4182,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1.5rem;
-  height: 2rem;
+  min-height: 2rem;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -4280,8 +4367,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: -0.17rem;
 }
 .navbar-btn.btn-sm {
-  margin-top: 0.26rem;
-  margin-bottom: 0.26rem;
+  margin-top: 0.18rem;
+  margin-bottom: 0.18rem;
 }
 .navbar-btn.btn-xs {
   margin-top: -10rem;
@@ -4608,7 +4695,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .pagination-sm > li > a,
 .pagination-sm > li > span {
-  padding: 0.24rem 0.71rem;
+  padding: 0.32rem 0.71rem;
   font-size: 0.85rem;
   line-height: 1.5;
 }
@@ -4662,7 +4749,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .label {
   display: inline;
-  padding: .2em .6em .3em;
+  padding: 0.2em 0.6em 0.3em;
   font-size: 75%;
   font-weight: bold;
   line-height: 1;
@@ -4670,7 +4757,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: .25em;
+  border-radius: 0.25em;
 }
 a.label:hover,
 a.label:focus {
@@ -5757,26 +5844,6 @@ li.checkbox-text-item {
   width: 1em;
   height: 1em;
 }
-.dir-ltr .radio-item label,
-.dir-ltr .checkbox-item label {
-  padding-left: 1.5em;
-}
-.dir-rtl .radio-item label,
-.dir-rtl .checkbox-item label {
-  padding-right: 1.5em;
-}
-.dir-ltr .radio-item input[type="radio"],
-.dir-ltr .checkbox-item input[type="checkbox"] {
-  left: 0.1em;
-  top: 50%;
-  margin-top: -0.5em;
-}
-.dir-rtl .radio-item input[type="radio"],
-.dir-rtl .checkbox-item input[type="checkbox"] {
-  right: 0.1em;
-  top: 50%;
-  margin-top: -0.5em;
-}
 td.answer-item {
   text-align: center;
 }
@@ -5871,11 +5938,15 @@ table.ls-answers input[type="radio"] {
 .boilerplate .answer-container {
   display: none;
 }
+/* Basic question css */
+.question-container {
+  margin-bottom: 2em;
+}
 /*
 Max width before this PARTICULAR table gets nasty
 For iPads specifically : add this : (min-device-width: 768px) and (max-device-width: 1024px)
 */
-@media only screen and (max-width: 36em) {
+@media only screen and (max-width: 48em) {
   table.ls-answers td {
     padding: 0.2rem;
   }
@@ -5922,6 +5993,9 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
   .ls-answers > thead > tr,
   .ls-answers > tbody > tr {
     border: 1px solid #ddd;
+  }
+  .ls-answers th {
+    font-weight: 700;
   }
   table.ls-answers thead {
     display: none;
@@ -6006,6 +6080,211 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
   }
 }
 /*! Currently disable awesome-checkbox : hacking this make radio/checkbox less accessible */
+/* radio list and checkbox list with border : WIP */
+/* Todo : mixin this */
+li.radio-item input[type="radio"],
+li.checkbox-item input[type="checkbox"],
+div.radio-item input[type="radio"],
+div.checkbox-item input[type="checkbox"] {
+  top: 50%;
+  margin-top: -0.5em;
+}
+.radio-list li.radio-item,
+.checkbox-list li.checkbox-item {
+  margin: 0;
+}
+.dir-ltr li.radio-item input[type="radio"],
+.dir-ltr li.checkbox-item input[type="checkbox"] {
+  left: 0.57rem;
+}
+.dir-rtl li.radio-item input[type="radio"],
+.dir-rtl li.checkbox-item input[type="checkbox"] {
+  right: 0.57rem;
+}
+.radio-list li.radio-item label,
+.checkbox-list li.checkbox-item label {
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-width: 1px 1px 0;
+  margin: 0;
+}
+.radio-list .radio-item label,
+.checkbox-list .checkbox-item label {
+  padding: 0.71rem 2.28rem;
+}
+li.radio-item label,
+li.checkbox-item label,
+li.radio-text-item label {
+  min-height: 1.5rem;
+}
+.radio-list li.radio-item:last-child label,
+.checkbox-list li.checkbox-item:last-child label {
+  border-bottom-width: 1px;
+}
+.radio-list li.radio-text-item,
+.checkbox-list li.checkbox-text-item {
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-width: 1px 1px 0;
+  margin: 0;
+}
+.dir-ltr .radio-list li.radio-text-item label,
+.dir-ltr .checkbox-list li.checkbox-text-item label {
+  padding-left: 2.28rem;
+}
+.dir-ltr .radio-list li.radio-text-item input[type="radio"],
+.dir-ltr .checkbox-list li.checkbox-text-item input[type="checkbox"] {
+  left: 0.76rem;
+}
+.dir-rtl .radio-list li.radio-text-item label,
+.dir-rtl .checkbox-list li.checkbox-text-item label {
+  padding-right: 2.28rem;
+}
+.dir-rtl .radio-list li.radio-text-item input[type="radio"],
+.dir-rtl .checkbox-list li.checkbox-text-item input[type="checkbox"] {
+  right: 0.76rem;
+}
+.radio-list li.radio-text-item:last-child,
+.checkbox-list li.checkbox-text-item:last-child {
+  border-bottom-width: 1px;
+}
+ul.form-inline li.radio-item label {
+  border: 1px solid #ccc;
+}
+/* Round border on list */
+.radio-list li:first-child label,
+.checkbox-list ul li:first-child label {
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+.radio-list ul li:last-child label,
+.checkbox-list ul li:last-child label {
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+.radio-list li.radio-text-item:last-child,
+.checkbox-list li.checkbox-text-item:last-child {
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+ul.form-inline li.radio-item label {
+  border-radius: 0.3rem;
+}
+/* coloring */
+li.radio-item label,
+li.checkbox-item label {
+  background-color: #fff;
+  color: #333;
+}
+.radio-list .radio-text-item,
+.checkbox-list .checkbox-text-item {
+  background-color: #fff;
+  color: #333;
+}
+li.radio-item.other-item label,
+li.checkbox-item.other-item label {
+  background-color: transparent;
+}
+/* checked */
+li.radio-item input[type="radio"]:checked + label,
+li.checkbox-item input[type="checkbox"]:checked + label {
+  background: #0a266b;
+  color: #fff;
+}
+li.radio-text-item input[type="radio"]:checked + label,
+li.radio-text-item input[type="checkbox"]:checked + label {
+  background: transparent;
+  color: inherit;
+}
+li.radio-text-item.answer-checked,
+li.checkbox-text-item.answer-checked {
+  background: #0a266b;
+  color: #fff;
+}
+/* hover */
+li.radio-item label:hover,
+li.checkbox-item input.checkbox + label:hover,
+li.radio-text-item input[type="radio"]:focus + label,
+li.radio-text-item input[type="checkbox"]:focus + label {
+  background: #adadad;
+  color: #333;
+}
+.js li.radio-text-item:hover {
+  background: #adadad;
+  color: #333;
+}
+.js li.radio-text-item:hover label {
+  color: #333;
+}
+/* no answer */
+li.no-anwser-item input[type="radio"]:checked + label {
+  background: transparent;
+  color: inherit;
+}
+li.radio-item input[type="radio"][disabled] + label,
+li.checkbox-item input[type="radio"][disabled] + label {
+  background: transparent;
+  cursor: inherit;
+  color: #777777;
+}
+.js table.ls-answers tbody tr td.radio-item:hover {
+  background: #adadad;
+  color: #333;
+}
+.js table.ls-answers tbody tr td.radio-item.answer-checked {
+  background: #0a266b;
+  color: #fff;
+}
+.js table.ls-answers tbody tr td.noanswer-item.answer-checked {
+  background-color: transparent;
+  color: inherit;
+}
+.js table.ls-answers tbody tr td.no-answer-item.answer-checked {
+  background-color: transparent;
+  color: inherit;
+}
+.js table.ls-answers tbody tr td.checkbox-item:hover {
+  background: #adadad;
+  color: #333;
+}
+.js table.ls-answers tbody tr td.checkbox-item.answer-checked {
+  background: #0a266b;
+  color: #fff;
+}
+@media only screen and (max-width: 48em) {
+  .dir-ltr td.radio-item input[type="radio"],
+  .dir-ltr td.checkbox-item input[type="checkbox"] {
+    left: 0.57rem;
+    margin-top: -0.5em;
+  }
+  .dir-rtl td.radio-item input[type="radio"],
+  .dir-rtl td.checkbox-item input[type="checkbox"] {
+    right: 0.57rem;
+    margin-top: -0.5em;
+  }
+  .ls-answers > tbody > tr > td.radio-item,
+  .ls-answers > tbody > tr > td.checkbox-item,
+  .ls-answers > tbody > tr > td.radio-item,
+  .ls-answers > tbody > tr > th.information-item {
+    border: 1px solid #ccc;
+    border-width: 1px 0 0;
+  }
+  .ls-answers > tbody > tr > td.radio-item label,
+  .ls-answers > tbody > tr > td.checkbox-item label {
+    padding: 0.71rem 2.28rem;
+  }
+  table.ls-answers tbody tr {
+    border-radius: 0.3rem;
+  }
+  table.ls-answers {
+    border: 0 none;
+  }
+  td.radio-item input[type="radio"],
+  td.checkbox-item input[type="checkbox"] {
+    top: 50%;
+    margin-top: -0.5em;
+  }
+}
 .modal-open {
   overflow: hidden;
 }
