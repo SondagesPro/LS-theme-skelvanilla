@@ -17,13 +17,6 @@
     Remind A11Y issue can be reported to LimeSurvey core too : https://www.limesurvey.org/community/bug-tracker
 #}<!DOCTYPE html>
 <html lang="{{ aSurveyInfo.languagecode }}" dir="{{ aSurveyInfo.dir }}" class="{{ aSurveyInfo.languagecode }} dir-{{ aSurveyInfo.dir }} {{ aSurveyInfo.class.html }} variation-{{ aSurveyInfo.options.variation }}" {{ aSurveyInfo.attr.html }}>
-{% if ( aSurveyInfo.options.variation == 'default' or not aSurveyInfo.options.variation  ) %}
-    {{ registerTemplateCssFile('css/lsbootstrap.css') }}
-{% else %}
-    {{ registerTemplateCssFile(aSurveyInfo.options.variation) }}
-{% endif %}
-{{ registerTemplateCssFile('css/theme.css') }}{{ registerTemplateCssFile('css/custom.css') }}
-{{ registerScriptFile('scripts/theme.js',"POS_HEAD") }}{{ registerScriptFile('scripts/custom.js',"POS_HEAD") }}
 <!-- {{ aSurveyInfo.options.variation }} -->
     {% block head %}
     {# Headers, metadata, etc #}
@@ -46,9 +39,10 @@
                     {% set sViewContent =  './subviews/content/' ~ aSurveyInfo.include_content ~ '.twig' %}
                     {% include './subviews/content/outerframe.twig' with {'include_content': sViewContent } %}
                 {% endblock %}
-
+                {% block bootstrap_modal %}
                 {# Bootstrap alert modal #}
                 {{ include('./subviews/messages/bootstrap_alert_modal.twig') }}
+                {% endblock %}
             {% endblock %}
             {% block footer %}
                 {{ include('./subviews/footer/footer.twig') }}

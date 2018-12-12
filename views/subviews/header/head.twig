@@ -14,6 +14,13 @@
     This file generates the headers.
     Most of the time, it is not the right place to add your own JS/CSS - instead, use the config.xml file for that.
 #}<head>
+{% if ( aSurveyInfo.options.variation == 'default' or not aSurveyInfo.options.variation  ) %}
+    {{ registerTemplateCssFile('css/lsbootstrap.css') }}
+{% else %}
+    {{ registerTemplateCssFile(aSurveyInfo.options.variation) }}
+{% endif %}
+{{ registerTemplateCssFile('css/theme.css') }}{{ registerTemplateCssFile('css/custom.css') }}
+{{ registerTemplateScript('scripts/theme.js',"POS_HEAD") }}{{ registerTemplateScript('scripts/custom.js',"POS_HEAD") }}
 {% if(aSurveyInfo.jYesNo) %}
     {{ registerScript('activateConfirmLanguage',"$.extend(LSvar.lang," ~ aSurveyInfo.jYesNo ~ ")", "POS_BEGIN") }}
 {% endif %}
