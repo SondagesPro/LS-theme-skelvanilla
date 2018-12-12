@@ -15,11 +15,7 @@
 #}
 {% extends 'layout_global.twig' %}
 {% block head %}
-    {% if (not aSurveyInfo.printPdf) %}
-        {{ parent() }}
-    {% else %}
-        <head></head>
-    {% endif %}
+    {{ parent() }}
 {% endblock %}
 
 {% block nav_bar %}

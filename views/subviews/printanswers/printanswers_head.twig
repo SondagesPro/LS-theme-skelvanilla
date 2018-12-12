@@ -22,7 +22,7 @@
 {% endif %}
 <div class="container-fluid">
     {% if (not aSurveyInfo.printPdf) %} 
-        <div class="row">
+        <div class="row hidden-print">
             <div class="col-sm-6">
                 {{ C.Html.form(aSurveyInfo.printAnswersHeadFormUrl, 'post') }}
                     <button class="btn btn-default" type="submit">{{ gT("PDF export") }}</button>

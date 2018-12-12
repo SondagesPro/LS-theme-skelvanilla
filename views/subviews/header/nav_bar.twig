@@ -35,7 +35,7 @@
     </div>
 </div>
 {% endif %}
-<header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }}" {{ aSurveyInfo.attr.navbar }}>
+<header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" {{ aSurveyInfo.attr.navbar }}>
     <div class="container-fluid">
         <div class="{{ aSurveyInfo.class.navbarheader }}" {{ aSurveyInfo.attr.navbarheader }} >
             <button type="button" class="{{ aSurveyInfo.class.navbartoggle }}" {{ aSurveyInfo.attr.navbartoggle }}  >

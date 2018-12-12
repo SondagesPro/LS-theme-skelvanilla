@@ -22,6 +22,13 @@ html, body {height: 100%;}
 footer {width: 100%;position: absolute;bottom: 0;left: 0;}
 main{padding-bottom:3em}
 
+/* Some print style */
+@media print {
+  .container {
+      width:100% !important;
+  }
+}
+.question-container-printanswers td > .col-md-8{margin:0;padding:0;float:none;width:100%}
 /* Limesurvey vanilla part */
 
 /* specific for survey listing */
@@ -76,12 +83,6 @@ main{padding-bottom:3em}
  * Question part
  */
 /** Question Design **/
-
-.question-container-printanswers {
-  margin-top: 2em ;
-  margin-bottom: 2em ;
-  padding-bottom: 2em ;
-}
 
 .question-number,.question-code{float:left;margin:0 0.3em}
 
