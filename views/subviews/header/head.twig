@@ -35,7 +35,9 @@
         {% if(aSurveyInfo.errorHtml.messages) %}[ {{ gT('Error') }} ]{% endif %}
         {{ pagetitle ?: flatString(processString(aSurveyInfo.surveyls_title,1)) }}
     </title>
-    <link rel="shortcut icon" href="{{ imageSrc('./files/favicon.ico') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ imageSrc('files/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ imageSrc('files/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ imageSrc('files/favicon-16x16.png') }}">
     <script type="text/javascript">
         if(window.basicThemeScripts === undefined){ 
             window.basicThemeScripts = new ThemeScripts(); 
