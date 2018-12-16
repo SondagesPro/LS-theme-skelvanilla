@@ -2,26 +2,32 @@
     Work in progress : need to move and remove a lot
 */
 /* in h2 or h2, need to remove margin and reset font-size */
-.question-text{margin-bottom:0}
-.panel-heading .question-text,.well .question-text{margin-top:0}
+.panel-heading .question-text,.well .question-text{}
 /* in h1, need to remove margin and reset font-size */
 .navbar-brand{margin:0;height:auto;}
 .navbar-brand.with-logo{
-    line-height:2em;
+    line-height:2;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
-.navbar-brand .logo-container {padding:0;padding:0 1em;float: left;display:inline-block;}
+.navbar-brand .logo-container {padding:0;padding:0 0.5rem;float: left;display:inline-block;}
 .navbar-brand .logo-container > img{max-height:2em;width:auto;display:inline-block;}
 .question-container{margin-bottom:2em}
 
+/* question-text h1,h2,h3 … remove extra margin */
+h2.question-text ,h3.question-text,
+.lead.question-text,
+.h2.question-text,.h3.question-text,.h4.question-text,.h4.question-text{
+margin-top:0;margin-bottom:0
+}
 /* For footer, inpirated by layout-galla */
 html, body {height: 100%;}
 #dynamicReloadContainer{min-height: 100%;position: relative;}
 footer {width: 100%;position: absolute;bottom: 0;left: 0;}
 main{padding-bottom:3em}
 
+#langs-container{max-height:80vh;overflow:auto;}
 /* Some print style */
 @media print {
   .container {
@@ -35,9 +41,6 @@ main{padding-bottom:3em}
 @media (min-width: 761px) {
   .surveys-list .btn-group {
     width: 50%;
-  }
-  .language_change_container{
-      height: 90vh;
   }
 }
 

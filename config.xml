@@ -18,11 +18,11 @@
         <authorUrl>http://www.sondages.pro</authorUrl>
         <copyright>Copyright (C) 2018 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 2 or later</license>
-        <version>3.0</version>
+        <version>3.1.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with accessibility</strong><br>Base on vanilla theme, usage of more aria and fix some role and aria from core.<br>Part of this theme are merged in core LimeSurvey when it's ready.]]></description>
-        <last_update>2018-12-12 12:28:04</last_update>
-    <extends>vanilla</extends></metadata>
+        <last_update>2018-12-16 14:53:11</last_update>
+        <extends>vanilla</extends></metadata>
 
     <files>
         <css>
@@ -69,6 +69,8 @@
         <questioncolor>primary</questioncolor>
         <questionwrap>none</questionwrap>
         <questionsize>h4</questionsize>
+        <helpcolor>text-info</helpcolor>
+        <validitycolor>text-info</validitycolor>
         <fixedheader>off</fixedheader>
         <variation>default</variation>
     </options>

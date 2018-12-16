@@ -175,6 +175,7 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <option value="inherit"> {{ gT('Inherit') }}</option>
                                 {% endif %}
+                                <option value="body-copy">{{ gT('Body copy') }}</option>
                                 <option value="h5">h5</option>
                                 <option value="h4">h4</option>
                                 <option value="h3">h3</option>
@@ -248,6 +249,42 @@
                                     </label>
                                 {% endif %}
                             </div>
+                        </div>
+                    </div>
+                </div>
+                {# Help color #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_helpcolor' class='control-label col-xs-4'> {{ gT("Help color") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_helpcolor' name='helpcolor'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="text-muted">{{ gT("Text muted") }}</option>
+                                <option value="text-primary">{{ gT("Text primary") }}</option>
+                                <option value="text-info">{{ gT("Text info") }}</option>
+                                <option value="text-success">{{ gT("Text success") }}</option>
+                                <option value="text-warning">{{ gT("Text warning") }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                {# Help color #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_validitycolor' class='control-label col-xs-4'> {{ gT("Dynamic help color (Validity)") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_validitycolor' name='validitycolor'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="text-muted">{{ gT("Text muted") }}</option>
+                                <option value="text-primary">{{ gT("Text primary") }}</option>
+                                <option value="text-info">{{ gT("Text info") }}</option>
+                                <option value="text-success">{{ gT("Text success") }}</option>
+                                <option value="text-warning">{{ gT("Text warning") }}</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -505,11 +542,11 @@
                     </div>
                 </div>
             </div>
-
-
         </form>
     </div>
-
+    <div class='row action_hide_on_inherit'>
+        <hr/>
+    </div>
     <div class='row action_hide_on_inherit'>
         {# Upload an image #}
         <div class="container-fluid ls-space margin bottom-15">

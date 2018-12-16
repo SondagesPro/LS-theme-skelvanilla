@@ -1,3 +1,3 @@
 {% if aQuestion.help.show %}
-<div id="question-help-{{ aQuestion.qid }}" class="{{ aSurveyInfo.class.helpcontainer }} {{ aSurveyInfo.class.lsquestionhelp }} text-info" {{ aSurveyInfo.attr.helpcontainer }}>{{ aQuestion.help.text | raw }}</div>
+<div id="question-help-{{ aQuestion.qid }}" class="{{ aSurveyInfo.class.helpcontainer }} {{ aSurveyInfo.class.lsquestionhelp }} {{ aSurveyInfo.options.helpcolor }}" {{ aSurveyInfo.attr.helpcontainer }}>{{ aQuestion.help.text | raw }}</div>
 {% endif %}
