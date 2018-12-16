@@ -16,10 +16,6 @@
     It is used for the rendering of the responses at the end of the survey.
 
 #}
-
-{% if (aSurveyInfo.printPdf) %} 
-    {{ include('./subviews/printanswers/printanswers_style.twig') }}
-{% endif %}
 <div class="container-fluid">
     {% if (not aSurveyInfo.printPdf) %} 
         <div class="row hidden-print">

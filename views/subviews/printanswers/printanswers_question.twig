@@ -1,0 +1,13 @@
+<tr class="question-container-printanswers"> 
+    {% block question_name %}
+    <th style="width:40%" class="text-right">
+        {{question.question}} ({{question.qid}})
+    </th>
+    {% endblock  %}
+    <td style="width:60%">
+    {% block question_answer %}
+        {{ include('./subviews/printanswers/question_types/template_generic_question.twig') }}
+    {% endblock  %}
+    </td>
+</tr>
+

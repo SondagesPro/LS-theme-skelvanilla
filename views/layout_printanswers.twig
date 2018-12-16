@@ -15,6 +15,9 @@
 #}
 {% extends 'layout_global.twig' %}
 {% block head %}
+    {% if (aSurveyInfo.printPdf) %} 
+        {{ include('./subviews/printanswers/printanswers_style.twig') }}
+    {% endif %}
     {{ parent() }}
 {% endblock %}
 
