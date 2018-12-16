@@ -1,0 +1,42 @@
+{% extends "layout_global.twig" %}
+{% set aError     = aSurveyInfo.aError    %}
+    {% if aError.error %}
+        {% set pagetitle = aError.error %}
+    {% else %}
+        {% if(not aSurveyInfo.surveyls_title) %}
+            {% set pagetitle = "["~gT('Error')~"] "~aSurveyInfo.surveyls_title %}
+        {% else %}
+            {% set pagetitle = "["~gT('Error')~"] "~aSurveyInfo.sSiteName %}
+        {% endif %}
+    {% endif %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+<main class="{{ aSurveyInfo.class.outerframe }} {% if (aSurveyInfo.options.container == "on") %} container {% else %} container-fluid {% endif %} " id="{{ aSurveyInfo.id.outerframe }}" {{ aSurveyInfo.attr.outerframe }} >
+    <div class="well">
+        {% if aError.error %}
+            <h1 class="text-danger">{{ aError.error }}</h1>
+        {% endif %}
+        <div class="h2" class="text-danger">{{ aError.title }}</h2>
+        <div>
+            {{ aError.message }}
+        </div>
+        {{ aError.URL }}
+        <p class="small text-right">
+            {% if aError.contact %}
+                {{ aError.contact }}
+            {% else %}
+                {{gT("For further information please contact %s:")|format (aSurveyInfo.adminname)}}
+                {% if aSurveyInfo.adminemail %}
+                    ( <a href='mailto:{{ aSurveyInfo.adminemail }}'>{{ aSurveyInfo.adminemail }}</a> )
+                {% endif %}
+            {% endif %}
+        </p>
+    </div>
+</main>
+
+
+
+{% endblock %}
