@@ -38,6 +38,25 @@ main{padding-bottom:3em}
   }
 }
 .question-container-printanswers td > .col-md-8{margin:0;padding:0;float:none;width:100%}
+
+
+.date.question-container .form-inline,
+.language.question-container .form-inline,
+.list-dropdown.question-container .form-inline,
+.choice-5-pt-radio.question-container .form-inline
+  {text-align:center}
+.question-container div.text-item .col-sm-1,
+.question-container div.text-item .col-sm-2,
+.question-container div.text-item .col-sm-3,
+.question-container div.text-item .col-sm-4,
+.question-container div.text-item .col-sm-5,
+.question-container div.text-item .col-sm-6,
+.question-container div.text-item .col-sm-7,
+.question-container div.text-item .col-sm-8,
+.question-container div.text-item .col-sm-9,
+.question-container div.text-item .col-sm-10,
+.question-container div.text-item .col-sm-11
+    {float:none;margin-right:auto;margin-left:auto;}
 /* Limesurvey vanilla part */
 
 /* specific for survey listing */
@@ -56,12 +75,6 @@ main{padding-bottom:3em}
     width: 100%;
     padding: 0;
     color: inherit;
-}
-
-.top-container .top-content{
-    padding-top:1em;
-    padding-bottom:1em;
-    margin-bottom:2em;
 }
 
 .top-content .form-change-lang{float:right}
