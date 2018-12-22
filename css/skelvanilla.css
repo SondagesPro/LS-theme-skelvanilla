@@ -245,13 +245,7 @@ main{padding-bottom:3em}
     min-height: 50px;
 }
 
-
-/* Show more the heading in table */
-.ls-answers .ls-heading th{font-weight:700}
 /* Max width for some answer part */
-/* table color */
-.ls-even{
-}
 /* dynamic group (multiple-numeric) .form-control-static same padding and border width than form-control for better alignment */
 .ls-group-dynamic .form-control-static{ padding-left:15px;padding-right:15px;}
 /* array by column hover column */
