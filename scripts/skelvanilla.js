@@ -65,12 +65,12 @@ var skelVanilla = {
     addHoverColumn: function () {
         $(".table-hover,.table-col-hover").on({
             mouseenter: function () {
-                $(this).closest(".table-hover,.table-col-hover").find("col").eq($(this).parent(".answers-list").children().index($(this))).addClass("hover");
-                $(this).closest(".table-hover,.table-col-hover").find("thead tr,.ls-heading").find("th,td").eq($(this).parent(".answers-list").children().index($(this))).addClass("col-hover");
+                $(this).closest(".table-hover,.table-col-hover").find("col").eq($(this).parent(".answers-list,.subquestion-list").children().index($(this))).addClass("hover");
+                $(this).closest(".table-hover,.table-col-hover").find("thead tr:not(.header_row),.ls-heading:not(.header_row)").find("th,td").eq($(this).parent(".answers-list,.subquestion-list").children().index($(this))).addClass("col-hover");
             },
             mouseleave: function () {
                 $(this).closest(".table-hover,.table-col-hover").find("col").removeClass("hover");
-                $(this).closest(".table-hover,.table-col-hover").find("thead tr,.ls-heading").find("th,td").eq($(this).parent(".answers-list").children().index($(this))).removeClass("col-hover");
+                $(this).closest(".table-hover,.table-col-hover").find("thead tr:not(.header_row),.ls-heading:not(.header_row)").find("th,td").eq($(this).parent(".answers-list,.subquestion-list").children().index($(this))).removeClass("col-hover");
             }
         }, ".answer-item");
     }

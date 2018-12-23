@@ -6064,8 +6064,10 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
 }
 .answer-item label:hover,
 .answer-item input:focus + label,
-tr.subquestion-list:hover .control-label,
-.ls-choice:hover {
+tr.answers-list:hover .control-label,
+tr.answers-list:hover .answertext,
+.ls-choice:hover,
+th.col-hover {
   color: #222222;
   text-shadow: 0.1rem 0.1rem 0.2rem rgba(34, 34, 34, 0.3);
 }
@@ -6173,6 +6175,15 @@ select[multiple].radio-text-item .input-sm {
   .dir-rtl td.checkbox-item input[type="checkbox"] {
     left: 50%;
     margin-left: -0.57rem;
+  }
+  .table-col-hover col.hover {
+    background-color: #f5f5f5;
+  }
+  .table-col-hover tr.answers-list:hover {
+    background-color: #f5f5f5;
+  }
+  .table-hover col.hover {
+    background-color: #f5f5f5;
   }
 }
 /* radio list and checkbox list with border : WIP */
