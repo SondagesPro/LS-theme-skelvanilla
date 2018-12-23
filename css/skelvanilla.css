@@ -55,6 +55,9 @@ main{padding-bottom:3em}
 .question-container div.text-item .col-sm-10,
 .question-container div.text-item .col-sm-11
     {float:none;margin-right:auto;margin-left:auto;}
+table.ls-answers thead th,table.ls-answers thead td,table.ls-answers .ls-heading th,table.ls-answers .ls-heading td{
+    text-align:center;
+}
 /* Limesurvey vanilla part */
 
 /* specific for survey listing */

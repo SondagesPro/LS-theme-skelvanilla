@@ -1,6 +1,7 @@
 var skelVanilla = {
     init : function (options) {
         this.addCheckedClass();
+        this.addHoverColumn();
     },
     addCheckedClass : function () {
         /* radio in table */
@@ -61,4 +62,16 @@ var skelVanilla = {
             $('li.checkbox-text-item input[type=text][value!=""]').closest('li.checkbox-text-item').addClass('answer-checked');
         });
     },
+    addHoverColumn: function () {
+        $(".table-hover,.table-col-hover").on({
+            mouseenter: function () {
+                $(this).closest(".table-hover,.table-col-hover").find("col").eq($(this).parent(".answers-list").children().index($(this))).addClass("hover");
+                $(this).closest(".table-hover,.table-col-hover").find("thead tr,.ls-heading").find("th,td").eq($(this).parent(".answers-list").children().index($(this))).addClass("col-hover");
+            },
+            mouseleave: function () {
+                $(this).closest(".table-hover,.table-col-hover").find("col").removeClass("hover");
+                $(this).closest(".table-hover,.table-col-hover").find("thead tr,.ls-heading").find("th,td").eq($(this).parent(".answers-list").children().index($(this))).removeClass("col-hover");
+            }
+        }, ".answer-item");
+    }
 }
