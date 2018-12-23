@@ -1,8 +1,6 @@
 /*
     Work in progress : need to move and remove a lot
 */
-/* in h2 or h2, need to remove margin and reset font-size */
-.panel-heading .question-text,.well .question-text{}
 /* in h1, need to remove margin and reset font-size */
 .navbar-brand{margin:0;height:auto;}
 .navbar-brand.with-logo{
@@ -11,7 +9,7 @@
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
-.
+
 .navbar-brand .logo-container {padding:0;padding:0 0.5rem;display:inline-block;}
 .navbar-brand .logo-container > img{max-height:2em;width:auto;display:inline-block;}
 .navbar-brand img {vertical-align: text-bottom;}
@@ -24,7 +22,7 @@ h2.question-text ,h3.question-text,
 .h2.question-text,.h3.question-text,.h4.question-text,.h4.question-text{
 margin-top:0;margin-bottom:0
 }
-/* For footer, inpirated by layout-galla */
+/* For footer, inspirated by layout-galla */
 html, body {height: 100%;}
 #dynamicReloadContainer{min-height: 100%;position: relative;}
 footer {width: 100%;position: absolute;bottom: 0;left: 0;}
@@ -39,7 +37,7 @@ main{padding-bottom:3em}
 }
 .question-container-printanswers td > .col-md-8{margin:0;padding:0;float:none;width:100%}
 
-
+/* Centering some answers */
 .date.question-container .form-inline,
 .language.question-container .form-inline,
 .list-dropdown.question-container .form-inline,
@@ -103,7 +101,7 @@ main{padding-bottom:3em}
  */
 /** Question Design **/
 
-.question-number,.question-code{float:left;margin:0 0.3em}
+.question-number,.question-code{margin:0 0.3em}
 
 .question-valid-container {
   position: relative;
@@ -111,15 +109,7 @@ main{padding-bottom:3em}
 
 .ls-question-help,
 .ls-questionhelp{
-  margin-bottom:5px;
-}
-
-.question-valid-container .text-danger{
-  font-weight: bold;
-}
-
-.question-valid-container .text-info{
-  font-weight: bold;
+  margin-bottom:0.1em;
 }
 
 /* little icon near the question-help */
@@ -205,28 +195,13 @@ main{padding-bottom:3em}
 #surveys-list-jumbotron img.site-surveylist-logo {
     max-width: 35%;
     display: block;
-    margin: 15px auto;
+    margin: 1em auto;
 }
 
 #surveyListFooter {
     width: 100%;
     text-align: center;
-    margin-bottom: 0;
-    padding-bottom: 80px;
-    padding-top: 10px;
-    margin-top: 10px;
-
-    bottom: 0px;
-    height: 60px;
-}
-
-@media (max-width: 768px){
-    #surveyListFooter {
-        padding-bottom: 40px;
-        padding-top: 5px;
-        margin-top: 5px;
-        height: 40px;
-    }
+    margin: 0 auto 1em;
 }
 /**
  * Specific question part
@@ -242,7 +217,7 @@ main{padding-bottom:3em}
 }
 
 .slider-item {
-    min-height: 50px;
+    min-height: 3em;
 }
 
 /* Max width for some answer part */
@@ -326,9 +301,6 @@ Responsive navbar-brand image CSS
     left: auto;
 }
 
-body .navbar-default .navbar-brand:hover {
-
-}
 
 /* Only use <label> to get vertical align easy. Don't want boldness. */
 .no-label {
@@ -348,17 +320,12 @@ table > tbody > tr > td.ddprefix {
     vertical-align: middle;
 }
 
-.othertext-label-checkox-container {
-    padding-top: 5px;
-    margin-right: 5px;
-}
-
 .geoloc-item .search-icon, .geoloc-item .checkbox  {
-    padding-top: 10px;
+    padding-top: 0.8em;
 }
 
 .geoname_search {
-    margin-bottom: 10px;
+    margin-bottom: 0.8em;
 }
 
 /* Asterix */

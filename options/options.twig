@@ -300,31 +300,124 @@
                         <div class='panel-heading'>{{ sprintf( gT("%s variations"), templateConfiguration.template_name) }} </div>
                         <div class='panel-body'>
                             <div class='form-group row'>
-                                <label for='simple_edit_options_variation' class='control-label'>{{ gT("Select variation:") }}</label>
+                                <label for='simple_edit_options_variation' class='control-label'>{{ gT("Select variation:") }}
+                                </label>
                                 <div class='col-sm-12'>
                                     <select class='form-control selector_option_value_field' id='simple_edit_options_variation' name='variation'>
                                         <option value="default">{{ gT('None') }} - {{ gT('lsbootrsap.css updatable via theme editor') }}</option>
                                         {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                             <option value="inherit"> {{ gT('Inherit') }}</option>
                                         {% endif %}
-                                        <option value="css/variations/basic.min.css">Bootsrap</option>
-                                        <option value="css/variations/cerulean.min.css">Cerulean</option>
-                                        <option value="css/variations/cosmos.min.css">Cosmos</option>
-                                        <option value="css/variations/cyborg.min.css">Cyborg</option>
-                                        <option value="css/variations/darkly.min.css">Darkly</option>
-                                        <option value="css/variations/flatly.min.css">Flatly</option>
-                                        <option value="css/variations/journal.min.css">Journal</option>
-                                        <option value="css/variations/lumen.min.css">Lumen</option>
-                                        <option value="css/variations/paper.min.css">Paper</option>
-                                        <option value="css/variations/readable.min.css">Readable</option>
-                                        <option value="css/variations/sandstone.min.css">Sandstone</option>
-                                        <option value="css/variations/simplex.min.css">Simplex</option>
-                                        <option value="css/variations/slate.min.css">Slate</option>
-                                        <option value="css/variations/spacelab.min.css">Spacelab</option>
-                                        <option value="css/variations/superhero.min.css">Superhero</option>
-                                        <option value="css/variations/united.min.css">United</option>
-                                        <option value="css/variations/yeti.min.css">Yeti</option>
+                                        <optgroup label="Contrast">
+                                            <option value="css/variations/contrast-base.min.css">Contrast - Base</option>
+                                            <option value="css/variations/contrast-button.min.css">Contrast - Button for radio and checkbox</option>
+                                            <option value="css/variations/contrast-awesome.min.css">Contrast - Awesome checkbox and radio</option>
+                                            <option value="css/variations/contrast-button_awesome.min.css">Contrast - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Bootstrap">
+                                            <option value="css/variations/bootstrap-base.min.css">Bootstrap - Base</option>
+                                            <option value="css/variations/bootstrap-button.min.css">Bootstrap - Button for radio and checkbox</option>
+                                            <option value="css/variations/bootstrap-awesome.min.css">Bootstrap - Awesome checkbox and radio</option>
+                                            <option value="css/variations/bootstrap-button_awesome.min.css">Bootstrap - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Cerulean">
+                                            <option value="css/variations/cerulean-base.min.css">Cerulean - Base</option>
+                                            <option value="css/variations/cerulean-button.min.css">Cerulean - Button for radio and checkbox</option>
+                                            <option value="css/variations/cerulean-awesome.min.css">Cerulean - Awesome checkbox and radio</option>
+                                            <option value="css/variations/cerulean-button_awesome.min.css">Cerulean - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Cosmos">
+                                            <option value="css/variations/cosmos-base.min.css">Cosmos - Base</option>
+                                            <option value="css/variations/cosmos-button.min.css">Cosmos - Button for radio and checkbox</option>
+                                            <option value="css/variations/cosmos-awesome.min.css">Cosmos - Awesome checkbox and radio</option>
+                                            <option value="css/variations/cosmos-button_awesome.min.css">Cosmos - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Cyborg">
+                                            <option value="css/variations/cyborg-base.min.css">Cyborg - Base</option>
+                                            <option value="css/variations/cyborg-button.min.css">Cyborg - Button for radio and checkbox</option>
+                                            <option value="css/variations/cyborg-awesome.min.css">Cyborg - Awesome checkbox and radio</option>
+                                            <option value="css/variations/cyborg-button_awesome.min.css">Cyborg - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Darkly">
+                                            <option value="css/variations/darkly-base.min.css">Darkly - Base</option>
+                                            <option value="css/variations/darkly-button.min.css">Darkly - Button for radio and checkbox</option>
+                                            <option value="css/variations/darkly-awesome.min.css">Darkly - Awesome checkbox and radio</option>
+                                            <option value="css/variations/darkly-button_awesome.min.css">Darkly - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Flatly">
+                                            <option value="css/variations/flatly-base.min.css">Flatly- Base</option>
+                                            <option value="css/variations/flatly-button.min.css">Flatly - Button for radio and checkbox</option>
+                                            <option value="css/variations/flatly-awesome.min.css">Flatly - Awesome checkbox and radio</option>
+                                            <option value="css/variations/flatly-button_awesome.min.css">Flatly - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Journal">
+                                            <option value="css/variations/journal-base.min.css">Journal - Base</option>
+                                            <option value="css/variations/journal-button.min.css">Journal - Button for radio and checkbox</option>
+                                            <option value="css/variations/journal-awesome.min.css">Journal - Awesome checkbox and radio</option>
+                                            <option value="css/variations/journal-button_awesome.min.css">Journal - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Lumen">
+                                            <option value="css/variations/lumen-base.min.css">Lumen - Base</option>
+                                            <option value="css/variations/lumen-button.min.css">Lumen - Button for radio and checkbox</option>
+                                            <option value="css/variations/lumen-awesome.min.css">Lumen - Awesome checkbox and radio</option>
+                                            <option value="css/variations/lumen-button_awesome.min.css">Lumen - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Paper">
+                                            <option value="css/variations/paper-base.min.css">Paper - Base</option>
+                                            <option value="css/variations/paper-button.min.css">Paper - Button for radio and checkbox</option>
+                                            <option value="css/variations/paper-awesome.min.css">Paper - Awesome checkbox and radio</option>
+                                            <option value="css/variations/paper-button_awesome.min.css">Paper - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Readable">
+                                            <option value="css/variations/readable-base.min.css">Readable - Base</option>
+                                            <option value="css/variations/readable-button.min.css">Readable - Button for radio and checkbox</option>
+                                            <option value="css/variations/readable-awesome.min.css">Readable - Awesome checkbox and radio</option>
+                                            <option value="css/variations/readable-button_awesome.min.css">Readable - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Sandstone">
+                                            <option value="css/variations/sandstone-base.min.css">Sandstone - Base</option>
+                                            <option value="css/variations/sandstone-button.min.css">Sandstone - Button for radio and checkbox</option>
+                                            <option value="css/variations/sandstone-awesome.min.css">Sandstone - Awesome checkbox and radio</option>
+                                            <option value="css/variations/sandstone-button_awesome.min.css">Sandstone - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Simplex">
+                                            <option value="css/variations/simplex-base.min.css">Simplex - Base</option>
+                                            <option value="css/variations/simplex-button.min.css">Simplex - Button for radio and checkbox</option>
+                                            <option value="css/variations/simplex-awesome.min.css">Simplex - Awesome checkbox and radio</option>
+                                            <option value="css/variations/simplex-button_awesome.min.css">Simplex - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Slate">
+                                            <option value="css/variations/slate-base.min.css">Slate - Base</option>
+                                            <option value="css/variations/slate-button.min.css">Slate - Button for radio and checkbox</option>
+                                            <option value="css/variations/slate-awesome.min.css">Slate - Awesome checkbox and radio</option>
+                                            <option value="css/variations/slate-button_awesome.min.css">Slate - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Spacelab">
+                                            <option value="css/variations/spacelab-base.min.css">Spacelab - Base</option>
+                                            <option value="css/variations/spacelab-button.min.css">Spacelab - Button for radio and checkbox</option>
+                                            <option value="css/variations/spacelab-awesome.min.css">Spacelab - Awesome checkbox and radio</option>
+                                            <option value="css/variations/spacelab-button_awesome.min.css">Spacelab - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Superhero">
+                                            <option value="css/variations/superhero-base.min.css">Superhero - Base</option>
+                                            <option value="css/variations/superhero-button.min.css">Superhero - Button for radio and checkbox</option>
+                                            <option value="css/variations/superhero-awesome.min.css">Superhero - Awesome checkbox and radio</option>
+                                            <option value="css/variations/superhero-button_awesome.min.css">Superhero - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="United">
+                                            <option value="css/variations/united-base.min.css">United - Base</option>
+                                            <option value="css/variations/united-button.min.css">United - Button for radio and checkbox</option>
+                                            <option value="css/variations/united-awesome.min.css">United - Awesome checkbox and radio</option>
+                                            <option value="css/variations/united-button_awesome.min.css">United - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
+                                        <optgroup label="Yeti">
+                                            <option value="css/variations/yeti-base.min.css">Yeti - Base</option>
+                                            <option value="css/variations/yeti-button.min.css">Yeti - Button for radio and checkbox</option>
+                                            <option value="css/variations/yeti-awesome.min.css">Yeti - Awesome checkbox and radio</option>
+                                            <option value="css/variations/yeti-button_awesome.min.css">Yeti - Button &amp; awesome checkbox and radio</option>
+                                        </optgroup>
                                     </select>
+                                    <p class="help-block">Except contrast, all this variations come from <a href="https://bootswatch.com/3/">bootswatch</a>, Copyright (c) 2013 Thomas Park.</p>
                                 </div>
                             </div>
                         </div>

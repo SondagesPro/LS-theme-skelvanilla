@@ -5847,13 +5847,6 @@ li.checkbox-text-item {
 td.answer-item {
   text-align: center;
 }
-td.radio-item input[type="radio"],
-td.checkbox-item input[type="checkbox"] {
-  position: relative;
-  left: auto;
-  right: auto;
-  top: auto;
-}
 @media only screen and (max-width: 36em) {
   .slider-list .slider-left {
     text-align: left;
@@ -5925,11 +5918,6 @@ table.ls-answers {
  *  awesome-bootstrap-checkbox inside table with an sr-only label
  * @todo : .dir-rtl
  */
-/* reset the margin and review the padding set by bootstrap */
-table.ls-answers input[type="checkbox"],
-table.ls-answers input[type="radio"] {
-  margin: 0;
-}
 /* We need complete width in array , but don't touch to padding-(top|bottom) */
 .ls-label-xs-visibility {
   white-space: normal;
@@ -6015,11 +6003,11 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
     display: none;
   }
   /* Show the label and fix the input*/
-  table.ls-answers .ls-label-xs-visibility {
-    display: block;
+  .ls-label-xs-visibility {
+    display: initial;
     position: unset;
-    width: auto;
-    height: auto;
+    width: initial;
+    height: initial;
     overflow: initial;
   }
   td.radio-item,
@@ -6028,25 +6016,6 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
   td.checkbox-text-item {
     margin-bottom: 0;
     position: relative;
-  }
-  td.radio-item input[type="radio"],
-  td.checkbox-item input[type="checkbox"] {
-    z-index: 1;
-    position: absolute;
-    width: 1em;
-    height: 1em;
-  }
-  .dir-ltr td.radio-item input[type="radio"],
-  .dir-ltr td.checkbox-item input[type="checkbox"] {
-    left: 0.1em;
-    top: 50%;
-    margin-top: -0.5em;
-  }
-  .dir-rtl td.radio-item input[type="radio"],
-  .dir-rtl td.checkbox-item input[type="checkbox"] {
-    right: 0.1em;
-    top: 50%;
-    margin-top: -0.5em;
   }
   table.ls-answers tbody .control-label {
     text-align: left;
@@ -6098,90 +6067,112 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
 tr.subquestion-list:hover .control-label,
 .ls-choice:hover {
   color: #222222;
-  text-shadow: 1px 1px 2px rgba(34, 34, 34, 0.3);
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(34, 34, 34, 0.3);
 }
-.checkbox-text-item .input-sm {
+.checkbox-text-item .input-sm,
+.radio-text-item .input-sm {
   height: 2.34rem;
   padding: 0.42rem 0.84rem;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
-select.checkbox-text-item .input-sm {
+select.checkbox-text-item .input-sm,
+select.radio-text-item .input-sm {
   height: 2.34rem;
   line-height: 2.34rem;
 }
 textarea.checkbox-text-item .input-sm,
-select[multiple].checkbox-text-item .input-sm {
+textarea.radio-text-item .input-sm,
+select[multiple].checkbox-text-item .input-sm,
+select[multiple].radio-text-item .input-sm {
   height: auto;
+}
+.radio-item input[type="radio"],
+.checkbox-item input[type="checkbox"] {
+  width: 1.14rem;
+  height: 1.14rem;
+  margin: 0;
 }
 .radio-item input[type="radio"],
 .checkbox-item input[type="checkbox"] {
   top: 50%;
 }
-li.radio-item input[type="radio"],
-li.checkbox-item input[type="checkbox"],
-div.radio-item input[type="radio"],
-div.checkbox-item input[type="checkbox"] {
-  margin-top: -0.6em;
+.radio-item input[type="radio"],
+.checkbox-item input[type="checkbox"] {
+  margin-top: -0.6rem;
 }
-.radio-list li.radio-item,
-.checkbox-list li.checkbox-item {
+.radio-list .radio-item,
+.checkbox-list .checkbox-item,
+.answers-list .radio-item {
   margin: 0;
 }
-.dir-ltr li.radio-item input[type="radio"],
-.dir-ltr li.checkbox-item input[type="checkbox"] {
+.dir-ltr .radio-item input[type="radio"],
+.dir-ltr .checkbox-item input[type="checkbox"] {
   left: 0.76rem;
 }
-.dir-rtl li.radio-item input[type="radio"],
-.dir-rtl li.checkbox-item input[type="checkbox"] {
+.dir-rtl .radio-item input[type="radio"],
+.dir-rtl .checkbox-item input[type="checkbox"] {
   right: 0.76rem;
 }
 .radio-list .radio-item label,
-.checkbox-list .checkbox-item label {
-  padding: 0.71rem 2.28rem;
+.checkbox-list .checkbox-item label,
+.answers-list .radio-item label {
+  padding: 0.71rem 1.14rem;
 }
-.checkbox-text-item .checkbox-item label {
-  padding: 0.71rem 2.28rem;
-}
-li.radio-item label,
-li.checkbox-item label,
-li.radio-text-item label {
-  min-height: 1.5rem;
-}
-.checkbox-text-item .checkbox-item label {
-  min-height: 1.5rem;
-}
-.dir-ltr .radio-list li.radio-text-item label,
-.dir-ltr .checkbox-list li.checkbox-text-item label {
+.dir-ltr .radio-list .radio-item label,
+.dir-ltr .checkbox-list .checkbox-item label,
+.dir-ltr .answers-list .radio-item label {
   padding-left: 2.28rem;
 }
-.dir-ltr .radio-list li.radio-text-item input[type="radio"],
-.dir-ltr .checkbox-list li.checkbox-text-item input[type="checkbox"] {
-  left: 0.76rem;
-}
-.dir-rtl .radio-list li.radio-text-item label,
-.dir-rtl .checkbox-list li.checkbox-text-item label {
+.dir-rtl .radio-list .radio-item label,
+.dir-rtl .checkbox-list .checkbox-item label,
+.dir-rtl .answers-list .radio-item label {
   padding-right: 2.28rem;
 }
-.dir-rtl .radio-list li.radio-text-item input[type="radio"],
-.dir-rtl .checkbox-list li.checkbox-text-item input[type="checkbox"] {
+.checkbox-text-item .checkbox-item label {
+  padding: 0.71rem 2.28rem;
+}
+.radio-item label,
+.checkbox-item label,
+.radio-text-item label {
+  min-height: 1.5rem;
+}
+.checkbox-text-item .checkbox-item label {
+  min-height: 1.5rem;
+}
+.dir-ltr .radio-list .radio-text-item label,
+.dir-ltr .checkbox-list .checkbox-text-item label {
+  padding-left: 2.28rem;
+}
+.dir-ltr .radio-list .radio-text-item input[type="radio"],
+.dir-ltr .checkbox-list .checkbox-text-item input[type="checkbox"] {
+  left: 0.76rem;
+}
+.dir-rtl .radio-list .radio-text-item label,
+.dir-rtl .checkbox-list .checkbox-text-item label {
+  padding-right: 2.28rem;
+}
+.dir-rtl .radio-list .radio-text-item input[type="radio"],
+.dir-rtl .checkbox-list .checkbox-text-item input[type="checkbox"] {
   right: 0.76rem;
 }
-@media only screen and (max-width: 48em) {
+@media only screen and (min-width: 48em) {
+  td.radio-item input[type="radio"],
+  td.checkbox-item input[type="checkbox"] {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.57rem;
+  }
   .dir-ltr td.radio-item input[type="radio"],
   .dir-ltr td.checkbox-item input[type="checkbox"] {
-    left: 0.57rem;
-    margin-top: -0.5em;
+    left: 50%;
+    margin-left: -0.57rem;
   }
   .dir-rtl td.radio-item input[type="radio"],
   .dir-rtl td.checkbox-item input[type="checkbox"] {
-    right: 0.57rem;
-    margin-top: -0.5em;
-  }
-  .ls-answers > tbody > tr > td.radio-item label,
-  .ls-answers > tbody > tr > td.checkbox-item label {
-    padding: 0.71rem 2.28rem;
+    left: 50%;
+    margin-left: -0.57rem;
   }
 }
 /* radio list and checkbox list with border : WIP */
@@ -6234,37 +6225,37 @@ ul.form-inline li.radio-item label {
 li.radio-item label,
 li.checkbox-item label {
   background-color: #fff;
-  color: #333;
+  color: #222222;
 }
 .radio-list .radio-text-item,
 .checkbox-list .checkbox-text-item {
   background-color: #fff;
-  color: #333;
+  color: #222222;
 }
 li.radio-item.other-item label,
 li.checkbox-item.other-item label {
   background-color: transparent;
 }
 /* checked */
-li.radio-item input[type="radio"]:checked + label,
-li.checkbox-item input[type="checkbox"]:checked + label {
+.radio-item input[type="radio"]:checked + label,
+.checkbox-item input[type="checkbox"]:checked + label {
   background: #0d318b;
   color: #fff;
 }
-li.radio-text-item input[type="radio"]:checked + label,
-li.checkbox-text-item input[type="checkbox"]:checked + label {
+.radio-text-item input[type="radio"]:checked + label,
+.checkbox-text-item input[type="checkbox"]:checked + label {
   background: transparent;
   color: inherit;
 }
-li.radio-text-item.answer-checked,
-li.checkbox-text-item.answer-checked {
+.radio-text-item.answer-checked,
+.checkbox-text-item.answer-checked {
   background: #0d318b;
   color: #fff;
 }
 /* hover */
-li.radio-item label:hover,
-li.checkbox-item label:hover,
-li.checkbox-item input[type="checkbox"]:checked + label:hover {
+.radio-item label:hover,
+.checkbox-item label:hover,
+.checkbox-item input[type="checkbox"]:checked + label:hover {
   background: #e6e6e6;
   color: #333;
 }
@@ -6279,16 +6270,21 @@ li.checkbox-item input[type="checkbox"]:checked + label:hover {
   color: #333;
 }
 /* no answer */
-li.no-anwser-item input[type="radio"]:checked + label,
-li.noanswer-item input[type="radio"]:checked + label {
+.no-anwser-item input[type="radio"]:checked + label,
+.noanswer-item input[type="radio"]:checked + label {
   background: transparent;
   color: inherit;
 }
-li.radio-item input[type="radio"][disabled] + label,
-li.checkbox-item input[type="radio"][disabled] + label {
+li.no-anwser-item input[type="radio"]:checked + label,
+li.noanswer-item input[type="radio"]:checked + label {
+  background-color: #fff;
+  color: #222222;
+}
+.radio-item input[type="radio"][disabled] + label,
+.checkbox-item input[type="radio"][disabled] + label {
   background: transparent;
   cursor: inherit;
-  color: #777777;
+  color: #919191;
 }
 /* ranking */
 .ls-choice {
