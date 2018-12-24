@@ -1,0 +1,9 @@
+<div id="ajax-loading" aria-hidden=1><i class="loader fa fa-circle-o-notch fa-spin fa-3x fa-fw text-muted"></i></div>
+<script>
+if (!window.jQuery) {
+    window.onload = function() {
+        body = document.getElementsByTagName('body')[0];
+        body.className = body.className.replace(/\body-loading\b/,'body-loaded');
+    };
+}
+</script>

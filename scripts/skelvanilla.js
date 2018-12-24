@@ -2,6 +2,7 @@ var skelVanilla = {
     init : function (options) {
         this.addCheckedClass();
         this.addHoverColumn();
+        this.bodyLoaded();
     },
     addCheckedClass : function () {
         /* radio in table */
@@ -73,5 +74,19 @@ var skelVanilla = {
                 $(this).closest(".table-hover,.table-col-hover").find("thead tr:not(.header_row),.ls-heading:not(.header_row)").find("th,td").eq($(this).parent(".answers-list,.subquestion-list").children().index($(this))).removeClass("col-hover");
             }
         }, ".answer-item");
+    },
+    removeBack: function(){
+        window.location.hash="nbb";
+        window.location.hash="";
+        //window.onhashchange=function(){window.location.hash="";}
+    },
+    bodyLoaded: function() {
+        $(document).ready(function(){
+            $("body").removeClass("body-loading").addClass("body-loaded");
+        });
+        $("button[type='submit'],a[data-limesurvey-submit],a[data-limesurvey-lang]").on("click",function(){
+            $("body").removeClass("body-loaded").addClass("body-loading");
+        });
+        /* Don't use unload, since pdf link don't unload but lauch unload … */
     }
 }

@@ -22,7 +22,7 @@
     {# Headers, metadata, etc #}
     {{ include('./subviews/header/head.twig') }}
     {% endblock %}
-    <body class=" {{ aSurveyInfo.class.body }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {{ ( aSurveyInfo.options.brandlogo == "on") ? 'with-brand-logo' : '' }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'with-navbar-fixed-top' : '' }}" >
+    <body class="body-loading {{ aSurveyInfo.class.body }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {{ ( aSurveyInfo.options.brandlogo == "on") ? 'with-brand-logo' : '' }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'with-navbar-fixed-top' : '' }}" >
         <div id="{{ aSurveyInfo.id.dynamicreload }}">
             {% block body %}
                 {# Bootstrap Navigation Bar: the top menu #}
@@ -48,6 +48,8 @@
                 {{ include('./subviews/footer/footer.twig') }}
             {% endblock %}
         </div>
+        {# This is not for ajax, but for page loading/unloading #}
+        {{ include('./subviews/navigation/ajax_indicator.twig') }}
         {% block themescripts %}
             <script>
                 if(window.basicThemeScripts === undefined){ 
