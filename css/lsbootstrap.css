@@ -6180,10 +6180,10 @@ select[multiple].radio-text-item .input-sm {
     background-color: #f5f5f5;
   }
   .table-col-hover tr.answers-list:hover {
-    background-color: #f5f5f5;
+    background-color: transparent;
   }
   .table-hover col.hover {
-    background-color: #f5f5f5;
+    background-color: transparent;
   }
 }
 /* radio list and checkbox list with border : WIP */
@@ -6334,6 +6334,15 @@ li.noanswer-item input[type="radio"]:checked + label {
   background: #0d318b;
   color: #fff;
 }
+.checkbox-item label.ls-label-xs-visibility,
+.radio-item label.ls-label-xs-visibility,
+.checkbox-item input[type="checkbox"]:checked + label.ls-label-xs-visibility,
+.radio-item input[type="radio"]:checked + label.ls-label-xs-visibility,
+.checkbox-item input[type="checkbox"] + label.ls-label-xs-visibility,
+.radio-item input[type="radio"]:checked + label.ls-label-xs-visibility {
+  background: transparent;
+  color: initial;
+}
 @media only screen and (max-width: 48em) {
   .ls-answers > tbody > tr > td.radio-item,
   .ls-answers > tbody > tr > td.checkbox-item,
@@ -6355,6 +6364,26 @@ li.noanswer-item input[type="radio"]:checked + label {
   table.ls-answers td.radio-item label,
   table.ls-answers td.checkbox-item label {
     margin-bottom: 0;
+  }
+  li.radio-item label.ls-label-xs-visibility,
+  li.checkbox-item label.ls-label-xs-visibility {
+    background-color: #fff;
+    color: #222222;
+  }
+  .radio-item input[type="radio"]:checked + label.ls-label-xs-visibility,
+  .checkbox-item input[type="checkbox"]:checked + label.ls-label-xs-visibility {
+    background: #0d318b;
+    color: #fff;
+  }
+  .radio-item label.ls-label-xs-visibility:hover,
+  .checkbox-item label.ls-label-xs-visibility:hover {
+    background: #e6e6e6;
+    color: #333;
+  }
+  .no-anwser-item input[type="radio"]:checked + label.ls-label-xs-visibility,
+  .noanswer-item input[type="radio"]:checked + label.ls-label-xs-visibility {
+    background: transparent;
+    color: inherit;
   }
 }
 .modal-open {
