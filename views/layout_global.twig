@@ -16,7 +16,7 @@
     - Contribution are welcome : https://gitlab.com/SondagesPro/SurveyThemes/accessible_vanilla/merge_requests
     Remind A11Y issue can be reported to LimeSurvey core too : https://www.limesurvey.org/community/bug-tracker
 #}<!DOCTYPE html>
-<html lang="{{ aSurveyInfo.languagecode }}" dir="{{ aSurveyInfo.dir }}" class="{{ aSurveyInfo.languagecode }} dir-{{ aSurveyInfo.dir }} {{ aSurveyInfo.class.html }} variation-{{ aSurveyInfo.options.variation }}" {{ aSurveyInfo.attr.html }}>
+<html lang="{{ aSurveyInfo.languagecode }}" dir="{{ aSurveyInfo.dir }}" class="{{ aSurveyInfo.languagecode }} dir-{{ aSurveyInfo.dir }} {{ aSurveyInfo.class.html }} variation-{{ str_replace(['css/variations/','.min.css'],['',''],aSurveyInfo.options.variation) }} variation-{{ str_replace(['css/variations/','.min.css','-base','-button','-awesome','-button_awesome'],'',aSurveyInfo.options.variation) }}" {{ aSurveyInfo.attr.html }}>
 <!-- {{ aSurveyInfo.options.variation }} -->
     {% block head %}
     {# Headers, metadata, etc #}
