@@ -4202,9 +4202,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   float: right;
   margin-right: 0.75rem;
-  padding: 9px 10px;
-  margin-top: -15.5rem;
-  margin-bottom: -15.5rem;
+  padding: 0.32rem 0.35rem;
+  margin-top: 0.32rem;
+  margin-bottom: 0.32rem;
   background-color: transparent;
   background-image: none;
   border: 1px solid transparent;
@@ -5828,26 +5828,6 @@ li.checkbox-text-item {
 .dir-rtl .input-group-addon.checkbox-item {
   padding-right: 0.75rem;
 }
-/* Else big label break*/
-.answer-item,
-.radio-item,
-.checkbox-item {
-  position: relative;
-}
-.radio-item label,
-.checkbox-item label {
-  display: block;
-}
-.radio-item input[type="radio"],
-.checkbox-item input[type="checkbox"] {
-  z-index: 1;
-  position: absolute;
-  width: 1em;
-  height: 1em;
-}
-td.answer-item {
-  text-align: center;
-}
 @media only screen and (max-width: 36em) {
   .slider-list .slider-left {
     text-align: left;
@@ -5930,6 +5910,13 @@ table.ls-answers {
 /* Basic question css */
 .question-container {
   margin-bottom: 2em;
+}
+/* .navbar-brand with little screen */
+@media only screen and (max-width: 48em) {
+  .navbar-brand {
+    font-size: 0.85rem;
+    display: inline;
+  }
 }
 /*
 Max width before this PARTICULAR table gets nasty
@@ -6093,10 +6080,23 @@ select[multiple].checkbox-text-item .input-sm,
 select[multiple].radio-text-item .input-sm {
   height: auto;
 }
+/* Input radio checkbox position */
+.answer-item,
+.radio-item,
+.checkbox-item {
+  position: relative;
+}
+.radio-item label,
+.checkbox-item label {
+  display: block;
+}
 .radio-item input[type="radio"],
 .checkbox-item input[type="checkbox"] {
-  width: auto;
-  height: auto;
+  z-index: 1;
+  position: absolute;
+}
+.radio-item input[type="radio"],
+.checkbox-item input[type="checkbox"] {
   margin: 0;
   display: inline-block;
 }
@@ -6163,32 +6163,55 @@ select[multiple].radio-text-item .input-sm {
 .dir-rtl .checkbox-list .checkbox-text-item input[type="checkbox"] {
   right: 0.76rem;
 }
-@media only screen and (min-width: 48em) {
+/* Inside table */
+td.radio-item input[type="radio"],
+td.checkbox-item input[type="checkbox"] {
+  position: relative;
+  top: auto;
+  margin: 0.5em 0;
+}
+.dir-ltr td.radio-item input[type="radio"],
+.dir-ltr td.checkbox-item input[type="checkbox"] {
+  left: auto;
+}
+.dir-rtl td.radio-item input[type="radio"],
+.dir-rtl td.checkbox-item input[type="checkbox"] {
+  right: auto;
+}
+/* Hover column */
+.table-col-hover col.hover {
+  background: #f5f5f5;
+}
+.table-col-hover tr.answers-list:hover {
+  background: #fafafa;
+}
+.table-hover col.hover {
+  background: #fafafa;
+}
+@media only screen and (max-width: 48em) {
   td.radio-item input[type="radio"],
   td.checkbox-item input[type="checkbox"] {
-    position: relative;
-    top: auto;
-    margin: 0.5em 0;
-    display: inline-block;
-    width: auto;
-    height: auto;
+    position: absolute;
+    top: 50%;
+    margin: 0;
+    margin-top: -0.6rem;
+  }
+  .table-col-hover col.hover {
+    background: transparent;
+  }
+  .table-col-hover tr.answers-list:hover {
+    background: transparent;
+  }
+  .table-hover col.hover {
+    background: transparent;
   }
   .dir-ltr td.radio-item input[type="radio"],
   .dir-ltr td.checkbox-item input[type="checkbox"] {
-    left: auto;
+    left: 0.76rem;
   }
   .dir-rtl td.radio-item input[type="radio"],
   .dir-rtl td.checkbox-item input[type="checkbox"] {
-    right: auto;
-  }
-  .table-col-hover col.hover {
-    background-color: #f5f5f5;
-  }
-  .table-col-hover tr.answers-list:hover {
-    background-color: #fafafa;
-  }
-  .table-hover col.hover {
-    background-color: #fafafa;
+    right: 0.76rem;
   }
 }
 /* radio list and checkbox list with border : WIP */
@@ -7279,4 +7302,5 @@ li.noanswer-item input[type="radio"]:checked + label {
     display: none !important;
   }
 }
+/* Use this for personalisation */
 /*# sourceMappingURL=lsbootstrap.css.map */
