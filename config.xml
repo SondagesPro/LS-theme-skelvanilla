@@ -18,11 +18,12 @@
         <authorUrl>http://www.sondages.pro</authorUrl>
         <copyright>Copyright (C) 2018 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 2 or later</license>
-        <version>3.2.0</version>
+        <version>3.2.1</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with accessibility</strong><br>Base on vanilla theme, usage of more aria and fix some role and aria from core.<br>Part of this theme are merged in core LimeSurvey when it's ready.]]></description>
         <last_update>2018-12-23 19:07:26</last_update>
-        <extends>vanilla</extends></metadata>
+        <extends>vanilla</extends>
+    </metadata>
 
     <files>
         <css>
@@ -74,134 +75,135 @@
         <validitycolor>text-info</validitycolor>
         <fixedheader>off</fixedheader>
         <variation>default</variation>
-        <availablevariations>
-            <contrast>
-                <name>Contrast</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </contrast>
-            <bootstrap>
-                <name>Bootstrap</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </bootstrap>
-            <cerulean>
-                <name>Cerulean</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </cerulean>
-            <cosmo>
-                <name>Cosmo</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </cosmo>
-            <cyborg>
-                <name>Cyborg</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </cyborg>
-            <darkly>
-                <name>Darkly</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </darkly>
-            <flatly>
-                <name>Flatly</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </flatly>
-            <journal>
-                <name>Journal</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </journal>
-            <lumen>
-                <name>Lumen</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </lumen>
-            <paper>
-                <name>Paper</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </paper>
-            <readable>
-                <name>Readable</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </readable>
-            <sandstone>
-                <name>Sandstone</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </sandstone>
-            <simplex>
-                <name>Simplex</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </simplex>
-            <slate>
-                <name>Slate</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </slate>
-            <spacelab>
-                <name>Spacelab</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </spacelab>
-            <superhero>
-                <name>Superhero</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </superhero>
-            <united>
-                <name>United</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </united>
-            <yeti>
-                <name>Yeti</name>
-                <base>true</base>
-                <button>true</button>
-                <awesome>true</awesome>
-                <button_awesome>true</button_awesome>
-            </yeti>
-        </availablevariations>
+        <!-- List of availbale variation, can use 0 to disable partially, remove or use "disable" : "1" to disable it -->
+        <availablevariations>{
+  "contrast": {
+    "name": "Contrast",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "bootstrap": {
+    "name": "Bootstrap",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "cerulean": {
+    "name": "Cerulean",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "cosmo": {
+    "name": "Cosmo",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "cyborg": {
+    "name": "Cyborg",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "darkly": {
+    "name": "Darkly",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "flatly": {
+    "name": "Flatly",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "journal": {
+    "name": "Journal",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "lumen": {
+    "name": "Lumen",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "paper": {
+    "name": "Paper",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "readable": {
+    "name": "Readable",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "sandstone": {
+    "name": "Sandstone",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "simplex": {
+    "name": "Simplex",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "slate": {
+    "name": "Slate",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "spacelab": {
+    "name": "Spacelab",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "superhero": {
+    "name": "Superhero",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "united": {
+    "name": "United",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "yeti": {
+    "name": "Yeti",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  }
+}</availablevariations>
     </options>
     <!-- Unable to remove package, it's removed in css/js … -->
     <packages>
