@@ -53,6 +53,7 @@
     </files>
     <!-- css/lsboostrap.css + css/theme.css + css/custom.css and scripts/theme.js, scripts/custom.js added in global_layout -->
     <!-- You can add here any option you want. It will be available in twig file via aSurveyInfo.options.youroptionname -->
+    <!-- List of availbale variation, can use 0 to disable partially, remove or use "disable" : "1" to disable it -->
     <options>
         <animatebody>off</animatebody>
         <hideprivacyinfo>off</hideprivacyinfo>
@@ -75,7 +76,6 @@
         <validitycolor>text-info</validitycolor>
         <fixedheader>off</fixedheader>
         <variation>default</variation>
-        <!-- List of availbale variation, can use 0 to disable partially, remove or use "disable" : "1" to disable it -->
         <availablevariations>{
   "contrast": {
     "name": "Contrast",
