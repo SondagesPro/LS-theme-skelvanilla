@@ -1,9 +1,10 @@
 var skelVanilla = {
     init : function (options) {
         this.addCheckedClass();
+        this.otherListRadio();
         this.addHoverColumn();
-        this.bodyLoaded();
         this.disableEnterSubmit();
+        this.bodyLoaded();
     },
     addCheckedClass : function () {
         /* radio in table */
@@ -110,6 +111,24 @@ var skelVanilla = {
                 }
             }
         });
+    },
+    otherListRadio : function() {
+        /* disable text-input : no tab indexed */
+        $(document).ready(function(){
+            $('li.radio-text-item [type=radio]').not('[checked]').each(function(){
+                $(this).closest('li').find('[type=text]').prop('disabled',true);
+            });
+        });
+        $(document).on('click','li.radio-item [type=radio]',function(){
+            $(this).closest('ul').find('li.radio-text-item').find("input[type=text]").prop('disabled',true);
+        });
+        $(document).on('click','li.radio-text-item [type=radio]',function(event){
+            $(this).closest(".radio-text-item").find("input[type=text]").prop('disabled',false);
+            event.stopPropagation();
+        });
+        $(document).on('click','li.radio-text-item',function(){
+            $(this).find("input[type=radio]").click();
+            $(this).find("input[type=text]").focus();
+        });
     }
-
 }
