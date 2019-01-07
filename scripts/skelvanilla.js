@@ -86,12 +86,18 @@ var skelVanilla = {
         $(document).ready(function(){
             $("body").removeClass("body-loading").addClass("body-loaded");
         });
-        $("button[type='submit']").on("click",function(){
+        $("button[type='submit']").on('click',function(){
             if (!$(this).closest('form')[0].checkValidity || $(this).closest('form')[0].checkValidity()) {
                 $("body").removeClass("body-loaded").addClass("body-loading");
             }
         });
-        $("a[data-limesurvey-submit],a[data-limesurvey-lang]").on("click",function(){
+        $("a[data-limesurvey-submit]:not([data-confirmedby]),a[data-limesurvey-lang]").on('click',function(){
+            $("body").removeClass("body-loaded").addClass("body-loading");
+        });
+        $("form").on('submit',function(){
+            $("body").removeClass("body-loaded").addClass("body-loading");
+        });
+        $("a.ls-return,a.external,a[rel='external'],.url-wrapper-survey-return a").on('click',function() {
             $("body").removeClass("body-loaded").addClass("body-loading");
         });
         /* Don't use unload, since pdf link don't unload but lauch unload … */
