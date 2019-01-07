@@ -84,6 +84,8 @@ main{padding-bottom:3em}
 table.ls-answers thead th,table.ls-answers thead td,table.ls-answers .ls-heading th,table.ls-answers .ls-heading td{
     text-align:center;
 }
+/* hide (then disable tab) for input other in multiple choice */
+.checkbox-text-item .other-checkbox[aria-hidden]{display:none}
 /* Limesurvey vanilla part */
 
 /* specific for survey listing */
