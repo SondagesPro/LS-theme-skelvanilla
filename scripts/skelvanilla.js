@@ -3,6 +3,7 @@ var skelVanilla = {
         this.addCheckedClass();
         this.addHoverColumn();
         this.bodyLoaded();
+        this.disableEnterSubmit();
     },
     addCheckedClass : function () {
         /* radio in table */
@@ -93,5 +94,22 @@ var skelVanilla = {
             $("body").removeClass("body-loaded").addClass("body-loading");
         });
         /* Don't use unload, since pdf link don't unload but lauch unload … */
+    },
+    /* Disable enter on input:text, replace by a tab system */
+    /* @link https://github.com/LimeSurvey/LimeSurvey/blob/05f0bf840c58bd4f3526527706eb8cfc8a00e7b2/themes/survey/vanilla/scripts/theme.js#L215-L248 */
+    disableEnterSubmit : function () {
+        $(document).on('keypress','#limesurvey input[type=text],#limesurvey select',function(e){
+            var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+            if (key == 13 && e.ctrlKey != true ) {
+                e.preventDefault();
+                var inputs = $(this).closest('form').find(':input:visible:enabled,select:visible:enabled,textarea:visible:enabled,button:visible:enabled');
+                if ((inputs.length-1) == inputs.index(this)) {
+                    $('.action--ls-button-submit').focus();
+                } else {
+                    inputs.eq(inputs.index(this) + 1).focus();
+                }
+            }
+        });
     }
+
 }

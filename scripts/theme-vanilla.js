@@ -30,11 +30,9 @@ var ThemeScripts = function(){
     var sliderSuffixClone = function sliderSuffixClone(){
         $('.numeric-multi .slider-item .slider-right').each(function(){
             var colWidth='12';
-            
             if($(this).closest('.slider-item').find('.slider-left').length){
                 colWidth = '6';
             }
-
             $(this).clone().removeClass('col-xs-12').addClass('visible-xs-block col-xs-'+colWidth).prop('aria-hidden',true).insertBefore($(this).prev('.slider-container'));
             $(this).addClass('hidden-xs');
             $(this).closest('.slider-item').find('.slider-left').removeClass('col-xs-12').addClass('col-xs-6');
@@ -107,9 +105,7 @@ var ThemeScripts = function(){
             // Scroll to first error - After user close modal -
             if($('.input-error').length > 0 ||  $('.ls-em-error').length > 0 ) {
                 $('#bootstrap-alert-box-modal').on('hidden.bs.modal', function () {
-
                     var $firstError = ($('.input-error').length > 0 ) ? $('.input-error').first() : $('.ls-em-error').first();
-
                     var $pixToScroll = ( $firstError.offset().top - 100 );
                     $('html, body').animate({
                         scrollTop: $pixToScroll + 'px'
@@ -140,13 +136,6 @@ var ThemeScripts = function(){
                 });
             }
 
-            // Survey list footer
-            if($('#surveyListFooter').length>0)
-            {
-                var $surveyListFooter = $('#surveyListFooter');
-                $('#outerframeContainer').after($surveyListFooter);
-            }
-
             $(function () {
                 $('[data-toggle="tooltip"]').tooltip();
             });
@@ -156,41 +145,6 @@ var ThemeScripts = function(){
             // eslint-disable-next-line no-undef
             activateLanguageChanger();
         });
-
-        var onkeyEventInput = function(e){
-            var code = (e.keyCode ? e.keyCode : e.which);
-            if (code==13 && e.ctrlKey != true) {
-                e.preventDefault();
-                if($(this).closest('.question-container').hasClass('multiple-short-txt')){
-                    if($(this).closest('.question-item').next('.question-item').length > 0) {
-                        $(this).closest('.question-item').next('.question-item').find('input, textarea').first().focus();
-                        return;
-                    }
-                }
-                $(this).closest('.question-container').next('.question-container').find('input, textarea').first().focus();
-            } else if (code==13 && e.ctrlKey == true) {
-                $('.action--ls-button-submit').trigger('click');
-            }
-        };
-
-        var onkeyEventTextarea = function(e){
-            var code = (e.keyCode ? e.keyCode : e.which);
-            if (code==13 && e.altKey == true) {
-                e.preventDefault();
-                if($(this).closest('.question-container').hasClass('multiple-short-txt')){
-                    if($(this).closest('.question-item').next('.question-item').length > 0) {
-                        $(this).closest('.question-item').next('.question-item').find('input, textarea').first().focus();
-                        return;
-                    }
-                }
-                $(this).closest('.question-container').next('.question-container').find('input, textarea').first().focus();
-            } else if (code==13 && e.ctrlKey == true) {
-                $('.action--ls-button-submit').trigger('click');
-            }
-        };
-
-        $(document).on('keydown', '.answer-container input', onkeyEventInput);
-        $(document).on('keydown', '.answer-container textarea', onkeyEventTextarea);
     };
 
     var initUserForms = function(){
