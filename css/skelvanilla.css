@@ -19,8 +19,8 @@
 /* question-text h1,h2,h3 … remove extra margin */
 h2.question-text ,h3.question-text,
 .lead.question-text,
-.h2.question-text,.h3.question-text,.h4.question-text,.h4.question-text{
-margin-top:0;margin-bottom:0
+.h2.question-text,.h3.question-text,.h4.question-text,.h4.question-text,.h5.question-text,.h6.question-text{
+margin-top:0;margin-bottom:0.5em;
 }
 /* For footer, inspirated by layout-galla */
 html, body {height: 100%;}

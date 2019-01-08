@@ -86,7 +86,7 @@ var skelVanilla = {
         $(document).ready(function(){
             $("body").removeClass("body-loading").addClass("body-loaded");
         });
-        $("button[type='submit']").on('click',function(){
+        $("button[type='submit']:not([data-confirmedby])").on('click',function(){
             if (!$(this).closest('form')[0].checkValidity || $(this).closest('form')[0].checkValidity()) {
                 $("body").removeClass("body-loaded").addClass("body-loading");
             }
