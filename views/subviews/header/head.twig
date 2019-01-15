@@ -14,13 +14,6 @@
     This file generates the headers.
     Most of the time, it is not the right place to add your own JS/CSS - instead, use the config.xml file for that.
 #}<head>
-{% if ( aSurveyInfo.options.variation == 'default' or not aSurveyInfo.options.variation  ) %}
-    {{ registerTemplateCssFile('css/lsbootstrap.css') }}
-{% else %}
-    {{ registerTemplateCssFile(aSurveyInfo.options.variation) }}
-{% endif %}
-{{ registerTemplateCssFile('css/theme.css') }}{{ registerTemplateCssFile('css/custom.css') }}
-{{ registerTemplateScript('scripts/theme.js',"POS_HEAD") }}{{ registerTemplateScript('scripts/custom.js',"POS_HEAD") }}
 {% if(aSurveyInfo.jYesNo) %}
     {{ registerScript('activateConfirmLanguage',"$.extend(LSvar.lang," ~ aSurveyInfo.jYesNo ~ ")", "POS_BEGIN") }}
 {% endif %}
@@ -35,9 +28,6 @@
         {% if(aSurveyInfo.errorHtml.messages) %}[ {{ gT('Error') }} ]{% endif %}
         {{ pagetitle ?: flatString(processString(aSurveyInfo.surveyls_title,1)) }}
     </title>
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ imageSrc('files/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ imageSrc('files/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ imageSrc('files/favicon-16x16.png') }}">
     <script type="text/javascript">
         if(window.basicThemeScripts === undefined){ 
             window.basicThemeScripts = new ThemeScripts(); 

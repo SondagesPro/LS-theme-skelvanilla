@@ -14,10 +14,10 @@
         <authorUrl>http://www.sondages.pro</authorUrl>
         <copyright>Copyright (C) 2018 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 2 or later</license>
-        <version>3.2.2</version>
+        <version>3.3.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
-        <last_update>2019-01-08 14:27:13</last_update>
+        <last_update>2019-01-15 22:53:22</last_update>
         <extends>vanilla</extends>
     </metadata>
 
@@ -26,25 +26,21 @@
             <remove>css/ajaxify.css</remove>
             <remove>scripts/ajaxify.js</remove>
             <remove>bootstrap.css</remove>
-            <remove>bootstrap.min.css</remove>
-            <remove>bootstrap.min.css</remove>
             <remove>yiistrap.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
-            <remove>noto.css</remove>
             <remove>template-core.css</remove>
             <add>css/skelvanilla.css</add>
-            <remove>css/theme.css</remove>
-            <remove>css/custom.css</remove>
+            <add>css/theme.css</add>
+            <add>css/custom.css</add>
         </css>
         <js>
             <remove>scripts/ajaxify.js</remove>
-            <remove>pjax.js</remove>
             <add>scripts/aria-live.js</add>
             <add>scripts/theme-vanilla.js</add>
             <add>scripts/skelvanilla.js</add>
-            <remove>scripts/theme.js</remove>
-            <remove>scripts/custom.js</remove>
+            <add>scripts/theme.js</add>
+            <add>scripts/custom.js</add>
         </js>
     </files>
     <!-- css/lsboostrap.css + css/theme.css + css/custom.css and scripts/theme.js, scripts/custom.js added in global_layout -->
@@ -71,7 +67,6 @@
         <helpcolor>text-info</helpcolor>
         <validitycolor>text-info</validitycolor>
         <fixedheader>off</fixedheader>
-        <variation>default</variation>
         <availablevariations>{
   "contrast": {
     "name": "Contrast",
@@ -209,6 +204,18 @@
     </packages>
     <!-- Here datas about how LimeSurvey should load the theme -->
     <engine>
+        <cssframework>
+            <name>bootstrap</name>
+            <css replace="css/bootstrap.css">css/lsbootstrap.css</css>
+        </cssframework>
+
+        <viewdirectory>views</viewdirectory>
+        <filesdirectory>files</filesdirectory>
+
+        <packages>
+            <add>moment</add>
+        </packages>
+
         <template_editor>
             <screens>
                 <question>

@@ -20,24 +20,28 @@ var ThemeOptions = function(){
     
     // #TemplateConfiguration_options is the id of the Options field in advanced option
     // getter for generalInherit
-    var generalInherit = function(){return $('#TemplateConfiguration_options').val() === 'inherit'; };
-    
+    var generalInherit = function(){
+        return $('#TemplateConfiguration_options').val() === 'inherit';
+    };
+
     //parse the options as set in the advanced form
     var parseOptionObject = function(){
         // If no general inherit, then pass the value of the "Options" field in advanced option to the object optionObject
         if($('#TemplateConfiguration_options').length>0 && !generalInherit()){
             try{
                 optionObject = JSON.parse($('#TemplateConfiguration_options').val());
-            } catch(e){ console.ls ? console.ls.error('No valid option field!') : console.log('No valid option field!'); }
+            } catch(e){
+                console.ls ? console.ls.error('No valid option field!') : console.log('No valid option field!');
+            }
         }
     };
 
     // Show/Hide fields on generalInherit
     // To hide a simple option on generalInherit: just add the class "action_hide_on_inherit" to the rows continaing it
     var startupGeneralInherit = function(){
-        
+
         if(!inheritPossible) return false;
-        
+
         if (generalInherit()){
             $('#general_inherit_on').prop('checked',true).trigger('change').closest('label').addClass('active');
             $('.action_hide_on_inherit').addClass('hidden');
@@ -48,9 +52,9 @@ var ThemeOptions = function(){
 
     // So this function find the selectors in the forum, and pass their values to the advanced options
     var updateFieldSettings = function(){
-
         if($('#general_inherit_on').prop('checked')){
             $('#TemplateConfiguration_options').val('inherit');
+            $('#TemplateConfiguration_cssframework_css').val('inherit');
             return;
         }
         globalForm.find('.selector_option_value_field').each(function(i,item){
@@ -58,7 +62,6 @@ var ThemeOptions = function(){
             if($(item).prop('disabled')){
                 $(item).val((inheritPossible ? 'inherit' : false));
             }
-            
             optionObject[$(item).attr('name')] = $(item).val();
         });
 
@@ -82,7 +85,6 @@ var ThemeOptions = function(){
         });
         var newOptionObject = $.extend(true, {}, optionObject);
         delete newOptionObject.general_inherit;
-
         $('#TemplateConfiguration_options').val(JSON.stringify(newOptionObject));
     };
     
@@ -165,6 +167,32 @@ var ThemeOptions = function(){
             $('#simple_edit_font').val(optionObject.font);
         }
         updateFieldSettings();
+    };
+
+    var manageCssFrameworkField = function(){
+        var currentTheme = 'inherit';
+        var currentCssFrameworkObject = 'inherit';
+        if($('#TemplateConfiguration_cssframework_css').length>0){
+            currentCssFrameworkObject = $('#TemplateConfiguration_cssframework_css').val();
+        }
+        if(currentCssFrameworkObject != 'inherit') {
+            try{
+                currentTheme = JSON.parse(currentCssFrameworkObject).replace[0][1];
+            } catch(e){
+                currentTheme = "css/lsbootstrap.css";
+            }
+        }
+        console.log(currentTheme);
+        $('#simple_edit_cssframework_css').val(currentTheme);
+        $('#simple_edit_cssframework_css').on("change",function() {
+            if($(this).val() == 'inherit') {
+                $('#TemplateConfiguration_cssframework_css').val('inherit');
+            } else {
+                currentCssFrameworkObject = {};
+                currentCssFrameworkObject.replace = [["css/bootstrap.css",$(this).val()]];
+                $('#TemplateConfiguration_cssframework_css').val(JSON.stringify(currentCssFrameworkObject));
+            }
+        });
     };
 
     ///////////////
@@ -282,8 +310,8 @@ var ThemeOptions = function(){
         prepareSelectField();
         prepareTextField();
         parseParentSwitchFields();
-        prepareFontField();
-
+        //prepareFontField();
+        manageCssFrameworkField();
         bind();
     };
 

@@ -46,7 +46,55 @@
                     <hr/>
                 </div>
             {% endif %}
-
+            {# CSS variation : #}
+            {% if oParentOptions.availablevariations is null %}
+                {% set sAvailableVariations = '{"contrast":{"name":"Contrast","base":"true","button":"true","awesome":"true","button_awesome":"true"},"bootstrap":{"name":"Bootstrap","base":"true","button":"true","awesome":"true","button_awesome":"true"},"cerulean":{"name":"Cerulean","base":"true","button":"true","awesome":"true","button_awesome":"true"},"cosmo":{"name":"Cosmo","base":"true","button":"true","awesome":"true","button_awesome":"true"},"cyborg":{"name":"Cyborg","base":"true","button":"true","awesome":"true","button_awesome":"true"},"darkly":{"name":"Darkly","base":"true","button":"true","awesome":"true","button_awesome":"true"},"flatly":{"name":"Flatly","base":"true","button":"true","awesome":"true","button_awesome":"true"},"journal":{"name":"Journal","base":"true","button":"true","awesome":"true","button_awesome":"true"},"lumen":{"name":"Lumen","base":"true","button":"true","awesome":"true","button_awesome":"true"},"paper":{"name":"Paper","base":"true","button":"true","awesome":"true","button_awesome":"true"},"readable":{"name":"Readable","base":"true","button":"true","awesome":"true","button_awesome":"true"},"sandstone":{"name":"Sandstone","base":"true","button":"true","awesome":"true","button_awesome":"true"},"simplex":{"name":"Simplex","base":"true","button":"true","awesome":"true","button_awesome":"true"},"slate":{"name":"Slate","base":"true","button":"true","awesome":"true","button_awesome":"true"},"spacelab":{"name":"Spacelab","base":"true","button":"true","awesome":"true","button_awesome":"true"},"superhero":{"name":"Superhero","base":"true","button":"true","awesome":"true","button_awesome":"true"},"united":{"name":"United","base":"true","button":"true","awesome":"true","button_awesome":"true"},"yeti":{"name":"Yeti","base":"true","button":"true","awesome":"true","button_awesome":"true"}}' %}
+            {% else %}
+                {% set sAvailableVariations = oParentOptions.availablevariations %}
+            {% endif %}
+            <div class='row action_hide_on_inherit'>
+                <div class='col-sm-12'>
+                    <div class='panel panel-default'>
+                        <div class='panel-heading'>{{ sprintf( gT("%s variations"), templateConfiguration.template_name) }} </div>
+                        <div class='panel-body'>
+                            <div class='form-group row'>
+                                <label for='simple_edit_cssframework_css' class='control-label'>{{ gT("Select variation:") }}</label>
+                                <div class='col-sm-12'>
+                                    <select class='form-control selector_option_cssframework_css' id='simple_edit_cssframework_css' name='cssframework'>
+                                        <option value="css/lsbootstrap.css">{{ gT('None') }} - {{ gT('bootstrap.css updatable via theme editor') }}</option>
+                                        {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                            <option value="inherit"> {{ gT('Inherit') }}</option>
+                                        {% endif %}
+                                        {% for variation,oVariation in json_decode(sAvailableVariations) %}
+                                            {% set aVariation = json_decode(json_encode(oVariation)) %}
+                                            {% if not aVariation.disable %}
+                                                <optgroup label="{{ aVariation.name }}">
+                                                    {% if aVariation.base %}
+                                                        <option value="css/variations/{{ variation }}-base.min.css"> {{ aVariation.name }} - Base</option>
+                                                    {% endif %}
+                                                    {% if aVariation.button %}
+                                                        <option value="css/variations/{{ variation }}-button.min.css">{{ aVariation.name }} - Button for radio and checkbox</option>
+                                                    {% endif %}
+                                                    {% if aVariation.awesome %}
+                                                        <option value="css/variations/{{ variation }}-awesome.min.css">{{ aVariation.name }} - Awesome checkbox and radio</option>
+                                                    {% endif %}
+                                                    {% if aVariation.button_awesome %}
+                                                        <option value="css/variations/{{ variation }}-button_awesome.min.css">{{ aVariation.name }} -  Button &amp; awesome checkbox and radio</option>
+                                                    {% endif %}
+                                                </optgroup>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                    <p class="help-block">Except contrast, all this variations come from <a href="https://bootswatch.com/3/">bootswatch</a>, Copyright (c) 2013 Thomas Park.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='row action_hide_on_inherit'>
+                <hr/>
+            </div>
             {# First settings row #}
             <div class='row action_hide_on_inherit'>
                 {# Container #}
@@ -285,56 +333,6 @@
                                 <option value="text-success">{{ gT("Text success") }}</option>
                                 <option value="text-warning">{{ gT("Text warning") }}</option>
                             </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='row action_hide_on_inherit'>
-                <hr/>
-            </div>
-
-            {# CSS variation #}
-            {% if oParentOptions.availablevariations is null %}
-                {% set sAvailableVariations = '{"contrast":{"name":"Contrast","base":"true","button":"true","awesome":"true","button_awesome":"true"},"bootstrap":{"name":"Bootstrap","base":"true","button":"true","awesome":"true","button_awesome":"true"},"cerulean":{"name":"Cerulean","base":"true","button":"true","awesome":"true","button_awesome":"true"},"cosmo":{"name":"Cosmo","base":"true","button":"true","awesome":"true","button_awesome":"true"},"cyborg":{"name":"Cyborg","base":"true","button":"true","awesome":"true","button_awesome":"true"},"darkly":{"name":"Darkly","base":"true","button":"true","awesome":"true","button_awesome":"true"},"flatly":{"name":"Flatly","base":"true","button":"true","awesome":"true","button_awesome":"true"},"journal":{"name":"Journal","base":"true","button":"true","awesome":"true","button_awesome":"true"},"lumen":{"name":"Lumen","base":"true","button":"true","awesome":"true","button_awesome":"true"},"paper":{"name":"Paper","base":"true","button":"true","awesome":"true","button_awesome":"true"},"readable":{"name":"Readable","base":"true","button":"true","awesome":"true","button_awesome":"true"},"sandstone":{"name":"Sandstone","base":"true","button":"true","awesome":"true","button_awesome":"true"},"simplex":{"name":"Simplex","base":"true","button":"true","awesome":"true","button_awesome":"true"},"slate":{"name":"Slate","base":"true","button":"true","awesome":"true","button_awesome":"true"},"spacelab":{"name":"Spacelab","base":"true","button":"true","awesome":"true","button_awesome":"true"},"superhero":{"name":"Superhero","base":"true","button":"true","awesome":"true","button_awesome":"true"},"united":{"name":"United","base":"true","button":"true","awesome":"true","button_awesome":"true"},"yeti":{"name":"Yeti","base":"true","button":"true","awesome":"true","button_awesome":"true"}}' %}
-            {% else %}
-                {% set sAvailableVariations = oParentOptions.availablevariations %}
-            {% endif %}
-            <div class='row  action_hide_on_inherit'>
-                <div class='col-sm-12'>
-                    <div class='panel panel-default'>
-                        <div class='panel-heading'>{{ sprintf( gT("%s variations"), templateConfiguration.template_name) }} </div>
-                        <div class='panel-body'>
-                            <div class='form-group row'>
-                                <label for='simple_edit_options_variation' class='control-label'>{{ gT("Select variation:") }}</label>
-                                <div class='col-sm-12'>
-                                    <select class='form-control selector_option_value_field' id='simple_edit_options_variation' name='variation'>
-                                        <option value="default">{{ gT('None') }} - {{ gT('lsbootrsap.css updatable via theme editor') }}</option>
-                                        {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                            <option value="inherit"> {{ gT('Inherit') }}</option>
-                                        {% endif %}
-                                        {% for variation,oVariation in json_decode(sAvailableVariations) %}
-                                            {% set aVariation = json_decode(json_encode(oVariation)) %}
-                                            {% if not aVariation.disable %}
-                                                <optgroup label="{{ aVariation.name }}">
-                                                    {% if aVariation.base %}
-                                                        <option value="css/variations/{{ variation }}-base.min.css"> {{ aVariation.name }} - Base</option>
-                                                    {% endif %}
-                                                    {% if aVariation.button %}
-                                                        <option value="css/variations/{{ variation }}-button.min.css">{{ aVariation.name }} - Button for radio and checkbox</option>
-                                                    {% endif %}
-                                                    {% if aVariation.awesome %}
-                                                        <option value="css/variations/{{ variation }}-awesome.min.css">{{ aVariation.name }} - Awesome checkbox and radio</option>
-                                                    {% endif %}
-                                                    {% if aVariation.button_awesome %}
-                                                        <option value="css/variations/{{ variation }}-button_awesome.min.css">{{ aVariation.name }} -  Button &amp; awesome checkbox and radio</option>
-                                                    {% endif %}
-                                                </optgroup>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </select>
-                                    <p class="help-block">Except contrast, all this variations come from <a href="https://bootswatch.com/3/">bootswatch</a>, Copyright (c) 2013 Thomas Park.</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
