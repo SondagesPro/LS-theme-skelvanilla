@@ -27,6 +27,7 @@
             <remove>scripts/ajaxify.js</remove>
             <remove>bootstrap.css</remove>
             <remove>yiistrap.css</remove>
+            <remove>bootstrap-slider.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
             <remove>template-core.css</remove>
@@ -67,6 +68,7 @@
         <helpcolor>text-info</helpcolor>
         <validitycolor>text-info</validitycolor>
         <fixedheader>off</fixedheader>
+        <variation>default</variation>
         <availablevariations>{
   "contrast": {
     "name": "Contrast",
@@ -196,12 +198,7 @@
   }
 }</availablevariations>
     </options>
-    <!-- Unable to remove package, it's removed in css/js … -->
-    <packages>
-        <add>moment</add>
-        <remove>pjax</remove>
-        <remove>font-noto</remove>
-    </packages>
+
     <!-- Here datas about how LimeSurvey should load the theme -->
     <engine>
         <cssframework>
@@ -214,6 +211,8 @@
 
         <packages>
             <add>moment</add>
+            <remove>pjax</remove>
+            <remove>font-noto</remove>
         </packages>
 
         <template_editor>
