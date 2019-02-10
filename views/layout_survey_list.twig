@@ -22,13 +22,13 @@
                 {{ include('./subviews/navigation/language_changer_form.twig') }}
             </div>
         </div>
-
-        <div class="{{ aSurveyInfo.class.surveylistrowdiva }}" {{ aSurveyInfo.attr.surveylistrowdiva }}>
-            <h2 class='{{ aSurveyInfo.class.surveylistrowdivadiv }} h3' {{ aSurveyInfo.attr.surveylistrowdivadiv }}>
-                {{ gT("The following surveys are available:") }}
-            </h2>
-        </div>
-
+        {% if( count(aSurveyInfo.publicSurveys) > 0 ) %}
+            <div class="{{ aSurveyInfo.class.surveylistrowdiva }}" {{ aSurveyInfo.attr.surveylistrowdiva }}>
+                <h2 class='{{ aSurveyInfo.class.surveylistrowdivadiv }} h3' {{ aSurveyInfo.attr.surveylistrowdivadiv }}>
+                    {{ gT("The following surveys are available:") }}
+                </h2>
+            </div>
+        {% endif %}
         <div class="{{ aSurveyInfo.class.surveylistrowdivb }} container-fluid" {{ aSurveyInfo.attr.surveylistrowdivb }}>
             <div class='{{ aSurveyInfo.class.surveylistrowdivbdiv }}' {{ aSurveyInfo.attr.surveylistrowdivbdiv }}>
                 <ul class='{{ aSurveyInfo.class.surveylistrowdivbdivul }} list-unstyled row' {{ aSurveyInfo.attr.surveylistrowdivbdivul }}>

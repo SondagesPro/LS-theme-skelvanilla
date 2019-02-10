@@ -15,6 +15,8 @@
 .navbar-brand img {vertical-align: text-bottom;}
 
 .question-container{margin-bottom:2em}
+/* lang can be bigger than screen quick fix*/
+.navbar-nav #langs-container{overflow-y:auto;max-height:10em;max-height:70vh;}
 
 /* question-text h1,h2,h3 … remove extra margin */
 h2.question-text ,h3.question-text,
@@ -88,12 +90,6 @@ table.ls-answers thead th,table.ls-answers thead td,table.ls-answers .ls-heading
 .checkbox-text-item .other-checkbox[aria-hidden]{display:none}
 /* Limesurvey vanilla part */
 
-/* specific for survey listing */
-@media (min-width: 761px) {
-  .surveys-list .btn-group {
-    width: 50%;
-  }
-}
 
 .group-title-container {
   padding: 1em;
