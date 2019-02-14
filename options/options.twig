@@ -24,35 +24,13 @@
         <form class='form action_update_options_string_form' action=''>
 
             {# If this is a surveyspecific settings page, offer the possibility to do a full inheritance of the parent template #}
-            {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                <div class='row' id="general_inherit_active">
-                    <div class='form-group row'>
-                        <label for='simple_edit_options_general_inherit' class='control-label col-xs-4'>{{gT("Inherit everything" )}}</label>
-                        <div class='col-xs-8'>
-                            <div class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default">
-                                    <input id="general_inherit_on" name='general_inherit' type='radio' value='on' class='selector_option_general_inherit ' data-id='simple_edit_options_general_inherit'/>
-                                    {{ gT("Yes") }}
-                                </label>
-                                <label class="btn btn-default">
-                                    <input id="general_inherit_off" name='general_inherit' type='radio' value='off' class='selector_option_general_inherit ' data-id='simple_edit_options_general_inherit'/>
-                                    {{ gT("No") }}
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row action_hide_on_inherit">
-                    <hr/>
-                </div>
-            {% endif %}
             {# CSS variation : #}
             {% if oParentOptions.availablevariations is null %}
                 {% set sAvailableVariations = '{"contrast":{"name":"Contrast","base":"true","button":"true","awesome":"true","button_awesome":"true"},"bootstrap":{"name":"Bootstrap","base":"true","button":"true","awesome":"true","button_awesome":"true"},"cerulean":{"name":"Cerulean","base":"true","button":"true","awesome":"true","button_awesome":"true"},"cosmo":{"name":"Cosmo","base":"true","button":"true","awesome":"true","button_awesome":"true"},"cyborg":{"name":"Cyborg","base":"true","button":"true","awesome":"true","button_awesome":"true"},"darkly":{"name":"Darkly","base":"true","button":"true","awesome":"true","button_awesome":"true"},"flatly":{"name":"Flatly","base":"true","button":"true","awesome":"true","button_awesome":"true"},"journal":{"name":"Journal","base":"true","button":"true","awesome":"true","button_awesome":"true"},"lumen":{"name":"Lumen","base":"true","button":"true","awesome":"true","button_awesome":"true"},"paper":{"name":"Paper","base":"true","button":"true","awesome":"true","button_awesome":"true"},"readable":{"name":"Readable","base":"true","button":"true","awesome":"true","button_awesome":"true"},"sandstone":{"name":"Sandstone","base":"true","button":"true","awesome":"true","button_awesome":"true"},"simplex":{"name":"Simplex","base":"true","button":"true","awesome":"true","button_awesome":"true"},"slate":{"name":"Slate","base":"true","button":"true","awesome":"true","button_awesome":"true"},"spacelab":{"name":"Spacelab","base":"true","button":"true","awesome":"true","button_awesome":"true"},"superhero":{"name":"Superhero","base":"true","button":"true","awesome":"true","button_awesome":"true"},"united":{"name":"United","base":"true","button":"true","awesome":"true","button_awesome":"true"},"yeti":{"name":"Yeti","base":"true","button":"true","awesome":"true","button_awesome":"true"}}' %}
             {% else %}
                 {% set sAvailableVariations = oParentOptions.availablevariations %}
             {% endif %}
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 <div class='col-sm-12'>
                     <div class='panel panel-default'>
                         <div class='panel-heading'>{{ sprintf( gT("%s variations"), templateConfiguration.template_name) }} </div>
@@ -92,11 +70,11 @@
                     </div>
                 </div>
             </div>
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 <hr/>
             </div>
             {# First settings row #}
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 {# Container #}
                 <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
@@ -206,12 +184,12 @@
                     </div>
                 </div>
             </div>
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 <hr/>
             </div>
 
             {# Decoration for question wrapper and question #}
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 {# Question size #}
                 <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
                     <div class='form-group row'>
@@ -269,10 +247,10 @@
                     </div>
                 </div>
             </div>
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 <hr/>
             </div>
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 {# Fixed header #}
                 <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
@@ -343,7 +321,7 @@
             </div>
 
             <!-- Brand Logo -->
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 <div class='col-sm-12 col-md-4'>
                     {# Brandlogo #}
                     <div class='form-group row'>
@@ -404,7 +382,7 @@
             </div>
 
             <!-- Survey list Logo -->
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 <div class='col-sm-12 col-md-4'>
                     {# Survey list #}
                     <div class='form-group row'>
@@ -464,7 +442,7 @@
             </div>
 
             <!-- Powered Logo -->
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 <div class='col-sm-12 col-md-4'>
                     {# Survey list #}
                     <div class='form-group row'>
@@ -523,7 +501,7 @@
                 </div>
             </div>
             <!-- Powered link , leave it for allowing usage in footer for example -->
-            <div class='row action_hide_on_inherit'>
+            <div class='row'>
                 <div class='col-xs-12 col-sm-6'>
                     <div class='form-group row'>
                         <label for='simple_edit_options_poweredlink' class='control-label col-xs-6'>Powered link</label>
@@ -551,10 +529,10 @@
             </div>
         </form>
     </div>
-    <div class='row action_hide_on_inherit'>
+    <div class='row'>
         <hr/>
     </div>
-    <div class='row action_hide_on_inherit'>
+    <div class='row'>
         {# Upload an image #}
         <div class="container-fluid ls-space margin bottom-15">
             <div class="row ls-space margin bottom-15">
