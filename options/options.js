@@ -133,7 +133,7 @@ var ThemeOptions = function(){
     // selector_option_value_field are the select dropdown (like variations and fonts)
     var prepareSelectField = function(){
         globalForm.find('.selector_option_value_field').each(function(i,item){
-            var itemValue = parseOptionValue(item);
+            var itemValue = parseOptionValue(item, 'off');
             $(item).val(itemValue);
             disableImagePreviewIfneeded(item);
         });

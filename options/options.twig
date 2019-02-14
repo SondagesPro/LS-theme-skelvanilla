@@ -30,6 +30,7 @@
             {% else %}
                 {% set sAvailableVariations = oParentOptions.availablevariations %}
             {% endif %}
+            {# Functionnal #}
             <div class='row'>
                 <div class='col-sm-12'>
                     <div class='panel panel-default'>
@@ -75,32 +76,6 @@
             </div>
             {# First settings row #}
             <div class='row'>
-                {# Container #}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
-                    <div class='form-group row'>
-                        <label for='simple_edit_options_container' class='control-label col-xs-4'> {{ gT("Survey container") }} </label>
-                        <div class='col-xs-8'>
-                            <div class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default">
-                                    <input type='radio' name='container' value='on' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
-                                    {{ gT("Yes") }}
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type='radio' name='container' value='off' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
-                                    {{ gT("No") }}
-                                </label>
-                                {# If this is a root template setting, don't show the inherit button #}
-                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <label class="btn btn-default">
-                                        <input type='radio' name='container' value='inherit' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
-                                        {{ gT("Inherit") }}
-                                    </label>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 {# hideprivacyinfo #}
                 <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
@@ -183,13 +158,56 @@
                         </div>
                     </div>
                 </div>
+                {# Fix num auto (and real num value) #}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_fixnumauto' class='control-label col-xs-4'>{{ gT("Fix automatically numeric value") }}</label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_fixnumauto' name='fixnumauto'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% else %}
+                                    <option value="off"> {{ gT('Default') }}</option>
+                                {% endif %}
+                                <option value="enable">{{ gT("Yes") }}</option>
+                                <option value="partial">{{ gT("For expression") }}</option>
+                                <option value="disable">{{ gT("No") }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class='row'>
                 <hr/>
             </div>
 
-            {# Decoration for question wrapper and question #}
+            {# Decoration #}
             <div class='row'>
+                {# Container #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_container' class='control-label col-xs-4'> {{ gT("Survey container") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='container' value='on' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='container' value='off' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='container' value='inherit' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {# Question size #}
                 <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
                     <div class='form-group row'>
