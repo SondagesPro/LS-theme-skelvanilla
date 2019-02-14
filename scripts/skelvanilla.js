@@ -1,10 +1,30 @@
 var skelVanilla = {
     init : function (options) {
+        this.addEventOnNumber();
         this.addCheckedClass();
         this.otherListRadio();
         this.addHoverColumn();
         this.disableEnterSubmit();
         this.bodyLoaded();
+    },
+    /* Since numeric item are :input[type='number'] : must send the checkcondition function */
+    addEventOnNumber : function () {
+        $(document).on("keyup change",".answer-item :input[type='number']:not([onkeyup])",function(event){
+            fixnum_checkconditions($(this).val(), $(this).attr('name'), 'text', 'keyup', $(this).data("step")==1)
+        });
+        /* clean up when disappear */
+        $(document).on('relevance:off',"[id^='question']",function(event,data) {
+            if(event.target != this) return;
+            $(this).find(".answer-item :input[type='number']").each(function() {
+                $(this).attr("type","text").data("oldtype","number");
+            });
+        });
+        $(document).on('relevance:on',"[id^='question']",function(event,data) {
+            if(event.target != this) return;
+            $(this).find(".answer-item :input[type='text'][data-oldtype='number']").each(function() {
+                $(this).attr("type","number").data("oldtype",null);
+            });
+        });
     },
     addCheckedClass : function () {
         /* radio in table */

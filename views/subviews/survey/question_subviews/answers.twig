@@ -3,7 +3,6 @@
         {% set describedby = 'aria-describedby="'~ariadescribe~'"' %}
         {% set labelid = 'ls-question-text-'~aQuestion.SGQ %}
         {% set labelledby = 'aria-labelledby="'~labelid~'"' %}
-        {% set newdescribedby  = 'ls-question-text-'~aQuestion.SGQ~' ls-question-help-'~aQuestion.SGQ %}
         {% if(labelledby in aQuestion.answer) %}
             {{ str_replace(labelledby,labelledby ~ " " ~ describedby,aQuestion.answer) | raw }}
         {% else %}
