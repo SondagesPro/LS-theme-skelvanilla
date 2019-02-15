@@ -29,42 +29,24 @@
     {% if prefix != '' %}
         <div class='ls-input-group-extra prefix-text prefix'>{{ prefix }}</div>
     {% endif %}
-    {% set radix = surveyInfo.surveyls_numberformat ? "," : "." %}
-    {% if (radix == ",") %}
-        {# good pattern need radix … but don't have it currently. Need to limit number of character due to decimal part, how but twig + EM broke this … #}
-        {# see https://bugs.limesurvey.org/view.php?id=14224 #}
-        {% set pattern = "[-]?[0-9]+([,\.][0-9]+)?" %}
-        {% set title = gT('Only numbers may be entered in this field.') %}
-        {% if integeronly %}
-            {% set pattern = "[-]?([0-9]+)" %}
-            {% set title = gT('Only an integer value may be entered in this field.') %}
-        {% endif %}
-        {{ C.Html.textField(id,fValue,({
-                'id' : "answer"~id,
-                'class' : "form-control "~answertypeclass,
-                'title' : title,
-                'size' : (inputsize ? inputsize : null),
-                'maxlength' : (maxlength ? maxlength : null),
-                'data-number' : 1,
-                'data-integer' : integeronly,
-                'aria-labelledby' : "ls-question-text-"~basename,
-                'pattern' : pattern
-            }))
-        }}
-    {% else %}
-     <input type="number"
-            value="{% if (integeronly == 1 and fValue != "") %}{{ intval(fValue) }}{% else %}{{ fValue }}{% endif %}"
-            name="{{ id }}"
-            id="answer{{ id }}"
-            class="form-control"
-            {% if size %} size={{ inputsize }} {% endif %}
-            {% if maxlength %} maxlength={{ maxlength }} {% endif %}
-            step={{ (integeronly == 1 ? "1" : "any") }}
-            data-number=1
-            data-number=integeronly
-            aria-labelledby="ls-question-text-{{ basename }}"
-        />
+    {% set pattern = "[-]?[0-9]+([,\.][0-9]+)?" %}
+    {% set title = gT('Only numbers may be entered in this field.') %}
+    {% if integeronly %}
+        {% set pattern = "[-]?([0-9]+)" %}
+        {% set title = gT('Only an integer value may be entered in this field.') %}
     {% endif %}
+    {{ C.Html.textField(id,fValue,({
+            'id' : "answer"~id,
+            'class' : "form-control "~answertypeclass,
+            'title' : title,
+            'size' : (inputsize ? inputsize : null),
+            'maxlength' : (maxlength ? maxlength : null),
+            'data-number' : 1,
+            'data-integer' : integeronly,
+            'aria-labelledby' : "ls-question-text-"~basename,
+            'pattern' : pattern
+        }))
+    }}
     <!-- Suffix -->
     {% if suffix != '' %}
         <div class='ls-input-group-extra suffix-text suffix'>{{ suffix }}</div>

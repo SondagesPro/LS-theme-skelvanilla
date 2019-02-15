@@ -1,52 +1,10 @@
 var skelVanilla = {
     init : function (options) {
-        this.addEventOnNumber();
         this.addCheckedClass();
         this.otherListRadio();
         this.addHoverColumn();
         this.disableEnterSubmit();
         this.bodyLoaded();
-    },
-    /* Since numeric item are :input[type='number'] : must send the checkcondition function */
-    addEventOnNumber : function () {
-        $(document).on("keyup change",".answer-item input[type='number']:not([onkeyup])",function(event){
-            fixnum_checkconditions($(this).val(), $(this).attr('name'), 'text', 'keyup', $(this).data("step")==1)
-        });
-        /* clean up when disappear */
-        $(document).on('relevance:off',"[id^='question']",function(event,data) {
-            if(event.target != this) return;
-            $(this).find(".answer-item :input[type='number']").each(function() {
-                $(this).attr("type","text").data("original-type","number").tigger("keyup");
-            });
-        });
-        $(document).on('relevance:on',"[id^='question']",function(event,data) {
-            if(event.target != this) return;
-            $(this).find(".answer-item :input[type='text']").each(function() {
-                if($(this).data("original-type") == 'number') {
-                    $(this).attr("type","number").data("original-type",null).tigger("keyup");
-                }
-            });
-        });
-        $(document).on('relevance:off',"[id^='javatbd']",function(event,data) {
-            if(event.target != this) return;
-            data = $.extend({style:'hidden'}, data);
-            if(data.style=='hidden'){
-                $(this).find(".answer-item :input[type='number']").each(function() {
-                    $(this).attr("type","text").data("original-type","number").tigger("keyup");
-                });
-            }
-        });
-        $(document).on('relevance:on',"[id^='javatbd']",function(event,data) {
-            if(event.target != this) return;
-            data = $.extend({style:'hidden'}, data);
-            if(data.style=='hidden'){
-                $(this).find(".answer-item :input[type='text']").each(function() {
-                    if($(this).data("original-type") == 'number') {
-                        $(this).attr("type","number").data("original-type",null).tigger("keyup");
-                    }
-                });
-            }
-        });
     },
     addCheckedClass : function () {
         /* radio in table */
