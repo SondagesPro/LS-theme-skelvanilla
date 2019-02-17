@@ -1,6 +1,6 @@
-{% set answerExtraClass = "" %}
+{% set answerExtraClass = "no-more-table" %}
 {% if( processString("{strpos(' "~aQuestion.class~"','table-fixed')}") or processString("{strpos(' "~aQuestion.class~"','table-responsive')}") ) %}
-    {% set answerExtraClass = "no-more-table" %}
+    {% set answerExtraClass = "" %}
 {% endif %}
 <div class="{{ aSurveyInfo.class.answercontainer }} {{ answerExtraClass }} container-fluid" {{ aSurveyInfo.attr.answercontainer }}>
     {% if (ariadescribe) %}
