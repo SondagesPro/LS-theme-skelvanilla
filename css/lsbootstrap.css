@@ -6035,138 +6035,6 @@ table.ls-answers {
     display: inline;
   }
 }
-/*
-Max width before this PARTICULAR table gets nasty
-For iPads specifically : add this : (min-device-width: 768px) and (max-device-width: 1024px)
-*/
-@media only screen and (max-width: 48em) {
-  table.ls-answers td {
-    padding: 0.2rem;
-  }
-  table.ls-answers td.radio-item,
-  table.ls-answers td.checkbox-item {
-    padding: 0;
-  }
-  table.ls-answers,
-  table.ls-answers thead,
-  table.ls-answers tbody,
-  table.ls-answers th,
-  table.ls-answers td,
-  table.ls-answers tr {
-    display: block;
-  }
-  .dir-ltr table.ls-answers,
-  .dir-ltr table.ls-answers thead,
-  .dir-ltr table.ls-answers tbody,
-  .dir-ltr table.ls-answers th,
-  .dir-ltr table.ls-answers td,
-  table.ls-answers tr {
-    text-align: left;
-  }
-  .dir-rtl table.ls-answers,
-  .dir-rtl table.ls-answers thead,
-  .dir-rtl table.ls-answers tbody,
-  .dir-rtl table.ls-answers th,
-  .dir-rtl table.ls-answers td,
-  table.ls-answers tr {
-    text-align: right;
-  }
-  .ls-answers > thead > tr > th,
-  .ls-answers > tbody > tr > th,
-  .ls-answers > tfoot > tr > th,
-  .ls-answers > thead > tr > td,
-  .ls-answers > tbody > tr > td,
-  .ls-answers > tfoot > tr > td {
-    border: 0 none;
-  }
-  .ls-answers > thead > tr > th,
-  .ls-answers > tbody > tr > th,
-  .ls-answers > tfoot > tr > th,
-  .ls-answers > thead > tr > td,
-  .ls-answers > tbody > tr > td,
-  .ls-answers > tfoot > tr > td {
-    border: 0 none;
-  }
-  .ls-answers > thead > tr,
-  .ls-answers > tbody > tr {
-    border: 1px solid #ddd;
-  }
-  .ls-answers th {
-    font-weight: 700;
-  }
-  table.ls-answers thead {
-    display: none;
-  }
-  /* We don't need it for accessibility : we already have the label */
-  .dir-ltr table.ls-answers tbody td.answer-item {
-    text-align: left;
-  }
-  .dir-rtl table.ls-answers tbody td.answer-item {
-    text-align: right;
-  }
-  table.ls-answers .information-item:empty {
-    display: none;
-  }
-  /* Show the label and fix the input*/
-  .ls-label-xs-visibility {
-    display: initial;
-    position: unset;
-    width: initial;
-    height: initial;
-    overflow: initial;
-  }
-  td.radio-item,
-  td.checkbox-item,
-  td.radio-text-item,
-  td.checkbox-text-item {
-    margin-bottom: 0;
-    position: relative;
-  }
-  table.ls-answers tbody .control-label {
-    text-align: left;
-  }
-  .dir-rtl table.ls-answers tbody .control-label {
-    text-align: right;
-  }
-  table.ls-answers .answertextright {
-    text-align: right;
-  }
-  .dir-rtl table.ls-answers .answertextright {
-    text-align: left;
-  }
-  .dir-ltr table.ls-answers .ls-label-xs-visibility {
-    left: auto;
-  }
-  .dir-rtl table.ls-answers .ls-label-xs-visibility {
-    right: auto;
-  }
-  table.ls-answers .radio-item .ls-label-xs-visibility,
-  table.ls-answers .checkbox-item .ls-label-xs-visibility {
-    line-height: initial;
-    text-indent: initial;
-  }
-  .dir-ltr table.ls-answers .radio-item .ls-label-xs-visibility,
-  .dir-ltr table.ls-answers .checkbox-item .ls-label-xs-visibility {
-    margin-left: 0;
-  }
-  .dir-rtl table.ls-answers .radio-item .ls-label-xs-visibility,
-  .dir-rtl table.ls-answers .checkbox-item .ls-label-xs-visibility {
-    margin-right: 0;
-  }
-  table.ls-answers > tbody > tr:hover {
-    background-color: transparent;
-  }
-  .othertext-label-checkox-container {
-    margin-bottom: 0;
-  }
-  .radio-list .radio-item.othertext-label-checkox-container label {
-    padding-bottom: 0;
-  }
-  .other-text-item {
-    margin-bottom: 0;
-    padding: 0 1em 0.5em;
-  }
-}
 .answer-item label:hover,
 .answer-item input:focus + label,
 tr.answers-list:hover .control-label,
@@ -6306,29 +6174,150 @@ td.checkbox-item input[type="checkbox"] {
   background: #fafafa;
 }
 @media only screen and (max-width: 48em) {
-  td.radio-item input[type="radio"],
+  .othertext-label-checkox-container {
+    margin-bottom: 0;
+  }
+  .radio-list .radio-item.othertext-label-checkox-container label {
+    padding-bottom: 0;
+  }
+  .other-text-item {
+    margin-bottom: 0;
+    padding: 0 1em 0.5em;
+  }
+}
+/*
+Max width before this PARTICULAR table gets nasty
+For iPads specifically : add this : (min-device-width: 768px) and (max-device-width: 1024px)
+*/
+@media only screen and (max-width: 48em) {
+  .no-more-table table.ls-answers,
+  .no-more-table table.ls-answers thead,
+  .no-more-table table.ls-answers tbody,
+  .no-more-table table.ls-answers th,
+  .no-more-table table.ls-answers td,
+  .no-more-table table.ls-answers tr {
+    display: block;
+  }
+  .no-more-table table.ls-answers td.radio-item,
+  .no-more-table table.ls-answers td.checkbox-item {
+    padding: 0;
+  }
+  .no-more-table table.ls-answers tbody > tr {
+    margin-bottom: 0.5em;
+  }
+  .dir-ltr .no-more-table table.ls-answers,
+  .dir-ltr .no-more-table table.ls-answers th,
+  .dir-ltr .no-more-table table.ls-answers td {
+    text-align: left;
+  }
+  .dir-ltr .no-more-table table.ls-answers tbody td.answer-item {
+    text-align: left;
+  }
+  .dir-rtl .no-more-table table.ls-answers,
+  .dir-rtl .no-more-table table.ls-answers th,
+  .dir-rtl .no-more-table table.ls-answers td {
+    text-align: right;
+  }
+  .dir-rtl .no-more-table table.ls-answers tbody td.answer-item {
+    text-align: right;
+  }
+  .no-more-table .ls-answers > thead > tr > th,
+  .no-more-table .ls-answers > tbody > tr > th,
+  .no-more-table .ls-answers > tfoot > tr > th,
+  .no-more-table .ls-answers > thead > tr > td,
+  .no-more-table .ls-answers > tbody > tr > td,
+  .no-more-table .ls-answers > tfoot > tr > td {
+    border: 0 none;
+  }
+  .no-more-table .ls-answers > thead > tr,
+  .no-more-table .ls-answers > tbody > tr {
+    border: 1px solid #ddd;
+  }
+  .no-more-table table.ls-answers {
+    border-collapse: separate;
+  }
+  .no-more-table .ls-answers th {
+    font-weight: 700;
+  }
+  .no-more-table table.ls-answers thead {
+    display: none;
+  }
+  /* We don't need it for accessibility : we already have the label */
+  .no-more-table table.ls-answers .information-item:empty {
+    display: none;
+  }
+  .no-more-table td.radio-item input[type="radio"],
   td.checkbox-item input[type="checkbox"] {
     position: absolute;
     top: 50%;
     margin: 0;
     margin-top: -0.6rem;
   }
-  .table-col-hover col.hover {
-    background: transparent;
-  }
-  .table-col-hover tr.answers-list:hover {
-    background: transparent;
-  }
-  .table-hover col.hover {
-    background: transparent;
-  }
-  .dir-ltr td.radio-item input[type="radio"],
-  .dir-ltr td.checkbox-item input[type="checkbox"] {
+  .dir-ltr .no-more-table td.radio-item input[type="radio"],
+  .dir-ltr .no-more-table td.checkbox-item input[type="checkbox"] {
     left: 0.76rem;
   }
-  .dir-rtl td.radio-item input[type="radio"],
-  .dir-rtl td.checkbox-item input[type="checkbox"] {
+  .dir-rtl .no-more-table td.radio-item input[type="radio"],
+  .dir-rtl .no-more-table td.checkbox-item input[type="checkbox"] {
     right: 0.76rem;
+  }
+  /* Show the label and fix the input*/
+  .no-more-table .ls-label-xs-visibility {
+    display: block;
+    position: unset;
+    width: initial;
+    height: initial;
+    overflow: initial;
+  }
+  .no-more-table td.radio-item,
+  .no-more-table td.checkbox-item,
+  .no-more-table td.radio-text-item,
+  .no-more-table td.checkbox-text-item {
+    margin-bottom: 0;
+    position: relative;
+  }
+  .no-more-table table.ls-answers tbody .control-label {
+    text-align: left;
+  }
+  .dir-rtl .no-more-table table.ls-answers tbody .control-label {
+    text-align: right;
+  }
+  .no-more-table table.ls-answers .answertextright {
+    text-align: right;
+  }
+  .dir-rtl .no-more-table table.ls-answers .answertextright {
+    text-align: left;
+  }
+  .dir-ltr .no-more-table table.ls-answers .ls-label-xs-visibility {
+    left: auto;
+  }
+  .dir-rtl .no-more-table table.ls-answers .ls-label-xs-visibility {
+    right: auto;
+  }
+  .no-more-table table.ls-answers .radio-item .ls-label-xs-visibility,
+  .no-more-table table.ls-answers .checkbox-item .ls-label-xs-visibility {
+    line-height: 1.5;
+    text-indent: initial;
+  }
+  .dir-ltr .no-more-table table.ls-answers .radio-item .ls-label-xs-visibility,
+  .dir-ltr .no-more-table table.ls-answers .checkbox-item .ls-label-xs-visibility {
+    margin-left: 0;
+  }
+  .dir-rtl .no-more-table table.ls-answers .radio-item .ls-label-xs-visibility,
+  .dir-rtl .no-more-table table.ls-answers .checkbox-item .ls-label-xs-visibility {
+    margin-right: 0;
+  }
+  .no-more-table table.ls-answers > tbody > tr:hover {
+    background-color: transparent;
+  }
+  .no-more-table .table-col-hover col.hover {
+    background: transparent;
+  }
+  .no-more-table .table-col-hover tr.answers-list:hover {
+    background: transparent;
+  }
+  .no-more-table .table-hover col.hover {
+    background: transparent;
   }
 }
 /* radio list and checkbox list with border : WIP */
@@ -6497,46 +6486,51 @@ li.noanswer-item input[type="radio"]:checked + label {
   color: initial;
 }
 @media only screen and (max-width: 48em) {
-  .ls-answers > tbody > tr > td.radio-item,
-  .ls-answers > tbody > tr > td.checkbox-item,
-  .ls-answers > tbody > tr > td.radio-item,
-  .ls-answers > tbody > tr > th.information-item {
+  .no-more-table .ls-answers > tbody > tr > td.radio-item,
+  .no-more-table .ls-answers > tbody > tr > td.checkbox-item,
+  .no-more-table .ls-answers > tbody > tr > td.radio-item,
+  .no-more-table .ls-answers > tbody > tr > th.information-item {
     border: 1px solid #ccc;
     border-width: 1px 0 0;
   }
-  table.ls-answers tbody tr {
+  .no-more-table table.ls-answers tbody tr {
     border-radius: 0.3rem;
   }
-  table.ls-answers {
+  .no-more-table table.ls-answers {
     border: 0 none;
   }
-  table.ls-answers td.radio-item,
-  table.ls-answers td.checkbox-item {
+  .no-more-table table.ls-answers td.radio-item,
+  .no-more-table table.ls-answers td.checkbox-item {
     padding: 0;
   }
-  table.ls-answers td.radio-item label,
-  table.ls-answers td.checkbox-item label {
+  .no-more-table table.ls-answers td.radio-item label,
+  .no-more-table table.ls-answers td.checkbox-item label {
     margin-bottom: 0;
   }
-  li.radio-item label.ls-label-xs-visibility,
-  li.checkbox-item label.ls-label-xs-visibility {
+  .no-more-table td.radio-item label.ls-label-xs-visibility,
+  .no-more-table td.checkbox-item label.ls-label-xs-visibility {
     background-color: #fff;
     color: #222222;
   }
-  .radio-item input[type="radio"]:checked + label.ls-label-xs-visibility,
-  .checkbox-item input[type="checkbox"]:checked + label.ls-label-xs-visibility {
+  .no-more-table .radio-item input[type="radio"]:checked + label.ls-label-xs-visibility,
+  .no-more-table .checkbox-item input[type="checkbox"]:checked + label.ls-label-xs-visibility {
     background: #1a3c59;
     color: #fff;
   }
-  .radio-item label.ls-label-xs-visibility:hover,
-  .checkbox-item label.ls-label-xs-visibility:hover {
-    background: #e6e6e6;
-    color: #333;
+  .no-more-table .radio-item input[type="radio"]:checked + label.ls-label-xs-visibility,
+  .no-more-table .checkbox-item input[type="checkbox"]:checked + label.ls-label-xs-visibility {
+    background: #1a3c59;
+    color: #fff;
   }
-  .no-anwser-item input[type="radio"]:checked + label.ls-label-xs-visibility,
-  .noanswer-item input[type="radio"]:checked + label.ls-label-xs-visibility {
+  .no-more-table .no-answer-item input[type="radio"]:checked + label.ls-label-xs-visibility,
+  .no-more-table .noanswer-item input[type="checkbox"]:checked + label.ls-label-xs-visibility {
     background: transparent;
     color: inherit;
+  }
+  .no-more-table .radio-item label.ls-label-xs-visibility:hover,
+  .no-more-table .checkbox-item label.ls-label-xs-visibility:hover {
+    background: #e6e6e6;
+    color: #333;
   }
 }
 .modal-open {
