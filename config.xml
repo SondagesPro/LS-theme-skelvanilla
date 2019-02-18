@@ -14,7 +14,7 @@
         <authorUrl>http://www.sondages.pro</authorUrl>
         <copyright>Copyright (C) 2018 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 2 or later</license>
-        <version>4.3.1</version>
+        <version>4.4.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
         <last_update>2019-02-12 09:50:19</last_update>

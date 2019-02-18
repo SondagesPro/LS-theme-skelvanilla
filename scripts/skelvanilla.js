@@ -3,6 +3,7 @@ var skelVanilla = {
         this.addCheckedClass();
         this.otherListRadio();
         this.addHoverColumn();
+        this.removeBack();
         this.disableEnterSubmit();
         this.bodyLoaded();
     },
@@ -80,7 +81,9 @@ var skelVanilla = {
     removeBack: function(){
         window.location.hash="nbb";
         window.location.hash="";
-        //window.onhashchange=function(){window.location.hash="";}
+        window.onhashchange=function(){
+            if(window.location.hash == "#nbb") {  window.location.hash=""; }
+        }
     },
     bodyLoaded: function() {
         $(document).ready(function(){
