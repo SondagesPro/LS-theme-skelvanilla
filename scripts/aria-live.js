@@ -47,13 +47,23 @@ var TemplateAccessible = {
     triggerMandatoryUpdate: function() {
         /* WIP */
         $("[id^='question'].mandatory").each(function() {
-            $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,radio-item input:radio').attr('required',true);
+            $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
         });
-        $("[id^='question'].mandatory").on('relevance:on',function(event,data) {
-            $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,radio-item input:radio').attr('required',true);
+        $(document).on('relevance:on',"[id^='question']",function(event,data) {
+            if(event.target != this) return;
+            $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
         });
-        $("[id^='question'].mandatory").on('relevance:off',function(event,data) {
-            $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,radio-item input:radio').removeAttr('required');
+        $(document).on('relevance:off',"[id^='question']",function(event,data) {
+            if(event.target != this) return;
+            $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').removeAttr('required');
+        });
+        $("[id^='question']").on('relevance:on',"[id^='javatbd']",function(event,data) {
+            if(event.target != this) return;
+            $(this).find('input:text,textarea,select,input:radio').attr('required',true);
+        });
+        $("[id^='question']").on('relevance:off',"[id^='javatbd']",function(event,data) {
+            if(event.target != this) return;
+            $(this).find('input:text,textarea,.select,input:radio').removeAttr('required');
         });
     },
     triggerHtmlUpdated : function() {
