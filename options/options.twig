@@ -334,7 +334,75 @@
                 </div>
             </div>
 
-            <div class='row ls-space margin top-15 bottom-15 '>
+            <div class='row'>
+                <hr/>
+            </div>
+
+            <div class='row'>
+
+                {# Body loading loaded #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_bodyloaded' class='control-label col-xs-4'> {{ gT("Body loaded") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='bodyloaded' value='on' class='selector_option_radio_field simple_edit_options_bodyloaded ' data-id='bodyloaded'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='bodyloaded' value='off' class='selector_option_radio_field simple_edit_options_bodyloaded ' data-id='bodyloaded'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='bodyloaded' value='inherit' class='selector_option_radio_field simple_edit_options_bodyloaded ' data-id='bodyloaded'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if(not oParentOptions.bodyloaded) %}
+                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
+                        {% else %}
+                            <p class="help-block col-xs-12">{{ gT("Hide content before loaded.") }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {# Set hash to disable previous navigator#}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_removeback' class='control-label col-xs-4'> {{ gT("Remove back") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='removeback' value='on' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='removeback' value='off' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='removeback' value='inherit' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if(not oParentOptions.removeback) %}
+                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
+                        {% else %}
+                            <p class="col-xs-12 help-block">{{ gT("Add a javascript system to disable previous button of web navigator.") }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+
+            <div class='row'>
                 <hr/>
             </div>
 

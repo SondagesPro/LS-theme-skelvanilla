@@ -3,9 +3,13 @@ var skelVanilla = {
         this.addCheckedClass();
         this.otherListRadio();
         this.addHoverColumn();
-        this.removeBack();
+        if(options.removeBack) {
+            this.removeBack();
+        }
         this.disableEnterSubmit();
-        this.bodyLoaded();
+        if(options.bodyLoaded) {
+            this.bodyLoaded();
+        }
     },
     addCheckedClass : function () {
         /* radio in table */

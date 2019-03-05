@@ -22,7 +22,7 @@
     {# Headers, metadata, etc #}
     {{ include('./subviews/header/head.twig') }}
     {% endblock %}
-    <body class="body-loading {{ aSurveyInfo.class.body }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {{ ( aSurveyInfo.options.brandlogo == "on") ? 'with-brand-logo' : '' }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'with-navbar-fixed-top' : '' }}" >
+    <body class="{% if(aSurveyInfo.bodyloaded == 'on' or not aSurveyInfo.bodyloaded) %}body-loading {% endif %}{{ aSurveyInfo.class.body }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {{ ( aSurveyInfo.options.brandlogo == "on") ? 'with-brand-logo' : '' }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'with-navbar-fixed-top' : '' }}" >
         <div id="{{ aSurveyInfo.id.dynamicreload }}">
             {% block body %}
                 {# Bootstrap Navigation Bar: the top menu #}
@@ -51,6 +51,11 @@
         {# This is not for ajax, but for page loading/unloading #}
         {{ include('./subviews/navigation/ajax_indicator.twig') }}
         {% block themescripts %}
+            {% set jsOption = {
+                bodyLoaded: (aSurveyInfo.bodyloaded == 'on' or not aSurveyInfo.bodyloaded),
+                removeBack: ((aSurveyInfo.removeback == 'on' or not aSurveyInfo.removeback) and aSurveyInfo.include_content == 'main'),
+                }
+            %}
             <script>
                 if(window.basicThemeScripts === undefined){ 
                     window.basicThemeScripts = new ThemeScripts(); 
@@ -58,7 +63,7 @@
                 basicThemeScripts.initGlobal(); 
                 window.basicThemeScripts.init();
                 window.TemplateAccessible.init();
-                window.skelVanilla.init();
+                window.skelVanilla.init({{ json_encode(jsOption) }});
             </script>
         {% endblock %}
     </body>
