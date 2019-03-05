@@ -51,9 +51,13 @@
         {# This is not for ajax, but for page loading/unloading #}
         {{ include('./subviews/navigation/ajax_indicator.twig') }}
         {% block themescripts %}
-            {% set jsOption = {
+            {% set skelOptions = {
                 bodyLoaded: (aSurveyInfo.options.bodyloaded == 'on' or not aSurveyInfo.options.bodyloaded),
                 removeBack: ((aSurveyInfo.options.removeback == 'on' or not aSurveyInfo.options.removeback) and aSurveyInfo.include_content == 'main'),
+                }
+            %}
+            {% set accessibleOptions = {
+                dynamicValidity: (aSurveyInfo.options.dynamicvalidity == 'on' or not aSurveyInfo.options.dynamicvalidity),
                 }
             %}
             <script>
@@ -62,8 +66,8 @@
                 } 
                 basicThemeScripts.initGlobal(); 
                 window.basicThemeScripts.init();
-                window.TemplateAccessible.init();
-                window.skelVanilla.init({{ json_encode(jsOption) }});
+                window.TemplateAccessible.init({{ json_encode(accessibleOptions) }});
+                window.skelVanilla.init({{ json_encode(skelOptions) }});
             </script>
         {% endblock %}
     </body>

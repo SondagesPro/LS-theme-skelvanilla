@@ -6,16 +6,21 @@
  */
 var TemplateAccessible = {
     init : function (options) {
-        //this.disableValidityCheck();
+        if(options.dynamicValidity) {
+            this.disableValidityCheck();
+        }
         this.triggerEmClassChangeAccessible();
-        //this.triggerMandatoryUpdate();
+        if(options.dynamicValidity) {
+            this.triggerMandatoryUpdate();
+        }
         this.triggerHtmlUpdated();
         this.triggerRelevanceOnOff();
     },
     disableValidityCheck: function() {
-        $(document).on("click","[data-disable-validity]",function(event,data) {
+        $(document).on("click","button[data-disable-check-validity]",function(event,data) {
             $("form#limesurvey").find("[required]").removeAttr("required");
         });
+        //~ $(document).on("click","[data-limesurvey-submit]:not([data-check-validity]"
     },
     triggerEmClassChangeAccessible: function () {
         /* @todo : check :valid and setCustomValidity */

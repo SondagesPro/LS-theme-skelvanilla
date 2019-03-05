@@ -400,6 +400,37 @@
                     </div>
                 </div>
 
+                {# Dynamic validity #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_dynamicvalidity' class='control-label col-xs-4'> {{ gT("Dybamic validity") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='dynamicvalidity' value='on' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='dynamicvalidity' value='off' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='dynamicvalidity' value='inherit' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if(not oParentOptions.dynamicvalidity) %}
+                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
+                        {% else %}
+                            <p class="col-xs-12 help-block">{{ gT("Use required and input validity according to survey. Using javascript only.") }}</p>
+                            <p class="col-xs-12 help-block small">{{ gT("Thsi is a work in progress feature, currently : only usage of required.") }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
             </div>
 
             <div class='row'>
