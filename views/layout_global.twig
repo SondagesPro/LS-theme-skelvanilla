@@ -22,7 +22,7 @@
     {# Headers, metadata, etc #}
     {{ include('./subviews/header/head.twig') }}
     {% endblock %}
-    <body class="{% if(aSurveyInfo.bodyloaded == 'on' or not aSurveyInfo.bodyloaded) %}body-loading {% endif %}{{ aSurveyInfo.class.body }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {{ ( aSurveyInfo.options.brandlogo == "on") ? 'with-brand-logo' : '' }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'with-navbar-fixed-top' : '' }}" >
+    <body class="{% if(aSurveyInfo.options.bodyloaded == 'on' or not aSurveyInfo.options.bodyloaded) %}body-loading {% endif %}{{ aSurveyInfo.class.body }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {{ ( aSurveyInfo.options.brandlogo == "on") ? 'with-brand-logo' : '' }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'with-navbar-fixed-top' : '' }}" >
         <div id="{{ aSurveyInfo.id.dynamicreload }}">
             {% block body %}
                 {# Bootstrap Navigation Bar: the top menu #}
@@ -52,8 +52,8 @@
         {{ include('./subviews/navigation/ajax_indicator.twig') }}
         {% block themescripts %}
             {% set jsOption = {
-                bodyLoaded: (aSurveyInfo.bodyloaded == 'on' or not aSurveyInfo.bodyloaded),
-                removeBack: ((aSurveyInfo.removeback == 'on' or not aSurveyInfo.removeback) and aSurveyInfo.include_content == 'main'),
+                bodyLoaded: (aSurveyInfo.options.bodyloaded == 'on' or not aSurveyInfo.options.bodyloaded),
+                removeBack: ((aSurveyInfo.options.removeback == 'on' or not aSurveyInfo.options.removeback) and aSurveyInfo.include_content == 'main'),
                 }
             %}
             <script>
