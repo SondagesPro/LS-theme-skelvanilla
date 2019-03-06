@@ -11,16 +11,20 @@ var TemplateAccessible = {
         }
         this.triggerEmClassChangeAccessible();
         if(options.dynamicValidity) {
-            this.triggerMandatoryUpdate();
+            this.setMandatoryRequired();
+            this.setCustomValidity();
+            this.triggerRelevanceValidity();
         }
         this.triggerHtmlUpdated();
         this.triggerRelevanceOnOff();
     },
     disableValidityCheck: function() {
         $(document).on("click","button[data-disable-check-validity]",function(event,data) {
-            $("form#limesurvey").find("[required]").removeAttr("required");
+            $("form#limesurvey").find(":required").removeAttr("required");
+            $("form#limesurvey").find(":invalid").each(function(){
+                $(this)[0].setCustomValidity('');
+            });
         });
-        //~ $(document).on("click","[data-limesurvey-submit]:not([data-check-validity]"
     },
     triggerEmClassChangeAccessible: function () {
         /* @todo : check :valid and setCustomValidity */
@@ -40,15 +44,48 @@ var TemplateAccessible = {
                 $("[aria-labelledby*='"+parentId+"']").removeAttr("aria-invalid");
             }
         });
-        //~ $(document).on('classChangeGood classChangeError','.ls-em-tip', function () {
-            //~ TemplateAccessible.setCustomValidityBy($(this).parent('.ls-question-help'));
-        //~ });
     },
-    triggerMandatoryUpdate: function() {
-        /* WIP */
+    setMandatoryRequired: function() {
         $("[id^='question'].mandatory").each(function() {
             $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
         });
+    },
+    setCustomValidity : function () {
+        $(document).on('classChangeError classChangeGood','.ls-em-tip', function () {
+            var validityString = "";
+            $(this).parent('.ls-question-help').find(".text-danger").each(function() {
+                validityString += $(this).text().trim();
+            });
+            if(validityString) {
+                if($(this).closest("[id^='question']").find("[id^='javatbd']").length) {
+                   $(this).closest("[id^='question']").find("[id^='javatbd']").each(function() {
+                        $(this).find('input:text,textarea,select,input:radio,input:checkbox').each(function() {
+                            $(this)[0].setCustomValidity(validityString);
+                        });
+                    });
+                } else {
+                    var element = $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio:first,.checkbox-item input:checkbox:first');
+                    if(element.length) {
+                        element[0].setCustomValidity(validityString);
+                    }
+                }
+            } else {
+                if($(this).closest("[id^='question']").find("[id^='javatbd']").length) {
+                   $(this).closest("[id^='question']").find("[id^='javatbd']").each(function() {
+                        $(this).find('input:text,textarea,select,input:radio,input:checkbox').each(function() {
+                            $(this)[0].setCustomValidity('');
+                        });
+                    });
+                } else {
+                    var element = $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio:first,.checkbox-item input:checkbox:first');
+                    if(element.length) {
+                        element[0].setCustomValidity('');
+                    }
+                }
+            }
+        });
+    },
+    triggerRelevanceValidity: function() {
         $(document).on('relevance:on',"[id^='question']",function(event,data) {
             if(event.target != this) return;
             $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
@@ -168,14 +205,5 @@ var TemplateAccessible = {
     },
     hideMultipleColumn: function () {
         /* @todo … */
-    },
-    setCustomValidityBy : function(element) {
-        if($(element).length == 0) {
-            return;
-        }
-        if(!$(element).hasClass("ls-question-help")) {
-            return;
-        }
-        /* @todo, but must fix relevance on subquestion before */
     }
 }
