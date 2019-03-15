@@ -356,7 +356,7 @@ table > tbody > tr > td.ddprefix {
 }
 
 /* Asterix */
-.input-error .asterisk {
+.no-js .input-error .asterisk {
     font-size: 1.2em;
     margin-top:-0.2em;
 }
