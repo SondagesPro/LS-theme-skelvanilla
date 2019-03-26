@@ -19,7 +19,7 @@
 .navbar-nav #langs-container{overflow-y:auto;max-height:10em;max-height:70vh;}
 
 /* question-text h1,h2,h3 … remove extra margin */
-h2.question-text ,h3.question-text,
+.question-text h2,.question-text h3,
 .lead.question-text,
 .h2.question-text,.h3.question-text,.h4.question-text,.h4.question-text,.h5.question-text,.h6.question-text{
 margin-top:0;margin-bottom:0.5em;
