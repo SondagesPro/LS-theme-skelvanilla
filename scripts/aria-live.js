@@ -12,7 +12,7 @@ var TemplateAccessible = {
         this.triggerEmClassChangeAccessible();
         if(options.dynamicValidity) {
             this.setMandatoryRequired();
-            this.setCustomValidity();
+            this.setDynamicValidity();
             this.triggerRelevanceValidity();
         }
         this.triggerHtmlUpdated();
@@ -50,7 +50,7 @@ var TemplateAccessible = {
             $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
         });
     },
-    setCustomValidity : function () {
+    setDynamicValidity : function () {
         $(document).on('classChangeError classChangeGood','.ls-em-tip', function () {
             var validityString = "";
             $(this).parent('.ls-question-help').find(".text-danger").each(function() {
@@ -64,7 +64,7 @@ var TemplateAccessible = {
                         });
                     });
                 } else {
-                    var element = $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio:first,.checkbox-item input:checkbox:first');
+                    var element = $(this).closest("[id^='question']").find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio:first,.checkbox-item input:checkbox:first');
                     if(element.length) {
                         element[0].setCustomValidity(validityString);
                     }
