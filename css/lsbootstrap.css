@@ -6418,15 +6418,14 @@ li.checkbox-item.other-item label {
 /* hover */
 .radio-item label:hover,
 .checkbox-item label:hover,
-.checkbox-item input[type="checkbox"]:checked + label:hover,
-.radio-item input[type="radio"]:focus + label,
-.checkbox-item input[type="checkbox"]:focus + label,
-.checkbox-item input[type="checkbox"]:checked:focus + label {
+.checkbox-item input[type="checkbox"]:checked + label:hover {
   background: #e6e6e6;
   color: #333;
 }
 /* focus */
-li.radio-text-item input[type="radio"]:focus + label,
+li.radio-item input[type="radio"]:focus + label,
+li.checkbox-item input[type="checkbox"]:focus + label,
+li.checkbox-item input[type="checkbox"]:checked:focus + label li.radio-text-item input[type="radio"]:focus + label,
 li.checkbox-text-item input[type="checkbox"]:focus + label {
   background: #e6e6e6;
   color: #333;
@@ -6547,6 +6546,12 @@ li.noanswer-item input[type="radio"]:checked + label {
   }
   .no-more-table .radio-item label.ls-label-xs-visibility:hover,
   .no-more-table .checkbox-item label.ls-label-xs-visibility:hover {
+    background: #e6e6e6;
+    color: #333;
+  }
+  /* focus */
+  .no-more-table td.radio-item input[type="radio"]:focus + label,
+  .no-more-table td.checkbox-item input[type="checkbox"]:focus + label {
     background: #e6e6e6;
     color: #333;
   }
