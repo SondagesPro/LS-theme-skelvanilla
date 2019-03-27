@@ -38,6 +38,7 @@
 <header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" {{ aSurveyInfo.attr.navbar }}>
     <div class="container-fluid">
         <div class="{{ aSurveyInfo.class.navbarheader }}" {{ aSurveyInfo.attr.navbarheader }} >
+            {{ include('./subviews/navigation/shortcuts_links.twig') }}
             <button type="button" class="{{ aSurveyInfo.class.navbartoggle }}" {{ aSurveyInfo.attr.navbartoggle }}  >
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
