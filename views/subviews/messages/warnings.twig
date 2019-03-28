@@ -43,14 +43,24 @@
     </div>
 {% endif %}
 
-{# Error Html warnings #}
-{% if aSurveyInfo.errorHtml.show %}
-    <p class=' {# Uncomment to hide when popup is on { aSurveyInfo.errorHtml.hiddenClass } #} fade in alert-dismissible alert alert-danger {{ aSurveyInfo.class.errorHtml }} ' role='alert'>
-        <button  {{ aSurveyInfo.attr.errorHtmlbutton }} class="{{ aSurveyInfo.class.errorHtmlbutton }} close" ><span aria-hidden="true">×</span><span class="sr-only">{{ gT("Close") }}</span></button>
-    {% for aMessage in aSurveyInfo.errorHtml.messages  %}
+
+{% if(count(aSurveyInfo.errorHtml.messages) == 1) %}
+    <p class='{{ aSurveyInfo.errorHtml.hiddenClass }} fade in alert-dismissible alert alert-danger {{ aSurveyInfo.class.errorHtml }} ' role='alert'>
+        <button  {{ aSurveyInfo.attr.errorHtmlbutton }} class="{{ aSurveyInfo.class.errorHtmlbutton }} close ls-no-js-hidden" ><span aria-hidden="true">×</span><span class="sr-only">{{ gT("Close") }}</span></button>
+        {% for aMessage in aSurveyInfo.errorHtml.messages  %}
         <!-- Error Html warnings -->
             {{ aMessage }}
-            <br/>
-    {% endfor %}
+        {% endfor %}
     </p>
+{% endif %}
+{% if(count(aSurveyInfo.errorHtml.messages) > 1) %}
+    <div class='{{ aSurveyInfo.errorHtml.hiddenClass }} fade in alert-dismissible alert alert-danger {{ aSurveyInfo.class.errorHtml }} ' role='alert'>
+        <button {{ aSurveyInfo.attr.errorHtmlbutton }} class="{{ aSurveyInfo.class.errorHtmlbutton }} close ls-no-js-hidden" ><span aria-hidden="true">×</span><span class="sr-only">{{ gT("Close") }}</span></button>
+        <ul>
+        {% for aMessage in aSurveyInfo.errorHtml.messages  %}
+        <!-- Error Html warnings -->
+            <li>{{ aMessage }}</li>
+        {% endfor %}
+        </ul>
+    </div>
 {% endif %}
