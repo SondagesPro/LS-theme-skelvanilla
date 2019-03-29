@@ -45,7 +45,7 @@
     {% set questioncolor = 'text-'~questioncolor %}
 {% endif %}
 <!-- Question {{ aQuestion.qid  }}  -->
-<{{ tagSection }} {{ aQuestion.attributes }} class="{{ questioncontainerclass }} {{ aQuestion.class }} {{ aQuestion.input_error_class }} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
+<{{ tagSection }} {{ aQuestion.attributes }} class="{{ questioncontainerclass }} {{ aQuestion.class }} {% if aQuestion.input_error_class %}submitted-error{% endif %} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
     {{ include('./subviews/survey/question.twig') }}
 </{{ tagSection }}>
 <!-- End of question  {{ aQuestion.qid  }}  -->

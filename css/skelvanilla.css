@@ -357,10 +357,9 @@ table > tbody > tr > td.ddprefix {
     margin-bottom: 0.8em;
 }
 
-/* Asterix */
-.no-js .input-error .asterisk {
-    font-size: 1.2em;
-    margin-top:-0.2em;
+/* Submitted error */
+.submitted-error .ls-em-tip,.submitted-error .ls-question-mandatory {
+    font-weight: bold;
 }
 
 #outerframeContainer {
