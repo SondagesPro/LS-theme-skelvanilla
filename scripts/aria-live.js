@@ -56,31 +56,16 @@ var TemplateAccessible = {
             $(this).parent('.ls-question-help').find(".text-danger").each(function() {
                 validityString += $(this).text().trim();
             });
-            if(validityString) {
-                if($(this).closest("[id^='question']").find("[id^='javatbd']").length) {
-                   $(this).closest("[id^='question']").find("[id^='javatbd']").each(function() {
-                        $(this).find('input:text,textarea,select,input:radio,input:checkbox').each(function() {
-                            $(this)[0].setCustomValidity(validityString);
-                        });
+            if($(this).closest("[id^='question']").find("[id^='javatbd']").length) {
+               $(this).closest("[id^='question']").find("[id^='javatbd']").each(function() {
+                    $(this).find('input:text,textarea,select,input:radio,input:checkbox').each(function() {
+                        $(this)[0].setCustomValidity(validityString);
                     });
-                } else {
-                    var element = $(this).closest("[id^='question']").find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio:first,.checkbox-item input:checkbox:first');
-                    if(element.length) {
-                        element[0].setCustomValidity(validityString);
-                    }
-                }
+                });
             } else {
-                if($(this).closest("[id^='question']").find("[id^='javatbd']").length) {
-                   $(this).closest("[id^='question']").find("[id^='javatbd']").each(function() {
-                        $(this).find('input:text,textarea,select,input:radio,input:checkbox').each(function() {
-                            $(this)[0].setCustomValidity('');
-                        });
-                    });
-                } else {
-                    var element = $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio:first,.checkbox-item input:checkbox:first');
-                    if(element.length) {
-                        element[0].setCustomValidity('');
-                    }
+                var element = $(this).closest("[id^='question']").find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio:first,.checkbox-item input:checkbox:first');
+                if(element.length) {
+                    element[0].setCustomValidity(validityString);
                 }
             }
         });
