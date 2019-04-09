@@ -19,4 +19,5 @@ If you need to update : currently LimeSurvey didn't offer update system for them
 - HomePage <https://extensions.sondages.pro/skelvanilla>
 - Copyright © 2018-2019 Denis Chenu <https://sondages.pro>
 - Licence : GNU General Public License <https://www.gnu.org/licenses/gpl-3.0.html>
+- [![Donate](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/SondagesPro/)
 - Issue and feature : [gitlab](https://gitlab.com/SondagesPro/SurveyThemes/skelvanilla/issues) or [framagit](https://framagit.org/SondagePro-LimeSurvey-plugin/skelvanilla/issues)
