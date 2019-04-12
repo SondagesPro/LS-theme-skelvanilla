@@ -1,16 +1,4 @@
 {#
-    LimeSurvey
-    Copyright (C) 2007-2017 The LimeSurvey Project Team / Louis Gac
-    All rights reserved.
-    License: GNU/GPL License v2 or later, see LICENSE.php
-    LimeSurvey is free software. This version may have been modified pursuant
-    to the GNU General Public License, and as distributed it includes or
-    is derivative of works licensed under the GNU General Public License or
-    other free or open source software licenses.
-    See COPYRIGHT.php for copyright notices and details.
-
-
-
     (¯`·._.·(¯`·._.· Warnings  ·._.·´¯)·._.·´¯)
 
     Show various warnings on top of the form
@@ -29,7 +17,7 @@
 {% if aSurveyInfo.active != 'Y' %}
     <!-- Preview mode warning -->
     <div class="{{ aSurveyInfo.class.activealert }} alert alert-warning alert-dismissible fade in alert-dismissible" {{ aSurveyInfo.attr.activealert }} >
-        <button  {{ aSurveyInfo.attr.activealertbutton }} class="{{ aSurveyInfo.class.activealertbutton }} close" ><span aria-hidden="true">×</span><span class="sr-only">{{ gT("Close") }}</span></button>
+        <button {{ aSurveyInfo.attr.activealertbutton }} class="{{ aSurveyInfo.class.activealertbutton }} close" ><span aria-hidden="true">&times;</span><span class="sr-only">{{ gT("Close") }}</span></button>
         {{ gT("This survey is currently not active. You will not be able to save your responses.") }}
     </div>
 {% endif %}
@@ -38,7 +26,7 @@
 {% if aSurveyInfo.datasecuritynotaccepted == true %}
     <!-- Preview mode warning -->
     <div class="{{ aSurveyInfo.class.activealert }} alert alert-danger alert-dismissible fade in alert-dismissible" {{ aSurveyInfo.attr.activealert }} >
-        <button  {{ aSurveyInfo.attr.activealertbutton }} class="{{ aSurveyInfo.class.activealertbutton }} close" ><span aria-hidden="true">×</span><span class="sr-only">{{ gT("Close") }}</span></button>
+        <button {{ aSurveyInfo.attr.activealertbutton }} class="{{ aSurveyInfo.class.activealertbutton }} close" ><span aria-hidden="true">&times;</span><span class="sr-only">{{ gT("Close") }}</span></button>
         {{ aSurveyInfo.datasecurity_error }}
     </div>
 {% endif %}

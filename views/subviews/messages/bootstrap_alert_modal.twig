@@ -1,0 +1,35 @@
+{#
+    (¯`·._.·(¯`·._.·  Bootstrap Modal Alert ·._.·´¯)·._.·´¯)
+
+    This is the modal that shows most of the alert messages.
+    The conversion from pure JavaScript alert to Bootstrap modal is done in theme-core.js
+
+    About Bootstrap modal, see: http://getbootstrap.com/javascript/#modals
+#}
+
+
+
+{# Register script for modal #}
+{% if( empty(json_decode(aSurveyInfo.jPopup)) == false ) %}
+    {{ registerScript('startPopup',"LSvar.startPopups = " ~ aSurveyInfo.jPopup , "POS_HEAD") }}
+    {{ registerScript('showStartPopups',"window.templateCore.alertSurveyDialog(" ~ aSurveyInfo.jPopup ~ ");", "POS_END") }}
+{% endif %}
+
+<!-- Bootstrap Modal Alert -->
+{% if(aSurveyInfo.id.alertmodal)%}
+<div id="{{ aSurveyInfo.id.alertmodal }}" class="{{ aSurveyInfo.class.alertmodal }}" {{ aSurveyInfo.attr.alertmodal }}>
+    <div class="{{ aSurveyInfo.class.modaldialog }}" {{ aSurveyInfo.attr.modaldialog }}>
+        <div class="{{ aSurveyInfo.class.modalcontent }}" {{ aSurveyInfo.attr.modalcontent }} >
+            <div class="{{ aSurveyInfo.class.modalheader }}" {{ aSurveyInfo.attr.modalheader }} >
+                <button  {{ aSurveyInfo.attr.modalclosebutton }} aria-label="{{ gT('Close') }}" class="{{ aSurveyInfo.class.modalclosebutton }}"  ><span aria-hidden="true">&times;</span><span class="sr-only">{{ gT("Close") }}</span></button>
+                <div class="{{ aSurveyInfo.class.modaltitle }}" {{ aSurveyInfo.attr.modaltitle }}>&nbsp;</div>
+            </div>
+            <div class="{{ aSurveyInfo.class.modalbody }}" {{ aSurveyInfo.attr.modalbody }}>
+            </div>
+            <div class="{{ aSurveyInfo.class.modalfooter }}" {{ aSurveyInfo.attr.modalfooter }}>
+                <a {{ aSurveyInfo.attr.modalfooterlink }}  class="{{ aSurveyInfo.class.modalfooterlink }}">{{ gT("Close") }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
