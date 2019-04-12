@@ -47,7 +47,7 @@ var TemplateAccessible = {
     },
     setMandatoryRequired: function() {
         $("[id^='question'].mandatory").each(function() {
-            $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
+            $(this).find('.text-item:not(.slider-item) input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
         });
     },
     setDynamicValidity : function () {
