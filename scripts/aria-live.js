@@ -47,7 +47,7 @@ var TemplateAccessible = {
     },
     setMandatoryRequired: function() {
         $("[id^='question'].mandatory").each(function() {
-            $(this).find('.text-item:not(.slider-item) input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
+            $(this).find('.text-item:not(.other-text-item):not(.slider-item) input:text,.text-item:not(.other-text-item) textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
         });
     },
     setDynamicValidity : function () {
@@ -73,19 +73,19 @@ var TemplateAccessible = {
     triggerRelevanceValidity: function() {
         $(document).on('relevance:on',"[id^='question'].mandatory",function(event,data) {
             if(event.target != this) return;
-            $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
+            $(this).find('..text-item:not(.other-text-item) input:text,.text-item:not(.other-text-item) textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
         });
         $(document).on('relevance:off',"[id^='question'].mandatory",function(event,data) {
             if(event.target != this) return;
-            $(this).find('.text-item input:text,.text-item textarea,.dropdown-item select,.radio-item input:radio').removeAttr('required');
+            $(this).find('.text-item:not(.other-text-item) input:text,.text-item:not(.other-text-item) textarea,.dropdown-item select,.radio-item input:radio').removeAttr('required');
         });
         $("[id^='question'].mandatory").on('relevance:on',"[id^='javatbd']",function(event,data) {
             if(event.target != this) return;
-            $(this).find('input:text,textarea,select,input:radio').attr('required',true);
+            $(this).find('.text-item:not(.other-text-item) input:text,.text-item:not(.other-text-item) textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
         });
         $("[id^='question'].mandatory").on('relevance:off',"[id^='javatbd']",function(event,data) {
             if(event.target != this) return;
-            $(this).find('input:text,textarea,.select,input:radio').removeAttr('required');
+            $(this).find('.text-item:not(.other-text-item) input:text,.text-item:not(.other-text-item) textarea,.dropdown-item select,.radio-item input:radio').removeAttr('required');
         });
     },
     triggerHtmlUpdated : function() {
