@@ -6,7 +6,7 @@
  */
 
 var TemplateAccessible = {
-    requiredSelector : '.text-item:not(.other-text-item):not(.slider-item) input:text,.text-item:not(.other-text-item):not(.comment-item) textarea,.dropdown-item select,.radio-item input:radio',
+    requiredSelector : '.text-item:not(.other-text-item):not(.slider-item):not(.comment-item) input:text,.text-item:not(.other-text-item):not(.comment-item) textarea,.dropdown-item select,.radio-item input:radio',
     init : function (options) {
         if(options.dynamicValidity) {
             this.disableValidityCheck();
