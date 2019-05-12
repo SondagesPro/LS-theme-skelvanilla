@@ -4,7 +4,9 @@
  * @author Denis Chenu <https://sondages.pro
  * @license magnet:?xt=urn:btih:c80d50af7d3db9be66a4d0a86db0286e4fd33292&dn=bsd-3-clause.txt BSD 3 Clause
  */
+
 var TemplateAccessible = {
+    requiredSelector : '.text-item:not(.other-text-item):not(.slider-item) input:text,.text-item:not(.other-text-item):not(.comment-item) textarea,.dropdown-item select,.radio-item input:radio',
     init : function (options) {
         if(options.dynamicValidity) {
             this.disableValidityCheck();
@@ -47,7 +49,7 @@ var TemplateAccessible = {
     },
     setMandatoryRequired: function() {
         $("[id^='question'].mandatory").each(function() {
-            $(this).find('.text-item:not(.other-text-item):not(.slider-item) input:text,.text-item:not(.other-text-item) textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
+            $(this).find(TemplateAccessible.requiredSelector).attr('required',true);
         });
     },
     setDynamicValidity : function () {
@@ -73,19 +75,19 @@ var TemplateAccessible = {
     triggerRelevanceValidity: function() {
         $(document).on('relevance:on',"[id^='question'].mandatory",function(event,data) {
             if(event.target != this) return;
-            $(this).find('..text-item:not(.other-text-item) input:text,.text-item:not(.other-text-item) textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
+            $(this).find(TemplateAccessible.requiredSelector).attr('required',true);
         });
         $(document).on('relevance:off',"[id^='question'].mandatory",function(event,data) {
             if(event.target != this) return;
-            $(this).find('.text-item:not(.other-text-item) input:text,.text-item:not(.other-text-item) textarea,.dropdown-item select,.radio-item input:radio').removeAttr('required');
+            $(this).find(TemplateAccessible.requiredSelector).removeAttr('required');
         });
         $("[id^='question'].mandatory").on('relevance:on',"[id^='javatbd']",function(event,data) {
             if(event.target != this) return;
-            $(this).find('.text-item:not(.other-text-item) input:text,.text-item:not(.other-text-item) textarea,.dropdown-item select,.radio-item input:radio').attr('required',true);
+            $(this).find(TemplateAccessible.requiredSelector).attr('required',true);
         });
         $("[id^='question'].mandatory").on('relevance:off',"[id^='javatbd']",function(event,data) {
             if(event.target != this) return;
-            $(this).find('.text-item:not(.other-text-item) input:text,.text-item:not(.other-text-item) textarea,.dropdown-item select,.radio-item input:radio').removeAttr('required');
+            $(this).find(TemplateAccessible.requiredSelector).removeAttr('required');
         });
     },
     triggerHtmlUpdated : function() {
