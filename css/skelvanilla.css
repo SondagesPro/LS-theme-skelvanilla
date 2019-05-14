@@ -14,6 +14,7 @@
 .navbar-brand .logo-container > img{max-height:2em;width:auto;display:inline-block;}
 .navbar-brand img {vertical-align: text-bottom;}
 
+.skip-navigation{list-style-type: none;}
 .skip-navigation{position:absolute;padding:0}
 
 .question-container{margin-bottom:2em}
@@ -23,8 +24,11 @@
 /* question-text h1,h2,h3 … remove extra margin */
 .question-text h2,.question-text h3,
 .lead.question-text,
-.h2.question-text,.h3.question-text,.h4.question-text,.h4.question-text,.h5.question-text,.h6.question-text{
+.h2.question-text,.h3.question-text,.h4.question-text,.h5.question-text,.h6.question-text{
 margin-top:0;margin-bottom:0.5em;
+}
+.panel-heading .h2.question-text,.panel-heading .h3.question-text,.panel-heading .h4.question-text,.panel-heading .h5.question-text,.panel-heading .h6.question-text{
+    margin-bottom: 0;
 }
 /* For footer, inspirated by layout-galla */
 html, body {height: 100%;}
