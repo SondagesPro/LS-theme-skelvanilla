@@ -4,10 +4,10 @@
     The content of this file is imported into DB when you install the template.
 -->
 <config>
-    <type>theme</type>
     <!-- Those metadata are displayed in the theme configuration page.  -->
     <metadata>
         <name>skelvanilla</name>
+        <type>theme</type>
         <title>SkelVanilla</title>
         <creationDate>2018-10-29</creationDate>
         <author>Denis Chenu</author>
@@ -16,7 +16,7 @@
         <supportUrl>https://extensions.sondages.pro/themes-and-templates/skelvanilla-a11y-and-usuability/</supportUrl>
         <copyright>Copyright (C) 2018-2019 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 3 or later</license>
-        <version>4.7.8</version>
+        <version>4.7.9</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
         <last_update>2019-05-12 13:06:19</last_update>
@@ -235,7 +235,7 @@
                     <file type="view" role="subview">./subviews/survey/question_subviews/answers.twig</file>
                     <file type="view" role="subview">./subviews/survey/question_subviews/survey_question_help.twig</file>
                     <file type="view" role="subview">./subviews/survey/question_subviews/valid_message_and_help.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/skelvanilla.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="css">./css/custom.css</file>
@@ -251,7 +251,7 @@
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="subview">./subviews/navigation/language_changer_form.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/skelvanilla.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="css">./css/custom.css</file>
@@ -276,7 +276,7 @@
                     <file type="view" role="subview">./subviews/messages/no_js_alert.twig</file>
                     <file type="view" role="subview">./subviews/privacy/privacy.twig</file>
                     <file type="view" role="subview">./subviews/navigation/language_changer.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/aria-live.js</file>
                     <file type="js">./scripts/theme.js</file>
@@ -290,7 +290,7 @@
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/submit.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -304,7 +304,7 @@
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/submit.twig</file>
                     <file type="view" role="subview">./subviews/messages/assessments.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -324,7 +324,7 @@
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/clearall.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -337,7 +337,7 @@
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/load.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -350,7 +350,7 @@
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/save.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -367,7 +367,7 @@
                     <file type="view" role="subview">./subviews/registration/register_success.twig</file>
                     <file type="view" role="subview">./subviews/registration/register_form.twig</file>
                     <file type="view" role="subview">./subviews/registration/required.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -380,7 +380,7 @@
                     <file type="view" role="content">./subviews/content/printanswers.twig</file>
                     <file type="view" role="subview">./subviews/printanswers/printanswers_question.twig</file>
                     <file type="view" role="subview">./subviews/printanswers/printanswers_table.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>
@@ -409,7 +409,7 @@
                     <file type="view" role="subview">./subviews/navigation/question_index_buttons.twig</file>
                     <file type="view" role="subview">./subviews/navigation/question_index_questions_buttons.twig</file>
                     <file type="view" role="subview">./subviews/navigation/question_index_groups_buttons.twig</file>
-                    <file type="css">./css/lsbootstrap.css</file>
+                    <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
                     <file type="css">./css/custom.css</file>

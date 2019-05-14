@@ -1,10 +1,15 @@
 /*!
  * Theme generator css for LimeSurvey template
  * Based on Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2018 Denis Chenu
+ * Copyright 2018-2019 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 3
+ * @version 3.1.0
+ */
+/*!
+ * This is a generated file
+ * Do your own variation for LimeSurvey
+ * Source : https://gitlab.com/SondagesPro/SurveyThemes/less-skelvanilla
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -7942,4 +7947,4 @@ li.slider-item {
   margin-bottom: 0;
 }
 /* Use this for global personalisation (for all variables) */
-/*# sourceMappingURL=lsbootstrap.css.map */
+/*# sourceMappingURL=bootstrap.css.map */
