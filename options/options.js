@@ -179,7 +179,7 @@ var ThemeOptions = function(){
             try{
                 currentTheme = JSON.parse(currentCssFrameworkObject).replace[0][1];
             } catch(e){
-                currentTheme = "css/lsbootstrap.css";
+                currentTheme = "css/bootstrap.css";
             }
         }
         console.log(currentTheme);
