@@ -83,6 +83,11 @@ table.ls-answers thead th,table.ls-answers thead td,table.ls-answers .ls-heading
 }
 /* hide (then disable tab) for input other in multiple choice */
 .checkbox-text-item .other-checkbox[aria-hidden]{display:none}
+/* group system : need fix for panel */
+.panel .panel.question-container{border:0 none transparent;
+-webkit-box-shadow: initial;
+box-shadow: initial;
+}
 /* Limesurvey vanilla part */
 
 

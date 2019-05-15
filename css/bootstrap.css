@@ -6041,16 +6041,19 @@ table.ls-answers {
 .boilerplate .answer-container {
   display: none;
 }
-/* Basic question css */
-.question-container {
-  margin-bottom: 2em;
-}
 /* .navbar-brand with little screen */
 @media only screen and (max-width: 48em) {
   .navbar-brand {
     font-size: 0.85rem;
     display: inline;
   }
+}
+/* Basic question css */
+.question-container {
+  margin-bottom: 1.5em;
+}
+.question-container.no-footer-spacer {
+  margin-bottom: 0;
 }
 /* Global question part */
 .question-text,

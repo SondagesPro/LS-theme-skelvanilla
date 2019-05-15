@@ -28,6 +28,8 @@
 {% set questioncolor = '' %}
 {% set questioncontainerclass = '' %}
 {% set questionsize = aSurveyInfo.options.questionsize %}
+{% set start_group = 0 %}
+{% set end_group = 0 %}
 
 {% if ( aSurveyInfo.options.questioncolor and aSurveyInfo.options.questioncolor !='none' ) %}
     {% set questioncolor = aSurveyInfo.options.questioncolor %}
@@ -84,6 +86,9 @@
 {% set panel = false %}
 {% if ( questionwrap =='panel' ) %}
     {% set panel = true %}
+    {% set start_panel_body = 1 %}
+    {% set close_panel_body = 1 %}
+    {% set panel_heading = 1 %}
     {% if ( questioncolor ) %}
         {% set questioncontainerclass = 'panel panel-'~questioncolor %}
         {% set questioncolor = '' %}
@@ -93,9 +98,30 @@
 {% else %}
     {% set questioncolor = 'text-'~questioncolor %}
 {% endif %}
+{% if(in_array('skel-start-group',aQuestionsClasses)) %}
+    {% set start_group = 1 %}
+{% endif %}
+{% if(in_array('skel-end-group',aQuestionsClasses)) %}
+    {% set end_group = 1 %}
+{% endif %}
+{% if(in_array('skel-no-question',aQuestionsClasses)) %}
+    {% set no_include_text = 1 %}
+{% endif %}
 {# End of Options #}
 <!-- Question {{ aQuestion.qid  }}  -->
-<{{ tagSection }} {{ aQuestion.attributes }} class="{{ questioncontainerclass }} {{ aQuestion.class }} {% if aQuestion.input_error_class %}submitted-error{% endif %} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
+{% if (start_group) %}
+    <{{ tagSection }} class="{{ questioncontainerclass }}">
+    {% if(panel) %}
+        {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
+        {% set no_include_text = 1 %}
+    {% endif %}
+    <{{ tagSection }} {{ aQuestion.attributes }} class="{{ aQuestion.class }} {% if aQuestion.input_error_class %}submitted-error{% endif %} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
+{% else %}
+    <{{ tagSection }} {{ aQuestion.attributes }} class="{{ questioncontainerclass }} {{ aQuestion.class }} {% if aQuestion.input_error_class %}submitted-error{% endif %} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
+{% endif %}
     {{ include('./subviews/survey/question.twig') }}
+{% if (end_group) %}
+    </{{ tagSection }} >
+{% endif %}
 </{{ tagSection }}>
 <!-- End of question  {{ aQuestion.qid  }}  -->

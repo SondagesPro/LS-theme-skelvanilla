@@ -28,9 +28,10 @@
 {# Showing question code/number is a survey level setting, so it's inside the array aSurveyInfo #}
 {% set aShow        = aSurveyInfo.aShow   %}
     <!-- Question {{ aQuestion.code }} -->
-
     {# Question Text #}
-    {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
+    {% if not no_include_text %}
+        {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
+    {% endif %}
     {% if panel %} <div class="panel-body"> {% endif %}
     {% set ariadescribe = ''  %}
     {% if aQuestion.mandatory != '' %}
@@ -60,5 +61,5 @@
     {% if not aQuestion.help.show %}
         {{ aQuestion.help.text | raw }}
     {% endif %}
-    {% if panel %} </div> {% endif %}
+    {% if (panel) %} </div>{% endif %}
     <!-- End of question {{ aQuestion.code }} -->
