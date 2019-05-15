@@ -5945,13 +5945,7 @@ li.radio-item,
 li.checkbox-item,
 li.radio-text-item,
 li.checkbox-text-item {
-  margin-bottom: 1em;
-}
-li.text-item,
-li.checkbox-item,
-li.radio-text-item,
-li.checkbox-text-item {
-  margin-bottom: 1em;
+  margin-bottom: 0.7rem;
 }
 li.radio-item,
 li.checkbox-item,
@@ -6057,6 +6051,29 @@ table.ls-answers {
     font-size: 0.85rem;
     display: inline;
   }
+}
+/* Global question part */
+.question-text,
+.question-text h2,
+.question-text h3,
+.lead.question-text,
+.h2.question-text,
+.h3.question-text,
+.h4.question-text,
+.h5.question-text,
+.h6.question-text {
+  margin-top: 0;
+  margin-bottom: 0.32rem;
+}
+.question-valid-container {
+  margin-bottom: 0;
+}
+.ls-answers {
+  margin-bottom: 0.32rem;
+}
+.question-text p,
+.ls-answer p {
+  margin-bottom: 0.32rem;
 }
 .answer-item label:hover,
 .answer-item input:focus + label,
