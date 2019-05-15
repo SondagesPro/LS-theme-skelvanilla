@@ -24,16 +24,46 @@
     {% set tagSection = 'section' %}
     {% set tagHeader = 'header' %}
 {% endif %}
+{% set questionwrap = aSurveyInfo.options.questionwrap %}
 {% set questioncolor = '' %}
 {% set questioncontainerclass = '' %}
+
 {% if ( aSurveyInfo.options.questioncolor and aSurveyInfo.options.questioncolor !='none' ) %}
     {% set questioncolor = aSurveyInfo.options.questioncolor %}
 {% endif %}
-{% if ( aSurveyInfo.options.questionwrap =='well' ) %}
+
+{# skel-value Class management #}
+{% set aQuestionsClasses = aQuestion.class|split(' ') %}
+{% if(in_array('skel-wrap-well',aQuestionsClasses)) %}
+    {% set questionwrap ='well' %}
+{% endif %}
+{% if(in_array('skel-wrap-panel',aQuestionsClasses)) %}
+    {% set questionwrap ='panel' %}
+{% endif %}
+{% if(in_array('skel-wrap-none',aQuestionsClasses)) %}
+    {% set questionwrap ='' %}
+{% endif %}
+{% if(in_array('skel-color-none',aQuestionsClasses)) %}
+    {% set questioncolor ='none' %}
+{% endif %}
+{% if(in_array('skel-color-primary',aQuestionsClasses)) %}
+    {% set questioncolor ='primary' %}
+{% endif %}
+{% if(in_array('skel-color-info',aQuestionsClasses)) %}
+    {% set questioncolor ='info' %}
+{% endif %}
+{% if(in_array('skel-color-success',aQuestionsClasses)) %}
+    {% set questioncolor ='success' %}
+{% endif %}
+{% if(in_array('skel-color-warning',aQuestionsClasses)) %}
+    {% set questioncolor ='warning' %}
+{% endif %}
+
+{% if ( questionwrap =='well' ) %}
     {% set questioncontainerclass = 'well well-sm' %}
 {% endif %}
 {% set panel = false %}
-{% if ( aSurveyInfo.options.questionwrap =='panel' ) %}
+{% if ( questionwrap =='panel' ) %}
     {% set panel = true %}
     {% if ( questioncolor ) %}
         {% set questioncontainerclass = 'panel panel-'~questioncolor %}
