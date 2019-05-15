@@ -31,8 +31,8 @@
 {% endif %}
 
 {# The question text as entered by the survey creator in question editing #}
-<div class="{{ aSurveyInfo.class.questiontext }} {{ aSurveyInfo.options.questionsize }}" {{ aSurveyInfo.attr.questiontext }}>
-    <{{ tagQuestion }} id="ls-question-text-{{ aQuestion.SGQ }}" class="{{ aSurveyInfo.class.lsquestiontext }} accessible-question-text {{ questioncolor }}" {{ aSurveyInfo.attr.lsquestiontext }}>
+<div class="{{ aSurveyInfo.class.questiontext }}" {{ aSurveyInfo.attr.questiontext }}>
+    <{{ tagQuestion }} id="ls-question-text-{{ aQuestion.SGQ }}" class="{{ questionsize }} {{ aSurveyInfo.class.lsquestiontext }} accessible-question-text {{ questioncolor }}" {{ aSurveyInfo.attr.lsquestiontext }}>
         {{ aQuestion.text | raw }}
     </{{ tagQuestion }}>
 </div>

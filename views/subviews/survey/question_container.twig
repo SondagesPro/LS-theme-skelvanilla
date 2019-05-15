@@ -17,7 +17,7 @@
     Different classes, options, etc
     So we separate it
 #}
-{# Some var globally used #}
+{# Start of Options #}
 {% set tagSection = 'div' %}
 {% set tagHeader = 'div' %}
 {% if ( aSurveyInfo.options.questionhtag == 'on' ) %}
@@ -27,6 +27,7 @@
 {% set questionwrap = aSurveyInfo.options.questionwrap %}
 {% set questioncolor = '' %}
 {% set questioncontainerclass = '' %}
+{% set questionsize = aSurveyInfo.options.questionsize %}
 
 {% if ( aSurveyInfo.options.questioncolor and aSurveyInfo.options.questioncolor !='none' ) %}
     {% set questioncolor = aSurveyInfo.options.questioncolor %}
@@ -58,6 +59,24 @@
 {% if(in_array('skel-color-warning',aQuestionsClasses)) %}
     {% set questioncolor ='warning' %}
 {% endif %}
+{% if(in_array('skel-size-body',aQuestionsClasses)) %}
+    {% set questionsize ='body-copy' %}
+{% endif %}
+{% if(in_array('skel-size-h5',aQuestionsClasses)) %}
+    {% set questionsize ='h5' %}
+{% endif %}
+{% if(in_array('skel-size-h4',aQuestionsClasses)) %}
+    {% set questionsize ='h4' %}
+{% endif %}
+{% if(in_array('skel-size-h3',aQuestionsClasses)) %}
+    {% set questionsize ='h3' %}
+{% endif %}
+{% if(in_array('skel-size-h2',aQuestionsClasses)) %}
+    {% set questionsize ='h2' %}
+{% endif %}
+{% if(in_array('skel-size-lead',aQuestionsClasses)) %}
+    {% set questionsize ='lead' %}
+{% endif %}
 
 {% if ( questionwrap =='well' ) %}
     {% set questioncontainerclass = 'well well-sm' %}
@@ -74,6 +93,7 @@
 {% else %}
     {% set questioncolor = 'text-'~questioncolor %}
 {% endif %}
+{# End of Options #}
 <!-- Question {{ aQuestion.qid  }}  -->
 <{{ tagSection }} {{ aQuestion.attributes }} class="{{ questioncontainerclass }} {{ aQuestion.class }} {% if aQuestion.input_error_class %}submitted-error{% endif %} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
     {{ include('./subviews/survey/question.twig') }}
