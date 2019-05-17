@@ -6050,7 +6050,7 @@ table.ls-answers {
 }
 /* Basic question css */
 .question-container {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
 }
 .question-container.no-footer-spacer {
   margin-bottom: 0;
@@ -6240,6 +6240,10 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
   .no-more-table table.ls-answers td,
   .no-more-table table.ls-answers tr {
     display: block;
+  }
+  .js .no-more-table table.ls-answers tr.ls-hidden,
+  .js .no-more-table table.ls-answers .ls-hidden {
+    display: none;
   }
   .no-more-table table.ls-answers td.radio-item,
   .no-more-table table.ls-answers td.checkbox-item {
