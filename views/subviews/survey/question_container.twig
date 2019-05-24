@@ -1,6 +1,6 @@
 {#
-    LimeSurvey
-    Copyright (C) 2007-2017 The LimeSurvey Project Team / Louis Gac
+    LimeSurvey SkelVanilla template
+    Copyright (C) 2018-2019 Denis Chenu
     All rights reserved.
     License: GNU/GPL License v2 or later, see LICENSE.php
     LimeSurvey is free software. This version may have been modified pursuant
@@ -8,8 +8,6 @@
     is derivative of works licensed under the GNU General Public License or
     other free or open source software licenses.
     See COPYRIGHT.php for copyright notices and details.
-
-
 
     (¯`·._.·(¯`·._.· Question Container  ·._.·´¯)·._.·´¯)
 
@@ -101,16 +99,20 @@
 {% if(in_array('skel-start-group',aQuestionsClasses)) %}
     {% set start_group = 1 %}
 {% endif %}
+{% if(in_array('skel-start-group-question',aQuestionsClasses)) %}
+    {% set no_close = 1 %}
+{% endif %}
 {% if(in_array('skel-end-group',aQuestionsClasses)) %}
     {% set end_group = 1 %}
 {% endif %}
 {% if(in_array('skel-no-question',aQuestionsClasses)) %}
     {% set no_include_text = 1 %}
 {% endif %}
+
 {# End of Options #}
 <!-- Question {{ aQuestion.qid  }}  -->
 {% if (start_group) %}
-    <{{ tagSection }} class="{{ questioncontainerclass }}">
+    <{{ tagSection }} class="{{ questioncontainerclass }} skel-group">
     {% if(panel) %}
         {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
         {% set no_include_text = 1 %}
@@ -123,5 +125,7 @@
 {% if (end_group) %}
     </{{ tagSection }} >
 {% endif %}
+{% if not no_close %}
 </{{ tagSection }}>
+{% endif %}
 <!-- End of question  {{ aQuestion.qid  }}  -->
