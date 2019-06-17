@@ -1,0 +1,8 @@
+{# theme file #}
+{% set theme = aSurveyInfo.options.theme %}
+{% if (theme == "off" or theme == "") %}
+    {% set theme = 'css/bootstrap.css' %}
+{% endif %}
+{{ registerTemplateCssFile(theme) }}
+{{ registerTemplateCssFile('css/theme.css') }}
+{{ registerTemplateCssFile('css/custom.css') }}

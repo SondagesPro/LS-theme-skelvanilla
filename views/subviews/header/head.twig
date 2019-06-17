@@ -13,7 +13,8 @@
 
     This file generates the headers.
     Most of the time, it is not the right place to add your own JS/CSS - instead, use the config.xml file for that.
-#}<head>{{ unregisterPackage('pjax') }}
+#}<head>{{ include('./subviews/header/theme.twig') }}
+{{ unregisterPackage('pjax') }}
 {% if(aSurveyInfo.jYesNo) %}
     {{ registerScript('activateConfirmLanguage',"$.extend(LSvar.lang," ~ aSurveyInfo.jYesNo ~ ")", "POS_BEGIN") }}
 {% endif %}

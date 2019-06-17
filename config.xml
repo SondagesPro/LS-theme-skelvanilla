@@ -16,7 +16,7 @@
         <supportUrl>https://extensions.sondages.pro/themes-and-templates/skelvanilla-a11y-and-usuability/</supportUrl>
         <copyright>Copyright (C) 2018-2019 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 3 or later</license>
-        <version>4.8.0</version>
+        <version>5.0.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
         <last_update>2019-05-12 13:06:19</last_update>
@@ -32,9 +32,9 @@
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css</remove>
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
             <remove>template-core.css</remove>
+            <remove>css/theme.css</remove>
+            <remove>css/custom.css</remove>
             <add>css/skelvanilla.css</add>
-            <add>css/theme.css</add>
-            <add>css/custom.css</add>
         </css>
         <js>
             <remove>scripts/ajaxify.js</remove>
@@ -67,7 +67,7 @@
         <helpcolor>text-info</helpcolor>
         <validitycolor>text-info</validitycolor>
         <fixedheader>off</fixedheader>
-        <variation>default</variation>
+        <theme>off</theme>
         <bodyloaded>on</bodyloaded>
         <removeback>on</removeback>
         <fixnumauto>disable</fixnumauto>
@@ -206,7 +206,6 @@
     <engine>
         <cssframework>
             <name>bootstrap</name>
-            <css replace="css/bootstrap.css">css/bootstrap.css</css>
         </cssframework>
 
         <viewdirectory>views</viewdirectory>
