@@ -2,6 +2,7 @@ var skelVanilla = {
     init : function (options) {
         this.addCheckedClass();
         this.otherListRadio();
+        this.otherListCheckbox();
         this.addHoverColumn();
         if(options.removeBack) {
             this.removeBack();
@@ -142,6 +143,17 @@ var skelVanilla = {
         $(document).on('click','li.radio-text-item',function(){
             $(this).find("input[type=radio]").click();
             $(this).find("input[type=text]").focus();
+        });
+    },
+    otherListCheckbox : function() {
+        /* Disable false checkbox, and never remove user entered value … */
+        $(document).ready(function(){
+            $('li.checkbox-text-item [type=checkbox]').each(function(){
+                $(this).prop('disabled',true);
+            });
+            $('li.checkbox-text-item label').each(function(){
+                $(this).attr('for',$(this).attr('for').replace('othercbox', 'other'));
+            });
         });
     }
 }
