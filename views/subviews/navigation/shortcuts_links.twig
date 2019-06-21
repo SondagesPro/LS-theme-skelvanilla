@@ -1,22 +1,22 @@
 {% if (aSurveyInfo.include_content == 'main' or aSurveyInfo.include_content == 'firstpage')  %}
-<ul class="skip-navigation navbar-nav">
+<ul class="skip-navigation nav navbar-nav">
     <li><a class="sr-only sr-only-focusable" href="#limesurvey">{{ gT("Go to survey") }}</a></li>
 </ul>
 {% endif %}
 {% if (aSurveyInfo.include_content == 'save')  %}
-<ul class="skip-navigation navbar-nav">
+<ul class="skip-navigation nav navbar-nav">
     {# Survey even if it's not survey #}
     <li><a class="sr-only sr-only-focusable" href="#limesurvey">{{ gT("Go to survey") }}</a></li>
 </ul>
 {% endif %}
 {% if (aSurveyInfo.include_content == 'load')  %}
-<ul class="skip-navigation navbar-nav">
+<ul class="skip-navigation nav navbar-nav">
     {# Survey even if it's not survey #}
     <li><a class="sr-only sr-only-focusable" href="#limesurvey">{{ gT("Go to survey") }}</a></li>
 </ul>
 {% endif %}
 {% if (aSurveyInfo.include_content == 'submit')  %}
-<ul class="skip-navigation navbar-nav">
+<ul class="skip-navigation nav navbar-nav">
     {# Survey even if it's not survey, and yes … we have a form id limesurvey in submit. #}
     <li><a class="sr-only sr-only-focusable" href="#limesurvey">{{ gT("Go to survey") }}</a></li>
 </ul>

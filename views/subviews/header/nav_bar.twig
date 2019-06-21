@@ -20,7 +20,8 @@
 <!-- Bootstrap Navigation Bar -->
 {% if(aSurveyInfo.class.navbar) %}
 {% if(aSurveyInfo.options.fixedheader == 'on') %}
-<div class="invisible {{ aSurveyInfo.class.navbar }} navbar-static-top" aria-hidden="true">
+{{ aSurveyInfo.class.navbar }}
+<div class="invisible navbar navbar-inverse navbar-static-top" aria-hidden="true">
     <div class="container-fluid">
         <div class="{{ aSurveyInfo.class.navbarheader }}">
             <div class="{{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}">
