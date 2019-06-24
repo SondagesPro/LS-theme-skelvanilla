@@ -73,6 +73,9 @@
                 window.TemplateAccessible.init({{ json_encode(accessibleOptions) }});
                 window.skelVanilla.init({{ json_encode(skelOptions) }});
             </script>
+            
         {% endblock %}
+        {{ unregisterScriptFile( getConfig('generalscripts') ~ "multiplechoice_withcomments.js") }}
+        {{ getConfig('generalscripts') ~ "multiplechoice_withcomments.js" }}
     </body>
 </html>
