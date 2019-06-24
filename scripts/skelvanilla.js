@@ -148,10 +148,10 @@ var skelVanilla = {
     otherListCheckbox : function() {
         /* Disable false checkbox, and never remove user entered value … */
         $(document).ready(function(){
-            $('li.checkbox-text-item [type=checkbox]').each(function(){
+            $('li.checkbox-text-item .other-checkbox[type=checkbox]').each(function(){
                 $(this).prop('disabled',true);
             });
-            $('li.checkbox-text-item label').each(function(){
+            $('li.checkbox-text-item label[for$="othercbox"').each(function(){
                 $(this).attr('for',$(this).attr('for').replace('othercbox', 'other'));
             });
         });
