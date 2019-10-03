@@ -73,6 +73,28 @@ var ThemeScripts = function(){
         });
     };
 
+    var fixLastItemClass = function fixLastItemClass(){
+        $("[id^='question']").on('relevance:on',"li[id^='javatbd']",function(event,data) {
+            if(event.target != this) return; // not needed now, but after (2016-11-07)
+            data = $.extend({style:'hidden'}, data);
+            if(data.style=='hidden'){
+                $(this).parent("ul").children("li").removeClass("last-child").removeClass("first-child");
+                $(this).parent("ul").children("li:not('.ls-hidden')").last().addClass("last-child");
+                $(this).parent("ul").children("li:not('.ls-hidden')").first().addClass("first-child");
+            }
+        });
+        $("[id^='question']").on('relevance:off',"li[id^='javatbd']",function(event,data) {
+            if(event.target != this) return; // not needed now, but after (2016-11-07)
+            data = $.extend({style:'hidden'}, data);
+            $(this).addClass("ls-irrelevant ls-"+data.style);
+            if(data.style=='hidden'){
+                $(this).parent("ul").children("li").removeClass("last-child").removeClass("first-child");
+                $(this).parent("ul").children("li:not('.ls-hidden')").last().addClass("last-child");
+                $(this).parent("ul").children("li:not('.ls-hidden')").first().addClass("first-child");
+            }
+        });
+    }
+
     var initTopMenuLanguageChanger = function(selectorItem, selectorGlobalForm){
         // $(selectorContainer).height($('#main-row').height());
         $(selectorItem).on('click', function(){
@@ -96,6 +118,7 @@ var ThemeScripts = function(){
             //focusFirst();
             /* Some function are launched in endpage.pstpl */
             hideEmptyPart();
+            fixLastItemClass();
             // If list of nav-bar action is empty: remove it (else .navbar-toggle is shown on small screen) //
             if(!$('#navbar li').length){
                 $('#navbar').remove();
@@ -181,6 +204,7 @@ var ThemeScripts = function(){
         sliderSuffixClone : sliderSuffixClone,
         hideQuestionWithRelevanceSubQuestion : window.templateCore.hideQuestionWithRelevanceSubQuestion,
         hideEmptyPart : hideEmptyPart,
+        fixLastItemClass : fixLastItemClass,
         initTopMenuLanguageChanger: initTopMenuLanguageChanger,
         log: logObject
     };
