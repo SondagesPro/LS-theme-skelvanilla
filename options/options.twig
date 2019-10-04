@@ -31,49 +31,7 @@
                 {% set sAvailableVariations = oParentOptions.availablevariations %}
             {% endif %}
             {# Functionnal #}
-            <div class='row'>
-                <div class='col-sm-12'>
-                    <div class='panel panel-default'>
-                        <div class='panel-heading'>{{ sprintf( gT("%s variations"), templateConfiguration.template_name) }} </div>
-                        <div class='panel-body'>
-                            <div class='form-group row'>
-                                <label for='simple_edit_options_theme' class='control-label'>{{ gT("Select variation:") }}</label>
-                                <div class='col-sm-12'>
-                                    <select class='form-control selector_option_value_field' id='simple_edit_options_theme' name='theme'>
-                                        <option value="off">{{ gT('None') }} - {{ gT('bootstrap.css updatable via theme editor') }}</option>
-                                        {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                            <option value="inherit"> {{ gT('Inherit') }}</option>
-                                        {% endif %}
-                                        {% for variation,oVariation in json_decode(sAvailableVariations) %}
-                                            {% set aVariation = json_decode(json_encode(oVariation)) %}
-                                            {% if not aVariation.disable %}
-                                                <optgroup label="{{ aVariation.name }}">
-                                                    {% if aVariation.base %}
-                                                        <option value="css/variations/{{ variation }}-base.min.css"> {{ aVariation.name }} - Base</option>
-                                                    {% endif %}
-                                                    {% if aVariation.button %}
-                                                        <option value="css/variations/{{ variation }}-button.min.css">{{ aVariation.name }} - Button for radio and checkbox</option>
-                                                    {% endif %}
-                                                    {% if aVariation.awesome %}
-                                                        <option value="css/variations/{{ variation }}-awesome.min.css">{{ aVariation.name }} - Awesome checkbox and radio</option>
-                                                    {% endif %}
-                                                    {% if aVariation.button_awesome %}
-                                                        <option value="css/variations/{{ variation }}-button_awesome.min.css">{{ aVariation.name }} -  Button &amp; awesome checkbox and radio</option>
-                                                    {% endif %}
-                                                </optgroup>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </select>
-                                    <p class="help-block">Except contrast, all this variations come from <a href="https://bootswatch.com/3/">bootswatch</a>, Copyright (c) 2013 Thomas Park.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='row'>
-                <hr/>
-            </div>
+            <h3 class="h3">{{ gT("Functionnal") }}</h3>
             {# First settings row #}
             <div class='row'>
                 {# hideprivacyinfo #}
@@ -177,11 +135,113 @@
                     </div>
                 </div>
             </div>
+            <div class ="row">
+                {# Set hash to disable previous navigator#}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_removeback' class='control-label col-xs-4'> {{ gT("Remove back") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='removeback' value='on' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='removeback' value='off' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='removeback' value='inherit' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if(not oParentOptions.removeback) %}
+                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
+                        {% else %}
+                            <p class="col-xs-12 help-block">{{ gT("Add a javascript system to disable previous button of web navigator.") }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {# Dynamic validity #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_dynamicvalidity' class='control-label col-xs-4'> {{ gT("Dynamic validity") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='dynamicvalidity' value='on' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='dynamicvalidity' value='off' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='dynamicvalidity' value='inherit' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if(not oParentOptions.dynamicvalidity) %}
+                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
+                        {% else %}
+                            <p class="col-xs-12 help-block">{{ gT("Use required and input validity according to survey. Using javascript only.") }}</p>
+                            <p class="col-xs-12 help-block text-warning">{{ gT("This is a work in progress feature, please test and report issue.") }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
             <div class='row'>
                 <hr/>
             </div>
 
-            {# Decoration #}
+            <h3 class="h3">{{ gT("Visual") }}</h3>
+            <div class='row'>
+                <div class='col-sm-12'>
+                    <div class='panel panel-default'>
+                        <div class='panel-heading'>{{ sprintf( gT("%s variations"), templateConfiguration.template_name) }} </div>
+                        <div class='panel-body'>
+                            <div class='form-group row'>
+                                <label for='simple_edit_options_theme' class='control-label'>{{ gT("Select variation:") }}</label>
+                                <div class='col-sm-12'>
+                                    <select class='form-control selector_option_value_field' id='simple_edit_options_theme' name='theme'>
+                                        <option value="off">{{ gT('None') }} - {{ gT('bootstrap.css updatable via theme editor') }}</option>
+                                        {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                            <option value="inherit"> {{ gT('Inherit') }}</option>
+                                        {% endif %}
+                                        {% for variation,oVariation in json_decode(sAvailableVariations) %}
+                                            {% set aVariation = json_decode(json_encode(oVariation)) %}
+                                            {% if not aVariation.disable %}
+                                                <optgroup label="{{ aVariation.name }}">
+                                                    {% if aVariation.base %}
+                                                        <option value="css/variations/{{ variation }}-base.min.css"> {{ aVariation.name }} - Base</option>
+                                                    {% endif %}
+                                                    {% if aVariation.button %}
+                                                        <option value="css/variations/{{ variation }}-button.min.css">{{ aVariation.name }} - Button for radio and checkbox</option>
+                                                    {% endif %}
+                                                    {% if aVariation.awesome %}
+                                                        <option value="css/variations/{{ variation }}-awesome.min.css">{{ aVariation.name }} - Awesome checkbox and radio</option>
+                                                    {% endif %}
+                                                    {% if aVariation.button_awesome %}
+                                                        <option value="css/variations/{{ variation }}-button_awesome.min.css">{{ aVariation.name }} -  Button &amp; awesome checkbox and radio</option>
+                                                    {% endif %}
+                                                </optgroup>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                    <p class="help-block">Except contrast, all this variations come from <a href="https://bootswatch.com/3/">bootswatch</a>, Copyright (c) 2013 Thomas Park.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class='row'>
                 {# Container #}
                 <div class='col-sm-12 col-md-6 col-lg-3'>
@@ -266,34 +326,6 @@
                 </div>
             </div>
             <div class='row'>
-                <hr/>
-            </div>
-            <div class='row'>
-                {# Fixed header #}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
-                    <div class='form-group row'>
-                        <label for='simple_edit_options_fixedheader' class='control-label col-xs-4'> {{ gT("Fixed header") }} </label>
-                        <div class='col-xs-8'>
-                            <div class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default">
-                                    <input type='radio' name='fixedheader' value='on' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
-                                    {{ gT("Yes") }}
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type='radio' name='fixedheader' value='off' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
-                                    {{ gT("No") }}
-                                </label>
-                                {# If this is a root template setting, don't show the inherit button #}
-                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <label class="btn btn-default">
-                                        <input type='radio' name='fixedheader' value='inherit' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
-                                        {{ gT("Inherit") }}
-                                    </label>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 {# Help color #}
                 <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
@@ -335,11 +367,31 @@
             </div>
 
             <div class='row'>
-                <hr/>
-            </div>
-
-            <div class='row'>
-
+                {# Fixed header #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_fixedheader' class='control-label col-xs-4'> {{ gT("Fixed header") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='fixedheader' value='on' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='fixedheader' value='off' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='fixedheader' value='inherit' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {# Body loading loaded #}
                 <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
@@ -369,68 +421,6 @@
                         {% endif %}
                     </div>
                 </div>
-
-                {# Set hash to disable previous navigator#}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
-                    <div class='form-group row'>
-                        <label for='simple_edit_options_removeback' class='control-label col-xs-4'> {{ gT("Remove back") }} </label>
-                        <div class='col-xs-8'>
-                            <div class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default">
-                                    <input type='radio' name='removeback' value='on' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
-                                    {{ gT("Yes") }}
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type='radio' name='removeback' value='off' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
-                                    {{ gT("No") }}
-                                </label>
-                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <label class="btn btn-default">
-                                        <input type='radio' name='removeback' value='inherit' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
-                                        {{ gT("Inherit") }}
-                                    </label>
-                                {% endif %}
-                            </div>
-                        </div>
-                        {% if(not oParentOptions.removeback) %}
-                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
-                        {% else %}
-                            <p class="col-xs-12 help-block">{{ gT("Add a javascript system to disable previous button of web navigator.") }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-
-                {# Dynamic validity #}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
-                    <div class='form-group row'>
-                        <label for='simple_edit_options_dynamicvalidity' class='control-label col-xs-4'> {{ gT("Dynamic validity") }} </label>
-                        <div class='col-xs-8'>
-                            <div class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default">
-                                    <input type='radio' name='dynamicvalidity' value='on' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
-                                    {{ gT("Yes") }}
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type='radio' name='dynamicvalidity' value='off' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
-                                    {{ gT("No") }}
-                                </label>
-                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <label class="btn btn-default">
-                                        <input type='radio' name='dynamicvalidity' value='inherit' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
-                                        {{ gT("Inherit") }}
-                                    </label>
-                                {% endif %}
-                            </div>
-                        </div>
-                        {% if(not oParentOptions.dynamicvalidity) %}
-                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
-                        {% else %}
-                            <p class="col-xs-12 help-block">{{ gT("Use required and input validity according to survey. Using javascript only.") }}</p>
-                            <p class="col-xs-12 help-block text-warning">{{ gT("This is a work in progress feature, please test and report issue.") }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-
             </div>
 
             <div class='row'>
@@ -438,6 +428,7 @@
             </div>
 
             <!-- Brand Logo -->
+            <h3 class="h3">{{ gT("Logos") }}</h3>
             <div class='row'>
                 <div class='col-sm-12 col-md-4'>
                     {# Brandlogo #}
