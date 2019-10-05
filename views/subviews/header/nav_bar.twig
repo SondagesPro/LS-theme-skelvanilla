@@ -57,10 +57,18 @@
         </div>
         <div id="{{ aSurveyInfo.id.navbar }}" class="{{ aSurveyInfo.class.navbarcollapse }}" {{ aSurveyInfo.attr.navbarcollapse }} >
             <ul class="{{ aSurveyInfo.class.navbarlink }} navbar-right" {{ aSurveyInfo.attr.navbarlink }}>
-                {{ include('./subviews/navigation/save_links.twig') }}
-                {{ include('./subviews/navigation/clearall_links.twig') }}
-                {{ include('./subviews/navigation/question_index_menu.twig') }}
-                {{ include('./subviews/navigation/language_changer_top_menu.twig') }}
+                {% if(aSurveyInfo.options.savelink != 'off') %}
+                    {{ include('./subviews/navigation/save_links.twig') }}
+                {% endif %}
+                {% if(aSurveyInfo.options.clearalllink != 'off') %}
+                    {{ include('./subviews/navigation/clearall_links.twig') }}
+                {% endif %}
+                {% if(aSurveyInfo.options.indexlink != 'off') %}
+                    {{ include('./subviews/navigation/question_index_menu.twig') }}
+                {% endif %}
+                {% if(aSurveyInfo.options.languagelink != 'off') %}
+                    {{ include('./subviews/navigation/language_changer_top_menu.twig') }}
+                {% endif %}
             </ul>
         </div>
     </div>

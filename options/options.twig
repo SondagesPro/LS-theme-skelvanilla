@@ -22,7 +22,6 @@
     <div class="row">
         {# Begin template option form #}
         <form class='form action_update_options_string_form' action=''>
-
             {# If this is a surveyspecific settings page, offer the possibility to do a full inheritance of the parent template #}
             {# CSS variation : #}
             {% if oParentOptions.availablevariations is null %}
@@ -194,6 +193,105 @@
                             <p class="col-xs-12 help-block">{{ gT("Use required and input validity according to survey. Using javascript only.") }}</p>
                             <p class="col-xs-12 help-block text-warning">{{ gT("This is a work in progress feature, please test and report issue.") }}</p>
                         {% endif %}
+                    </div>
+                </div>
+            </div>
+            <h3 class="h4">{{ gT("Top link actions") }}</h3>
+            <div class='row'>
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_savelink' class='control-label col-xs-4'> {{ gT("Save header link") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='savelink' value='on' class='selector_option_radio_field simple_edit_options_savelink ' data-id='savelink'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='savelink' value='off' class='selector_option_radio_field simple_edit_options_savelink ' data-id='savelink'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='savelink' value='inherit' class='selector_option_radio_field simple_edit_options_savelink ' data-id='savelink'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_clearalllink' class='control-label col-xs-4'> {{ gT("Clear all header link") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='clearalllink' value='on' class='selector_option_radio_field simple_edit_options_clearalllink ' data-id='clearalllink'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='clearalllink' value='off' class='selector_option_radio_field simple_edit_options_clearalllink ' data-id='clearalllink'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='clearalllink' value='inherit' class='selector_option_radio_field simple_edit_options_clearalllink ' data-id='clearalllink'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_indexlink' class='control-label col-xs-4'> {{ gT("Index header links") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='indexlink' value='on' class='selector_option_radio_field simple_edit_options_indexlink ' data-id='indexlink'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='indexlink' value='off' class='selector_option_radio_field simple_edit_options_indexlink ' data-id='indexlink'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='indexlink' value='inherit' class='selector_option_radio_field simple_edit_options_indexlink ' data-id='indexlink'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_languagelink' class='control-label col-xs-4'> {{ gT("Langage changer header links") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='languagelink' value='on' class='selector_option_radio_field simple_edit_options_languagelink ' data-id='languagelink'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='languagelink' value='off' class='selector_option_radio_field simple_edit_options_languagelink ' data-id='languagelink'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='languagelink' value='inherit' class='selector_option_radio_field simple_edit_options_languagelink ' data-id='languagelink'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
