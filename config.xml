@@ -16,10 +16,10 @@
         <supportUrl>https://extensions.sondages.pro/themes-and-templates/skelvanilla-a11y-and-usuability/</supportUrl>
         <copyright>Copyright (C) 2018-2019 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 3 or later</license>
-        <version>6.1.0</version>
+        <version>6.1.2</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
-        <last_update>2019-10-03 09:50:38</last_update>
+        <last_update>2019-10-07 08:54:59</last_update>
         <extends>vanilla</extends>
     </metadata>
 
@@ -440,7 +440,7 @@
                 </navigation>
 
                 <token>
-                  <screen_title  type="data"  role="title" twig="on"><![CDATA[ {{gT('Token')}} ]]></screen_title>
+                  <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Token')}} ]]></screen_title>
                   <file type="view" role="layout">layout_user_forms.twig</file>
                   <file type="view" role="content">./subviews/content/userforms.twig</file>
                   <file type="view" role="subview">./subviews/logincomponents/token.twig</file>
@@ -454,8 +454,8 @@
               <survey type="core">
                 <name type="data" twig="on"><![CDATA[ {{ gT("Template Sample") }} ]]></name>
                 <description type="data" twig="on"><![CDATA[<p>{{ gT('This is a sample survey description. It could be quite long.') }}</p><p>{{ gT("But this one isn't.") }}<p>]]></description>
-                <welcome  type="data" twig="on"><![CDATA[<p>{{ gT('Welcome to this sample survey')}} <p> <p> {{ gT('You should have a great time doing this') }} <p> ]]></welcome>
-                <therearexquestions  type="data" twig="on"><![CDATA[gT('There is 2 question in this survey'])]]></therearexquestions>
+                <welcome type="data" twig="on"><![CDATA[<p>{{ gT('Welcome to this sample survey')}} <p> <p> {{ gT('You should have a great time doing this') }} <p> ]]></welcome>
+                <therearexquestions type="data" twig="on"><![CDATA[gT('There is 2 question in this survey'])]]></therearexquestions>
                 <surveyls_url type="data" twig="on">"https://www.sondages.pro"</surveyls_url>
                 <surveyls_urldescription type="data" twig="on"><![CDATA[ gT("Some URL description") ]]></surveyls_urldescription>
                 <showsurveypolicynotice>2</showsurveypolicynotice>
@@ -467,16 +467,16 @@
                 <description type="data" twig="on"><![CDATA[ {{ gT("This group description is fairly vacuous, but quite important.") }} ]]></description>
               </group>
               <question_1 type="core">
-                <code type="data" >'Q1 '</code>
+                <code type="data">'Q1 '</code>
                 <text type="data" twig="on"><![CDATA[ {{ gT("How many roads must a man walk down?") }} ]]></text>
                 <valid_message type="data" twig="on"><![CDATA[ <div id="vmsg_4496_num_answers" class="em_num_answers emtip error"><span class="fa fa-exclamation-circle" aria-hidden="true"></span> {{ gT("Choose one of the following answers") }} </div> ]]></valid_message>
               </question_1>
               <question_2 type="core">
-                <code type="data" >'Q2 '</code>
+                <code type="data">'Q2 '</code>
                 <text type="data" twig="on"><![CDATA[ {{ gT("Please explain something in detail:") }} ]]></text>
                 <valid_message type="data" twig="on"><![CDATA[<div id="vmsg_4496_num_answers" class="em_num_answers emtip error"><span class="fa fa-exclamation-circle" aria-hidden="true"></span> {{ gT("Hint when response is not valid") }} </div> ]]></valid_message>
               </question_2>
-              <assessments  type="core">
+              <assessments type="core">
                 <name type="data" twig="on"><![CDATA[ {{ gT("Welcome to the Assessment") }} ]]></name>
                 <message type="data" twig="on"><![CDATA[ {{ gT("You got {TOTAL} points out of 3 possible points.") }} ]]></message>
               </assessments>

@@ -39,7 +39,6 @@ var ThemeOptions = function(){
     // Show/Hide fields on generalInherit
     // To hide a simple option on generalInherit: just add the class "action_hide_on_inherit" to the rows continaing it
     var startupGeneralInherit = function(){
-
         if(!inheritPossible) return false;
 
         if (generalInherit()){
@@ -47,6 +46,7 @@ var ThemeOptions = function(){
             $('.action_hide_on_inherit').addClass('hidden');
         } else {
             $('#general_inherit_off').prop('checked',true).trigger('change').closest('label').addClass('active');
+
         }
     };
 
@@ -108,7 +108,6 @@ var ThemeOptions = function(){
         fallbackValue = fallbackValue || false;
         // If general inherit, then the value of the dropdown is inherit, else it's the value defined in advanced options
         var itemValue = generalInherit() ? 'inherit' : optionObject[$(item).attr('name')];
-
         // If anything goes wrong (manual edit or anything else), we make sure it will have a correct value
         if(itemValue == null || itemValue == undefined){
             itemValue = inheritPossible ? 'inherit' : fallbackValue;
@@ -149,11 +148,13 @@ var ThemeOptions = function(){
     // Generate the state of switches (On/Off/Inherit)
     var parseParentSwitchFields = function(){
         globalForm.find('.selector_option_radio_field').each(function(i,item){
-            
-            var itemValue = parseOptionValue(item, 'off');
-            
+            var defaultValue = 'off';
+            if($(item).closest('[role="radiogroup"]').length && $(item).closest('[role="radiogroup"]').data("default")) {
+                defaultValue = $(item).closest('[role="radiogroup"]').data("default");
+            }
+            var itemValue = parseOptionValue(item, defaultValue);
             //if it is a radio selector, check it and propagate the change to bootstrapSwitch
-            if($(item).val() == itemValue){
+            if($(item).val() == itemValue || (itemValue == '' && $(item).data('default') ==1) ){
                 setAndPropageteToSwitch(item);
             }
         });
@@ -179,7 +180,6 @@ var ThemeOptions = function(){
         // If an option is set to off, the attached selectors are disabled
         $('.selector_radio_childfield').each(function(i, selectorItem){
             $('input[name='+$(selectorItem).data('parent')+']').on('change', function(){
-
                 if($(this).val() == 'on' && $(this).prop('checked') == true){
                     $(selectorItem).prop('disabled', false);
                 } else {
@@ -215,6 +215,8 @@ var ThemeOptions = function(){
         $('#general_inherit_off').on('change', function(evt){
             $('.action_hide_on_inherit').removeClass('hidden');
             updateFieldSettings();
+            // Didn't know where is set … remove it …
+            $("#theme-option-sidebody").height('auto');
         });
     };
 
@@ -286,6 +288,7 @@ var ThemeOptions = function(){
         parseParentSwitchFields();
         //prepareFontField();
         bind();
+        $("#theme-option-sidebody").height('auto');
     };
 
     return run;
