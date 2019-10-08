@@ -69,6 +69,12 @@
                 {% if(aSurveyInfo.options.languagelink != 'off') %}
                     {{ include('./subviews/navigation/language_changer_top_menu.twig') }}
                 {% endif %}
+                {% if(aSurveyInfo.options.previouslink == 'on') %}
+                    {{ include('./subviews/navigation/previous_link.twig') }}
+                {% endif %}
+                {% if(aSurveyInfo.options.nextsubmitlink == 'on') %}
+                    {{ include('./subviews/navigation/nextsubmit_link.twig') }}
+                {% endif %}
             </ul>
         </div>
     </div>

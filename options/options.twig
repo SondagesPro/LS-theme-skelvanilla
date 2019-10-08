@@ -224,7 +224,7 @@
             <div class="row action_hide_on_inherit">
                 <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
-                        <div id='simple_edit_options_savelink' class='control-label col-xs-4'> {{ gT("Save header link") }} </div>
+                        <label id='simple_edit_options_savelink' class='control-label col-xs-4'> {{ gT("Save header link") }} </label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_savelink' data-default='on'>
                                 <label class="btn btn-default">
@@ -311,6 +311,56 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='languagelink' value='inherit' class='selector_option_radio_field simple_edit_options_languagelink ' data-id='languagelink'>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row action_hide_on_inherit">
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_previouslink' class='control-label col-xs-4'> {{ gT("Move previous header link") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_previouslink' data-default='off'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='previouslink' value='on' class='selector_option_radio_field simple_edit_options_previouslink ' data-id='languagelink'>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='previouslink' value='off' class='selector_option_radio_field simple_edit_options_previouslink ' data-id='languagelink'>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='previouslink' value='inherit' class='selector_option_radio_field simple_edit_options_previouslink ' data-id='languagelink'>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_nextsubmitlink' class='control-label col-xs-4'> {{ gT("Move next and submit header link") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_nextsubmitlink' data-default='off'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='nextsubmitlink' value='on' class='selector_option_radio_field simple_edit_options_nextsubmitlink ' data-id='languagelink'>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='nextsubmitlink' value='off' class='selector_option_radio_field simple_edit_options_nextsubmitlink ' data-id='languagelink'>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='nextsubmitlink' value='inherit' class='selector_option_radio_field simple_edit_options_nextsubmitlink ' data-id='languagelink'>
                                         {{ gT("Inherit") }}
                                     </label>
                                 {% endif %}

@@ -1,0 +1,15 @@
+{% if aSurveyInfo.aNavigator.aMoveNext.value == "movesubmit" %}
+    <!-- Submit -->
+    <li class="ls-no-js-hidden">
+        <a href="#" data-limesurvey-submit='{ "move":"movesubmit" }' class='animate'>
+            {{ gT('Submit') }}
+        </a>
+    </li>
+{% else %}
+    <!-- Submit -->
+    <li class="ls-no-js-hidden">
+        <a href="#" data-limesurvey-submit='{ "move":"movenext" }' class='animate'>
+            {{ gT('Next') }}
+        </a>
+    </li>
+{% endif %}
