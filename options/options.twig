@@ -219,6 +219,31 @@
                         {% endif %}
                     </div>
                 </div>
+
+                {# Clear all #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_showclearall' class='control-label col-xs-4'> {{ gT("Show clear all") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_showclearall' data-default='on'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='showclearall' value='on' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='showclearall' value='off' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='showclearall' value='inherit' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <h3 class="h4 action_hide_on_inherit">{{ gT("Top link actions") }}</h3>
             <div class="row action_hide_on_inherit">

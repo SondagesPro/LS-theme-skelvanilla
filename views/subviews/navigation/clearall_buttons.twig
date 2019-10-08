@@ -1,6 +1,8 @@
-<div class="{{ aSurveyInfo.class.clearallwrapper }} form-inline">
-    <label class="form-group {{ aSurveyInfo.class.clearalllabel }}" for="clear-all-id{{ navigatorid }}" >
-        <input {{ aSurveyInfo.attr.clearallconfirm }} class="{{ aSurveyInfo.class.clearallconfirm }}" id="clear-all-id{{ navigatorid }}" ><span class="control-label">{{gT("Please confirm you want to clear your response?")}}</span>
-    </label>
-    <button aria-labelled-by="clear-all-id{{ navigatorid }}" data-disable-check-validity=1 value="clearall" name="clearall" type="submit" data-confirmedby="confirm-clearall" class="{{ aSurveyInfo.class.clearallbutton }} btn btn-link">{{gT("Exit and clear survey")}}</button>
-</div>
+{% if aSurveyInfo.options.showclearall != 'off' %}
+    <div class="{{ aSurveyInfo.class.clearallwrapper }} form-inline">
+        <label class="form-group {{ aSurveyInfo.class.clearalllabel }}" for="clear-all-id{{ navigatorid }}" >
+            <input {{ aSurveyInfo.attr.clearallconfirm }} class="{{ aSurveyInfo.class.clearallconfirm }}" id="clear-all-id{{ navigatorid }}" ><span class="control-label">{{gT("Please confirm you want to clear your response?")}}</span>
+        </label>
+        <button aria-labelled-by="clear-all-id{{ navigatorid }}" data-disable-check-validity=1 value="clearall" name="clearall" type="submit" data-confirmedby="confirm-clearall" class="{{ aSurveyInfo.class.clearallbutton }} btn btn-link">{{gT("Exit and clear survey")}}</button>
+    </div>
+{% endif %}
