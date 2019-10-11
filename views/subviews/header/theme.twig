@@ -4,5 +4,9 @@
     {% set theme = 'css/bootstrap.css' %}
 {% endif %}
 {{ registerTemplateCssFile(theme) }}
+{% if aSurveyInfo.dir == 'rtl' %}
+    {{ registerTemplateCssFile('css/bootstrap-rtl.css') }}
+{% endif %}
+
 {{ registerTemplateCssFile('css/theme.css') }}
 {{ registerTemplateCssFile('css/custom.css') }}
