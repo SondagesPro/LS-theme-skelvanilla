@@ -2,7 +2,7 @@
     This a copy of Vanilla theme.js file with some update for skelvanilla
     Broke dependency of Vanilla template
     Please, use theme.js or custom.js
-
+    @version 6.3.2
 */
 
 /**
@@ -74,6 +74,12 @@ var ThemeScripts = function(){
     };
 
     var fixLastItemClass = function fixLastItemClass(){
+        $("[id^='question'] .checkbox-list > ul,[id^='question'] .radio-list > ul").each(function(){
+            if($(this).find("li.ls-hidden").length) {
+                $(this).children("li:not('.ls-hidden')").first().addClass("first-child");
+                $(this).children("li:not('.ls-hidden')").last().addClass("last-child");
+            }
+        });
         $("[id^='question']").on('relevance:on',"li[id^='javatbd']",function(event,data) {
             if(event.target != this) return; // not needed now, but after (2016-11-07)
             data = $.extend({style:'hidden'}, data);
