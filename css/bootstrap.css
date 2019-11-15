@@ -4,7 +4,7 @@
  * Copyright 2018-2019 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 3.1.0
+ * @version 3.1.1
  */
 /*!
  * This is a generated file
@@ -6719,15 +6719,14 @@ li.noanswer-item input[type="radio"]:checked + label {
 .radio-item label.ls-label-xs-visibility,
 .checkbox-item label.ls-label-xs-visibility {
   display: block;
-  position: absolute;
   overflow: hidden;
+  position: relative;
   width: 30px;
   height: 30px;
   line-height: 60px;
   text-indent: 60px;
   padding: 0;
   top: 50%;
-  margin-top: -13.33333333px;
   box-sizing: border-box;
   clip: unset;
 }
@@ -6749,19 +6748,20 @@ li.noanswer-item input[type="radio"]:checked + label {
   right: 50%;
   margin-right: -20px;
 }
-/*
-td.radio-item input[type="radio"],td.checkbox-item input[type="checkbox"] {
-    width: @ls-radiocheckbox-awesome-size;
-    height: @ls-radiocheckbox-awesome-size;
-    top: 50%;
-    box-sizing: border-box;
-    left: 50%;
-    margin-left:-@ls-radiocheckbox-awesome-size/2;
-    margin-top:-@ls-radiocheckbox-awesome-size/2;
+td.radio-item input[type="radio"],
+td.checkbox-item input[type="checkbox"] {
+  position: relative;
 }
-
-
-*/
+td.radio-item input[type="radio"],
+td.checkbox-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+}
+.radio-item label.ls-label-xs-visibility,
+.checkbox-item label.ls-label-xs-visibility {
+  margin-top: -30px;
+}
 @media only screen and (max-width: 48em) {
   .no-more-table td.radio-item label.ls-label-xs-visibility,
   .no-more-table td.checkbox-item label.ls-label-xs-visibility {
@@ -6771,10 +6771,10 @@ td.radio-item input[type="radio"],td.checkbox-item input[type="checkbox"] {
     width: auto;
     height: auto;
     line-height: 1.5;
+    text-indent: 0;
     text-indent: initial;
     padding: 0.923rem 20px;
     top: auto;
-    margin-top: 0;
     clip: unset;
   }
   .no-more-table td.radio-item label.ls-label-xs-visibility::before,
@@ -6794,6 +6794,10 @@ td.radio-item input[type="radio"],td.checkbox-item input[type="checkbox"] {
   .dir-rtl .no-more-table td.checkbox-item label.ls-label-xs-visibility {
     padding-right: 40px;
     right: auto;
+  }
+  .radio-item label.ls-label-xs-visibility,
+  .checkbox-item label.ls-label-xs-visibility {
+    margin-top: 0;
   }
 }
 .modal-open {
