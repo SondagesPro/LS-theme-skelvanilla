@@ -9,7 +9,7 @@ var ThemeOptions = function(){
     var inheritPossible = ($('#general_inherit_active').length > 0 );
 
     //get option Object from Template configuration options
-    var optionObject = {"general_inherit" : 1}
+    var optionObject = {"general_inherit" : 1};
 
     //get the global form
     var globalForm = $('.action_update_options_string_form');
@@ -86,7 +86,22 @@ var ThemeOptions = function(){
         delete newOptionObject.general_inherit;
         $('#TemplateConfiguration_options').val(JSON.stringify(newOptionObject));
     };
-    
+
+    var updateThemeSettings = function(){
+        if($('#general_inherit_on').prop('checked')){
+            $('#TemplateConfiguration_cssframework_css').val('inherit');
+            $('#TemplateConfiguration_cssframework_js').val('inherit');
+            return;
+        }
+        var selectedCss = $("#simple_edit_options_theme").val();
+        if (selectedCss == "inherit") {
+            $('#TemplateConfiguration_cssframework_css').val('inherit');
+            return;
+        }
+        var cssFrameworkCss = {};
+        cssFrameworkCss.replace = [["css/bootstrap.css",selectedCss]];
+        $('#TemplateConfiguration_cssframework_css').val(JSON.stringify(cssFrameworkCss));
+    };
     ///////////////
     // Utility Methods
     // -- small utilities i.g. for images or similar, or very specialized functions
@@ -114,13 +129,13 @@ var ThemeOptions = function(){
             optionObject[$(item).attr('name')] = itemValue;
         }
         return itemValue;
-    }
+    };
     
     //Set value and propagate to bootstrapSwitch
     var setAndPropageteToSwitch = function(item){
         $(item).prop('checked', true).trigger('change');
         $(item).closest('label').addClass('active');
-    }
+    };
 
 
     ///////////////
@@ -132,7 +147,6 @@ var ThemeOptions = function(){
     var prepareSelectField = function(){
         globalForm.find('.selector_option_value_field').each(function(i,item){
             var itemValue = parseOptionValue(item, 'off');
-
             $(item).val(itemValue);
             disableImagePreviewIfneeded(item);
         });
@@ -160,16 +174,26 @@ var ThemeOptions = function(){
         });
     };
 
-    var prepareFontField = function(){
-        var currentPackageObject = 'inherit';
-        optionObject.font = optionObject.font || (inheritPossible ? 'inherit' : 'roboto');
-        
-        if( optionObject.font !== 'inherit' ){
-            $('#simple_edit_font').val(optionObject.font);
+    var prepareThemeField = function(){
+        var cssFrameworkCss = 'inherit';
+        if(!inheritPossible) {
+            cssFrameworkCss = {};
+            cssFrameworkCss.replace = [["bootstrap.css","css/bootstrap.css"]];
         }
-        updateFieldSettings();
+        if (typeof optionObject.theme !== 'undefined' && optionObject.theme) {
+            if(optionObject.theme == "inherit" && inheritPossible) {
+                cssFrameworkCss = 'inherit';
+            }
+            if(optionObject.theme != "inherit" && optionObject.theme != "off") {
+                cssFrameworkCss.replace = [["bootstrap.css",optionObject.theme]];
+            }
+            if(optionObject.theme == "off") {
+                optionObject.theme = "css/bootstrap.css";
+                $("#simple_edit_options_theme").val("css/bootstrap.css");
+            }
+        }
+        $('#TemplateConfiguration_cssframework_css').val(JSON.stringify(cssFrameworkCss));
     };
-
     ///////////////
     // HotSwap methods
     // -- These methods connect an input directly to the value in the optionsObject
@@ -196,7 +220,6 @@ var ThemeOptions = function(){
 
     // hotswapping the fields
     var hotSwapFields = function(){
-        
         globalForm.find('.selector_option_value_field').on('change', function(evt){ 
             updateFieldSettings(); 
             disableImagePreviewIfneeded(this);
@@ -210,6 +233,7 @@ var ThemeOptions = function(){
         //hotswapping the general inherit
         $('#general_inherit_on').on('change', function(evt){
             $('#TemplateConfiguration_options').val('inherit');
+            $('#TemplateConfiguration_cssframework_css').val('inherit');
             $('.action_hide_on_inherit').addClass('hidden');
         });
         $('#general_inherit_off').on('change', function(evt){
@@ -220,45 +244,38 @@ var ThemeOptions = function(){
         });
     };
 
-    var hotswapFontField = function(){
-        $('#simple_edit_font').on('change', function(evt){
-            var currentPackageObject =  $('#TemplateConfiguration_packages_to_load').val() !== 'inherit' 
-                ? JSON.parse($('#TemplateConfiguration_packages_to_load').val()) 
-                : $(this).data('inheritvalue');
-
-            if($('#simple_edit_font').val() === 'inherit'){
-
-                $('#TemplateConfiguration_packages_to_load').val('inherit');
-
-            } else {
-                var selectedFontPackage = $(this).find('option:selected');
-                var packageName         = selectedFontPackage.data('font-package');
-                var formatedPackageName = "font-"+packageName;
-
-                var filteredAdd = currentFontObject.add.filter(function(value,index){return !(/^font-.*$/.test(String(value)))})
-                filteredAdd.push(formatedPackageName);
-                currentPackageObject.add = filteredAdd
-                $('#TemplateConfiguration_packages_to_load').val(JSON.stringify(currentPackageObject));
-            }
-        })
-    }
+    var hotswapThemeField = function(){
+        $('#simple_edit_options_theme').on('change', function(evt){
+            updateThemeSettings();
+        });
+    };
 
     ///////////////
     // Event methods
     // -- These methods are triggered on events. Please see `bind´ method for more information
     var onSaveButtonClickAction = function(evt){
         evt.preventDefault();
-    
+
         if(generalInherit()){
             $('#TemplateConfiguration_options').val('inherit');
+            $('#TemplateConfiguration_cssframework_css').val('inherit');
+            $('#TemplateConfiguration_cssframework_js').val('inherit');
             $('#template-options-form').find('button[type=submit]').trigger('click'); // submit the form
         } else {
             //Create a copy of the inherent optionObject
             var newOptionObject = $.extend(true, {}, optionObject);
             newOptionObject.generalInherit = null;
-
             //now write the newly created object to the correspondent field as a json string
             $('#TemplateConfiguration_options').val(JSON.stringify(newOptionObject));
+            // CSS part
+            var selectedCss = $("#simple_edit_options_theme").val();
+            if (selectedCss == "inherit") {
+                $('#TemplateConfiguration_cssframework_css').val('inherit');
+                return;
+            }
+            var cssFrameworkCss = {};
+            cssFrameworkCss.replace = [["css/bootstrap.css",$('#simple_edit_cssframework').val()]];
+            $('#TemplateConfiguration_cssframework_css').val(JSON.stringify(cssFrameworkCss));
             //and submit the form
             $('#template-options-form').find('button[type=submit]').trigger('click');
         }
@@ -274,8 +291,8 @@ var ThemeOptions = function(){
         //Bind the hotwaps
         hotSwapParentRadioButtons();
         hotSwapFields();
+        hotswapThemeField();
         hotswapGeneralInherit();
-        hotswapFontField();
     };
     
     var run = function(){
@@ -286,7 +303,7 @@ var ThemeOptions = function(){
         prepareSelectField();
         prepareTextField();
         parseParentSwitchFields();
-        //prepareFontField();
+        prepareThemeField();
         bind();
         $("#theme-option-sidebody").height('auto');
     };
@@ -305,7 +322,7 @@ var prepare = function(){
     var themeOptionStarter = new ThemeOptions();
     themeOptionStarter();
     
-    setTimeout(function(){deferred.resolve()},650);
+    setTimeout(function(){ deferred.resolve(); },650);
     return deferred.promise();
 };
 
