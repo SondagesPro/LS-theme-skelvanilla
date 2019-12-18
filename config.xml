@@ -16,7 +16,7 @@
         <supportUrl>https://extensions.sondages.pro/themes-and-templates/skelvanilla-a11y-and-usuability/</supportUrl>
         <copyright>Copyright (C) 2018-2019 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 3 or later</license>
-        <version>7.0.0</version>
+        <version>7.1.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
         <last_update>2019-10-25 14:31:50</last_update>
@@ -201,6 +201,55 @@
   },
   "yeti": {
     "name": "Yeti",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-apple_blossom": {
+    "name": "(Fruity) Apple Blossom",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-black_pearl": {
+    "name": "(Fruity) Black Pearl",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-free_magenta": {
+    "name": "(Fruity) Free magenta",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-purple_tentacle": {
+    "name": "(Fruity) Purple Tentacle",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-sea_green": {
+    "name": "(Fruity) Sea Green",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-skyline_blue": {
+    "name": "(Fruity) Skyline Blue",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-sunset_orange": {
+    "name": "(Fruity) Sunset Orange",
     "base": "1",
     "button": "1",
     "awesome": "1",

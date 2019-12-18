@@ -185,6 +185,7 @@ var ThemeOptions = function(){
                 cssFrameworkCss = 'inherit';
             }
             if(optionObject.theme != "inherit" && optionObject.theme != "off") {
+                cssFrameworkCss = {};
                 cssFrameworkCss.replace = [["bootstrap.css",optionObject.theme]];
             }
             if(optionObject.theme == "off") {
@@ -265,6 +266,9 @@ var ThemeOptions = function(){
             //Create a copy of the inherent optionObject
             var newOptionObject = $.extend(true, {}, optionObject);
             newOptionObject.generalInherit = null;
+            if( $("#inherited-available-variation").length ) { // Force inherit for available variation (can be updated only in globval or gsid)
+                newOptionObject.availablevariations = "inherit";
+            }
             //now write the newly created object to the correspondent field as a json string
             $('#TemplateConfiguration_options').val(JSON.stringify(newOptionObject));
             // CSS part
