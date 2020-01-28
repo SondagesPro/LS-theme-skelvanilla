@@ -16,8 +16,8 @@
     It is used for the rendering of the responses at the end of the survey.
 
 #}
+{% if (not aSurveyInfo.printPdf) %} 
 <div class="container-fluid">
-    {% if (not aSurveyInfo.printPdf) %} 
         <div class="row hidden-print">
             <div class="col-sm-6">
                 {{ C.Html.form(aSurveyInfo.printAnswersHeadFormUrl, 'post') }}
@@ -30,7 +30,7 @@
                 {{ C.Html.endForm }}
             </div>
         </div>
-    {% endif %}
+{% endif %}
 
 
 
