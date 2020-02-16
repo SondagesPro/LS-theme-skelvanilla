@@ -748,6 +748,3 @@ input[type="button"].btn-block {
 .fade.in {
   opacity: 1;
 }
-/* uploader.css replacement */
-.uploader .files-list{display:block;}
-.uploader .file-element{display:block;}
