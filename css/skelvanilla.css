@@ -311,7 +311,10 @@ body .file-upload-modal .modal-dialog {
     justify-content: center;
     overflow: auto;
 }
-
+.file-upload-modal .modal-body.file-upload-modal-body{box-sizing:content-box}
+.uploader .files-list{display:block;}
+.uploader .file-element{display:block;}
+.uploader .model-container{padding:0.5em 1em}
 #yii-flash-message {
     margin-top: 3em;
 }
