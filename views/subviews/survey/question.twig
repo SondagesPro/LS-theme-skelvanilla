@@ -34,7 +34,7 @@
     {% endif %}
     {% if panel %} <div class="panel-body"> {% endif %}
     {% set ariadescribe = ''  %}
-    {% if aQuestion.mandatory != '' %}
+    {% if aQuestion.mandatory != '' and aQuestion.mandatory  != 'N' %}
         {% if(aQuestion.man_message) %}
             {% set ariadescribe = ariadescribe ~ " question-mandatory-" ~ aQuestion.qid  %}
         {% else %}

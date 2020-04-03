@@ -1,5 +1,5 @@
 {# If the question is mandatory, the asterisk will be shown  #}
-{% if aQuestion.mandatory != '' %}
+{% if aQuestion.mandatory != '' and aQuestion.mandatory  != 'N' %}
     <!-- Add a visual information + just Mandatory string for aria : can be improved -->
     <div id="question-asterisk-{{ aQuestion.qid }}" class="{{ aSurveyInfo.class.questionasterix }} pull-left" {{ aSurveyInfo.attr.questionasterix }} >
         <small class="{{ aSurveyInfo.class.questionasterixsmall }} text-danger fa fa-asterisk small" {{ aSurveyInfo.attr.questionasterixsmall }}></small>
