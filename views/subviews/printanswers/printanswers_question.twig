@@ -1,13 +1,10 @@
-<tr class="question-container-printanswers"> 
-    {% block question_name %}
-    <th style="width:40%" class="text-right">
-        {{question.question}}
-    </th>
-    {% endblock  %}
-    <td style="width:60%">
-    {% block question_answer %}
-        {{ include('./subviews/printanswers/question_types/template_generic_question.twig') }}
-    {% endblock  %}
-    </td>
-</tr>
+{#<pre>{{ dump(question) }}</pre>#}
 
+{% block question_name %}
+<tr class="questiontext">
+    <th>{% if aSurveyInfo.options.printcode == "on" %}<span class="label label-default label-code">[{{question.title}}]</span> {% endif %}{{question.question}}</th>
+</tr>
+{% endblock  %}
+<tr class="answers">
+    <td>{% block question_answer %}{{ include('./subviews/printanswers/question_types/template_generic_question.twig') }}{% endblock  %}</td>
+</tr>

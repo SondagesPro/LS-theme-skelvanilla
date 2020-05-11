@@ -1,0 +1,31 @@
+{% extends "./subviews/printanswers/printanswers_question.twig" %}
+{% block question_answer %}
+<table class='table table-bordered table-striped table-print'>
+    <tbody>{% set strip = 'even' %}
+    {% for subquestionId, subquestion in question.subquestions %}
+        {% if not subquestion.answervalue is null %}
+            <tr class='strip-{{ strip }}'>
+                <th class='col-question'>
+                    {% if aSurveyInfo.options.printcode == "on" %}{{ include('./subviews/printanswers/elements/subquestioncode.twig', {'code': subquestion.title}) }}{% endif %}
+                    {{subquestion.question}}
+                </th>
+                <td class='col-answer'>
+                    {% if subquestion.answeroption.code %}
+                        {{subquestion.answervalue}}
+                    {% else %}
+                        {% if aSurveyInfo.options.printshownoanswer == "on" %}
+                            {{ gT("No answer") }}
+                        {% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+            {% if strip == 'even' %}
+                {% set strip = 'odd' %}
+            {% else %}
+                {% set strip = 'even' %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

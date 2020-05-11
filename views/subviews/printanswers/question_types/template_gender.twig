@@ -1,0 +1,14 @@
+{% extends "./subviews/printanswers/printanswers_question.twig" %}
+{% block question_answer %}
+{% if question.answervalue is sameas("M") %}
+    {{ gT("Male") }}
+{% elseif question.answervalue is sameas("F") %}
+    {{ gT("Female") }}
+{% else %}
+    {% if aSurveyInfo.options.printshownoanswer == "on" %}
+        {{ gT("No answer") }}
+    {% endif %}
+{% endif %}
+
+{% endblock %}
+

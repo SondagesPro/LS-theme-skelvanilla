@@ -6,7 +6,7 @@
 {% for groupid,group in aSurveyInfo.groupArray %}
     <tbody class="groupSection {% if groupcount %}page-break-before{% endif %}">
         {% if ( (aSurveyInfo.showgroupinfo == 'N' or aSurveyInfo.showgroupinfo == 'B') and group.group_name ) %}
-            <tr class="groupheader"><th colspan="2"><strong class="h3">{{group.group_name}}</strong></th></tr>
+            <tr class="groupheader"><th><strong class="h3">{{group.group_name}}</strong></th></tr>
         {% endif %}
         {% for questionId,question in group.answerArray %}
             {% set questionTemplate = './subviews/printanswers/question_types/template_' ~ question.questionclass ~ '.twig' %}

@@ -1,0 +1,6 @@
+{% extends "./subviews/printanswers/printanswers_question.twig" %}
+{% block question_answer %}
+<div class="text-left free-answer">
+    {{question.answervalue|date(question.dateformat.phpdate)}}
+</div>
+{% endblock %}

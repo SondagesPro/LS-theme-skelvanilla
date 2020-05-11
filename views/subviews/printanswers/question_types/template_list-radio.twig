@@ -1,0 +1,13 @@
+ {% extends "./subviews/printanswers/printanswers_question.twig" %}
+ {% block question_answer %}
+    {% if question.answeroption.code %}
+        {{question.answeroption.answer}}
+        {% if aSurveyInfo.options.printanswercode == "on" and question.answervalue %}<span class="small badge badge-answer">[{{question.answeroption.answer}}]</span> {% endif %}
+    {% elseif question.answeroption.answer %} {# Other #}
+        {{question.answervalue}} : <span class='free-answer'>{{ question.answeroption.answer | nl2br }}</span>
+    {% else %} {#No answer #}
+        {% if aSurveyInfo.options.printshownoanswer == "on" %}
+            {{ gT("No answer") }}
+        {% endif %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "./subviews/printanswers/printanswers_question.twig" %}
+{% block question_answer %}
+{% if question.answeroption.code %}
+    {{question.answeroption.answer}}
+    {% if aSurveyInfo.options.printanswercode == "on" and question.answervalue %}{{ include('./subviews/printanswers/elements/subquestioncode.twig', {'code': question.answeroption.code}) }}{% endif %}
+{% elseif question.answeroption.answer %} {# Other #}
+    {{question.answervalue}} : <span class='free-answer'>{{ question.answeroption.answer | nl2br }}</span>
+{% else %} {#No answer #}
+    {% if aSurveyInfo.options.printshownoanswer == "on" %}
+        {{ gT("No answer") }}
+    {% endif %}
+{% endif %}
+
+{# See issue 15985: Print answers : list with comments, comments not printed #}
+{#
+<table class='table table-bordered table-print'>
+    <tbody>
+        <tr>
+            <td width="50%">
+                {% if question.answeroption.code %}
+                    {{question.answeroption.answer}}
+                    {% if aSurveyInfo.options.printanswercode == "on" and question.answervalue %}{{ include('./subviews/printanswers/elements/subquestioncode.twig', {'code': question.answeroption.code}) }}{% endif %}
+                {% elseif question.answeroption.answer %}
+                    {{question.answervalue}} : <span class='free-answer'>{{ question.answeroption.answer | nl2br }}</span>
+                {% else %}
+                    {% if aSurveyInfo.options.printshownoanswer == "on" %}
+                        {{ gT("No answer") }}
+                    {% endif %}
+                {% endif %}
+            </td>
+            <td width="50%">
+            </td>
+        </tr>
+    </tbody>
+</table>
+#}
+{% endblock %}

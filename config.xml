@@ -79,6 +79,8 @@
         <previouslink>off</previouslink>
         <nextsubmitlink>off</nextsubmitlink>
         <showclearall>on</showclearall>
+        <printcode>off</printcode>
+        <printshownoanswer>off</printshownoanswer>
         <availablevariations>{
   "contrast": {
     "name": "Contrast",

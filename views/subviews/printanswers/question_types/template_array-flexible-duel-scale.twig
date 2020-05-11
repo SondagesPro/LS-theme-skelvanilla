@@ -1,0 +1,29 @@
+{% extends "./subviews/printanswers/printanswers_question.twig" %}
+{% block question_answer %}
+{# Dusal scale is broken and can receive double NULL in LS 3.22 #}
+<table class='table table-bordered table-striped table-print table-print-dual'>
+    <tbody>{% set strip = 'even' %}
+    {% for subquestionId, subquestion in question.subquestions %}
+        {% if ( (not subquestion.answervalues[0] is null) or (not subquestion.answervalues[1] is null) ) %}
+            <tr class='strip-{{ strip }}'>
+                <th class='col-question'>
+                    {% if aSurveyInfo.options.printcode == "on" %}{{ include('./subviews/printanswers/elements/subquestioncode.twig', {'code': subquestion.title}) }}{% endif %}
+                    {{subquestion.question}}
+                </th>
+                <td class='col-answer'>
+                    {{ subquestion.answervalues[0] }}
+                </td>
+                <td class='col-answer'>
+                    {{ subquestion.answervalues[1] }}
+                </td>
+            </tr>
+            {% if strip == 'even' %}
+                {% set strip = 'odd' %}
+            {% else %}
+                {% set strip = 'even' %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

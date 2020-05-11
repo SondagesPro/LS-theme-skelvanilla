@@ -1,0 +1,10 @@
+ {% extends "./subviews/printanswers/printanswers_question.twig" %}
+ {% block question_answer %}
+    {% if question.answervalue %}
+        {{question.answervalue}}
+    {% else %} {#No answer #}
+        {% if aSurveyInfo.options.printshownoanswer == "on" %}
+            {{ gT("No answer") }}
+        {% endif %}
+    {% endif %}
+{% endblock %}
