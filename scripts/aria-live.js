@@ -75,19 +75,27 @@ var TemplateAccessible = {
     triggerRelevanceValidity: function() {
         $(document).on('relevance:on',"[id^='question'].mandatory",function(event,data) {
             if(event.target != this) return;
-            $(this).find(TemplateAccessible.requiredSelector).attr('required',true);
+            $(this).find(TemplateAccessible.requiredSelector).prop('required',true);
         });
         $(document).on('relevance:off',"[id^='question'].mandatory",function(event,data) {
             if(event.target != this) return;
-            $(this).find(TemplateAccessible.requiredSelector).removeAttr('required');
+            $(this).find(TemplateAccessible.requiredSelector).prop('required',false);
         });
-        $("[id^='question'].mandatory").on('relevance:on',"[id^='javatbd']",function(event,data) {
+        $(document).on('relevance:on',"[id^='question'].mandatory [id^='javatbd']",function(event,data) {
             if(event.target != this) return;
-            $(this).find(TemplateAccessible.requiredSelector).attr('required',true);
+            if($(this).hasClass('dropdown-item')) {
+                $(this).find("select").prop('required',true);
+            }
+            if($(this).hasClass('radio-item')) {
+                $(this).find("input:radio").prop('required',true);
+            }
+            if($(this).hasClass('text-item') && !$(this).hasClass('other-text-item') && !$(this).hasClass('slider-item') && !$(this).hasClass('comment-item')) {
+                $(this).find("input:text, textarea").prop('required',true);
+            }
         });
-        $("[id^='question'].mandatory").on('relevance:off',"[id^='javatbd']",function(event,data) {
+        $(document).on('relevance:off',"[id^='question'].mandatory [id^='javatbd']",function(event,data) {
             if(event.target != this) return;
-            $(this).find(TemplateAccessible.requiredSelector).removeAttr('required');
+            $(this).find("input:text, select, input:radio").prop('required',false);
         });
     },
     triggerHtmlUpdated : function() {
