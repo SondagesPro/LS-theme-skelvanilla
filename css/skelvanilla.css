@@ -92,19 +92,6 @@ table.ls-answers thead th,table.ls-answers thead td,table.ls-answers .ls-heading
 box-shadow: initial;
 }
 /* Limesurvey vanilla part */
-
-
-.group-title-container {
-  padding: 1em;
-  background:transparent;
-}
-
-.top-container {
-    width: 100%;
-    padding: 0;
-    color: inherit;
-}
-
 .top-content .form-change-lang{float:right}
 .dir-rtl .top-content .form-change-lang{float:left}
 .no-js .top-content .form-change-lang{display:none}
@@ -174,16 +161,6 @@ box-shadow: initial;
 /**
  * Unsure part
  */
-
- #main-col {
-     margin-top: 1em;
- }
-
- .col-centered{
-     float: none;
-     margin: 0 auto;
- }
-
 .radio-list li
 {
     display: block;
@@ -199,10 +176,10 @@ box-shadow: initial;
 /**
  * For em-type
  */
- .hide-tip
- {
-     display: none;
- }
+.hide-tip
+{
+    display: none;
+}
 
 /**
  * Surveys list
@@ -287,8 +264,6 @@ Responsive navbar-brand image CSS
     padding-top: 2em;
 }
 
-
-
 /* Wrap text in e.g. gender button "No answer */
 .wrap-normal {
     white-space: normal;
@@ -366,7 +341,7 @@ table > tbody > tr > td.ddprefix {
     font-weight: bold;
 }
 
-#outerframeContainer {
+.word-break {
     word-wrap: break-word;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
@@ -374,13 +349,6 @@ table > tbody > tr > td.ddprefix {
     -o-hyphens: auto;
     hyphens: auto;
 }
-
-.xdebug-var-dump {
-    z-index: 10000;
-    position: relative;
-    top: 10px;
-}
-
 
 div.yes-no .btn-group label {
   white-space:normal;
