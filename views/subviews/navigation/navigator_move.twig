@@ -3,17 +3,7 @@
 
 <!-- PRESENT THE NAVIGATOR -->
 <div class="{{ aSurveyInfo.class.navigatorcontainer }} row navigator " id="{{ aSurveyInfo.id.navigatorcontainer }}{{ navigatorid }}" {{ aSurveyInfo.attr.navigatorcontainer }}>
-    <!-- Previous button container -->
-    <div class="{{ aSurveyInfo.class.navigatorbuttonl }} col-xs-6 text-left" {{ aSurveyInfo.attr.navigatorbuttonl }}>
-        {# Previous button must be set to ON in survey settings (and it's not shown in first page, in All in One survey mode, etc) #}
-        {% if aNavigator.aMovePrev.show %}
-            <!-- Button previous -->
-            <button data-disable-check-validity=1 {{ str_replace("ls-button-previous","ls-button-previous"~navigatorid,aSurveyInfo.attr.navigatorbuttonprev) }} class=" {{ aNavigator.disabled }} btn btn-lg btn-default " >
-                {{ gT("Previous") }}
-            </button>
-        {% endif %}
-    </div>
-    <div class="{{ aSurveyInfo.class.navigatorbuttonr }} col-xs-6 text-right">
+    <div class="{{ aSurveyInfo.class.navigatorbuttonr }} col-xs-6 col-xs-push-6 text-right">
         {# Next button is not always shown (last page, all in one mode, etc) #}
         {% if aNavigator.aMoveNext.show %}
             {# On last page, Next button become submit button. #}
@@ -28,6 +18,16 @@
                     {{ gT("Next") }}
                 </button>
             {% endif %}
+        {% endif %}
+    </div>
+    <!-- Previous button container -->
+    <div class="{{ aSurveyInfo.class.navigatorbuttonl }} col-xs-6 col-xs-pull-6 text-left" {{ aSurveyInfo.attr.navigatorbuttonl }}>
+        {# Previous button must be set to ON in survey settings (and it's not shown in first page, in All in One survey mode, etc) #}
+        {% if aNavigator.aMovePrev.show %}
+            <!-- Button previous -->
+            <button data-disable-check-validity=1 {{ str_replace("ls-button-previous","ls-button-previous"~navigatorid,aSurveyInfo.attr.navigatorbuttonprev) }} class=" {{ aNavigator.disabled }} btn btn-lg btn-default " >
+                {{ gT("Previous") }}
+            </button>
         {% endif %}
     </div>
 </div>
