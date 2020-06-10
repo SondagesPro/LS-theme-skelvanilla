@@ -1,5 +1,9 @@
 /*
-    Work in progress : need to move and remove a lot
+ * This file can be updated in source,
+ * Best is to use custiom.css or theme.css for your own update
+ * @todo : check and remove unused part
+ * @todo : move some part to generator
+ * @todo : comments
 */
 /* in h1, need to remove margin and reset font-size */
 .navbar-brand{margin:0;height:auto;}
@@ -174,12 +178,9 @@ box-shadow: initial;
 }
 
 /**
- * For em-type
+ * For em-tip
  */
-.hide-tip
-{
-    display: none;
-}
+.hide-tip{display: none;}
 
 /**
  * Surveys list
@@ -358,10 +359,8 @@ p.return-to-survey{
 }
 
 /* Make sure question index menu is not too long. */
-#index-menu ul.dropdown-menu {
-    max-height: 50vh;
-}
+#index-menu ul.dropdown-menu {max-height: 50vh;}
 
-.text-break-pre {
-    white-space: pre-line;
-}
+/* Textarea functionnality : force resize and max-with */
+.answer-item textarea{resize: both;max-width:100%;}
+.textarea-no-max-width .answer-item textarea{max-width:none}
