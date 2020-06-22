@@ -249,6 +249,31 @@
                         </div>
                     </div>
                 </div>
+
+                {# Fixed header for table #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_tableheader' class='control-label col-xs-4'> {{ gT("Use fixed static header in table") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_tableheader' data-default='on'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='tableheader' value='on' class='selector_option_radio_field simple_edit_options_tableheader ' data-id='tableheader'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='tableheader' value='off' class='selector_option_radio_field simple_edit_options_tableheader ' data-id='tableheader'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='tableheader' value='inherit' class='selector_option_radio_field simple_edit_options_tableheader ' data-id='tableheader'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <h3 class="h4 action_hide_on_inherit">{{ gT("Top link actions") }}</h3>
             <div class="row action_hide_on_inherit">

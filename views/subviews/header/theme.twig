@@ -1,6 +1,6 @@
 {# theme file #}
- {% if (aSurveyInfo.options.theme == "off" or aSurveyInfo.options.theme == "") %}
+{% if (aSurveyInfo.options.theme == "off" or aSurveyInfo.options.theme == "") %}
     {{ registerTemplateCssFile('css/bootstrap.css') }}
- {% endif %}
+{% endif %}
 {{ registerTemplateCssFile('css/theme.css') }}
 {{ registerTemplateCssFile('css/custom.css') }}

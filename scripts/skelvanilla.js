@@ -11,6 +11,7 @@ var skelVanilla = {
         if(options.bodyLoaded) {
             this.bodyLoaded();
         }
+        this.fixedHeaderRelated();
     },
     addCheckedClass : function () {
         /* radio in table */
@@ -22,7 +23,7 @@ var skelVanilla = {
             });
             $(this).closest('td').addClass('answer-checked');
         });
-        $(document).ready(function(){
+        $(function() {
             $('td.radio-item [type=radio][checked]').each(function(){
                 $(this).closest('td').addClass('answer-checked');
             });
@@ -35,7 +36,7 @@ var skelVanilla = {
                 $(this).closest('td').removeClass('answer-checked');
             }
         });
-        $(document).ready(function(){
+        $(function() {
             $('td.checkbox-item [type=checkbox][checked]').each(function(){
                 $(this).closest('td').addClass('answer-checked');
             });
@@ -66,7 +67,7 @@ var skelVanilla = {
         });
 
 
-        $(document).ready(function(){
+        $(function() {
             $('li.radio-text-item input[type=text][value!=""]').closest('li.radio-text-item').addClass('answer-checked');
             $('li.checkbox-text-item input[type=text][value!=""]').closest('li.checkbox-text-item').addClass('answer-checked');
         });
@@ -88,10 +89,10 @@ var skelVanilla = {
         window.location.hash="";
         window.onhashchange=function(){
             if(window.location.hash == "#nbb") {  window.location.hash=""; }
-        }
+        };
     },
     bodyLoaded: function() {
-        $(document).ready(function(){
+        $(function() {
             $("body").removeClass("body-loading").addClass("body-loaded");
         });
         $("button[type='submit']:not([data-confirmedby])").on('click',function(){
@@ -128,7 +129,7 @@ var skelVanilla = {
     },
     otherListRadio : function() {
         /* disable text-input : no tab indexed */
-        $(document).ready(function(){
+        $(function() {
             $('li.radio-text-item [type=radio]').not('[checked]').each(function(){
                 $(this).closest('li').find('[type=text]').prop('disabled',true);
             });
@@ -147,7 +148,7 @@ var skelVanilla = {
     },
     otherListCheckbox : function() {
         /* Disable false checkbox, and never remove user entered value … */
-        $(document).ready(function(){
+        $(function() {
             $('li.checkbox-text-item .other-checkbox[type=checkbox]').each(function(){
                 $(this).prop('disabled',true);
             });
@@ -155,5 +156,25 @@ var skelVanilla = {
                 $(this).attr('for',$(this).attr('for').replace('othercbox', 'other'));
             });
         });
+    },
+    fixedHeaderRelated : function() {
+        console.warn($('.table-fixed-header .ls-answers'));
+        $(function() {
+            if($("header.navbar-fixed-top").length) {
+                var fixedHeaderHeight = $("header.navbar-fixed-top").height();
+                $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th').each(function() {
+                    $(this).css("top",fixedHeaderHeight+"px");
+                    $(this).css("z-index",1500);
+                });
+            }
+        });
+        $( window ).resize(function() {
+            if($("header.navbar-fixed-top").length) {
+                var fixedHeaderHeight = $("header.navbar-fixed-top").height();
+                $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th').each(function() {
+                    $(this).css("top",fixedHeaderHeight+"px");
+                });
+            }
+        });
     }
-}
+};

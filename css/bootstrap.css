@@ -1,10 +1,10 @@
 /*!
  * Theme generator css for LimeSurvey template
  * Based on Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2018-2019 Denis Chenu
+ * Copyright 2018-2020 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 3.1.1
+ * @version 3.2.0
  */
 /*!
  * This is a generated file
@@ -6056,6 +6056,9 @@ table.ls-answers {
 .question-container.no-footer-spacer {
   margin-bottom: 0;
 }
+.answer-container {
+  position: relative;
+}
 /* Global question part */
 .question-text,
 .question-text h2,
@@ -6373,6 +6376,49 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
   .no-more-table .table-hover col.hover {
     background: transparent;
   }
+}
+.table-fixed-header table.table-bordered.ls-answers {
+  border-collapse: separate;
+}
+.table-fixed-header table.table-bordered.ls-answers {
+  border-right: 0;
+  border-bottom: 0;
+}
+.table-fixed-header table.table-bordered.ls-answers > thead > tr > th,
+.table-fixed-header table.table-bordered.ls-answers > tbody > tr > th,
+.table-fixed-header table.table-bordered.ls-answers > tfoot > tr > th,
+.table-fixed-header table.table-bordered.ls-answers > thead > tr > td,
+.table-fixed-header table.table-bordered.ls-answers > tbody > tr > td,
+.table-fixed-header table.table-bordered.ls-answers > tfoot > tr > td {
+  border-left: 0;
+  border-top: 0;
+}
+.table-fixed-header table.ls-answers > thead > tr > td,
+.table-fixed-header table.ls-answers > thead > tr > th {
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  /* same than header */
+  z-index: 2000;
+}
+.table-fixed-header table.ls-answers > thead > tr > td,
+.table-fixed-header table.ls-answers > thead > tr > th {
+  background-color: #fff;
+}
+.table-fixed-header .well table.ls-answers > thead > tr > td,
+.table-fixed-header .well table.ls-answers > thead > tr > th,
+.table-fixed-header.well table.ls-answers > thead > tr > td,
+.table-fixed-header.well table.ls-answers > thead > tr > th {
+  background-color: #f8f8f8;
+}
+.table-fixed-header .panel table.ls-answers > thead > tr > td,
+.table-fixed-header .panel table.ls-answers > thead > tr > th,
+.table-fixed-header.panel table.ls-answers > thead > tr > td,
+.table-fixed-header.panel table.ls-answers > thead > tr > th {
+  background-color: #fff;
+}
+.table-fixed-header .ls-heading-repeat {
+  display: none;
 }
 /* radio list and checkbox list with border : WIP */
 /* Todo : mixin this */
@@ -6795,8 +6841,8 @@ td.checkbox-item input[type="checkbox"] {
     padding-right: 40px;
     right: auto;
   }
-  .radio-item label.ls-label-xs-visibility,
-  .checkbox-item label.ls-label-xs-visibility {
+  .no-more-table .radio-item label.ls-label-xs-visibility,
+  .no-more-table .checkbox-item label.ls-label-xs-visibility {
     margin-top: 0;
   }
 }
