@@ -158,7 +158,6 @@ var skelVanilla = {
         });
     },
     fixedHeaderRelated : function() {
-        console.warn($('.table-fixed-header .ls-answers'));
         $(function() {
             if($("header.navbar-fixed-top").length) {
                 var fixedHeaderHeight = $("header.navbar-fixed-top").height();
