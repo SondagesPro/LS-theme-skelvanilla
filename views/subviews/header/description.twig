@@ -1,0 +1,9 @@
+{% if aSurveyInfo.options.descriptiondisplay == 'all' %}
+    {% if processString(aSurveyInfo.description,1) %}
+    <div class="description-wrapper">
+        <div class="text-info {{ aSurveyInfo.class.description }}  {% if (aSurveyInfo.options.container == "on") %} container {% else %} container-fluid {% endif %}" {{ aSurveyInfo.attr.description }}>
+            {{ processString(aSurveyInfo.description,1) }}
+        </div>
+    </div>
+    {% endif %}
+{% endif %}

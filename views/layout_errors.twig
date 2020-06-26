@@ -12,7 +12,9 @@
 {% block head %}
     {{ parent() }}
 {% endblock %}
-
+{% block body %}
+    {{ parent() }}
+{% endblock %}
 {% block content %}
 <main class="{{ aSurveyInfo.class.outerframe }} {% if (aSurveyInfo.options.container == "on") %} container {% else %} container-fluid {% endif %} " id="{{ aSurveyInfo.id.outerframe }}" {{ aSurveyInfo.attr.outerframe }} >
     <div class="well">
@@ -36,7 +38,4 @@
         </p>
     </div>
 </main>
-
-
-
 {% endblock %}

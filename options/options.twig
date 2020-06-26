@@ -656,7 +656,34 @@
             <div class="row action_hide_on_inherit">
                 <hr/>
             </div>
-
+            <h3 class="h3 action_hide_on_inherit">{{ gT("Content") }}</h3>
+            <div class="row action_hide_on_inherit">
+                {# Description #}
+                <div class='col-sm-12 col-md-6 col-lg-6'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_descriptiondisplay' class='control-label col-xs-4'> {{ gT("Survey description display") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons"  role='radiogroup' aria-labelledby='simple_edit_options_descriptiondisplay' data-default='welcome'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='descriptiondisplay' value='all' class='selector_option_radio_field simple_edit_options_descriptiondisplay ' data-id='descriptiondisplay'/>
+                                    {{ gT("All page") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='descriptiondisplay' value='welcome' class='selector_option_radio_field simple_edit_options_descriptiondisplay ' data-id='descriptiondisplay'/>
+                                    {{ gT("Only on welcome page") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='descriptiondisplay' value='inherit' class='selector_option_radio_field simple_edit_options_descriptiondisplay ' data-id='descriptiondisplay'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Brand Logo -->
             <h3 class="h3 action_hide_on_inherit">{{ gT("Logos") }}</h3>
             <div class="row action_hide_on_inherit">

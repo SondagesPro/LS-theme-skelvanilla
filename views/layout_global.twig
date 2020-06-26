@@ -33,7 +33,9 @@
                 {% block nav_bar %}
                     {{ include('./subviews/header/nav_bar.twig') }}
                 {% endblock %}
-
+                {% block description %}
+                    {{ include('./subviews/header/description.twig') }}
+                {% endblock %}
                 <!-- Outer Frame Container -->
                 {% block content %}
                     {#

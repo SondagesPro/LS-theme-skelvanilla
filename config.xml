@@ -16,12 +16,12 @@
         <supportUrl>https://extensions.sondages.pro/themes-and-templates/skelvanilla-a11y-and-usuability/</supportUrl>
         <copyright>Copyright (C) 2018-2019 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 3 or later</license>
-        <version>9.1.1</version>
+        <version>9.2.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
         <extends>vanilla</extends>
-        <last_update>2020-06-10 10:04:52</last_update>
-        <lastUpdate>2020-06-10 10:04:52</lastUpdate>
+        <last_update>2020-06-26 13:58:32</last_update>
+        <lastUpdate>2020-06-26 13:58:32</lastUpdate>
     </metadata>
 
     <files>
@@ -282,7 +282,6 @@
                 <question>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Question')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
-                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
                     <file type="view" role="content">./subviews/content/main.twig</file>
                     <file type="view" role="subview">./subviews/survey/group.twig</file>
                     <file type="view" role="subview">./subviews/survey/group_subviews/group_container.twig</file>
@@ -295,6 +294,7 @@
                     <file type="view" role="subview">./subviews/survey/question_subviews/answers.twig</file>
                     <file type="view" role="subview">./subviews/survey/question_subviews/survey_question_help.twig</file>
                     <file type="view" role="subview">./subviews/survey/question_subviews/valid_message_and_help.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
                     <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/skelvanilla.css</file>
                     <file type="css">./css/theme.css</file>
@@ -308,10 +308,10 @@
                 <surveylist>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Survey list')}} ]]></screen_title>
                     <file type="view" role="layout">layout_survey_list.twig</file>
-                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="subview">./subviews/navigation/language_changer_form.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
                     <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/skelvanilla.css</file>
                     <file type="css">./css/theme.css</file>
@@ -325,19 +325,20 @@
                 <welcome>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Welcome')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
-                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/firstpage.twig</file>
                     <file type="view" role="subview">./subviews/header/head.twig</file>
                     <file type="view" role="subview">./subviews/header/custom_header.twig</file>
                     <file type="view" role="subview">./subviews/header/nav_bar.twig</file>
+                    <file type="view" role="subview">./subviews/header/description.twig</file>
                     <file type="view" role="subview">./subviews/header/progress_bar.twig</file>
                     <file type="view" role="subview">./subviews/messages/welcome.twig</file>
                     <file type="view" role="subview">./subviews/messages/warnings.twig</file>
                     <file type="view" role="subview">./subviews/messages/no_js_alert.twig</file>
                     <file type="view" role="subview">./subviews/privacy/privacy.twig</file>
                     <file type="view" role="subview">./subviews/navigation/language_changer.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
                     <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/aria-live.js</file>
@@ -349,10 +350,12 @@
                 <completed>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Completed')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
-                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="subview">./subviews/header/nav_bar.twig</file>
+                    <file type="view" role="subview">./subviews/header/description.twig</file>
                     <file type="view" role="subview">./subviews/content/mainrow.twig</file>
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/submit.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
                     <file type="css">./css/bootstrap.css</file>
                     <file type="css">./css/theme.css</file>
                     <file type="js">./scripts/theme.js</file>
@@ -378,9 +381,11 @@
                 <error>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Error')}} ]]></screen_title>
                     <file type="view" role="layout">layout_errors.twig</file>
-                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
+                    <file type="view" role="subview">./subviews/header/nav_bar.twig</file>
+                    <file type="view" role="subview">./subviews/header/description.twig</file>
                     <file type="view" role="subview">./subviews/messages/warnings.twig</file>
                     <file type="view" role="subview">./subviews/messages/bootstrap_alert_modal.twig</file>
+                    <file type="view" role="subview">./subviews/footer/footer.twig</file>
                 </error>
 
                 <clearall>

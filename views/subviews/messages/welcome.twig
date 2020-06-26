@@ -17,7 +17,7 @@
 
     In this file, you have access to the array aSurveyInfo that contains the datas of the current survey
     To see what's inside aSurveyInfo, turn debug mode on and copy the following line to the end of this file:
-    {{ dump(aSurveyInfo) }}
+    
 
 #}
 
@@ -28,12 +28,12 @@
     <h1 class="{{ aSurveyInfo.class.surveyname }} text-center" {{ aSurveyInfo.attr.surveyname }} >
         {{ processString(aSurveyInfo.name,1) }}
     </h1>
-
-    <!-- Survey description -->
-    <div class="{{ aSurveyInfo.class.description }} text-info text-center" {{ aSurveyInfo.attr.description }}>
-        {{ processString(aSurveyInfo.description,1) }}
-    </div>
-
+    {% if (aSurveyInfo.options.descriptiondisplay == 'welcome' or aSurveyInfo.options.descriptiondisplay is empty) %}
+        <!-- Survey description -->
+        <div class="{{ aSurveyInfo.class.description }} text-info" {{ aSurveyInfo.attr.description }}>
+            {{ processString(aSurveyInfo.description,1) }}
+        </div>
+    {% endif %}
     <!-- Welcome text -->
     <div class="{{ aSurveyInfo.class.welcome }}" {{ aSurveyInfo.attr.welcome }}>
         {{ processString(aSurveyInfo.welcome,1) }}
