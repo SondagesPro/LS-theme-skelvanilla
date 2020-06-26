@@ -364,3 +364,5 @@ p.return-to-survey{
 /* Textarea functionnality : force resize and max-with */
 .answer-item textarea{resize: both;max-width:100%;}
 .textarea-no-max-width .answer-item textarea{max-width:none}
+.no-js .collapse{display: block;}
+.no-js .fade{opacity: 1;}

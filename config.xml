@@ -16,12 +16,12 @@
         <supportUrl>https://extensions.sondages.pro/themes-and-templates/skelvanilla-a11y-and-usuability/</supportUrl>
         <copyright>Copyright (C) 2018-2019 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 3 or later</license>
-        <version>9.2.0</version>
+        <version>9.2.1</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
         <extends>vanilla</extends>
-        <last_update>2020-06-26 13:58:32</last_update>
-        <lastUpdate>2020-06-26 13:58:32</lastUpdate>
+        <last_update>2020-06-26 16:53:58</last_update>
+        <lastUpdate>020-06-26 16:53:58</lastUpdate>
     </metadata>
 
     <files>
@@ -337,6 +337,9 @@
                     <file type="view" role="subview">./subviews/messages/warnings.twig</file>
                     <file type="view" role="subview">./subviews/messages/no_js_alert.twig</file>
                     <file type="view" role="subview">./subviews/privacy/privacy.twig</file>
+                    <file type="view" role="subview">./subviews/privacy/privacy_modal.twig</file>
+                    <file type="view" role="subview">./subviews/privacy/privacy_text.twig</file>
+                    <file type="view" role="subview">./subviews/content/allinone_welcome.twig</file>
                     <file type="view" role="subview">./subviews/navigation/language_changer.twig</file>
                     <file type="view" role="subview">./subviews/footer/footer.twig</file>
                     <file type="css">./css/bootstrap.css</file>

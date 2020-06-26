@@ -190,22 +190,10 @@ var ThemeScripts = function(){
         }
         hideEmptyPart();
     };
-
-    var initWelcomePage = function(){
-        if($('#datasecurity_accepted').length >0) {
-            $('#ls-button-submit').prop('disabled', true);
-            $('#datasecurity_accepted').on('change', function(){
-                $('#ls-button-submit').prop('disabled', !$(this).prop('checked'));
-            });
-
-        }
-    };
-
     return {
         init: init,
         initUserForms: initUserForms,
         initGlobal: initGlobal,
-        initWelcomePage: initWelcomePage,
         focusFirst: focusFirst,
         sliderSuffixClone : sliderSuffixClone,
         hideQuestionWithRelevanceSubQuestion : window.templateCore.hideQuestionWithRelevanceSubQuestion,
