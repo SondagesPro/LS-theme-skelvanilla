@@ -147,7 +147,7 @@ var ThemeOptions = function(){
     var prepareSelectField = function(){
         globalForm.find('.selector_option_value_field').each(function(i,item){
             var itemValue = parseOptionValue(item, 'off');
-            $(item).val(itemValue);
+            $(item).val(itemValue).trigger("change");
             disableImagePreviewIfneeded(item);
         });
     };
@@ -256,12 +256,11 @@ var ThemeOptions = function(){
     // -- These methods are triggered on events. Please see `bind´ method for more information
     var onSaveButtonClickAction = function(evt){
         evt.preventDefault();
-
         if(generalInherit()){
             $('#TemplateConfiguration_options').val('inherit');
             $('#TemplateConfiguration_cssframework_css').val('inherit');
             $('#TemplateConfiguration_cssframework_js').val('inherit');
-            $('#template-options-form').find('button[type=submit]').trigger('click'); // submit the form
+            $('#template-options-form').trigger('submit'); // submit the form
         } else {
             //Create a copy of the inherent optionObject
             var newOptionObject = $.extend(true, {}, optionObject);
@@ -275,13 +274,13 @@ var ThemeOptions = function(){
             var selectedCss = $("#simple_edit_options_theme").val();
             if (selectedCss == "inherit") {
                 $('#TemplateConfiguration_cssframework_css').val('inherit');
-                return;
+            } else {
+                var cssFrameworkCss = {};
+                cssFrameworkCss.replace = [["css/bootstrap.css",$('#simple_edit_cssframework').val()]];
+                $('#TemplateConfiguration_cssframework_css').val(JSON.stringify(cssFrameworkCss));
             }
-            var cssFrameworkCss = {};
-            cssFrameworkCss.replace = [["css/bootstrap.css",$('#simple_edit_cssframework').val()]];
-            $('#TemplateConfiguration_cssframework_css').val(JSON.stringify(cssFrameworkCss));
             //and submit the form
-            $('#template-options-form').find('button[type=submit]').trigger('click');
+            $('#template-options-form').trigger('submit');
         }
     };
 
@@ -290,7 +289,7 @@ var ThemeOptions = function(){
     // Instance methods
     var bind = function(){
         //if the save button is clicked write everything into the template option field and send the form
-        $('.action_update_options_string_button').on('click', onSaveButtonClickAction);
+        $('.action_update_options_string_button, #theme-options--submit').on('click', onSaveButtonClickAction);
 
         //Bind the hotwaps
         hotSwapParentRadioButtons();
