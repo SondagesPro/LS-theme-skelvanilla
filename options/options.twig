@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         {# Begin template option form #}
-        <form class='form action_update_options_string_form' action=''>
+        <div class='form action_update_options_string_form' action=''>
             {# If this is a surveyspecific settings page, offer the possibility to do a full inheritance of the parent template #}
             {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
             <h3 class="h3">{{ gT("Inherit") }}</h3>
@@ -47,11 +47,12 @@
                 </div>
             {% endif %}
             {# If this is a surveyspecific settings page, offer the possibility to do a full inheritance of the parent template #}
+
             {# CSS variation : fixed for parent, can be updated in child #}
             {% set templateOptions = json_decode(templateConfiguration.options) %}
             {% set sAvailableVariations = templateOptions.availablevariations %}
-            {% if templateConfiguration.sid %}
-                {# broken in 4 #}
+            {% if(sAvailableVariations == 'inherit' or sAvailableVariations is empty) %}
+                {# still broken in 4 #}
                 {% set sAvailableVariations = oParentOptions.availablevariations %}
             {% endif %}
 
@@ -468,6 +469,14 @@
                         </div>
                     </div>
                 </div>
+                {% if templateConfiguration.sid is empty %}
+                <div class='col-sm-12'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_json_availablevariation' class='control-label'>{{ gT("Available variation:") }}</label>
+                        <textarea class='form-control text_option_json_field' id='edit_json_availablevariations' name='availablevariations'>{{ sAvailableVariations }}</textarea>
+                    </div>
+                </div>
+                {% endif %}
             </div>
             <div class="row action_hide_on_inherit">
                 {# Container #}
@@ -889,7 +898,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
     <div class="row action_hide_on_inherit">
         <hr/>

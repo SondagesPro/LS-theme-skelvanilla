@@ -82,6 +82,13 @@ var ThemeOptions = function(){
                 optionObject[$(item).attr('name')] = $(item).val();
             }
         });
+        globalForm.find('.text_option_json_field').each(function(i,item){
+            if($(item).val() == "") {
+                optionObject[$(item).attr('name')] = 'inherit';
+            } else {
+                optionObject[$(item).attr('name')] = $(item).val();
+            }
+        });
         var newOptionObject = $.extend(true, {}, optionObject);
         delete newOptionObject.general_inherit;
         $('#TemplateConfiguration_options').val(JSON.stringify(newOptionObject));
@@ -227,7 +234,7 @@ var ThemeOptions = function(){
         });
         globalForm.find('.selector_option_radio_field').on('change', updateFieldSettings);
         globalForm.find('.text_option_string_field').on('blur focusout', updateFieldSettings);
-
+        globalForm.find('.text_option_json_field').on('blur focusout', updateFieldSettings);
     };
 
     var hotswapGeneralInherit = function(){
@@ -265,7 +272,7 @@ var ThemeOptions = function(){
             //Create a copy of the inherent optionObject
             var newOptionObject = $.extend(true, {}, optionObject);
             newOptionObject.generalInherit = null;
-            if( $("#inherited-available-variation").length ) { // Force inherit for available variation (can be updated only in globval or gsid)
+            if( $("#inherited-available-variation").length ) { // Force inherit for available variation (can be updated only in global or gsid)
                 newOptionObject.availablevariations = "inherit";
             }
             //now write the newly created object to the correspondent field as a json string
@@ -289,7 +296,7 @@ var ThemeOptions = function(){
     // Instance methods
     var bind = function(){
         //if the save button is clicked write everything into the template option field and send the form
-        $('.action_update_options_string_button, #theme-options--submit').on('click', onSaveButtonClickAction);
+        $('#template-options-form :submit, #theme-options--submit').on('click', onSaveButtonClickAction);
 
         //Bind the hotwaps
         hotSwapParentRadioButtons();
