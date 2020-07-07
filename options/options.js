@@ -283,7 +283,7 @@ var ThemeOptions = function(){
                 $('#TemplateConfiguration_cssframework_css').val('inherit');
             } else {
                 var cssFrameworkCss = {};
-                cssFrameworkCss.replace = [["css/bootstrap.css",$('#simple_edit_cssframework').val()]];
+                cssFrameworkCss.replace = [["css/bootstrap.css",selectedCss]];
                 $('#TemplateConfiguration_cssframework_css').val(JSON.stringify(cssFrameworkCss));
             }
             //and submit the form
