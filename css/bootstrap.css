@@ -6722,10 +6722,10 @@ li.noanswer-item input[type="radio"]:checked + label {
 }
 .radio-item label::after {
   content: " ";
-  background: #1C5F74;
+  background: #265680;
 }
 .checkbox-item label::after {
-  background: #1C5F74;
+  background: #265680;
   color: #fff;
   font-family: "FontAwesome";
   content: "\f00c";
@@ -6759,7 +6759,7 @@ li.noanswer-item input[type="radio"]:checked + label {
   opacity: 1;
 }
 .checkbox-item input[type="checkbox"]:checked + label::before {
-  background: #1C5F74;
+  background: #265680;
 }
 /* for table only if bigger but 1px broke if use max and min width … */
 .radio-item label.ls-label-xs-visibility,
