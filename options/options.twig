@@ -922,6 +922,9 @@
                         <input type='hidden' name='templatename' value='{{ templateConfiguration.template_name }}' />
                         <input type='hidden' name='templateconfig' value='{{ templateConfiguration.id }}' />
                         <input type='hidden' name='action' value='templateuploadimagefile' />
+                        {% if templateConfiguration.sid is not empty %}
+                            <input type='hidden' name='surveyid' value='{{ templateConfiguration.sid }}' />
+                        {% endif %}
                     </form>
                 </div>
             </div>
