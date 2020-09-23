@@ -21,7 +21,13 @@ var TemplateAccessible = {
         this.triggerRelevanceOnOff();
     },
     disableValidityCheck: function() {
-        $(document).on("click","button[data-disable-check-validity]",function(event,data) {
+        $(document).on("click","button",function(event,data) {
+            if($(this).attr('name') == 'move' && ($(this).attr('value') == 'movenext' || $(this).attr('value') == 'movesubmit' )) {
+                return;
+            }
+            if($(this).data('enablevalidation')) {
+                return;
+            }
             $("form#limesurvey").find(":required").removeAttr("required");
             $("form#limesurvey").find(":invalid").each(function(){
                 $(this)[0].setCustomValidity('');
