@@ -16,12 +16,12 @@
         <supportUrl>https://extensions.sondages.pro/themes-and-templates/skelvanilla-a11y-and-usuability/</supportUrl>
         <copyright>Copyright (C) 2018-2020 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 3 or later</license>
-        <version>9.3.1</version>
+        <version>9.3.2</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
         <extends>vanilla</extends>
-        <last_update>2020-07-31 18:32:41</last_update>
-        <lastUpdate>2020-07-31 18:32:41</lastUpdate>
+        <last_update>2020-09-23 16:55:00</last_update>
+        <lastUpdate>2020-09-23 16:55:00</lastUpdate>
     </metadata>
 
     <files>
@@ -304,7 +304,6 @@
                     <file type="js">./scripts/theme.js</file>
                     <file type="js">./scripts/custom.js</file>
                 </question>
-
                 <surveylist>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Survey list')}} ]]></screen_title>
                     <file type="view" role="layout">layout_survey_list.twig</file>
@@ -321,7 +320,6 @@
                     <file type="js">./scripts/theme.js</file>
                     <file type="js">./scripts/custom.js</file>
                 </surveylist>
-
                 <welcome>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Welcome')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
@@ -349,7 +347,6 @@
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
                 </welcome>
-
                 <completed>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Completed')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
@@ -365,7 +362,6 @@
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
                 </completed>
-
                 <assessments>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Assessments')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
@@ -380,7 +376,6 @@
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
                 </assessments>
-
                 <error>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Error')}} ]]></screen_title>
                     <file type="view" role="layout">layout_errors.twig</file>
@@ -390,7 +385,6 @@
                     <file type="view" role="subview">./subviews/messages/bootstrap_alert_modal.twig</file>
                     <file type="view" role="subview">./subviews/footer/footer.twig</file>
                 </error>
-
                 <clearall>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Clear all')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
@@ -404,7 +398,6 @@
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
                 </clearall>
-
                 <load>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Load')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
@@ -418,7 +411,6 @@
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
                 </load>
-
                 <save>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Save')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
@@ -432,7 +424,6 @@
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
                 </save>
-
                 <register>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Registration')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
@@ -450,7 +441,6 @@
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
                 </register>
-
                 <printanswers>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Print answers')}} ]]></screen_title>
                     <file type="view" role="layout">layout_printanswers.twig</file>
@@ -464,19 +454,16 @@
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
                 </printanswers>
-
                 <pdf>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('PDF')}} ]]></screen_title>
                     <file type="view" role="layout">layout_print.twig</file>
                 </pdf>
-
                 <quotas>
                   <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Quotas exceeded')}} ]]></screen_title>
                   <file type="view" role="layout">layout_global.twig</file>
                   <file type="view" role="content">./subviews/content/quotas.twig</file>
                   <file type="view" role="subview">./subviews/header/start_form.twig</file>
                 </quotas>
-
                 <navigation>
                     <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Navigation')}} ]]></screen_title>
                     <file type="view" role="layout">layout_global.twig</file>
@@ -504,7 +491,6 @@
                     <file type="css">./css/custom.css</file>
                     <file type="js">./scripts/custom.js</file>
                 </navigation>
-
                 <token>
                   <screen_title type="data" role="title" twig="on"><![CDATA[ {{gT('Token')}} ]]></screen_title>
                   <file type="view" role="layout">layout_user_forms.twig</file>
@@ -512,7 +498,6 @@
                   <file type="view" role="subview">./subviews/logincomponents/token.twig</file>
                   <file type="view" role="subview">./subviews/logincomponents/captcha.twig</file>
                 </token>
-
             </screens>
 
             <!-- Data for preview in Theme Editor and Twig Cache command line generator  -->
@@ -546,10 +531,6 @@
                 <name type="data" twig="on"><![CDATA[ {{ gT("Welcome to the Assessment") }} ]]></name>
                 <message type="data" twig="on"><![CDATA[ {{ gT("You got {TOTAL} points out of 3 possible points.") }} ]]></message>
               </assessments>
-
-              <!-- This is an exemple to show you how to add your custom screen in the theme editor with custom values -->
-              <!-- The name of the array inside aSurveyInfo that feed your twig view is specified as "array-name". If you check quotas.twig, you'll notice the main variable is aSurveyInfo.aQuotas -->
-              <!-- Notice that the data you pass here are simple. You can't pass complex arrays inside the array, only key => value pairs.-->
               <quotas type="custom" arrayName="aQuotas">
                 <sMessage type="data" twig="on"><![CDATA[ {{ gT("Sorry your responses have exceeded a quota on this survey.") }} ]]></sMessage>
                 <sUrl type="data">https://sondages.pro</sUrl>
