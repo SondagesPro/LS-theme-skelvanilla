@@ -35,8 +35,8 @@
     </div>
 </div>
 {% endif %}
-<header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" {{ aSurveyInfo.attr.navbar }}>
-    <div class="container-fluid">
+<header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" role="banner" {{ aSurveyInfo.attr.navbar }}>
+    <div class="container-fluid" role="navigation">
         <div class="{{ aSurveyInfo.class.navbarheader }}" {{ aSurveyInfo.attr.navbarheader }} >
             {{ include('./subviews/navigation/shortcuts_links.twig') }}
             <button type="button" class="{{ aSurveyInfo.class.navbartoggle }}" {{ aSurveyInfo.attr.navbartoggle }}  >
