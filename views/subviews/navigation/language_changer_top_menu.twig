@@ -37,11 +37,11 @@
             <span class="{{ aSurveyInfo.class.lctspan }} caret" {{ aSurveyInfo.attr.lctspan }} ></span>
         </a>
 
-        <ul class="{{ aSurveyInfo.class.lctdropdown }} dropdown-menu" id="{{ aSurveyInfo.id.lctdropdown }}">
+        <ul class="{{ aSurveyInfo.class.lctdropdown }} dropdown-menu" id="{{ aSurveyInfo.id.lctdropdown }}" role="listbox">
             {# List of available languages.  #}
             {% for value, lang in aLCD.aListLang %}
-                <li class="{{ aSurveyInfo.class.lctdropdownli }}" {{ aSurveyInfo.attr.lctdropdownli }}>
-                    <a href='#' data-limesurvey-lang='{{ value }}' class="{{ aSurveyInfo.class.lctdropdownlia }} animate" {{ aSurveyInfo.attr.lctdropdownlia }}>
+                <li class="{{ aSurveyInfo.class.lctdropdownli }}" {{ aSurveyInfo.attr.lctdropdownli }} role="option">
+                    <a href='#' data-limesurvey-lang='{{ value }}' class="{{ aSurveyInfo.class.lctdropdownlia }} animate" {{ aSurveyInfo.attr.lctdropdownlia }} tabindex="-1">
                         {{gT( lang )}}
                     </a>
                 </li>
