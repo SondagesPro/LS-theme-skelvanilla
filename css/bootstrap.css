@@ -4,7 +4,7 @@
  * Copyright 2018-2020 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 3.2.0
+ * @version 3.2.1
  */
 /*!
  * This is a generated file
@@ -7148,7 +7148,7 @@ td.checkbox-item input[type="checkbox"] {
   border-style: solid;
 }
 .popover > .arrow {
-  border-width: 1.8rem;
+  border-width: 0.9rem;
 }
 .popover > .arrow:after {
   border-width: 0.8rem;
@@ -7156,11 +7156,11 @@ td.checkbox-item input[type="checkbox"] {
 }
 .popover.top > .arrow {
   left: 50%;
-  margin-left: -1.8rem;
+  margin-left: -0.9rem;
   border-bottom-width: 0;
   border-top-color: #999999;
   border-top-color: rgba(0, 0, 0, 0.25);
-  bottom: -1.8rem;
+  bottom: -0.9rem;
 }
 .popover.top > .arrow:after {
   content: " ";
@@ -7171,8 +7171,8 @@ td.checkbox-item input[type="checkbox"] {
 }
 .popover.right > .arrow {
   top: 50%;
-  left: -1.8rem;
-  margin-top: -1.8rem;
+  left: -0.9rem;
+  margin-top: -0.9rem;
   border-left-width: 0;
   border-right-color: #999999;
   border-right-color: rgba(0, 0, 0, 0.25);
@@ -7186,11 +7186,11 @@ td.checkbox-item input[type="checkbox"] {
 }
 .popover.bottom > .arrow {
   left: 50%;
-  margin-left: -1.8rem;
+  margin-left: -0.9rem;
   border-top-width: 0;
   border-bottom-color: #999999;
   border-bottom-color: rgba(0, 0, 0, 0.25);
-  top: -1.8rem;
+  top: -0.9rem;
 }
 .popover.bottom > .arrow:after {
   content: " ";
@@ -7201,8 +7201,8 @@ td.checkbox-item input[type="checkbox"] {
 }
 .popover.left > .arrow {
   top: 50%;
-  right: -1.8rem;
-  margin-top: -1.8rem;
+  right: -0.9rem;
+  margin-top: -0.9rem;
   border-right-width: 0;
   border-left-color: #999999;
   border-left-color: rgba(0, 0, 0, 0.25);
@@ -7977,7 +7977,7 @@ td.checkbox-item input[type="checkbox"] {
   line-height: 1.5rem;
   font-size: 20px;
   content: '\2605';
-  color: #726204;
+  color: #265680;
 }
 .slider-tick {
   position: absolute;
@@ -8011,7 +8011,7 @@ td.checkbox-item input[type="checkbox"] {
   line-height: 1.5rem;
   font-size: 20px;
   content: '\2605';
-  color: #726204;
+  color: #265680;
 }
 .slider-tick.in-selection {
   background-image: -webkit-linear-gradient(top, #509fe5 0%, #4e92cd 100%);
@@ -8036,6 +8036,25 @@ td.checkbox-item input[type="checkbox"] {
 }
 li.slider-item {
   margin-bottom: 0;
+}
+.slider.slider-untouched .slider-handle {
+  background: #BEBEBE;
+}
+.slider.slider-untouched .slider-handle.custom {
+  background: transparent none;
+}
+.slider.slider-untouched .slider-handle.custom::before {
+  color: #BEBEBE;
+}
+.slider-handle.custom {
+  top: -0.375rem;
+}
+.slider-handle.custom::before {
+  line-height: 2.25rem;
+  font-size: 2.25rem;
+}
+.slider.slider-horizontal .slider-handle.custom {
+  margin-left: -1.125rem;
 }
 /* Use this for global personalisation (for all variables) */
 /*# sourceMappingURL=bootstrap.css.map */
