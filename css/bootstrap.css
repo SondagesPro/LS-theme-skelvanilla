@@ -4,7 +4,7 @@
  * Copyright 2018-2020 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 3.2.1
+ * @version 3.2.2
  */
 /*!
  * This is a generated file
@@ -6238,6 +6238,10 @@ td.checkbox-item input[type="checkbox"] {
 .skip-navigation.nav > li > a:focus {
   padding: 0.7rem 1rem;
 }
+/* dynamic group (multiple-numeric) .form-control-static same padding and border width than form-control for better alignment */
+.ls-group-dynamic .form-control-static {
+  padding: 0.42rem 0.84rem;
+}
 /*
 Max width before this PARTICULAR table gets nasty
 For iPads specifically : add this : (min-device-width: 768px) and (max-device-width: 1024px)
@@ -6845,6 +6849,18 @@ td.checkbox-item input[type="checkbox"] {
   .no-more-table .checkbox-item label.ls-label-xs-visibility {
     margin-top: 0;
   }
+}
+/* Some css fix for tools */
+.question-container.panel > .question-container.panel-body {
+  padding-top: 0;
+  margin-top: -1rem;
+  margin-bottom: 0;
+}
+.dir-ltr .question-container.skel-inside {
+  padding-left: 1rem;
+}
+.dir-rtl .question-container.skel-inside {
+  padding-right: 1rem;
 }
 .modal-open {
   overflow: hidden;

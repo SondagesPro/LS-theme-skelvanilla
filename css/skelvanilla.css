@@ -113,8 +113,8 @@ box-shadow: initial;
  }
  #navigator-container > hr
  {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
  }
 
 /**
@@ -173,8 +173,8 @@ box-shadow: initial;
 }
 .question-item .other-label
 {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 /**
@@ -228,9 +228,6 @@ box-shadow: initial;
     min-height: 3em;
 }
 
-/* Max width for some answer part */
-/* dynamic group (multiple-numeric) .form-control-static same padding and border width than form-control for better alignment */
-.ls-group-dynamic .form-control-static{ padding-left:15px;padding-right:15px;}
 /* array by column hover column */
 .table-col-hover col:hover, /* This, maybe, work in CSS4 :) */
 .table-col-hover col.hover /* Actual solution : js only*/
