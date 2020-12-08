@@ -16,66 +16,109 @@
 
     For the survey navigator ("Next", "Back", etc.), see: navigation/navigator.twig
 #}
+{% set havepreviouslink = (aSurveyInfo.options.previouslink == 'on' and aSurveyInfo.aNavigator.aMovePrev.show) %}
+{% set havenextsubmitlink = (aSurveyInfo.options.nextsubmitlink == 'on' and aSurveyInfo.aNavigator.aMoveNext.show) %}
+{% set hasMenu = (aSurveyInfo.options.savelink != 'off' or aSurveyInfo.options.clearalllink != 'off' or aSurveyInfo.options.indexlink != 'off' or aSurveyInfo.options.languagelink != 'off' or havenextsubmitlink or havenextsubmitlink) %}
 
+{% set containerclass = 'container-fluid' %}
+{% if (aSurveyInfo.options.container == "on" and aSurveyInfo.options.headercontainer == "on") %}
+    {% set containerclass = 'container' %}
+{% endif %}
 <!-- Bootstrap Navigation Bar -->
 {% if(aSurveyInfo.class.navbar) %}
-{% if(aSurveyInfo.options.fixedheader == 'on') %}
-<div class="invisible navbar navbar-inverse navbar-static-top" aria-hidden="true">
-    <div class="container-fluid">
-        <div class="{{ aSurveyInfo.class.navbarheader }}">
-            <div class="{{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}">
-                {% if( aSurveyInfo.options.brandlogo == "on") %}
-                    <span class="logo-container">
-                    {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
-                    </span>
-                {% endif %}
-                {{ aSurveyInfo.name }}
+    {% if(aSurveyInfo.options.fixedheader == 'on') %}
+        <div class="invisible navbar navbar-inverse navbar-static-top" aria-hidden="true">
+            <div class="{{ containerclass }}">
+                <div class="{{ aSurveyInfo.class.navbarheader }}">
+                    {% if(hasMenu) %}
+                        <button type="button" class="{{ aSurveyInfo.class.navbartoggle }}" {{ aSurveyInfo.attr.navbartoggle }}  >
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    {% endif %}
+                    {% if(aSurveyInfo.options.titlelocation != 'content') %}
+                        <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
+                            {% if( aSurveyInfo.options.brandlogo == "on") %}
+                                <span class="logo-container">
+                                {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                </span>
+                            {% endif %}
+                            {% if(aSurveyInfo.options.titlelocation == 'hidden') %}<div class="sr-only">{% endif %}
+                                {{ pagetitle ?: processString(aSurveyInfo.surveyls_title,1) }}
+                            {% if(aSurveyInfo.options.titlelocation == 'hidden') %}</div>{% endif %}
+                        </div>
+                    {% else %}
+                        <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
+                            {% if( aSurveyInfo.options.brandlogo == "on") %}
+                                <span class="logo-container">
+                                {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                </span>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
-    </div>
-</div>
-{% endif %}
-<header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" role="banner" {{ aSurveyInfo.attr.navbar }}>
-    <div class="container-fluid" role="navigation">
-        <div class="{{ aSurveyInfo.class.navbarheader }}" {{ aSurveyInfo.attr.navbarheader }} >
-            {{ include('./subviews/navigation/shortcuts_links.twig') }}
-            <button type="button" class="{{ aSurveyInfo.class.navbartoggle }}" {{ aSurveyInfo.attr.navbartoggle }}  >
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <h1 class="{{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
-                {% if( aSurveyInfo.options.brandlogo == "on") %}
-                    <span class="logo-container">
-                    {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
-                    </span>
+    {% endif %}
+    <header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" role="banner" {{ aSurveyInfo.attr.navbar }}>
+        <div class="{{ containerclass }}" role="navigation">
+            <div class="{{ aSurveyInfo.class.navbarheader }}" {{ aSurveyInfo.attr.navbarheader }} >
+                {{ include('./subviews/navigation/shortcuts_links.twig') }}
+                {% if(hasMenu) %}
+                    <button type="button" class="{{ aSurveyInfo.class.navbartoggle }}" {{ aSurveyInfo.attr.navbartoggle }}  >
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 {% endif %}
-                {{ pagetitle ?: flatString(processString(aSurveyInfo.surveyls_title,1)) }}
-            </h1>
+                {% if(aSurveyInfo.options.titlelocation != 'content') %}
+                    <h1 class="{{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
+                        {% if( aSurveyInfo.options.brandlogo == "on") %}
+                            <span class="logo-container">
+                            {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
+                            </span>
+                        {% endif %}
+                        {% if(aSurveyInfo.options.titlelocation == 'hidden') %}<div class="sr-only">{% endif %}
+                            {{ pagetitle ?: processString(aSurveyInfo.surveyls_title,1) }}
+                        {% if(aSurveyInfo.options.titlelocation == 'hidden') %}</div>{% endif %}
+                    </h1>
+                {% else %}
+                    <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
+                        {% if( aSurveyInfo.options.brandlogo == "on") %}
+                            <span class="logo-container">
+                            {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
+                            </span>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+            {% if(hasMenu) %}
+                <div id="{{ aSurveyInfo.id.navbar }}" class="{{ aSurveyInfo.class.navbarcollapse }}" {{ aSurveyInfo.attr.navbarcollapse }} >
+                    <ul class="{{ aSurveyInfo.class.navbarlink }} navbar-right" {{ aSurveyInfo.attr.navbarlink }}>
+                        {% if(aSurveyInfo.options.savelink != 'off') %}
+                            {{ include('./subviews/navigation/save_links.twig') }}
+                        {% endif %}
+                        {% if(aSurveyInfo.options.clearalllink != 'off') %}
+                            {{ include('./subviews/navigation/clearall_links.twig') }}
+                        {% endif %}
+                        {% if(aSurveyInfo.options.indexlink != 'off') %}
+                            {{ include('./subviews/navigation/question_index_menu.twig') }}
+                        {% endif %}
+                        {% if(aSurveyInfo.options.languagelink != 'off') %}
+                            {{ include('./subviews/navigation/language_changer_top_menu.twig') }}
+                        {% endif %}
+                        {% if(aSurveyInfo.options.previouslink == 'on') %}
+                            {{ include('./subviews/navigation/previous_link.twig') }}
+                        {% endif %}
+                        {% if(aSurveyInfo.options.nextsubmitlink == 'on') %}
+                            {{ include('./subviews/navigation/nextsubmit_link.twig') }}
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endif %}
         </div>
-        <div id="{{ aSurveyInfo.id.navbar }}" class="{{ aSurveyInfo.class.navbarcollapse }}" {{ aSurveyInfo.attr.navbarcollapse }} >
-            <ul class="{{ aSurveyInfo.class.navbarlink }} navbar-right" {{ aSurveyInfo.attr.navbarlink }}>
-                {% if(aSurveyInfo.options.savelink != 'off') %}
-                    {{ include('./subviews/navigation/save_links.twig') }}
-                {% endif %}
-                {% if(aSurveyInfo.options.clearalllink != 'off') %}
-                    {{ include('./subviews/navigation/clearall_links.twig') }}
-                {% endif %}
-                {% if(aSurveyInfo.options.indexlink != 'off') %}
-                    {{ include('./subviews/navigation/question_index_menu.twig') }}
-                {% endif %}
-                {% if(aSurveyInfo.options.languagelink != 'off') %}
-                    {{ include('./subviews/navigation/language_changer_top_menu.twig') }}
-                {% endif %}
-                {% if(aSurveyInfo.options.previouslink == 'on') %}
-                    {{ include('./subviews/navigation/previous_link.twig') }}
-                {% endif %}
-                {% if(aSurveyInfo.options.nextsubmitlink == 'on') %}
-                    {{ include('./subviews/navigation/nextsubmit_link.twig') }}
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-</header>
+    </header>
 {% endif %}

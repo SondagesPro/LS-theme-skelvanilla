@@ -15,7 +15,7 @@
 }
 
 .navbar-brand .logo-container {padding:0;padding:0 0.5rem;display:inline-block;}
-.navbar-brand .logo-container > img{max-height:2em;width:auto;display:inline-block;}
+.navbar-brand .logo-container > img{width:auto;display:inline-block;}
 .navbar-brand img {vertical-align: text-bottom;}
 
 .skip-navigation{list-style-type: none;}

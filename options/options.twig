@@ -504,6 +504,33 @@
                         </div>
                     </div>
                 </div>
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_headercontainer' class='control-label col-xs-4'> {{ gT("Header container") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons"  data-default='off'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='headercontainer' value='on' class='selector_option_radio_field simple_edit_options_headercontainer ' data-id='headercontainer'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='headercontainer' value='off' class='selector_option_radio_field simple_edit_options_headercontainer ' data-id='headercontainer'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='headercontainer' value='inherit' class='selector_option_radio_field simple_edit_options_headercontainer ' data-id='headercontainer'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Set as following survey container, default is no : header take all width.") }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row action_hide_on_inherit">
                 {# Question size #}
                 <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
                     <div class='form-group row'>
@@ -628,6 +655,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row action_hide_on_inherit">
                 {# Body loading loaded #}
                 <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
@@ -665,27 +694,33 @@
             <h3 class="h3 action_hide_on_inherit">{{ gT("Content") }}</h3>
             <div class="row action_hide_on_inherit">
                 {# Description #}
-                <div class='col-sm-12 col-md-6 col-lg-6'>
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
                     <div class='form-group row'>
                         <label for='simple_edit_options_descriptiondisplay' class='control-label col-xs-4'> {{ gT("Survey description display") }} </label>
                         <div class='col-xs-8'>
-                            <div class="btn-group" data-toggle="buttons"  role='radiogroup' aria-labelledby='simple_edit_options_descriptiondisplay' data-default='welcome'>
-                                <label class="btn btn-default">
-                                    <input type='radio' name='descriptiondisplay' value='all' class='selector_option_radio_field simple_edit_options_descriptiondisplay ' data-id='descriptiondisplay'/>
-                                    {{ gT("All page") }}
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type='radio' name='descriptiondisplay' value='welcome' class='selector_option_radio_field simple_edit_options_descriptiondisplay ' data-id='descriptiondisplay'/>
-                                    {{ gT("Only on welcome page") }}
-                                </label>
-                                {# If this is a root template setting, don't show the inherit button #}
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_descriptiondisplay' name='descriptiondisplay' data-default="welcome">
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <label class="btn btn-default">
-                                        <input type='radio' name='descriptiondisplay' value='inherit' class='selector_option_radio_field simple_edit_options_descriptiondisplay ' data-id='descriptiondisplay'/>
-                                        {{ gT("Inherit") }}
-                                    </label>
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
                                 {% endif %}
-                            </div>
+                                <option value="welcome">{{ gT("Only on welcome page") }}</option>
+                                <option value="all">{{ gT("All page") }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                {# Title location #}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_titlelocation' class='control-label col-xs-4'>{{ gT("Title location and display") }}</label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_titlelocation' name='titlelocation' data-default="header">
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="header">{{ gT("In header") }}</option>
+                                <option value="content">{{ gT("In content") }}</option>
+                                <option value="hidden">{{ gT("Hidden (in header for accessibility)") }}</option>
+                            </select>
                         </div>
                     </div>
                 </div>

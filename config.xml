@@ -16,7 +16,7 @@
         <supportUrl>https://extensions.sondages.pro/themes-and-templates/skelvanilla-a11y-and-usuability/</supportUrl>
         <copyright>Copyright (C) 2018-2020 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 3 or later</license>
-        <version>9.3.3</version>
+        <version>9.4.0-alpha</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
         <extends>vanilla</extends>
@@ -69,6 +69,8 @@
         <helpcolor>text-info</helpcolor>
         <validitycolor>text-info</validitycolor>
         <fixedheader>off</fixedheader>
+        <headercontainer>off</headercontainer>
+        <titlelocation>header</titlelocation>
         <theme>off</theme>
         <bodyloaded>on</bodyloaded>
         <removeback>on</removeback>
