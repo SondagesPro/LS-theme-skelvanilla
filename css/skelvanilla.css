@@ -17,7 +17,7 @@
 .navbar-brand .logo-container {padding:0;padding:0 0.5rem;display:inline-block;}
 .navbar-brand .logo-container > img{width:auto;display:inline-block;}
 .navbar-brand img {vertical-align: text-bottom;}
-
+.logo-as-banner{margin:0 auto}
 .skip-navigation{list-style-type: none;}
 .skip-navigation{position:absolute;padding:0}
 /* lang can be bigger than screen quick fix*/

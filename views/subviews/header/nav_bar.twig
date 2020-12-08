@@ -24,11 +24,22 @@
 {% if (aSurveyInfo.options.container == "on" and aSurveyInfo.options.headercontainer == "on") %}
     {% set containerclass = 'container' %}
 {% endif %}
+{% set brandlogo = "on" %}
+{% if (aSurveyInfo.options.brandlogo == "off" or not imageSrc(aSurveyInfo.options.brandlogofile)) %}
+    {% set brandlogo = "off" %}
+{% else %}
+    {%if aSurveyInfo.options.brandlogoasbanner == "on" %}
+        {% set brandlogo = "banner" %}
+    {% endif %}
+{% endif %}
 <!-- Bootstrap Navigation Bar -->
 {% if(aSurveyInfo.class.navbar) %}
     {% if(aSurveyInfo.options.fixedheader == 'on') %}
         <div class="invisible navbar navbar-inverse navbar-static-top" aria-hidden="true">
             <div class="{{ containerclass }}">
+                {% if brandlogo == "banner" %}
+                    {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo-as-banner banner img-responsive"}) }}
+                {% endif %}
                 <div class="{{ aSurveyInfo.class.navbarheader }}">
                     {% if(hasMenu) %}
                         <button type="button" class="{{ aSurveyInfo.class.navbartoggle }}" {{ aSurveyInfo.attr.navbartoggle }}  >
@@ -39,8 +50,8 @@
                         </button>
                     {% endif %}
                     {% if(aSurveyInfo.options.titlelocation != 'content') %}
-                        <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
-                            {% if( aSurveyInfo.options.brandlogo == "on") %}
+                        <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
+                            {% if( brandlogo == "on") %}
                                 <span class="logo-container">
                                 {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
                                 </span>
@@ -50,13 +61,13 @@
                             {% if(aSurveyInfo.options.titlelocation == 'hidden') %}</div>{% endif %}
                         </div>
                     {% else %}
-                        <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
-                            {% if( aSurveyInfo.options.brandlogo == "on") %}
-                                <span class="logo-container">
-                                {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
-                                </span>
-                            {% endif %}
+                        {% if( brandlogo == "on") %}
+                        <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
+                            <span class="logo-container">
+                            {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
+                            </span>
                         </div>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>
@@ -64,6 +75,9 @@
     {% endif %}
     <header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" role="banner" {{ aSurveyInfo.attr.navbar }}>
         <div class="{{ containerclass }}" role="navigation">
+            {% if brandlogo == "banner" %}
+                {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo-as-banner banner img-responsive"}) }}
+            {% endif %}
             <div class="{{ aSurveyInfo.class.navbarheader }}" {{ aSurveyInfo.attr.navbarheader }} >
                 {{ include('./subviews/navigation/shortcuts_links.twig') }}
                 {% if(hasMenu) %}
@@ -75,8 +89,8 @@
                     </button>
                 {% endif %}
                 {% if(aSurveyInfo.options.titlelocation != 'content') %}
-                    <h1 class="{{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
-                        {% if( aSurveyInfo.options.brandlogo == "on") %}
+                    <h1 class="{{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
+                        {% if( brandlogo == "on") %}
                             <span class="logo-container">
                             {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
                             </span>
@@ -86,13 +100,13 @@
                         {% if(aSurveyInfo.options.titlelocation == 'hidden') %}</div>{% endif %}
                     </h1>
                 {% else %}
-                    <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( aSurveyInfo.options.brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
-                        {% if( aSurveyInfo.options.brandlogo == "on") %}
+                    {% if( brandlogo == "on") %}
+                        <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
                             <span class="logo-container">
                             {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
                             </span>
-                        {% endif %}
-                    </div>
+                        </div>
+                    {% endif %}
                 {% endif %}
             </div>
             {% if(hasMenu) %}

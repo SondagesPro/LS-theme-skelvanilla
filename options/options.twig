@@ -785,6 +785,31 @@
                     <br/>
                     <button class="btn btn-default selector__open_lightbox" data-target="#simple_edit_options_brandlogofile"> {{ gT('Preview image')}}</button>
                 </div>
+                <div class='col-sm-12 col-md-4'>
+                    {# Brandlogo ad banner #}
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_brandlogoasbanner' class='control-label'>{{ gT("Use logo as banner") }}</label>
+                        <div class='col-sm-12'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='brandlogoasbanner' value='on' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogoasbanner'/>
+                                    {{gT("Yes" )}}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='brandlogoasbanner' value='off' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogoasbanner'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='brandlogoasbanner' value='inherit' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogoasbanner'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Survey list Logo -->
