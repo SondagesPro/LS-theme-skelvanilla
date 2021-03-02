@@ -154,9 +154,6 @@ output {
   border: 0;
   background-color: transparent;
 }
-.form-control[disabled],
-.form-control[readonly],
-
 .btn {
   display: inline-block;
   margin-bottom: 0;
