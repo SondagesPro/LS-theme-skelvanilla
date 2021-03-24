@@ -4,6 +4,7 @@ var skelVanilla = {
         this.otherListRadio();
         this.otherListCheckbox();
         this.addHoverColumn();
+        this.dynamicTip();
         if(options.removeBack) {
             this.removeBack();
         }
@@ -70,6 +71,15 @@ var skelVanilla = {
         $(function() {
             $('li.radio-text-item input[type=text][value!=""]').closest('li.radio-text-item').addClass('answer-checked');
             $('li.checkbox-text-item input[type=text][value!=""]').closest('li.checkbox-text-item').addClass('answer-checked');
+        });
+    },
+    dynamicTip : function () {
+        $(".em_sq_fn_validation, .em_q_fn_validation").on("html:updated", function() {
+            if($.trim($(this).text())) {
+                $(this).removeClass("hidden");
+            } else {
+                $(this).addClass("hidden");
+            }
         });
     },
     addHoverColumn: function () {

@@ -180,7 +180,13 @@ box-shadow: initial;
 /**
  * For em-tip
  */
-.hide-tip{display: none;}
+/* Really hoide tip */
+.hide-tip .ls-em-tip, .tip-was-hidden .ls-em-tip{display: none;}
+/* except own tip */
+.hide-tip .ls-em-tip.em_sq_fn_validation , .tip-was-hidden .ls-em-tip.em_sq_fn_validation {display: block;}
+.hide-tip .ls-em-tip.em_q_fn_validation , .tip-was-hidden .ls-em-tip.em_q_fn_validation {display: block;}
+/* and when submlitted error */
+.submitted-error .tip-was-hidden .ls-em-tip.ls-em-error {display: block;}
 
 /**
  * Surveys list
