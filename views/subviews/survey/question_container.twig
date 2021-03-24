@@ -108,8 +108,12 @@
 {% if(in_array('skel-no-question',aQuestionsClasses)) %}
     {% set no_include_text = 1 %}
 {% endif %}
-
+{% set displayhtml = 1 %}
+{% if(in_array('no-html-display',aQuestionsClasses)) %}
+    {% set displayhtml = 0 %}
+{% endif %}
 {# End of Options #}
+{% if displayhtml %}
 <!-- Question {{ aQuestion.qid  }}  -->
 {% if (start_group) %}
     <{{ tagSection }} class="{{ questioncontainerclass }} skel-group">
@@ -129,3 +133,4 @@
 </{{ tagSection }}>
 {% endif %}
 <!-- End of question  {{ aQuestion.qid  }}  -->
+{% endif %}
