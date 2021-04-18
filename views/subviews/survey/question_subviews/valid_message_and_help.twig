@@ -3,7 +3,7 @@
 {% if ((aQuestion.valid_message | raw | trim)  or (aQuestion.man_message | raw | trim)  or (aQuestion.file_valid_message | raw | trim) ) %}
 <div class="{{ aSurveyInfo.class.questionvalidcontainer }} {{ aSurveyInfo.options.validitycolor }}" {{ aSurveyInfo.attr.questionvalidcontainer }}>{% if(aQuestion.valid_message) %}
 {{ str_replace(' role="alert"','',aQuestion.valid_message) | raw | trim }}
-{% endif %}{% if(aQuestion.man_message) %}<div id="question-mandatory-{{ aQuestion.qid }}">
+{% endif %}{% if(aQuestion.man_message) %}<div id="question-mandatory-{{ aQuestion.qid }}" class="{{ aSurveyInfo.options.validitycolor }}">
 {{ aQuestion.man_message | raw  | trim}}</div>
 {% endif %}{% if(aQuestion.file_valid_message) %}
 {{ aQuestion.file_valid_message | raw | trim}}

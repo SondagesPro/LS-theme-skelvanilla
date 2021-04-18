@@ -58,8 +58,9 @@
         {{ include('./subviews/navigation/ajax_indicator.twig') }}
         {% block themescripts %}
             {% set skelOptions = {
-                bodyLoaded: (aSurveyInfo.options.bodyloaded == 'on' or not aSurveyInfo.options.bodyloaded),
-                removeBack: ((aSurveyInfo.options.removeback == 'on' or not aSurveyInfo.options.removeback) and aSurveyInfo.include_content == 'main'),
+                bodyLoaded: (aSurveyInfo.options.bodyloaded != 'off'),
+                removeBack: (aSurveyInfo.options.removeback != 'off' and aSurveyInfo.include_content == 'main'),
+                errorTopLinks: (aSurveyInfo.options.errortoptinks != 'off' and not aSurveyInfo.options.showpopups)
                 }
             %}
             {% set accessibleOptions = {

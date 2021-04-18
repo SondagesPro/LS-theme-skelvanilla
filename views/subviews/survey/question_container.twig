@@ -93,8 +93,10 @@
     {% else %}
         {% set questioncontainerclass = 'panel panel-default' %}
     {% endif %}
+    {% set containererrorclass = 'panel-danger' %}
 {% else %}
     {% set questioncolor = 'text-'~questioncolor %}
+    {% set errorclass = 'text-danger' %}
 {% endif %}
 {% if(in_array('skel-start-group',aQuestionsClasses)) %}
     {% set start_group = 1 %}
@@ -112,6 +114,10 @@
 {% if(in_array('no-html-display',aQuestionsClasses)) %}
     {% set displayhtml = 0 %}
 {% endif %}
+{% if(aSurveyInfo.options.dangercolor != 'on') %}
+    {% set errorclass = '' %}
+    {% set containererrorclass = '' %}
+{% endif %}
 {# End of Options #}
 {% if displayhtml %}
 <!-- Question {{ aQuestion.qid  }}  -->
@@ -123,7 +129,7 @@
     {% endif %}
     <{{ tagSection }} {{ aQuestion.attributes }} class="{{ aQuestion.class }} {% if aQuestion.input_error_class %}submitted-error{% endif %} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
 {% else %}
-    <{{ tagSection }} {{ aQuestion.attributes }} class="{{ questioncontainerclass }} {{ aQuestion.class }} {% if aQuestion.input_error_class %}submitted-error{% endif %} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
+    <{{ tagSection }} {{ aQuestion.attributes }} class="{{ questioncontainerclass }} {{ aQuestion.class }} {% if aQuestion.input_error_class %}submitted-error {{ containererrorclass }}{% endif %} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
 {% endif %}
     {{ include('./subviews/survey/question.twig') }}
 {% if (end_group) %}

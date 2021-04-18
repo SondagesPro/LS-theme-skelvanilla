@@ -194,6 +194,9 @@ box-shadow: initial;
 .ls-em-error > .fa-exclamation-circle::before {
     content: "\f071";
 }
+.ls-question-mandatory.text-danger > .fa-exclamation-circle::before {
+    content: "\f071";
+}
 /**
  * Surveys list
  */

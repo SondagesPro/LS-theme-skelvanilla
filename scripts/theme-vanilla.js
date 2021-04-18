@@ -99,7 +99,7 @@ var ThemeScripts = function(){
                 $(this).parent("ul").children("li:not('.ls-hidden')").first().addClass("first-child");
             }
         });
-    }
+    };
 
     var initTopMenuLanguageChanger = function(selectorItem, selectorGlobalForm){
         // $(selectorContainer).height($('#main-row').height());
@@ -132,9 +132,9 @@ var ThemeScripts = function(){
             }
 
             // Scroll to first error - After user close modal -
-            if($('.input-error').length > 0 ||  $('.ls-em-error').length > 0 ) {
+            if($('.submitted-error').length > 0 ||  $('.ls-em-error').length > 0 ) {
                 $('#bootstrap-alert-box-modal').on('hidden.bs.modal', function () {
-                    var $firstError = ($('.input-error').length > 0 ) ? $('.input-error').first() : $('.ls-em-error').first();
+                    var $firstError = ($('.submitted-error').length > 0 ) ? $('.submitted-error').first() : $('.ls-em-error').first();
                     var $pixToScroll = ( $firstError.offset().top - 100 );
                     $('html, body').animate({
                         scrollTop: $pixToScroll + 'px'

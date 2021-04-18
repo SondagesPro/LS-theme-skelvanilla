@@ -61,7 +61,7 @@
             {# First settings row #}
             <div class="row action_hide_on_inherit">
                 {# hideprivacyinfo #}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label for='simple_edit_options_hideprivacyinfo' class='control-label col-xs-4'>{{ gT("Hide anonymity information") }}</label>
                         <div class='col-xs-8'>
@@ -85,45 +85,86 @@
                         </div>
                     </div>
                 </div>
-
-                {# Show popups #}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                {# Clear all #}
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_showpopups' class='control-label col-xs-4' {{ showpopups_disabled_qtip }}>{{ gT("Show popups") }}</label>
+                        <label id='simple_edit_options_showclearall' class='control-label col-xs-4'> {{ gT("Show clear all") }} </label>
                         <div class='col-xs-8'>
-                            <div class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default control-label" {{ showpopups_disabled }}>
-                                        <input type='radio' name='showpopups' value='1' {{ showpopups_disabled }} class='selector_option_radio_field simple_edit_options_showpopups ' data-id='showpopups'/>
-                                        {{ gT("Popup") }}
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_showclearall' data-default='on'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='showclearall' value='on' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='showclearall' value='off' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='showclearall' value='inherit' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                                        {{ gT("Inherit") }}
                                     </label>
-                                    <label class="btn btn-default" {{ showpopups_disabled }}>
-                                        <input type='radio' name='showpopups' value='0' {{ showpopups_disabled }} class='selector_option_radio_field simple_edit_options_showpopups ' data-id='showpopups'/>
-                                        {{ gT("On page") }}
-                                    </label>
-                                    <label class="btn btn-default" {{ showpopups_disabled }}>
-                                        <input type='radio' name='showpopups' value='-1' {{ showpopups_disabled }} class='selector_option_radio_field simple_edit_options_showpopups ' data-id='showpopups'/>
-                                        {{ gT("Off") }}
-                                    </label>
-                                    {# If this is a root template setting, don't show the inherit button #}
-                                    {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                        <label class="btn btn-default" {{ showpopups_disabled }}>
-                                            <input type='radio' name='showpopups' value='inherit' class='selector_option_radio_field simple_edit_options_showpopups ' data-id='showpopups'/>
-                                            {{ gT("Inherit") }}
-                                        </label>
-                                    {% endif %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
                 </div>
-                
+            </div>
+
+            <div class ="row action_hide_on_inherit">
+
+                {# Show popups #}
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_showpopups' class='control-label col-xs-4' {{ showpopups_disabled_qtip }}>{{ gT("Show popups") }}</label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_showpopups' name='showpopups'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="1" {{ showpopups_disabled }}>{{ gT("Popup") }}</option>
+                                <option value="0" {{ showpopups_disabled }}>{{ gT("On page") }}</option>
+                                <option value="-1" {{ showpopups_disabled }}>{{ gT("Off") }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                {# errorTopLinks #}
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_errorattop' class='control-label col-xs-4'> {{ gT("Add links to errors.") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role="radiogroup" data-default='on'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='errorattop' value='on' class='selector_option_radio_field simple_edit_options_errorattop ' data-id='errorattop'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='errorattop' value='off' class='selector_option_radio_field simple_edit_options_errorattop ' data-id='errorattop'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='errorattop' value='inherit' class='selector_option_radio_field simple_edit_options_errorattop ' data-id='errorattop'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                            <p class="help-block">{{ gT("If show popups is set to on page : add the list of error in the error alert.") }}</p>
+                        </div>
+                    </div>
+                </div>
+
                 {# Tag for question #}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label for='simple_edit_options_questionhtag' class='control-label col-xs-4'> {{ gT("h2 or h3 title for question") }} </label>
                         <div class='col-xs-8'>
-                            <div class="btn-group" data-toggle="buttons">
+                            <div class="btn-group" data-toggle="buttons" role="radiogroup" data-default='off'>
                                 <label class="btn btn-default">
-                                    <input type='radio' name='questionhtag' value='on' class='selector_option_radio_field simple_edit_options_questionhtag ' data-id='questionhtag' data-default='1'/>
+                                    <input type='radio' name='questionhtag' value='on' class='selector_option_radio_field simple_edit_options_questionhtag ' data-id='questionhtag'/>
                                     {{ gT("Yes") }}
                                 </label>
                                 <label class="btn btn-default">
@@ -142,8 +183,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class ="row action_hide_on_inherit">
                 {# Fix num auto (and real num value) #}
-                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                <div class='col-sm-12 col-md-6 col-lg-4 container-fluid'>
                     <div class='form-group row'>
                         <label for='simple_edit_options_fixnumauto' class='control-label col-xs-4'>{{ gT("Fix automatically numeric value") }}</label>
                         <div class='col-xs-8'>
@@ -160,40 +204,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class ="row action_hide_on_inherit">
-                {# Set hash to disable previous navigator#}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
-                    <div class='form-group row'>
-                        <label for='simple_edit_options_removeback' class='control-label col-xs-4'> {{ gT("Remove back") }} </label>
-                        <div class='col-xs-8'>
-                            <div class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default">
-                                    <input type='radio' name='removeback' value='on' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
-                                    {{ gT("Yes") }}
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type='radio' name='removeback' value='off' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
-                                    {{ gT("No") }}
-                                </label>
-                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <label class="btn btn-default">
-                                        <input type='radio' name='removeback' value='inherit' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
-                                        {{ gT("Inherit") }}
-                                    </label>
-                                {% endif %}
-                            </div>
-                        </div>
-                        {% if(not oParentOptions.removeback) %}
-                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
-                        {% else %}
-                            <p class="col-xs-12 help-block">{{ gT("Add a javascript system to disable previous button of web navigator.") }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-
                 {# Dynamic validity #}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label for='simple_edit_options_dynamicvalidity' class='control-label col-xs-4'> {{ gT("Dynamic validity") }} </label>
                         <div class='col-xs-8'>
@@ -222,34 +234,39 @@
                         {% endif %}
                     </div>
                 </div>
-
-                {# Clear all #}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+            </div>
+            <div class ="row action_hide_on_inherit">
+                {# Set hash to disable previous navigator#}
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label id='simple_edit_options_showclearall' class='control-label col-xs-4'> {{ gT("Show clear all") }} </label>
+                        <label for='simple_edit_options_removeback' class='control-label col-xs-4'> {{ gT("Remove back") }} </label>
                         <div class='col-xs-8'>
-                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_showclearall' data-default='on'>
+                            <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default">
-                                    <input type='radio' name='showclearall' value='on' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                                    <input type='radio' name='removeback' value='on' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
                                     {{ gT("Yes") }}
                                 </label>
                                 <label class="btn btn-default">
-                                    <input type='radio' name='showclearall' value='off' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                                    <input type='radio' name='removeback' value='off' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
                                     {{ gT("No") }}
                                 </label>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
-                                        <input type='radio' name='showclearall' value='inherit' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                                        <input type='radio' name='removeback' value='inherit' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
                                         {{ gT("Inherit") }}
                                     </label>
                                 {% endif %}
                             </div>
                         </div>
+                        {% if(not oParentOptions.removeback) %}
+                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
+                        {% else %}
+                            <p class="col-xs-12 help-block">{{ gT("Add a javascript system to disable previous button of web navigator.") }}</p>
+                        {% endif %}
                     </div>
                 </div>
-
                 {# Fixed header for table #}
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label id='simple_edit_options_tableheader' class='control-label col-xs-4'> {{ gT("Use fixed static header in table") }} </label>
                         <div class='col-xs-8'>
@@ -270,12 +287,14 @@
                                 {% endif %}
                             </div>
                         </div>
+                        <p class="help-block col-xs-12">{{ gT("Header on table uise css to always be shown at top of table.") }}</p>
                     </div>
                 </div>
             </div>
+
             <h3 class="h4 action_hide_on_inherit">{{ gT("Top link actions") }}</h3>
             <div class="row action_hide_on_inherit">
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label id='simple_edit_options_savelink' class='control-label col-xs-4'> {{ gT("Save header link") }} </label>
                         <div class='col-xs-8'>
@@ -299,7 +318,7 @@
                         </div>
                     </div>
                 </div>
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label id='simple_edit_options_clearalllink' class='control-label col-xs-4'> {{ gT("Clear all header link") }} </label>
                         <div class='col-xs-8'>
@@ -323,7 +342,7 @@
                         </div>
                     </div>
                 </div>
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label id='simple_edit_options_indexlink' class='control-label col-xs-4'> {{ gT("Index header links") }} </label>
                         <div class='col-xs-8'>
@@ -347,7 +366,7 @@
                         </div>
                     </div>
                 </div>
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label id='simple_edit_options_languagelink' class='control-label col-xs-4'> {{ gT("Langage changer header links") }} </label>
                         <div class='col-xs-8'>
@@ -371,9 +390,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row action_hide_on_inherit">
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label id='simple_edit_options_previouslink' class='control-label col-xs-4'> {{ gT("Move previous header link") }} </label>
                         <div class='col-xs-8'>
@@ -397,7 +414,7 @@
                         </div>
                     </div>
                 </div>
-                <div class='col-sm-12 col-md-6 col-lg-3'>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label id='simple_edit_options_nextsubmitlink' class='control-label col-xs-4'> {{ gT("Move next and submit header link") }} </label>
                         <div class='col-xs-8'>
@@ -421,9 +438,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row action_hide_on_inherit">
-                <hr/>
             </div>
 
             <h3 class="h3 action_hide_on_inherit">{{ gT("Visual") }}</h3>
@@ -568,6 +582,22 @@
                             </select>
                         </div>
                         <p class="help-block col-xs-12">{{ gT("Color are from your bootsrap theme. With panel : it's the panel color.") }}</p>
+                    </div>
+                </div>
+                {# Question color on error#}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_dangercolor' class='control-label col-xs-4'> {{ gT("Use danger color") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_dangercolor' name='dangercolor'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="on">{{ gT("Yes") }}</option>
+                                <option value="off">{{ gT("No") }}</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Only when survey is submitted and there are error : set danger color to the question.") }}</p>
                     </div>
                 </div>
                 {# Question wrapper #}

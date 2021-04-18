@@ -32,7 +32,7 @@
 
 {# The question text as entered by the survey creator in question editing #}
 <div class="{{ aSurveyInfo.class.questiontext }}" {{ aSurveyInfo.attr.questiontext }}>
-    <{{ tagQuestion }} id="ls-question-text-{{ aQuestion.SGQ }}" class="{{ questionsize }} {{ aSurveyInfo.class.lsquestiontext }} accessible-question-text {{ questioncolor }}" {{ aSurveyInfo.attr.lsquestiontext }}>
+    <{{ tagQuestion }} id="ls-question-text-{{ aQuestion.SGQ }}" class="{{ questionsize }} {{ aSurveyInfo.class.lsquestiontext }} accessible-question-text {{ questioncolor }} {% if aQuestion.input_error_class %} {{ errorclass }}{% endif %}" {{ aSurveyInfo.attr.lsquestiontext }}>
         {{ aQuestion.text | raw }}
     </{{ tagQuestion }}>
 </div>
