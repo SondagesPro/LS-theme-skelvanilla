@@ -180,14 +180,20 @@ box-shadow: initial;
 /**
  * For em-tip
  */
-/* Really hoide tip */
+/* Really hide tip */
 .hide-tip .ls-em-tip, .tip-was-hidden .ls-em-tip{display: none;}
 /* except own tip */
 .hide-tip .ls-em-tip.em_sq_fn_validation , .tip-was-hidden .ls-em-tip.em_sq_fn_validation {display: block;}
 .hide-tip .ls-em-tip.em_q_fn_validation , .tip-was-hidden .ls-em-tip.em_q_fn_validation {display: block;}
 /* and when submlitted error */
 .submitted-error .tip-was-hidden .ls-em-tip.ls-em-error {display: block;}
-
+/* information about error without color on tip */
+.ls-em-tip > .fa-exclamation-circle {
+    width:1em;
+}
+.ls-em-error > .fa-exclamation-circle::before {
+    content: "\f071";
+}
 /**
  * Surveys list
  */
