@@ -60,7 +60,7 @@
             {% set skelOptions = {
                 bodyLoaded: (aSurveyInfo.options.bodyloaded != 'off'),
                 removeBack: (aSurveyInfo.options.removeback != 'off' and aSurveyInfo.include_content == 'main'),
-                errorTopLinks: (aSurveyInfo.options.errortoptinks != 'off' and not aSurveyInfo.options.showpopups)
+                errorTopLinks: (aSurveyInfo.options.errorattop != 'off' and not aSurveyInfo.options.showpopups)
                 }
             %}
             {% set accessibleOptions = {
