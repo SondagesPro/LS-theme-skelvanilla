@@ -70,6 +70,11 @@ main{padding-bottom:3em}
 .list-dropdown.question-container .form-inline,
 .choice-5-pt-radio.question-container .form-inline
   {text-align:center}
+.date.question-container .form-inline .ls-answers,
+.language.question-container .form-inline .ls-answers,
+.list-dropdown.question-container .form-inline .ls-answers,
+.choice-5-pt-radio.question-container .form-inline .ls-answers
+  {text-align:initial}
 .question-container div.text-item .col-sm-1,
 .question-container div.text-item .col-sm-2,
 .question-container div.text-item .col-sm-3,

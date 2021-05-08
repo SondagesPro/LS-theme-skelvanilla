@@ -32,7 +32,8 @@
     <script type="text/javascript">
         if(window.basicThemeScripts === undefined){ 
             window.basicThemeScripts = new ThemeScripts(); 
-        } 
+        }
+    $.fn.select2.defaults.set("theme", "bootstrap");
     </script>
     {# LSvar update with  #}
     {{ registerScript("LSvarTemplateInit","LSvar= LSvar || {};","POS_HEAD") }}
