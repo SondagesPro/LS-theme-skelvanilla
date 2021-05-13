@@ -1,33 +1,25 @@
- {% extends "./subviews/printanswers/printanswers_question.twig" %}
- {% block question_answer %}
-<table class='table table-bordered table-striped table-print'>
-        {% set subquestions1 = question.subquestions|first %}
-    <thead><tr><td class='col-question'></td>
-        {% for xtitle, xlabel in subquestions1.answervalueslabels %}
-            <th class='col-answer'>
-                {% if aSurveyInfo.options.printcode == "on" %}{{ include('./subviews/printanswers/elements/subquestioncode.twig', {'code': xtitle }) }}{% endif %}
-                {{ xlabel }}
-            </th>
-        {% endfor %}
-    </tr></thead>
+{% extends "./subviews/printanswers/printanswers_question.twig" %}
+{% block question_answer %}
+{% set basecode = question.title %}
+<table class='table table-bordered table-print'>
     <tbody>
-        {% set strip = 'even' %}
-        {% for subquestion in question.subquestions %}
-            {% set answer1 = subquestion.answervalues|first %}
-            {% if not answer1 is null %} {# Check 1st is null for relevance #}
-                <tr class='strip-{{ strip }}'>
-                    <th class='col-question'>
-                        {% if aSurveyInfo.options.printcode == "on" %}{{ include('./subviews/printanswers/elements/subquestioncode.twig', {'code': subquestion.title}) }}{% endif %}
-                        {{subquestion.question}}
-                    </th>
-                    {% for answervalue in subquestion.answervalues %}
-                    <td class='col-answer'>
-                    {{ answervalue }}
-                    </td>
-                    {% endfor %}
-                </tr>
-            {% endif %}
+    {% for subquestions in question.subquestions %}
+        <tr class="subquestiontext"><th colspan="2">
+                {% if aSurveyInfo.options.printcode == "on" %}{{ include('./subviews/printanswers/elements/subquestioncode.twig', {'code': basecode ~ subquestions.title }) }}{% endif %}
+                {{ subquestions.question }}
+        </th></tr>
+        {% for title, label in subquestions.answervalueslabels %}
+            <tr>
+                <th class="col-question">
+                    {% if aSurveyInfo.options.printcode == "on" %}{{ include('./subviews/printanswers/elements/subquestioncode.twig', {'code': basecode ~ subquestions.title ~ title}) }}{% endif %}
+                    {{label}}
+                </th>
+                <td>
+                    {{ subquestions.answervalues[title] }}
+                </td>
+            </tr>
         {% endfor %}
+    {% endfor %}
     </tbody>
 </table>
 {% endblock %}
