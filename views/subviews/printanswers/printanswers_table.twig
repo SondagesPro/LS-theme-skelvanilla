@@ -2,9 +2,10 @@
     <h2>{{aSurveyInfo.surveyls_title}}</h2>
 {% endif %} 
 {% set groupcount = 0 %}
-<table class="table table-bordered">
+
 {% for groupid,group in aSurveyInfo.groupArray %}
-    <tbody class="groupSection {% if groupcount %}page-break-before{% endif %}">
+<table class="table table-bordered {% if groupcount %}page-break-before{% endif %}">
+    <tbody class="groupSection">
         {% if ( (aSurveyInfo.showgroupinfo == 'N' or aSurveyInfo.showgroupinfo == 'B') and group.group_name ) %}
             <tr class="groupheader"><th><strong class="h3">{{group.group_name}}</strong></th></tr>
         {% endif %}
@@ -14,5 +15,6 @@
         {% endfor %} 
     </tbody>
     {% set groupcount = groupcount+1 %}
-{% endfor %}
 </table>
+{% endfor %}
+
