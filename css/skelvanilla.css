@@ -341,15 +341,12 @@ table > tbody > tr > td.ddprefix {
 /**
  * Display adjust, question type by question type
  */
-.table > tbody > tr > th
-{
+.table > tbody > tr > th{
     vertical-align: middle;
 }
-
 .geoloc-item .search-icon, .geoloc-item .checkbox  {
     padding-top: 0.8em;
 }
-
 .geoname_search {
     margin-bottom: 0.8em;
 }
@@ -358,7 +355,6 @@ table > tbody > tr > td.ddprefix {
 .submitted-error .ls-em-tip,.submitted-error .ls-question-mandatory {
     font-weight: bold;
 }
-
 .word-break {
     word-wrap: break-word;
     -webkit-hyphens: auto;
@@ -381,8 +377,11 @@ p.return-to-survey{
 /* Textarea functionnality : force resize and max-with */
 .answer-item textarea{resize: both;max-width:100%;}
 .textarea-no-max-width .answer-item textarea{max-width:none}
+/* Fix no-js on bootsrap */
 .no-js .collapse{display: block;}
 .no-js .fade{opacity: 1;}
+/* privacy */
+.no-js a{display:none}
 /* Extra functionnality */
 .dir-ltr .show-in-previous {padding-left: 3em;}
 .dir-rtl .show-in-previous {padding-right: 3em;}
