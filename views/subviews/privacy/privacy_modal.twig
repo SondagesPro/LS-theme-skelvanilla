@@ -2,17 +2,18 @@
 <div>
     {% set describeprivacy = "" %}
     {% if aSurveyInfo.datasecurity_notice %}
+        {% set datasecuritynotice = "datasecurity_notice" %}
         {% set describeprivacy = "datasecurity_notice" %}
     {% endif %}
+    <div class="{{ aSurveyInfo.class.activealert }} alert alert-danger alert-dismissible fade in {% if not aSurveyInfo.datasecuritynotaccepted %}ls-js-hidden  {% endif %}alert-dismissible" {{ aSurveyInfo.attr.activealert }} id="datasecurity_error">
+        <a {{ aSurveyInfo.attr.activealertbutton }} class="{{ aSurveyInfo.class.activealertbutton }} close" aria-hidden="true">&times;</a>
+        {{ aSurveyInfo.datasecurity_error }}
+    </div>
     {% if aSurveyInfo.datasecuritynotaccepted == true %}
-        <div class="{{ aSurveyInfo.class.activealert }} alert alert-danger alert-dismissible fade in alert-dismissible" {{ aSurveyInfo.attr.activealert }} id="datasecurity_error">
-            <a {{ aSurveyInfo.attr.activealertbutton }} class="{{ aSurveyInfo.class.activealertbutton }} close" aria-hidden="true">&times;</a>
-            {{ aSurveyInfo.datasecurity_error }}
-        </div>
         {% set describeprivacy = "datasecurity_error " ~ describeprivacy %}
     {% endif %}
     <label for="datasecurity_accepted" class="control-label {{ aSurveyInfo.class.privacydataseccheckboxlabel }}">
-        <input class="{{ aSurveyInfo.class.privacydataseccheckbox }}" type="checkbox" name="datasecurity_accepted" id="datasecurity_accepted" {% if describeprivacy %} aria-describedby="{{describeprivacy}}" {% endif %}/>
+        <input required class="{{ aSurveyInfo.class.privacydataseccheckbox }}" type="checkbox" name="datasecurity_accepted" id="datasecurity_accepted" {% if describeprivacy %} aria-describedby="{{describeprivacy}}" {% endif %}/>
         {{ aSurveyInfo.datasecurity_notice_label }}
     </label>
 </div>
@@ -30,3 +31,21 @@
         </div>
     </div>
 </div>
+<script>
+$(function() {
+    if($('#datasecurity_error').length) {
+        $("#ls-button-submit").on("click", function() {
+            if(!$('#datasecurity_accepted').prop('checked')) {
+                $('#datasecurity_error').removeClass("ls-js-hidden");
+                $('#datasecurity_error').attr("role", "alert");
+                $('#datasecurity_accepted').attr("aria-describedby", "datasecurity_error {{ datasecuritynotice }}");
+            }
+        });
+    }
+});
+$("#datasecurity_accepted").on("change", function() {
+    if($('#datasecurity_accepted').prop('checked')) {
+        $('#datasecurity_error').addClass("ls-js-hidden");
+    }
+});
+</script>
