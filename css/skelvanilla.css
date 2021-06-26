@@ -381,8 +381,10 @@ p.return-to-survey{
 .no-js .collapse{display: block;}
 .no-js .fade{opacity: 1;}
 /* privacy */
-.no-js a{display:none}
+.no-js .alert-dismissible a.close{display:none}
 /* Extra functionnality */
 .dir-ltr .show-in-previous {padding-left: 3em;}
 .dir-rtl .show-in-previous {padding-right: 3em;}
 .no-footer-spacer .ls-answers {margin-bottom: 0;}
+/* Sibling checkbox */
+input.hide-sibling:checked + .sibling-checked-hide { display: none; }

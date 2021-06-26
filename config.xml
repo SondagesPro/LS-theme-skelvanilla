@@ -20,8 +20,8 @@
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of a lot of variations, list of variation can be updated. Some decoration option using boostrap class.]]></description>
         <extends>vanilla</extends>
-        <last_update>2021-06-20 18:25:00</last_update>
-        <lastUpdate>2021-06-20 18:25:00</lastUpdate>
+        <last_update>2021-06-25 19:16:00</last_update>
+        <lastUpdate>2021-06-25 19:16:00</lastUpdate>
     </metadata>
 
     <files>

@@ -8,21 +8,18 @@
         {% set datasecuritynotice = "datasecurity_notice" %}
         {% set describeprivacy = "datasecurity_notice" %}
     {% endif %}
+    {% if aSurveyInfo.datasecurity_error and aSurveyInfo.datasecuritynotaccepted %}
+        {% set describeprivacy = "datasecurity_error " ~ describeprivacy %}
+    {% endif %}
+
+    <label for="datasecurity_accepted" class="control-label {{ aSurveyInfo.class.privacydataseccheckboxlabel }}">{{ aSurveyInfo.datasecurity_notice_label }}</label>
+    <input required class="{{ aSurveyInfo.class.privacydataseccheckbox }} hide-sibling" type="checkbox" name="datasecurity_accepted" id="datasecurity_accepted"{% if describeprivacy %} aria-describedby="{{describeprivacy}}" {% endif %}/>
     {% if aSurveyInfo.datasecurity_error %}
-        <div class="{{ aSurveyInfo.class.activealert }} alert alert-danger alert-dismissible fade  in {% if not aSurveyInfo.datasecuritynotaccepted %}ls-js-hidden {% endif %} alert-dismissible" {{ aSurveyInfo.attr.activealert }} id="datasecurity_error">
+        <div class="sibling-checked-hide {{ aSurveyInfo.class.activealert }} alert alert-danger alert-dismissible fade  in {% if not aSurveyInfo.datasecuritynotaccepted %}ls-js-hidden {% endif %} alert-dismissible" {{ aSurveyInfo.attr.activealert }} id="datasecurity_error">
             <a {{ aSurveyInfo.attr.activealertbutton }} class="{{ aSurveyInfo.class.activealertbutton }} close" aria-hidden="true">&times;</a>
             {{ aSurveyInfo.datasecurity_error }}
         </div>
-    {% if aSurveyInfo.datasecuritynotaccepted == true %}
-        {% set describeprivacy = "datasecurity_error " ~ describeprivacy %}
     {% endif %}
-    {% endif %}
-    <div class="form-inline">
-        <label for="datasecurity_accepted" class="control-label {{ aSurveyInfo.class.privacydataseccheckboxlabel }}">
-            <input required class="{{ aSurveyInfo.class.privacydataseccheckbox }}" type="checkbox" name="datasecurity_accepted" id="datasecurity_accepted"{% if describeprivacy %} aria-describedby="{{describeprivacy}}" {% endif %}/>
-            {{ aSurveyInfo.datasecurity_notice_label }}
-        </label>
-    </div>
 </div>
 <script>
 $(function() {
