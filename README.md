@@ -17,7 +17,7 @@ If you need to update : currently LimeSurvey didn't offer update system for them
 ## Copyright and home page
 
 - HomePage <https://extensions.sondages.pro/skelvanilla>
-- Copyright © 2018-2020 Denis Chenu <https://sondages.pro>
+- Copyright © 2018-2021 Denis Chenu <https://sondages.pro>
 - Licence : GNU General Public License <https://www.gnu.org/licenses/gpl-3.0.html>
 - Include bootstrap part : © 2011-2016 Twitter, Inc. Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 - Include bootswatch part : © 2013 Thomas Park. Licensed under MIT (https://github.com/thomaspark/bootswatch/blob/v3/LICENSE)
