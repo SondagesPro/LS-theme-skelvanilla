@@ -9,6 +9,7 @@ var skelVanilla = {
             this.removeBack();
         }
         this.disableEnterSubmit();
+        this.topMenuAction();
         if(options.errorTopLinks) {
             this.errorTopLinks();
         }
@@ -209,6 +210,18 @@ var skelVanilla = {
                 $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th').each(function() {
                     $(this).css("top",fixedHeaderHeight+"px");
                 });
+            }
+        });
+    },
+    /**
+     * Removing href to top menu disable the onclick with key : fix it
+     * See https://bugs.limesurvey.org/view.php?id=17586
+     **/
+    topMenuAction : function() {
+        $("[data-limesurvey-submit][role='button'],[data-limesurvey-lang][role='button'],[data-toggle='dropdown']").on('keypress', function(event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                $(this).trigger('click');
             }
         });
     }
