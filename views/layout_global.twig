@@ -23,13 +23,14 @@
     {% set bodyClass = aSurveyInfo.class.body ~ " " ~ str_replace(['variations/','css/', '.css','.min','-','_'],['skelvanilla-','', '','',' skelvanilla-',' skelvanilla-'],theme) %}
     <body class="{% if(aSurveyInfo.options.bodyloaded == 'on' or not aSurveyInfo.options.bodyloaded) %}body-loading {% endif %}{{ bodyClass }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {{ ( aSurveyInfo.options.brandlogo == 'on') ? 'with-brand-logo' : '' }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'with-navbar-fixed-top ' }}{{ (aSurveyInfo.options.tableheader != 'off') ? 'table-fixed-header ' }}" >
         <div id="{{ aSurveyInfo.id.dynamicreload }}">
-            {# Fix LimeSurvey issue 17623 #}
+            {# Fix LimeSurvey issue 17623, need to remove all POST action to keed data #}
             {% if(getPost('clearall') == 'clearall' and getPost('move') != 'clearcancel') %}
                    {% set aSurveyInfo = aSurveyInfo|merge({
                         "include_content": 'clearall_confirm',
                         "aNavigator": { },
                         "aQuestionIndex": { },
-                        "bShowClearAll": false
+                        "bShowClearAll": false,
+                        "alanguageChanger": {}
                     }) %}
             {% endif %}
             {% block body %}
