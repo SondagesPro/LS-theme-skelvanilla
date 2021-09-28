@@ -1,0 +1,20 @@
+{% if(getPost('confirm-clearall') == 'confirm') %}
+    {{ include('./subviews/content/clearall.twig') }}
+{% else %}
+<div class='row' >
+<div class="col-md-6 col-md-offset-3">
+    {{ include('./subviews/header/start_form.twig') }}
+        <p id="clear-all-id{{ navigatorid }}">{{gT("Please confirm you want to clear your response?" )}}</p>
+        <input type="hidden" name="clearall" value="clearall">
+        <div class="btn-group btn-group-justified" role="group" aria-labelledby="clear-all-id{{ navigatorid }}">
+            <div class="btn-group">
+            <a href="{{ aSurveyInfo.surveyUrl }}" class="btn btn-success" name="move" value="clearcancel">{{ gT("Cancel")}} </a>
+            </div>
+             <div class="btn-group">
+            <button type="submit" class="btn btn-danger" name="confirm-clearall" value="confirm">{{ gT("Confirm")}} </button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+{% endif %}

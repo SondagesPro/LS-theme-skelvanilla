@@ -1,7 +1,7 @@
 {% if (aSurveyInfo.bShowClearAll == true and aSurveyInfo.options.showclearall != 'off') %}
     <!-- Exit and clear survey -->
     <li class="{{ aSurveyInfo.class.clearalllinks }}" {{ aSurveyInfo.attr.clearalllinks }}>
-        <a role="button" tabindex="0" data-limesurvey-submit='{ "clearall":"clearall" }'  data-confirmedby='{ "confirm-clearall":"confirm" }' data-confirmlabel='{{gT("Please confirm you want to clear your response?" )}}' class='{{ aSurveyInfo.class.clearalllink }} animate' {{ aSurveyInfo.attr.clearalllink }}>
+        <a role="button" tabindex="0" data-limesurvey-submit='{ "clearall":"clearall" }' class='{{ aSurveyInfo.class.clearalllink }} animate' {{ aSurveyInfo.attr.clearalllink }}>
             {{gT("Exit and clear survey" )}}
         </a>
     </li>
