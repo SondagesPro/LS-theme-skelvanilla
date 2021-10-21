@@ -132,7 +132,7 @@ var skelVanilla = {
         $(function() {
             $("body").removeClass("body-loading").addClass("body-loaded");
         });
-        $("button[type='submit']:not([data-confirmedby])").on('click',function(){
+        $("form#limesurvey button[type='submit']:not([data-confirmedby]), button[type='submit'][data-skelunload]").on('click',function(){
             if ($(this).closest('form').length && (!$(this).closest('form')[0].checkValidity || $(this).closest('form')[0].checkValidity())) {
                 $("body").removeClass("body-loaded").addClass("body-loading");
             }
