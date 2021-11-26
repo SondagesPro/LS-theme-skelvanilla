@@ -94,6 +94,22 @@ var ThemeOptions = function(){
         $('#TemplateConfiguration_options').val(JSON.stringify(newOptionObject));
     };
 
+    var updateThemeSettings = function(){
+        if($('#general_inherit_on').prop('checked')){
+            $('#TemplateConfiguration_cssframework_css').val('inherit');
+            $('#TemplateConfiguration_cssframework_js').val('inherit');
+            return;
+        }
+        var selectedCss = $("#simple_edit_options_theme").val();
+        if (selectedCss == "inherit") {
+            $('#TemplateConfiguration_cssframework_css').val('inherit');
+            return;
+        }
+        var cssFrameworkCss = {};
+        cssFrameworkCss.replace = [["css/bootstrap.css",selectedCss]];
+        $('#TemplateConfiguration_cssframework_css').val(JSON.stringify(cssFrameworkCss));
+    };
+
     ///////////////
     // Utility Methods
     // -- small utilities i.g. for images or similar, or very specialized functions
@@ -170,6 +186,28 @@ var ThemeOptions = function(){
         });
     };
 
+    var prepareThemeField = function(){
+        var cssFrameworkCss = 'inherit';
+        if(!inheritPossible) {
+            cssFrameworkCss = {};
+            cssFrameworkCss.replace = [["bootstrap.css","css/bootstrap.css"]];
+        }
+        if (typeof optionObject.theme !== 'undefined' && optionObject.theme) {
+            if(optionObject.theme == "inherit" && inheritPossible) {
+                cssFrameworkCss = 'inherit';
+            }
+            if(optionObject.theme != "inherit" && optionObject.theme != "off") {
+                cssFrameworkCss = {};
+                cssFrameworkCss.replace = [["bootstrap.css",optionObject.theme]];
+            }
+            if(optionObject.theme == "off") {
+                optionObject.theme = "css/bootstrap.css";
+                $("#simple_edit_options_theme").val("css/bootstrap.css");
+            }
+        }
+        $('#TemplateConfiguration_cssframework_css').val(JSON.stringify(cssFrameworkCss));
+    };
+
     ///////////////
     // HotSwap methods
     // -- These methods connect an input directly to the value in the optionsObject
@@ -209,6 +247,7 @@ var ThemeOptions = function(){
         //hotswapping the general inherit
         $('#general_inherit_on').on('change', function(evt){
             $('#TemplateConfiguration_options').val('inherit');
+            $('#TemplateConfiguration_cssframework_css').val('inherit');
             $('.action_hide_on_inherit').addClass('hidden');
         });
         $('#general_inherit_off').on('change', function(evt){
@@ -219,6 +258,12 @@ var ThemeOptions = function(){
         });
     };
 
+    var hotswapThemeField = function(){
+        $('#simple_edit_options_theme').on('change', function(evt){
+            updateThemeSettings();
+        });
+    };
+
     ///////////////
     // Event methods
     // -- These methods are triggered on events. Please see `bind´ method for more information
@@ -226,6 +271,8 @@ var ThemeOptions = function(){
         evt.preventDefault();
         if(generalInherit()){
             $('#TemplateConfiguration_options').val('inherit');
+            $('#TemplateConfiguration_cssframework_css').val('inherit');
+            $('#TemplateConfiguration_cssframework_js').val('inherit');
             $('#template-options-form').trigger('submit'); // submit the form
         } else {
             //Create a copy of the inherent optionObject
@@ -236,6 +283,16 @@ var ThemeOptions = function(){
             }
             //now write the newly created object to the correspondent field as a json string
             $('#TemplateConfiguration_options').val(JSON.stringify(newOptionObject));
+            // CSS part
+            var selectedCss = $("#simple_edit_options_theme").val();
+            if (selectedCss == "inherit") {
+                $('#TemplateConfiguration_cssframework_css').val('inherit');
+            } else {
+                var cssFrameworkCss = {};
+                cssFrameworkCss.replace = [["css/bootstrap.css",selectedCss]];
+                $('#TemplateConfiguration_cssframework_css').val(JSON.stringify(cssFrameworkCss));
+            }
+
             //and submit the form
             $('#template-options-form').trigger('submit');
         }
@@ -251,6 +308,7 @@ var ThemeOptions = function(){
         //Bind the hotwaps
         hotSwapParentRadioButtons();
         hotSwapFields();
+        hotswapThemeField();
         hotswapGeneralInherit();
     };
     
@@ -262,6 +320,7 @@ var ThemeOptions = function(){
         prepareSelectField();
         prepareTextField();
         parseParentSwitchFields();
+        prepareThemeField();
         bind();
         $("#theme-option-sidebody").height('auto');
     };

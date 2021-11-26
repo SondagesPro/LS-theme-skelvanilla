@@ -450,7 +450,7 @@
                                 <label for='simple_edit_options_theme' class='control-label'>{{ gT("Select variation:") }}</label>
                                 <div class='col-sm-12'>
                                     <select class='form-control selector_option_value_field' id='simple_edit_options_theme' name='theme'>
-                                        <option value="off">{{ gT('None') }} - {{ gT('bootstrap.css updatable via theme editor') }}</option>
+                                        <option value="css/bootstrap.css">{{ gT('None') }} - {{ gT('bootstrap.css updatable via theme editor') }}</option>
                                         {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                             <option value="inherit"> {{ gT('Inherit') }}</option>
                                         {% endif %}

@@ -269,7 +269,7 @@
     <engine>
         <cssframework>
             <name>bootstrap</name>
-            <css replace="bootstrap.css">css/minimal.css</css>
+            <css replace="bootstrap.css">css/bootstrap.css</css>
         </cssframework>
 
         <viewdirectory>views</viewdirectory>
