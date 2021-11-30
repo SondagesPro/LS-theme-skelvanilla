@@ -6,7 +6,7 @@
  * @todo : comments
 */
 /* in h1, need to remove margin and reset font-size */
-.navbar-brand{margin:0;height:auto;}
+h1.navbar-brand,.h1.navbar-brand{margin:0;height:auto;}
 .navbar-brand.with-logo{
     line-height:2;
     -webkit-box-sizing: content-box;
