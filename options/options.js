@@ -30,6 +30,9 @@ var ThemeOptions = function(){
         if($('#TemplateConfiguration_options').length>0 && !generalInherit()){
             try{
                 optionObject = JSON.parse($('#TemplateConfiguration_options').val());
+                if(optionObject.theme !== undefined) {
+                    optionObject.theme = optionObject.theme.replace("image::theme::", "");
+                }
             } catch(e){
                 console.ls ? console.ls.error('No valid option field!') : console.log('No valid option field!');
             }

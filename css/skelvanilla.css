@@ -21,7 +21,13 @@ h1.navbar-brand,.h1.navbar-brand{margin:0;height:auto;}
 .skip-navigation{list-style-type: none;}
 .skip-navigation{position:absolute;padding:0}
 /* lang can be bigger than screen quick fix*/
-.navbar-nav #langs-container{overflow-y:auto;max-height:10em;max-height:70vh;}
+.navbar-nav #langs-container{
+    overflow-y:auto;max-height:10em;max-height:70vh;
+}
+/* Make sure question index menu is not too long. */
+.navbar-nav .ls-index-menu ul.dropdown-menu {
+    overflow-y:auto;max-height:10em;max-height:70vh;
+}
 
 /* For footer, inspirated by layout-galla */
 html, body {height: 100%;}
@@ -371,8 +377,6 @@ p.return-to-survey{
     clear:left;
 }
 
-/* Make sure question index menu is not too long. */
-#index-menu ul.dropdown-menu {max-height: 50vh;}
 
 /* Textarea functionnality : force resize and max-with */
 .answer-item textarea{resize: both;max-width:100%;}

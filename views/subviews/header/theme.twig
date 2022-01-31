@@ -3,6 +3,7 @@
 {% if (theme == "off" or theme == "") %}
     {% set theme = 'css/bootstrap.css' %}
 {% endif %}
+{% set theme = str_replace('image::theme::','',theme) %}
 {{ registerTemplateCssFile(theme) }}
 {{ registerTemplateCssFile('css/theme.css') }}
 {{ registerTemplateCssFile('css/custom.css') }}
