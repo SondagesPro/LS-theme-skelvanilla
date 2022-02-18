@@ -273,10 +273,10 @@ box-shadow: initial;
 }
 
 html body .navbar.navbar-default.navbar-fixed-top {
-    z-index: 2000;
+    z-index: 1030;
 }
 .file-upload-modal,.modal{
-    z-index: 2001;
+    z-index: 1050;
 }
 /**********************************
 Responsive navbar-brand image CSS
@@ -392,3 +392,17 @@ p.return-to-survey{
 .no-footer-spacer .ls-answers {margin-bottom: 0;}
 /* Sibling checkbox */
 input.hide-sibling:checked + .sibling-checked-hide { display: none; }
+
+/* centering modal */
+.modal-dialog {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.modal .modal-dialog {
+margin:auto;
+}
+.modal-content {
+  margin: 0 auto;
+}

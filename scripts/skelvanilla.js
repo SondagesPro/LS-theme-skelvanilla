@@ -200,7 +200,7 @@ var skelVanilla = {
                 var fixedHeaderHeight = $("header.navbar-fixed-top").height();
                 $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th').each(function() {
                     $(this).css("top",fixedHeaderHeight+"px");
-                    $(this).css("z-index",1500);
+                    $(this).css("z-index",1040);
                 });
             }
         });
