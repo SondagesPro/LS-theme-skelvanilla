@@ -4,6 +4,7 @@
     This file render the language changer out of limesurvey form when no form is required (example survey listing)
     This file can be added for a no javascript solution to change language when not inside limesurvey form
 #}
+{% if langid is empty %} {% set langid = 'lang-get' %}{% endif %}
 {% if(aSurveyInfo.surveyUrl) %}
     {{ C.Html.form(aSurveyInfo.surveyUrl,'get') }}
 {% elseif(aSurveyInfo.sRegisterFormUrl) %}

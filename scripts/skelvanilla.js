@@ -1,5 +1,6 @@
 var skelVanilla = {
     init : function (options) {
+        this.languageChanger();
         this.addCheckedClass();
         this.otherListRadio();
         this.otherListCheckbox();
@@ -17,6 +18,11 @@ var skelVanilla = {
             this.bodyLoaded();
         }
         this.fixedHeaderRelated();
+    },
+    languageChanger : function () {
+         $('form#limesurvey .form-change-lang [name="lang"] option:not(selected)').on('click', function(event) {
+            $('form#limesurvey [required]').removeAttr('required');
+         });
     },
     addCheckedClass : function () {
         /* radio in table */
