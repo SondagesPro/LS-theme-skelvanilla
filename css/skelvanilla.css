@@ -392,17 +392,3 @@ p.return-to-survey{
 .no-footer-spacer .ls-answers {margin-bottom: 0;}
 /* Sibling checkbox */
 input.hide-sibling:checked + .sibling-checked-hide { display: none; }
-
-/* centering modal */
-.modal-dialog {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-.modal .modal-dialog {
-margin:auto;
-}
-.modal-content {
-  margin: 0 auto;
-}
