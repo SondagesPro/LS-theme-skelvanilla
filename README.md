@@ -22,4 +22,4 @@ If you need to update : currently LimeSurvey didn't offer update system for them
 - Include bootstrap part : © 2011-2016 Twitter, Inc. Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 - Include bootswatch part : © 2013 Thomas Park. Licensed under MIT (https://github.com/thomaspark/bootswatch/blob/v3/LICENSE)
 - [![Donate](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/SondagesPro/) : [Donate on Liberapay](https://liberapay.com/SondagesPro/)
-- Issue and feature : [gitlab](https://gitlab.com/SondagesPro/SurveyThemes/skelvanilla/issues) or [framagit](https://framagit.org/SondagePro-LimeSurvey-plugin/skelvanilla/issues)
+- Issue and feature : [gitlab](https://gitlab.com/SondagesPro/SurveyThemes/skelvanilla/issues) exclusively.
