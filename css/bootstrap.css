@@ -1,10 +1,10 @@
 /*!
  * Theme generator css for LimeSurvey template
  * Based on Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2018-2020 Denis Chenu
+ * Copyright 2018-2022 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 3.2.3
+ * @version 3.3.0
  */
 /*!
  * This is a generated file
@@ -929,15 +929,22 @@ textarea {
 }
 a {
   color: #12538B;
-  text-decoration: none;
+  text-decoration: underline;
+  display: inline-block;
+  border-radius: 0.2rem;
 }
 a:hover,
 a:focus {
   color: #061d31;
   text-decoration: underline;
 }
-a:focus {
+a:focus-visible {
   outline: thin dotted;
+}
+a:focus-visible {
+  outline: #12538B 0.2em solid;
+  outline-color: rgba(18, 83, 139, 0.3);
+  outline-offset: 0.1em;
 }
 figure {
   margin: 0;
@@ -2938,6 +2945,7 @@ select[multiple].input-lg {
 }
 .btn {
   display: inline-block;
+  text-decoration: none;
   margin-bottom: 0;
   font-weight: normal;
   text-align: center;
@@ -3607,6 +3615,7 @@ tbody.collapse.in {
   line-height: 1.5;
   color: #333333;
   white-space: nowrap;
+  text-decoration: none;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
@@ -4325,10 +4334,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   font-size: 1.25rem;
   line-height: 1.5rem;
   min-height: 3rem;
+  text-decoration: none;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
+}
+.navbar-brand:focus-visible {
+  outline: 0;
 }
 .navbar-brand > img {
   display: block;
@@ -4354,6 +4367,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle:focus {
   outline: 0;
 }
+.navbar-toggle:focus-visible {
+  outline: 0;
+}
 .navbar-toggle .icon-bar {
   display: block;
   width: 22px;
@@ -4375,6 +4391,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   line-height: 1.5rem;
+  text-decoration: none;
+  border: 0.2em solid;
+  border-radius: 0.2rem;
+}
+.navbar-nav > li > a:focus-visible {
+  outline: 0;
 }
 @media (max-width: 47em) {
   .navbar-nav .open .dropdown-menu {
@@ -4551,16 +4573,25 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #1a1a1a;
   background-color: transparent;
 }
+.navbar-default .navbar-brand:focus-visible {
+  border-color: #12538B;
+  border-color: rgba(18, 83, 139, 0.3);
+}
 .navbar-default .navbar-text {
   color: #333333;
 }
 .navbar-default .navbar-nav > li > a {
   color: #333333;
+  border-color: #f8f8f8;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #000;
   background-color: #fff;
+}
+.navbar-default .navbar-nav > li > a:focus-visible {
+  border-color: #12538B;
+  border-color: rgba(18, 83, 139, 0.3);
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -4573,6 +4604,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .disabled > a:focus {
   color: #ccc;
   background-color: transparent;
+}
+.navbar-default .navbar-nav > .disabled > a:focus-visible {
+  border-color: #f8f8f8;
 }
 .navbar-default .navbar-toggle {
   border-color: #ddd;
@@ -4647,16 +4681,23 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #fff;
   background-color: transparent;
 }
+.navbar-inverse .navbar-brand:focus-visible {
+  border-color: #12538B;
+}
 .navbar-inverse .navbar-text {
   color: #969696;
 }
 .navbar-inverse .navbar-nav > li > a {
   color: #969696;
+  border-color: navbar-inverse-bg;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #fff;
   background-color: transparent;
+}
+.navbar-inverse .navbar-nav > li > a:focus-visible {
+  border-color: #12538B;
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
@@ -4669,6 +4710,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-nav > .disabled > a:focus {
   color: #444;
   background-color: transparent;
+}
+.navbar-inverse .navbar-nav > .disabled > a:focus-visible {
+  border-color: #222;
 }
 .navbar-inverse .navbar-toggle {
   border-color: #333;
@@ -6235,10 +6279,25 @@ td.checkbox-item input[type="checkbox"] {
     padding: 0 1em 0.5em;
   }
 }
-.skip-navigation.nav > li > a {
+.skip-navigation a {
+  background-color: #fff;
+}
+.skip-navigation.navbar-nav a {
   padding: 0;
 }
-.skip-navigation.nav > li > a:focus {
+.skip-navigation.navbar-nav a:focus {
+  padding: 0.7rem 1rem;
+}
+.navbar-default .skip-navigation.navbar-nav > li a:focus {
+  background-color: #f8f8f8;
+}
+.navbar-inverse .skip-navigation.navbar-nav > li a:focus {
+  background-color: #222;
+}
+.skip-navigation.navbar-nav > li > a {
+  padding: 0;
+}
+.skip-navigation.navbar-nav > li > a:focus {
   padding: 0.7rem 1rem;
 }
 /* dynamic group (multiple-numeric) .form-control-static same padding and border width than form-control for better alignment */
@@ -8367,7 +8426,6 @@ li.slider-item {
   margin: 0;
   overflow: hidden;
   padding: 0;
-  width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -8383,13 +8441,13 @@ li.slider-item {
   border-radius: 0.3rem;
   cursor: default;
   float: left;
-  margin: -0.58rem 0 0 0.42rem;
+  margin: 0.42rem 0 0 0.42rem;
   padding: 0 0.42rem;
 }
 .select2-container--bootstrap .select2-selection--multiple .select2-search--inline .select2-search__field {
   background: transparent;
   padding: 0 0.84rem;
-  height: 0.34rem;
+  height: 2.34rem;
   line-height: 1.5;
   margin-top: 0;
   min-width: 5em;
@@ -8400,6 +8458,9 @@ li.slider-item {
   display: inline-block;
   font-weight: bold;
   margin-right: 0.21rem;
+  border-radius: 0.2rem;
+  border: none;
+  background: transparent;
 }
 .select2-container--bootstrap .select2-selection--multiple .select2-selection__choice__remove:hover {
   color: #333;
@@ -8433,7 +8494,7 @@ li.slider-item {
 .form-group-sm .select2-container--bootstrap .select2-selection--multiple .select2-selection__choice {
   font-size: 0.85rem;
   line-height: 1.5;
-  margin: -0.68rem 0 0 0.355rem;
+  margin: 0.32rem 0 0 0.355rem;
   padding: 0 0.32rem;
 }
 .select2-container--bootstrap .select2-selection--multiple.input-sm .select2-search--inline .select2-search__field,
@@ -8484,7 +8545,7 @@ li.slider-item {
   font-size: 1.25rem;
   line-height: 1.4;
   border-radius: 0.3rem;
-  margin: -0.29rem 0 0 0.57rem;
+  margin: 0.71rem 0 0 0.57rem;
   padding: 0 0.71rem;
 }
 .select2-container--bootstrap .select2-selection--multiple.input-lg .select2-search--inline .select2-search__field,
