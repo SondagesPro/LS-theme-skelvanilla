@@ -35,11 +35,7 @@
     {% if panel %} <div class="panel-body"> {% endif %}
     {% set ariadescribe = ''  %}
     {% if aQuestion.mandatory != '' and aQuestion.mandatory  != 'N' %}
-        {% if(aQuestion.man_message) %}
-            {% set ariadescribe = ariadescribe ~ " question-mandatory-" ~ aQuestion.qid  %}
-        {% else %}
-            {% set ariadescribe = ariadescribe ~ " question-asterisk-" ~ aQuestion.qid  %}
-        {% endif %}
+        {% set ariadescribe = ariadescribe ~ " question-mandatory-" ~ aQuestion.qid  %}
     {% endif %}
     {# To have default limesurvey behaviour : move this line at end #}
     {{ include('./subviews/survey/question_subviews/survey_question_help.twig') }}

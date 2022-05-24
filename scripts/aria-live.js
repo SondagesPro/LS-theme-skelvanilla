@@ -203,8 +203,5 @@ var TemplateAccessible = {
                 }
             }
         });
-    },
-    hideMultipleColumn: function () {
-        /* @todo … */
     }
 }

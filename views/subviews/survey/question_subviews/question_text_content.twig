@@ -1,11 +1,17 @@
 {# If the question is mandatory, the asterisk will be shown  #}
 {% if aQuestion.mandatory != '' and aQuestion.mandatory  != 'N' %}
+    {% set mandatoryposition = 'ashelp' %}
+    {% if ( aSurveyInfo.options.mandatoryposition) %}
+        {% set mandatoryposition = aSurveyInfo.options.mandatoryposition %}
+    {% endif %}
     <!-- Add a visual information + just Mandatory string for aria : can be improved -->
-    <div id="question-asterisk-{{ aQuestion.qid }}" class="{{ aSurveyInfo.class.questionasterix }} pull-left" {{ aSurveyInfo.attr.questionasterix }} >
+    <div id="question-asterisk-{{ aQuestion.qid }}" class="{{ aSurveyInfo.class.questionasterix }}{% if mandatoryposition != 'block' %} pull-left{% endif %}" {{ aSurveyInfo.attr.questionasterix }} >
         <small class="{{ aSurveyInfo.class.questionasterixsmall }} text-danger fa fa-asterisk small" {{ aSurveyInfo.attr.questionasterixsmall }}></small>
-        <span class="{{ aSurveyInfo.class.questionasterixspan }} sr-only text-danger" {{ aSurveyInfo.attr.questionasterixspan }} id="ls-question-mandatory-{{ aQuestion.SGQ }}" >
-            {{ gT("(This question is mandatory)") }}
-        </span>
+        {% if mandatoryposition != 'ashelp' %}
+            <span class="{{ aSurveyInfo.class.questionasterixspan }} text-danger{% if mandatoryposition == 'off' %} sr-only{% endif %}" {{ aSurveyInfo.attr.questionasterixspan }}{% if aQuestion.man_message is empty%} id="question-mandatory-{{ aQuestion.qid }}"{% endif %} >
+                {{ gT("(This question is mandatory)") }}
+            </span>
+        {% endif %}
     </div>
 {% endif %}
 {# If the question number is to be shown (set in survey settings) #}
