@@ -156,13 +156,13 @@
                     <div class='form-group row'>
                         <label for='simple_edit_options_mandatoryposition' class='control-label col-xs-4'>{{ gT("Mandatory position") }}</label>
                         <div class='col-xs-8'>
-                            <select class='form-control selector_option_value_field' id='simple_edit_options_mandatoryposition' name='mandatoryposition'  data-default='ashelp'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_mandatoryposition' name='mandatoryposition'  data-default='astip'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <option value="inherit"> {{ gT('Inherit') }}</option>
                                 {% endif %}
                                 <option value="off"}>{{ gT("Only asterisk and hidden aria help") }}</option>
                                 <option value="block">{{ gT("Asterisk and mandatory text") }}</option>
-                                <option value="ashelp">{{ gT("As other tips, just before answers.") }}</option>
+                                <option value="astip">{{ gT("As other tips, just before answers.") }}</option>
                             </select>
                         </div>
                         <p class="col-xs-12 help-block">{{ gT("Asterisk still shown, but with or without associated text.") }}</p>

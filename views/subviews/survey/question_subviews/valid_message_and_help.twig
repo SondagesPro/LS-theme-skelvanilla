@@ -11,7 +11,7 @@
                 {{ aQuestion.man_message }}
             </div>
         {% else %}
-            {% if aSurveyInfo.options.mandatoryposition == 'ashelp' or aSurveyInfo.options.mandatoryposition is empty %}
+            {% if aSurveyInfo.options.mandatoryposition == 'astip' or aSurveyInfo.options.mandatoryposition is empty %}
                 <div id="question-mandatory-{{ aQuestion.qid }}">
                     {{ include('./survey/questions/question_help/mandatory_tip.twig') }}
                 </div>
