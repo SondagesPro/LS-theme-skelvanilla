@@ -28,7 +28,9 @@
 {% set questionsize = aSurveyInfo.options.questionsize %}
 {% set start_group = 0 %}
 {% set end_group = 0 %}
-
+{% if questionwrap is empty %}
+    {% set questionwrap = 'none' %}
+{% endif %}
 {% if ( aSurveyInfo.options.questioncolor and aSurveyInfo.options.questioncolor !='none' ) %}
     {% set questioncolor = aSurveyInfo.options.questioncolor %}
 {% endif %}
@@ -36,13 +38,13 @@
 {# skel-value Class management #}
 {% set aQuestionsClasses = aQuestion.class|split(' ') %}
 {% if(in_array('skel-wrap-well',aQuestionsClasses)) %}
-    {% set questionwrap ='well' %}
+    {% set questionwrap = 'well' %}
 {% endif %}
 {% if(in_array('skel-wrap-panel',aQuestionsClasses)) %}
-    {% set questionwrap ='panel' %}
+    {% set questionwrap = 'panel' %}
 {% endif %}
 {% if(in_array('skel-wrap-none',aQuestionsClasses)) %}
-    {% set questionwrap ='' %}
+    {% set questionwrap = 'none' %}
 {% endif %}
 {% if(in_array('skel-color-none',aQuestionsClasses)) %}
     {% set questioncolor ='none' %}
@@ -78,7 +80,7 @@
     {% set questionsize ='lead' %}
 {% endif %}
 
-{% if ( questionwrap =='well' ) %}
+{% if ( questionwrap == 'well' ) %}
     {% set questioncontainerclass = 'well well-sm' %}
 {% endif %}
 {% set panel = false %}
@@ -118,7 +120,9 @@
     {% set errorclass = '' %}
     {% set containererrorclass = '' %}
 {% endif %}
+{% set questioncontainerclass = questioncontainerclass ~ ' wrap-' ~ questionwrap %}
 {# End of Options #}
+
 {% if displayhtml %}
 <!-- Question {{ aQuestion.qid  }}  -->
 {% if (start_group) %}
