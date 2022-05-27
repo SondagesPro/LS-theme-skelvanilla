@@ -12,6 +12,8 @@
  * Source : https://gitlab.com/SondagesPro/SurveyThemes/less-skelvanilla
  */
 /** ~ 43% lighten(@gray-base, 46.7%); // #777 */
+/* For the button item of LimeSurvey core */
+/* When active */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -6177,16 +6179,16 @@ fieldset[disabled] .button-item.btn-primary.focus {
 }
 .button-item.btn-primary.active:focus,
 .button-item.btn-primary.active.focus {
-  color: #fff;
-  background-color: #1a3c59;
-  border-color: #12293d;
-  -webkit-box-shadow: 0 0 6px rgba(18, 41, 61, 0.6);
-  box-shadow: 0 0 6px rgba(18, 41, 61, 0.6);
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+  -webkit-box-shadow: 0 0 6px rgba(173, 173, 173, 0.6);
+  box-shadow: 0 0 6px rgba(173, 173, 173, 0.6);
 }
 .button-item.btn-primary.active:hover {
-  color: #fff;
-  background-color: #1a3c59;
-  border-color: #12293d;
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
 }
 .button-item.btn-primary.active:active,
 .button-item.btn-primary.active.active,
@@ -6204,9 +6206,9 @@ fieldset[disabled] .button-item.btn-primary.focus {
 .button-item.btn-primary.active:active.focus,
 .button-item.btn-primary.active.active.focus,
 .open > .dropdown-toggle.button-item.btn-primary.active.focus {
-  color: #fff;
-  background-color: #0f2131;
-  border-color: #04090e;
+  color: #333;
+  background-color: #cccccc;
+  border-color: #8f8f8f;
 }
 .button-item.btn-primary.active:active:focus,
 .button-item.btn-primary.active.active:focus,
@@ -6214,8 +6216,8 @@ fieldset[disabled] .button-item.btn-primary.focus {
 .button-item.btn-primary.active:active.focus,
 .button-item.btn-primary.active.active.focus,
 .open > .dropdown-toggle.button-item.btn-primary.active.focus {
-  -webkit-box-shadow: 0 0 6px rgba(18, 41, 61, 0.6);
-  box-shadow: 0 0 6px rgba(18, 41, 61, 0.6);
+  -webkit-box-shadow: 0 0 6px rgba(173, 173, 173, 0.6);
+  box-shadow: 0 0 6px rgba(173, 173, 173, 0.6);
 }
 .button-item.btn-primary.active:active,
 .button-item.btn-primary.active.active,
@@ -6240,8 +6242,8 @@ fieldset[disabled] .button-item.btn-primary.active:focus,
 .button-item.btn-primary.active.disabled.focus,
 .button-item.btn-primary.active[disabled].focus,
 fieldset[disabled] .button-item.btn-primary.active.focus {
-  -webkit-box-shadow: 0 0 0 rgba(18, 41, 61, 0);
-  box-shadow: 0 0 0 rgba(18, 41, 61, 0);
+  -webkit-box-shadow: 0 0 0 rgba(173, 173, 173, 0);
+  box-shadow: 0 0 0 rgba(173, 173, 173, 0);
 }
 .button-item.btn-primary.active .badge {
   color: #265680;
