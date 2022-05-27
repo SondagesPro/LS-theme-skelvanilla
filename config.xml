@@ -332,6 +332,7 @@
                     <file type="view" role="subview">./subviews/content/outerframe.twig</file>
                     <file type="view" role="content">./subviews/content/firstpage.twig</file>
                     <file type="view" role="subview">./subviews/header/head.twig</file>
+                    <file type="view" role="subview">./subviews/header/theme.twig</file>
                     <file type="view" role="subview">./subviews/header/custom_header.twig</file>
                     <file type="view" role="subview">./subviews/header/nav_bar.twig</file>
                     <file type="view" role="subview">./subviews/header/description.twig</file>

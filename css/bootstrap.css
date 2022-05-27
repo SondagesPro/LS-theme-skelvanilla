@@ -4,7 +4,7 @@
  * Copyright 2018-2022 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 3.3.0
+ * @version 3.4.0
  */
 /*!
  * This is a generated file
@@ -6092,6 +6092,160 @@ table.ls-answers {
     font-size: 0.85rem;
     display: inline;
   }
+}
+.button-item.btn-primary {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.button-item.btn-primary:focus,
+.button-item.btn-primary.focus {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+  -webkit-box-shadow: 0 0 6px rgba(173, 173, 173, 0.6);
+  box-shadow: 0 0 6px rgba(173, 173, 173, 0.6);
+}
+.button-item.btn-primary:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.button-item.btn-primary:active,
+.button-item.btn-primary.active,
+.open > .dropdown-toggle.button-item.btn-primary {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.button-item.btn-primary:active:hover,
+.button-item.btn-primary.active:hover,
+.open > .dropdown-toggle.button-item.btn-primary:hover,
+.button-item.btn-primary:active:focus,
+.button-item.btn-primary.active:focus,
+.open > .dropdown-toggle.button-item.btn-primary:focus,
+.button-item.btn-primary:active.focus,
+.button-item.btn-primary.active.focus,
+.open > .dropdown-toggle.button-item.btn-primary.focus {
+  color: #333;
+  background-color: #cccccc;
+  border-color: #8f8f8f;
+}
+.button-item.btn-primary:active:focus,
+.button-item.btn-primary.active:focus,
+.open > .dropdown-toggle.button-item.btn-primary:focus,
+.button-item.btn-primary:active.focus,
+.button-item.btn-primary.active.focus,
+.open > .dropdown-toggle.button-item.btn-primary.focus {
+  -webkit-box-shadow: 0 0 6px rgba(173, 173, 173, 0.6);
+  box-shadow: 0 0 6px rgba(173, 173, 173, 0.6);
+}
+.button-item.btn-primary:active,
+.button-item.btn-primary.active,
+.open > .dropdown-toggle.button-item.btn-primary {
+  background-image: none;
+}
+.button-item.btn-primary.disabled:hover,
+.button-item.btn-primary[disabled]:hover,
+fieldset[disabled] .button-item.btn-primary:hover,
+.button-item.btn-primary.disabled:focus,
+.button-item.btn-primary[disabled]:focus,
+fieldset[disabled] .button-item.btn-primary:focus,
+.button-item.btn-primary.disabled.focus,
+.button-item.btn-primary[disabled].focus,
+fieldset[disabled] .button-item.btn-primary.focus {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.button-item.btn-primary.disabled:focus,
+.button-item.btn-primary[disabled]:focus,
+fieldset[disabled] .button-item.btn-primary:focus,
+.button-item.btn-primary.disabled.focus,
+.button-item.btn-primary[disabled].focus,
+fieldset[disabled] .button-item.btn-primary.focus {
+  -webkit-box-shadow: 0 0 0 rgba(173, 173, 173, 0);
+  box-shadow: 0 0 0 rgba(173, 173, 173, 0);
+}
+.button-item.btn-primary .badge {
+  color: #fff;
+  background-color: #333;
+}
+.button-item.btn-primary.active {
+  color: #fff;
+  background-color: #265680;
+  border-color: #20496c;
+}
+.button-item.btn-primary.active:focus,
+.button-item.btn-primary.active.focus {
+  color: #fff;
+  background-color: #1a3c59;
+  border-color: #12293d;
+  -webkit-box-shadow: 0 0 6px rgba(18, 41, 61, 0.6);
+  box-shadow: 0 0 6px rgba(18, 41, 61, 0.6);
+}
+.button-item.btn-primary.active:hover {
+  color: #fff;
+  background-color: #1a3c59;
+  border-color: #12293d;
+}
+.button-item.btn-primary.active:active,
+.button-item.btn-primary.active.active,
+.open > .dropdown-toggle.button-item.btn-primary.active {
+  color: #fff;
+  background-color: #1a3c59;
+  border-color: #12293d;
+}
+.button-item.btn-primary.active:active:hover,
+.button-item.btn-primary.active.active:hover,
+.open > .dropdown-toggle.button-item.btn-primary.active:hover,
+.button-item.btn-primary.active:active:focus,
+.button-item.btn-primary.active.active:focus,
+.open > .dropdown-toggle.button-item.btn-primary.active:focus,
+.button-item.btn-primary.active:active.focus,
+.button-item.btn-primary.active.active.focus,
+.open > .dropdown-toggle.button-item.btn-primary.active.focus {
+  color: #fff;
+  background-color: #0f2131;
+  border-color: #04090e;
+}
+.button-item.btn-primary.active:active:focus,
+.button-item.btn-primary.active.active:focus,
+.open > .dropdown-toggle.button-item.btn-primary.active:focus,
+.button-item.btn-primary.active:active.focus,
+.button-item.btn-primary.active.active.focus,
+.open > .dropdown-toggle.button-item.btn-primary.active.focus {
+  -webkit-box-shadow: 0 0 6px rgba(18, 41, 61, 0.6);
+  box-shadow: 0 0 6px rgba(18, 41, 61, 0.6);
+}
+.button-item.btn-primary.active:active,
+.button-item.btn-primary.active.active,
+.open > .dropdown-toggle.button-item.btn-primary.active {
+  background-image: none;
+}
+.button-item.btn-primary.active.disabled:hover,
+.button-item.btn-primary.active[disabled]:hover,
+fieldset[disabled] .button-item.btn-primary.active:hover,
+.button-item.btn-primary.active.disabled:focus,
+.button-item.btn-primary.active[disabled]:focus,
+fieldset[disabled] .button-item.btn-primary.active:focus,
+.button-item.btn-primary.active.disabled.focus,
+.button-item.btn-primary.active[disabled].focus,
+fieldset[disabled] .button-item.btn-primary.active.focus {
+  background-color: #265680;
+  border-color: #20496c;
+}
+.button-item.btn-primary.active.disabled:focus,
+.button-item.btn-primary.active[disabled]:focus,
+fieldset[disabled] .button-item.btn-primary.active:focus,
+.button-item.btn-primary.active.disabled.focus,
+.button-item.btn-primary.active[disabled].focus,
+fieldset[disabled] .button-item.btn-primary.active.focus {
+  -webkit-box-shadow: 0 0 0 rgba(18, 41, 61, 0);
+  box-shadow: 0 0 0 rgba(18, 41, 61, 0);
+}
+.button-item.btn-primary.active .badge {
+  color: #265680;
+  background-color: #fff;
 }
 /* Basic question css */
 .question-container {
