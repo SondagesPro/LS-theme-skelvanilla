@@ -1,24 +1,22 @@
 <!-- LimeSurvey valid message and help -->
-<!-- Remove all extra to use empty if able -->
-{% if ((aQuestion.valid_message | raw | trim)  or (aQuestion.man_message | raw | trim)  or (aQuestion.file_valid_message | raw | trim) or (aQuestion.mandatory != '' and aQuestion.mandatory  != 'N') ) %}
-    <div class="{{ aSurveyInfo.class.questionvalidcontainer }} {{ aSurveyInfo.options.validitycolor }}" {{ aSurveyInfo.attr.questionvalidcontainer }}>
-    {% if(aQuestion.valid_message) %}
-        {{ str_replace(' role="alert"','',aQuestion.valid_message) | raw | trim }}
-    {% endif %}
-    {% if(aQuestion.mandatory != '' and aQuestion.mandatory  != 'N') %}
-        {% if(aQuestion.man_message) %}
+
+<div class="{{ aSurveyInfo.class.questionvalidcontainer }} {{ aSurveyInfo.options.validitycolor }}" {{ aSurveyInfo.attr.questionvalidcontainer }}>
+{% if(aQuestion.valid_message) %}
+    {{ str_replace(' role="alert"','',aQuestion.valid_message) | raw | trim }}
+{% endif %}
+{% if mandatory %}
+    {% if(aQuestion.man_message) %}
+        <div id="question-mandatory-{{ aQuestion.qid }}">
+            {{ aQuestion.man_message }}
+        </div>
+    {% else %}
+        {% if mandatoryposition == 'astip'%}
             <div id="question-mandatory-{{ aQuestion.qid }}">
-                {{ aQuestion.man_message }}
+                {{ include('./survey/questions/question_help/mandatory_tip.twig') }}
             </div>
-        {% else %}
-            {% if aSurveyInfo.options.mandatoryposition == 'astip' or aSurveyInfo.options.mandatoryposition is empty %}
-                <div id="question-mandatory-{{ aQuestion.qid }}">
-                    {{ include('./survey/questions/question_help/mandatory_tip.twig') }}
-                </div>
-            {% endif %}
         {% endif %}
     {% endif %}
-    {% if(aQuestion.file_valid_message) %}
-        {{ aQuestion.file_valid_message | raw | trim}}
-    {% endif %}</div>
 {% endif %}
+{% if(aQuestion.file_valid_message) %}
+    {{ aQuestion.file_valid_message | raw | trim}}
+{% endif %}</div>

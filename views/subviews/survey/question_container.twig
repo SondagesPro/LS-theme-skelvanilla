@@ -121,6 +121,14 @@
     {% set containererrorclass = '' %}
 {% endif %}
 {% set questioncontainerclass = questioncontainerclass ~ ' wrap-' ~ questionwrap %}
+{% set mandatory = (aQuestion.mandatory != '' and aQuestion.mandatory  != 'N') %}
+{% if mandatory %}
+    {% set mandatoryposition = 'astip' %}
+    {% if ( aSurveyInfo.options.mandatoryposition) %}
+        {% set mandatoryposition = aSurveyInfo.options.mandatoryposition %}
+    {% endif %}
+{% endif %}
+
 {# End of Options #}
 
 {% if displayhtml %}

@@ -1,61 +1,33 @@
-{#
-    LimeSurvey
-    Copyright (C) 2007-2017 The LimeSurvey Project Team / Louis Gac
-    All rights reserved.
-    License: GNU/GPL License v2 or later, see LICENSE.php
-    LimeSurvey is free software. This version may have been modified pursuant
-    to the GNU General Public License, and as distributed it includes or
-    is derivative of works licensed under the GNU General Public License or
-    other free or open source software licenses.
-    See COPYRIGHT.php for copyright notices and details.
-
-
-
-    (¯`·._.·(¯`·._.· Question Layout  ·._.·´¯)·._.·´¯)
-
-    This file is one of the most important of the rendering progress.
-    It will render a question. It's included in the for loop in group.twig
-
-    Here, you have access to the array aQuestion that contains the data of the current question.
-    To see what's inside aQuestion, turn debug mode on, and copy the following line to the end of this file:
-    {{ dump(aQuestion) }}
-
-    All content of aQuestion itself is generated from qanda_helper.
-    To modify it, you must create a question theme and apply it to the question in its display settings
-    (here, you're inside the survey theme, applied to the survey in its settings).
-
-#}
 {# Showing question code/number is a survey level setting, so it's inside the array aSurveyInfo #}
-{% set aShow        = aSurveyInfo.aShow   %}
-    <!-- Question {{ aQuestion.code }} -->
-    {# Question Text #}
-    {% if not no_include_text %}
-        {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
+<!-- Question {{ aQuestion.code }} -->
+{# Question Text #}
+{% if not no_include_text %}
+    {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
+{% endif %}
+{% if panel %} <div class="panel-body"> {% endif %}
+{% set ariadescribe = ''  %}
+{% if mandatory %}
+    {% set ariadescribe = ariadescribe ~ " question-mandatory-" ~ aQuestion.qid  %}
+{% endif %}
+{# To have default limesurvey behaviour : move this line at end #}
+{{ include('./subviews/survey/question_subviews/survey_question_help.twig') }}
+{% if aQuestion.help.show %}
+    {% set ariadescribe = ariadescribe ~ " question-help-" ~ aQuestion.qid  %}
+{% endif %}
+{% if ( (aQuestion.valid_message | raw | trim) or (aQuestion.man_message | raw | trim) or (aQuestion.file_valid_message | raw | trim) or mandatoryposition == 'astip') %}
+    {{ include('./subviews/survey/question_subviews/valid_message_and_help.twig') }}
+    {% if(aQuestion.valid_message) %}
+        {% set ariadescribe = ariadescribe ~ " vmsg_" ~ aQuestion.qid  %}
     {% endif %}
-    {% if panel %} <div class="panel-body"> {% endif %}
-    {% set ariadescribe = ''  %}
-    {% if aQuestion.mandatory != '' and aQuestion.mandatory  != 'N' %}
-        {% set ariadescribe = ariadescribe ~ " question-mandatory-" ~ aQuestion.qid  %}
+    {% if(aQuestion.file_valid_message) %}
+        {% set ariadescribe = ariadescribe ~ " file_" ~ aQuestion.qid  %}
     {% endif %}
-    {# To have default limesurvey behaviour : move this line at end #}
-    {{ include('./subviews/survey/question_subviews/survey_question_help.twig') }}
-    {% if aQuestion.help.show %}
-        {% set ariadescribe = ariadescribe ~ " question-help-" ~ aQuestion.qid  %}
-    {% endif %}
-    {% if ( (aQuestion.valid_message | raw | trim) or (aQuestion.man_message | raw | trim) or (aQuestion.file_valid_message | raw | trim) ) %}
-        {{ include('./subviews/survey/question_subviews/valid_message_and_help.twig') }}
-        {% if(aQuestion.valid_message) %}
-            {% set ariadescribe = ariadescribe ~ " vmsg_" ~ aQuestion.qid  %}
-        {% endif %}
-        {% if(aQuestion.file_valid_message) %}
-            {% set ariadescribe = ariadescribe ~ " file_" ~ aQuestion.qid  %}
-        {% endif %}
-    {% endif %}
-    {# Answers #}
-    {% set ariadescribe = ( ariadescribe | trim ) %}
-    {{ include('./subviews/survey/question_subviews/answers.twig') }}
-    {% if not aQuestion.help.show %}
-        {{ aQuestion.help.text | raw }}
-    {% endif %}
-    {% if (panel) %} </div>{% endif %}
-    <!-- End of question {{ aQuestion.code }} -->
+{% endif %}
+{# Answers #}
+{% set ariadescribe = ( ariadescribe | trim ) %}
+{{ include('./subviews/survey/question_subviews/answers.twig') }}
+{% if not aQuestion.help.show %}
+    {{ aQuestion.help.text | raw }}
+{% endif %}
+{% if (panel) %} </div>{% endif %}
+<!-- End of question {{ aQuestion.code }} -->

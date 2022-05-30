@@ -1,12 +1,10 @@
 {# If the question is mandatory, the asterisk will be shown  #}
-{% if aQuestion.mandatory != '' and aQuestion.mandatory  != 'N' %}
-    {% set mandatoryposition = 'astip' %}
-    {% if ( aSurveyInfo.options.mandatoryposition) %}
-        {% set mandatoryposition = aSurveyInfo.options.mandatoryposition %}
-    {% endif %}
-    <!-- Add a visual information + just Mandatory string for aria : can be improved -->
-    <div id="question-asterisk-{{ aQuestion.qid }}" class="{{ aSurveyInfo.class.questionasterix }}{% if mandatoryposition != 'block' %} pull-left{% endif %}" {{ aSurveyInfo.attr.questionasterix }} >
-        <small class="{{ aSurveyInfo.class.questionasterixsmall }} text-danger fa fa-asterisk small" {{ aSurveyInfo.attr.questionasterixsmall }}></small>
+{% if mandatory %}
+    <!-- Add a visual information + just Mandatory string for aria if not shown -->
+    <div id="question-asterisk-{{ aQuestion.qid }}" class="{{ aSurveyInfo.class.questionasterix }}{% if mandatoryposition != 'block' %} pull-left{% endif %}" {{ aSurveyInfo.attr.questionasterix }}{% if mandatoryposition == 'astip' %} aria-hidden="true"{% endif %}>
+        <small class="{{ aSurveyInfo.class.questionasterixsmall }} text-danger fa fa-asterisk small" {{ aSurveyInfo.attr.questionasterixsmall }}
+        {% if mandatoryposition == 'astip' %} title="{{ gT("(This question is mandatory)")|escape }}"{% endif %}
+        ></small>
         {% if mandatoryposition != 'astip' %}
             <span class="{{ aSurveyInfo.class.questionasterixspan }} text-danger{% if mandatoryposition == 'off' %} sr-only{% endif %}" {{ aSurveyInfo.attr.questionasterixspan }}{% if aQuestion.man_message is empty%} id="question-mandatory-{{ aQuestion.qid }}"{% endif %} >
                 {{ gT("(This question is mandatory)") }}
@@ -14,19 +12,21 @@
         {% endif %}
     </div>
 {% endif %}
+
+{% set aShow        = aSurveyInfo.aShow   %}
 {# If the question number is to be shown (set in survey settings) #}
 {% if (aShow.question_number) %}
     <span class='label label-default question-number pull-left' {{ aSurveyInfo.attr.questionnumber }} >
         {{ aQuestion.number }}
     </span>
 {% endif %}
-
 {# If the question code is to be shown (set in survey settings) #}
 {% if (aShow.question_code) %}
     <span class='label label-info question-number pull-left' {{ aSurveyInfo.attr.questioncode }}>
         {{ aQuestion.code }}
     </span>
 {% endif %}
+
 {% set tagQuestion = 'div' %}
 {% if ( aSurveyInfo.options.questionhtag == 'on' ) %}
     {% if ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) %}
