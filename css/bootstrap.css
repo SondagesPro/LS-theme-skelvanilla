@@ -4,7 +4,7 @@
  * Copyright 2018-2022 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 3.4.0
+ * @version 3.4.1
  */
 /*!
  * This is a generated file
@@ -5928,17 +5928,17 @@ button.list-group-item-danger.active:focus {
   font-weight: bold;
   line-height: 1;
   color: #000;
-  text-shadow: 0 1px 0 #fff;
-  opacity: 0.2;
-  filter: alpha(opacity=20);
+  text-shadow: 0 1px 0 #000;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
 }
 .close:hover,
 .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.8;
+  filter: alpha(opacity=80);
 }
 button.close {
   padding: 0;
