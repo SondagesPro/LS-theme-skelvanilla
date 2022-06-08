@@ -1,3 +1,4 @@
+/* @version 10.6.4 */
 var skelVanilla = {
     init : function (options) {
         this.languageChanger();
@@ -224,11 +225,24 @@ var skelVanilla = {
      * See https://bugs.limesurvey.org/view.php?id=17586
      **/
     topMenuAction : function() {
-        $("[data-limesurvey-submit][role='button'],[data-limesurvey-lang][role='button'],[data-toggle='dropdown']").on('keypress', function(event) {
+        $("[data-limesurvey-move][role='button'],[data-limesurvey-submit][role='button'],[data-limesurvey-lang][role='button'],[data-toggle='dropdown']").on('keypress', function(event) {
             var keycode = (event.keyCode ? event.keyCode : event.which);
             if(keycode == '13'){
                 $(this).trigger('click');
             }
+        });
+        $("[data-limesurvey-move]").on("click", function() {
+            event.preventDefault();
+            var value = $(this).attr('data-limesurvey-move');
+            var buttons = $("button[type=submit][name=move][value=" + value + "], input[type=submit][name=move][value=" + value + "]");
+            if( !buttons.length) {
+                $("<button/>",{
+                    'type':"submit",
+                    'name':"move",
+                    'value':value,
+                }).appendTo('form#limesurvey');
+            }
+            buttons.last().trigger('click');
         });
     }
 };
