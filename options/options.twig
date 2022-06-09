@@ -107,7 +107,7 @@
                 {# Show popups #}
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_showpopups' class='control-label col-xs-4'>{{ gT("Show Error Popups") }}</label>
+                        <label for='simple_edit_options_showpopups' class='control-label col-xs-4'>{{ gT("Show Alert Messages") }}</label>
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_showpopups' name='showpopups'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
@@ -118,7 +118,7 @@
                                 <option value="-1">{{ gT("Off") }}</option>
                             </select>
                         </div>
-			<p class="help-block col-xs-12">{{ gT("If Dynamic Validity is set to No: Setting to Popup will display a modal notice of errors. If Off, no popup is shown. If On page, then options for Dynamic validity and Links to errors can be set.") }}</p>
+			<p class="help-block col-xs-12">{{ gT("Setting to Popup will display error messages in a modal popup. If set to On Page or Off, then errors displayed on-screen after page refresh. Note setting Dynamic Validity to Yes will override these settings") }}</p>
                     </div>
                 </div>
             </div>
@@ -149,7 +149,7 @@
                         {% else %}
                         {% endif %}
                         </div>
-                        <p class="col-xs-12 help-block">{{ gT("This uses JavaScript to refocus user to the first question that fails validation. This is still experimental. Please report any issues.") }}</p>
+                        <p class="col-xs-12 help-block">This uses HTML5 <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Constraint_validation" target="_blank">constraint validation</a> to refocus user to the first question that fails validation. This is still experimental. Please report any issues.</p>
                     </div>
                 </div>
                 {# Position of Mandatory Notice#}
@@ -244,7 +244,7 @@
                                     </label>
                                 {% endif %}
                             </div>
-<p class="help-block">{{ gT("If set to [Yes], for maximum compliance, use plain text for your questions and avoid other H1-H6 headings.") }}</p>
+			    <p class="help-block">{{ gT("If set to [Yes], questions will be wrapped in H2 or H3 tags. For maximum compliance, use plain text for your questions") }}</p>
                         </div>
                     </div>
                 </div>
@@ -378,7 +378,7 @@
                                 {% endif %}
                             </div>
                         </div>
-			<p class="help-block col-xs-12">{{ gT("Include Jump to Survey link at top left when using screen reader or keyboard navigation.") }}</p>
+			<p class="help-block col-xs-12">{{ gT("Show the survey question index (allows users to jump to specific part of a survey") }}</p>
                     </div>
                 </div>
                 <div class='col-sm-12 col-md-6 col-lg-4'>
@@ -584,7 +584,7 @@
                         <p class="help-block col-xs-12">{{ gT("Select text style for question text to inherit. Size is defined by bootstrap theme.") }}</p>
                     </div>
                 </div>
-                {# Question color #}
+                {# Question colour #}
                 <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
                     <div class='form-group row'>
                         <label for='simple_edit_options_questioncolor' class='control-label col-xs-4'> {{ gT("Question colour") }} </label>
@@ -600,7 +600,7 @@
                                 <option value="warning">{{ gT("Warning color") }}</option>
                             </select>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Colours are inherited from your bootsrap theme.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Colours are inherited from your bootstrap theme.") }}</p>
                     </div>
                 </div>
                 {# Question color on error#}
@@ -633,7 +633,7 @@
                                 <option value="panel">{{ gT("Panel wrapper") }}</option>
                             </select>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Option to add a border and coloured background for questions. Wells wrapper uses rounded border. Panel wrapper includes background colour. ") }}</p>
+                        <p class="help-block col-xs-12"><p>Option to add a border and coloured background for questions. <a href="https://getbootstrap.com/docs/3.3/components/#wells" target="_blank">Wells wrapper</a> uses rounded border. <a href="https://getbootstrap.com/docs/3.3/components/#panels-alternatives" target="blank">Panel wrapper</a> includes background colour.</p>
                     </div>
                 </div>
             </div>
@@ -655,7 +655,7 @@
                                 <option value="text-warning">{{ gT("Text warning") }}</option>
                             </select>
                         </div>
-		       <p class="help-block col-xs-12">{{ gT("Style to use to display question help messages") }}</p>
+		       <p class="help-block col-xs-12">{{ gT("Colour to use to display question help messages") }}</p>
                     </div>
                 </div>
                 {# Help color #}
