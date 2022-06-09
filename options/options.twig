@@ -50,13 +50,13 @@
             {% endif %}
 
             {# Functionnal #}
-            <h3 class="h3 action_hide_on_inherit">{{ gT("Functionnal") }}</h3>
+            <h3 class="h3 action_hide_on_inherit">{{ gT("Functionality") }}</h3>
             {# First settings row #}
             <div class="row action_hide_on_inherit">
                 {# hideprivacyinfo #}
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_hideprivacyinfo' class='control-label col-xs-4'>{{ gT("Hide anonymity information") }}</label>
+                        <label for='simple_edit_options_hideprivacyinfo' class='control-label col-xs-4'>{{ gT("Hide Anonymous notice") }}</label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default">
@@ -76,6 +76,7 @@
                                 {% endif %}
                             </div>
                         </div>
+			<p class="help-block col-xs-12">{{ gT("Hide the [This survey is anonymous] notice on the Welcome page.") }}</p>
                     </div>
                 </div>
                 {# Clear all #}
@@ -100,12 +101,13 @@
                                 {% endif %}
                             </div>
                         </div>
+		       <p class="help-block col-xs-12">{{ gT("Hide the [Clear All/Delete my Response] from the top nav") }}</p>
                     </div>
                 </div>
                 {# Show popups #}
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_showpopups' class='control-label col-xs-4'>{{ gT("Show popups") }}</label>
+                        <label for='simple_edit_options_showpopups' class='control-label col-xs-4'>{{ gT("Show Error Popups") }}</label>
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_showpopups' name='showpopups'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
@@ -116,6 +118,7 @@
                                 <option value="-1">{{ gT("Off") }}</option>
                             </select>
                         </div>
+			<p class="help-block col-xs-12">{{ gT("If Dynamic Validity is set to No: Setting to Popup will display a modal notice of errors. If Off, no popup is shown. If On page, then options for Dynamic validity and Links to errors can be set.") }}</p>
                     </div>
                 </div>
             </div>
@@ -141,17 +144,15 @@
                                         {{ gT("Inherit") }}
                                     </label>
                                 {% endif %}
-                            </div>
-                        </div>
-                        {% if(not oParentOptions.dynamicvalidity) %}
+                            </div>{% if(not oParentOptions.dynamicvalidity) %}
                             <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
                         {% else %}
-                            <p class="col-xs-12 help-block">{{ gT("Use required and input validity according to survey. Using javascript only.") }}</p>
-                            <p class="col-xs-12 help-block text-warning">{{ gT("This is a work in progress feature, please test and report issue.") }}</p>
                         {% endif %}
+                        </div>
+                        <p class="col-xs-12 help-block">{{ gT("This uses JavaScript to refocus user to the first question that fails validation. This is still experimental. Please report any issues.") }}</p>
                     </div>
                 </div>
-                {# Mandatory position #}
+                {# Position of Mandatory Notice#}
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
                         <label for='simple_edit_options_mandatoryposition' class='control-label col-xs-4'>{{ gT("Mandatory position") }}</label>
@@ -160,12 +161,12 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <option value="inherit"> {{ gT('Inherit') }}</option>
                                 {% endif %}
-                                <option value="off"}>{{ gT("Only asterisk and hidden aria help") }}</option>
-                                <option value="block">{{ gT("Asterisk and mandatory text") }}</option>
-                                <option value="astip">{{ gT("As other tips, just before answers.") }}</option>
+                                <option value="off"}>{{ gT("Only show asterisk and hidden aria help") }}</option>
+                                <option value="block">{{ gT("Show both asterisk and mandatory text") }}</option>
+                                <option value="astip">{{ gT("Show like  tips: just before answers.") }}</option>
                             </select>
                         </div>
-                        <p class="col-xs-12 help-block">{{ gT("Asterisk still shown, but with or without associated text.") }}</p>
+                       <p class="col-xs-12 help-block">{{ gT("Asterisk will be shown in all cases. Choice of showing Mandatory text label or not.") }}</p>
                     </div>
                 </div>
                 
@@ -191,8 +192,9 @@
                                     </label>
                                 {% endif %}
                             </div>
-                            <p class="help-block">{{ gT("If show popups is set to on page : add the list of error in the error alert.") }}</p>
+
                         </div>
+		<p class="help-block">{{ gT("If Show Popups is set to [On page], then display the list of errors in the error alert.") }}</p>	
                     </div>
                 </div>
             </div>
@@ -201,7 +203,7 @@
                 {# Fix num auto (and real num value) #}
                 <div class='col-sm-12 col-md-6 col-lg-4 container-fluid'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_fixnumauto' class='control-label col-xs-4'>{{ gT("Fix automatically numeric value") }}</label>
+                        <label for='simple_edit_options_fixnumauto' class='control-label col-xs-4'>{{ gT("Automatically fix numeric values") }}</label>
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_fixnumauto' name='fixnumauto'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
@@ -213,6 +215,7 @@
                                 <option value="partial">{{ gT("For expression") }}</option>
                                 <option value="disable">{{ gT("No") }}</option>
                             </select>
+			    <p class="help-block">{{ gT("If set to [Yes], numeric fields with alpha input will have the alpha portion removed (eg ABC22 becomes 22)") }}</p>
                         </div>
                     </div>
                 </div>
@@ -222,7 +225,7 @@
                 {# Tag for question #}
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_questionhtag' class='control-label col-xs-4'> {{ gT("h2 or h3 title for question") }} </label>
+                        <label for='simple_edit_options_questionhtag' class='control-label col-xs-4'> {{ gT("Use H2 or H3 tag for questions") }} </label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons" role="radiogroup" data-default='off'>
                                 <label class="btn btn-default">
@@ -241,14 +244,14 @@
                                     </label>
                                 {% endif %}
                             </div>
-                            <p class="help-block">{{ gT("Be sure to use only one line text without complex HTML.") }}</p>
+<p class="help-block">{{ gT("If set to [Yes], for maximum compliance, use plain text for your questions and avoid other H1-H6 headings.") }}</p>
                         </div>
                     </div>
                 </div>
                 {# Set hash to disable previous navigator#}
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_removeback' class='control-label col-xs-4'> {{ gT("Remove back") }} </label>
+                        <label for='simple_edit_options_removeback' class='control-label col-xs-4'> {{ gT("Disable back button") }} </label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default">
@@ -268,9 +271,9 @@
                             </div>
                         </div>
                         {% if(not oParentOptions.removeback) %}
-                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
+                            <p class="col-xs-12 text-warning">{{ gT("You need to reset the template to use this option.") }}</p>
                         {% else %}
-                            <p class="col-xs-12 help-block">{{ gT("Add a javascript system to disable previous button of web navigator.") }}</p>
+                            <p class="col-xs-12 help-block">{{ gT("Add JavaScript to prevent use of Back button in web browser.") }}</p>
                         {% endif %}
                     </div>
                 </div>
@@ -296,16 +299,16 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Header on table uise css to always be shown at top of table.") }}</p>
+			<p class="help-block col-xs-12">{{ gT("Enable CSS to always show Table Header  at top of table") }}</p>
                     </div>
                 </div>
             </div>
 
-            <h3 class="h4 action_hide_on_inherit">{{ gT("Top link actions") }}</h3>
+            <h3 class="h4 action_hide_on_inherit">{{ gT("Top nav bar link options") }}</h3>
             <div class="row action_hide_on_inherit">
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label id='simple_edit_options_savelink' class='control-label col-xs-4'> {{ gT("Save header link") }} </label>
+                        <label id='simple_edit_options_savelink' class='control-label col-xs-4'> {{ gT("Save Response") }} </label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_savelink' data-default='on'>
                                 <label class="btn btn-default">
@@ -326,10 +329,11 @@
                             </div>
                         </div>
                     </div>
+		    <p class="help-block col-xs-12">{{ gT("Show Save My Response button in header.") }}</p>	
                 </div>
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label id='simple_edit_options_clearalllink' class='control-label col-xs-4'> {{ gT("Clear all header link") }} </label>
+                        <label id='simple_edit_options_clearalllink' class='control-label col-xs-4'> {{ gT("Clear All/Delete Response") }} </label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_clearalllink' data-default='on'>
                                 <label class="btn btn-default">
@@ -349,11 +353,12 @@
                                 {% endif %}
                             </div>
                         </div>
+			<p class="help-block col-xs-12">{{ gT("Hide the Clear All/Delete my Response button in nav bar.") }}</p>			 
                     </div>
                 </div>
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label id='simple_edit_options_indexlink' class='control-label col-xs-4'> {{ gT("Index header links") }} </label>
+                        <label id='simple_edit_options_indexlink' class='control-label col-xs-4'> {{ gT("Index links") }} </label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_indexlink' data-default='on'>
                                 <label class="btn btn-default">
@@ -373,11 +378,12 @@
                                 {% endif %}
                             </div>
                         </div>
+			<p class="help-block col-xs-12">{{ gT("Include Jump to Survey link at top left when using screen reader or keyboard navigation.") }}</p>
                     </div>
                 </div>
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label id='simple_edit_options_languagelink' class='control-label col-xs-4'> {{ gT("Langage changer header links") }} </label>
+                        <label id='simple_edit_options_languagelink' class='control-label col-xs-4'> {{ gT("Language changer links") }} </label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_languagelink' data-default='on'>
                                 <label class="btn btn-default">
@@ -397,11 +403,12 @@
                                 {% endif %}
                             </div>
                         </div>
+			<p class="help-block col-xs-12">{{ gT("Show the Language Changer in the top nav bar.") }}</p>
                     </div>
                 </div>
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label id='simple_edit_options_previouslink' class='control-label col-xs-4'> {{ gT("Move previous header link") }} </label>
+                        <label id='simple_edit_options_previouslink' class='control-label col-xs-4'> {{ gT("Display Previous button") }} </label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_previouslink' data-default='off'>
                                 <label class="btn btn-default">
@@ -421,11 +428,12 @@
                                 {% endif %}
                             </div>
                         </div>
+			<p class="col-xs-12 help-block">{{ gT("Show the Previous button in the top nav bar.") }}</p>
                     </div>
                 </div>
                 <div class='col-sm-12 col-md-6 col-lg-4'>
                     <div class='form-group row'>
-                        <label id='simple_edit_options_nextsubmitlink' class='control-label col-xs-4'> {{ gT("Move next and submit header link") }} </label>
+                        <label id='simple_edit_options_nextsubmitlink' class='control-label col-xs-4'> {{ gT("Display Next and Submit buttons") }} </label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_nextsubmitlink' data-default='off'>
                                 <label class="btn btn-default">
@@ -445,6 +453,7 @@
                                 {% endif %}
                             </div>
                         </div>
+			<p class="help-block col-xs-12">{{ gT("Show Next and Submit buttons in the top nav bar") }}</p>			
                     </div>
                 </div>
             </div>
@@ -483,7 +492,7 @@
                                             {% endif %}
                                         {% endfor %}
                                     </select>
-                                    <p class="help-block">All variations done with <a href="https://gitlab.com/SondagesPro/SurveyThemes/less-skelvanilla">less-skelvanilla</a>.<br>Contrast use contrasted color and use the default browser font and font size. Fruity are updated contrats using same color than Fruity LimeSurvey theme, Copyright (c) 2018-2019 LimeSurvey team.<br>Other variations come from <a href="https://bootswatch.com/3/">bootswatch</a>, Copyright (c) 2013 Thomas Park.</p>
+                                    <p class="help-block">Contrast uses contrasted color and uses the default browser font and font size. <br>Fruity variations are based on core Fruity theme. Other variations are based on <a href="https://bootswatch.com/3/">bootswatch</a>.</p>
                                     {% if templateConfiguration.sid is not empty %}
                                         <div class='hidden' id='inherited-available-variation'></div>
                                     {% endif %}
@@ -525,6 +534,7 @@
                                 {% endif %}
                             </div>
                         </div>
+			<p class="col-xs-12 help-block">{{ gT("Add left and right margins to the survey so that it isn't rendered full browser width.") }}</p>
                     </div>
                 </div>
                 <div class='col-sm-12 col-md-6 col-lg-3'>
@@ -549,12 +559,12 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Set as following survey container, default is no : header take all width.") }}</p>
+<p class="help-block col-xs-12">{{ gT("Force nav bar to be same width as survey container (if Survey container set to [Yes], then margins are applied to top nav bar, else nav bar will be full width.") }}</p>
                     </div>
                 </div>
             </div>
             <div class="row action_hide_on_inherit">
-                {# Question size #}
+                {# Question text size #}
                 <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
                     <div class='form-group row'>
                         <label for='simple_edit_options_questionsize' class='control-label col-xs-4'> {{ gT("Question size") }} </label>
@@ -571,13 +581,13 @@
                                 <option value="lead">lead</option>
                             </select>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Size are from your bootsrap theme.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Select text style for question text to inherit. Size is defined by bootstrap theme.") }}</p>
                     </div>
                 </div>
                 {# Question color #}
                 <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_questioncolor' class='control-label col-xs-4'> {{ gT("Question color") }} </label>
+                        <label for='simple_edit_options_questioncolor' class='control-label col-xs-4'> {{ gT("Question colour") }} </label>
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_questioncolor' name='questioncolor'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
@@ -590,7 +600,7 @@
                                 <option value="warning">{{ gT("Warning color") }}</option>
                             </select>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Color are from your bootsrap theme. With panel : it's the panel color.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Colours are inherited from your bootsrap theme.") }}</p>
                     </div>
                 </div>
                 {# Question color on error#}
@@ -606,7 +616,7 @@
                                 <option value="off">{{ gT("No") }}</option>
                             </select>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Only when survey is submitted and there are error : set danger color to the question.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Style to apply when survey is submitted and there are on-page errors. Use the theme's danger colour to highlight the question.") }}</p>
                     </div>
                 </div>
                 {# Question wrapper #}
@@ -623,7 +633,7 @@
                                 <option value="panel">{{ gT("Panel wrapper") }}</option>
                             </select>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Simple usage of well or panel from bootrap, for panel : color is for background.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Option to add a border and coloured background for questions. Wells wrapper uses rounded border. Panel wrapper includes background colour. ") }}</p>
                     </div>
                 </div>
             </div>
@@ -631,7 +641,7 @@
                 {# Help color #}
                 <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_helpcolor' class='control-label col-xs-4'> {{ gT("Help color") }} </label>
+                        <label for='simple_edit_options_helpcolor' class='control-label col-xs-4'> {{ gT("Help colour") }} </label>
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_helpcolor' name='helpcolor'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
@@ -645,6 +655,7 @@
                                 <option value="text-warning">{{ gT("Text warning") }}</option>
                             </select>
                         </div>
+		       <p class="help-block col-xs-12">{{ gT("Style to use to display question help messages") }}</p>
                     </div>
                 </div>
                 {# Help color #}
@@ -664,6 +675,7 @@
                                 <option value="text-warning">{{ gT("Text warning") }}</option>
                             </select>
                         </div>
+		       <p class="help-block col-xs-12">{{ gT("Style to use to dynamic JavaScript validity/error messages.") }}</p>
                     </div>
                 </div>
             </div>
@@ -692,6 +704,7 @@
                                 {% endif %}
                             </div>
                         </div>
+			<p class="help-block col-xs-12">{{ gT("Make the top nav bar sticky, so it always remains on screen.") }}</p>
                     </div>
                 </div>
             </div>
@@ -699,7 +712,7 @@
                 {# Body loading loaded #}
                 <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_bodyloaded' class='control-label col-xs-4'> {{ gT("Body loaded") }} </label>
+                        <label for='simple_edit_options_bodyloaded' class='control-label col-xs-4'> {{ gT("Page Preloader") }} </label>
                         <div class='col-xs-8'>
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default">
@@ -719,9 +732,9 @@
                             </div>
                         </div>
                         {% if(not oParentOptions.bodyloaded) %}
-                            <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
+                            <p class="col-xs-12 text-warning">{{ gT("You need to reset the template to use this option.") }}</p>
                         {% else %}
-                            <p class="help-block col-xs-12">{{ gT("Hide content before loaded.") }}</p>
+                            <p class="help-block col-xs-12">{{ gT("Show spinner animation and delay page rendering until content has fully loaded into browser.") }}</p>
                         {% endif %}
                     </div>
                 </div>
@@ -735,7 +748,7 @@
                 {# Description #}
                 <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_descriptiondisplay' class='control-label col-xs-4'> {{ gT("Survey description display") }} </label>
+                        <label for='simple_edit_options_descriptiondisplay' class='control-label col-xs-4'> {{ gT("Display survey Description text") }} </label>
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_descriptiondisplay' name='descriptiondisplay' data-default="welcome">
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
@@ -745,6 +758,7 @@
                                 <option value="all">{{ gT("All page") }}</option>
                             </select>
                         </div>
+			<p class="help-block col-xs-12">{{ gT("By default, Survey Description text is shown on all pages. Use this to restrict it to only the welcome page.") }}</p>
                     </div>
                 </div>
                 {# Title location #}
@@ -761,6 +775,7 @@
                                 <option value="hidden">{{ gT("Hidden (in header for accessibility)") }}</option>
                             </select>
                         </div>
+			<p class="help-block col-xs-12">{{ gT("Specify how to display the Survey Title. By default, it is displayed at top left of nav bar ") }}</p>
                     </div>
                 </div>
             </div>
