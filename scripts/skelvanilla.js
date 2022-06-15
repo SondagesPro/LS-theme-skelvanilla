@@ -22,7 +22,13 @@ var skelVanilla = {
     },
     languageChanger : function () {
          $('form#limesurvey .form-change-lang [name="lang"] option:not(selected)').on('click', function(event) {
-            $('form#limesurvey [required]').removeAttr('required');
+            $(this).closest(".form-change-lang").find('button:[value="changelang"]').trigger('click');
+         });
+         $('form#limesurvey button[value="changelang"]').on('click', function(event) {
+            $("form#limesurvey").find(":required").removeAttr("required");
+            $("form#limesurvey").find(":invalid").each(function(){
+                $(this)[0].setCustomValidity('');
+            });
          });
     },
     addCheckedClass : function () {
