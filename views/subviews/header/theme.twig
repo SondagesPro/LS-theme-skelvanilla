@@ -5,5 +5,8 @@
 {% endif %}
 {% set theme = str_replace('image::theme::','',theme) %}
 {{ registerTemplateCssFile(theme) }}
+{% if aSurveyInfo.dir == 'rtl' %}
+    {{ registerTemplateCssFile('css/bootstrap-rtl.css') }}
+{% endif %}
 {{ registerTemplateCssFile('css/theme.css') }}
 {{ registerTemplateCssFile('css/custom.css') }}

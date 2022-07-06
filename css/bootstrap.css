@@ -1,15 +1,14 @@
 /*!
+ * This is a generated file
+ * Do your own variation for LimeSurvey
+ * Source : https://gitlab.com/SondagesPro/SurveyThemes/less-skelvanilla
+ *
  * Theme generator css for LimeSurvey template
  * Based on Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2018-2022 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 3.4.1
- */
-/*!
- * This is a generated file
- * Do your own variation for LimeSurvey
- * Source : https://gitlab.com/SondagesPro/SurveyThemes/less-skelvanilla
+ * @version 4.0.0
  */
 /** ~ 43% lighten(@gray-base, 46.7%); // #777 */
 /* For the button item of LimeSurvey core */
@@ -6943,8 +6942,13 @@ li.noanswer-item input[type="radio"]:checked + label {
   border-radius: 0.2rem;
 }
 .radio-item label::after {
-  content: " ";
   background: #1C5F74;
+  color: #1C5F74;
+  font-family: "FontAwesome";
+  content: "\f111";
+  font-size: 12px;
+  line-height: 12px;
+  text-indent: 0.1em;
 }
 .checkbox-item label::after {
   background: #1C5F74;
@@ -6953,7 +6957,7 @@ li.noanswer-item input[type="radio"]:checked + label {
   content: "\f00c";
   font-size: 12px;
   line-height: 12px;
-  text-indent: 0;
+  text-indent: 0.1em;
 }
 .dir-ltr .radio-item label::before,
 .dir-ltr .checkbox-item label::before {
