@@ -8,7 +8,7 @@
  * Copyright 2018-2022 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 4.0.1
+ * @version 4.0.2
  */
 /** ~ 43% lighten(@gray-base, 46.7%); // #777 */
 /* For the button item of LimeSurvey core */
@@ -7068,18 +7068,6 @@ td.checkbox-item input[type="checkbox"] {
     margin-top: 0;
   }
 }
-/* Some css fix for tools */
-.question-container.panel > .question-container.panel-body {
-  padding-top: 0;
-  margin-top: -1rem;
-  margin-bottom: 0;
-}
-.dir-ltr .question-container.skel-inside {
-  padding-left: 1rem;
-}
-.dir-rtl .question-container.skel-inside {
-  padding-right: 1rem;
-}
 .modal-open {
   overflow: hidden;
 }
@@ -8914,6 +8902,26 @@ li.slider-item {
   .form-inline .select2-container--bootstrap {
     display: inline-block;
   }
+}
+/* Some css fix for tools */
+.question-container.panel > .question-container.panel-body {
+  padding-top: 0;
+  margin-top: -1rem;
+  margin-bottom: 0;
+}
+.dir-ltr .question-container.skel-inside {
+  padding-left: 1rem;
+}
+.dir-rtl .question-container.skel-inside {
+  padding-right: 1rem;
+}
+h1.body-copy,
+h2.body-copy,
+h3.body-copy,
+h4.body-copy,
+h5.body-copy,
+h6.body-copy {
+  font-size: inherit;
 }
 /* Use this for global personalisation (for all variables) */
 /*# sourceMappingURL=bootstrap.css.map */
