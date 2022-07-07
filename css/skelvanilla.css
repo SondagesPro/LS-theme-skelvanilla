@@ -345,12 +345,6 @@ table > tbody > tr > td.ddprefix {
  */
 .table > tbody > tr > th{vertical-align: middle;}
 
- /* hide answers for text-display and equation question */
-.boilerplate.question-container > .answer-container {display:none;}
-.equation.question-container > .answer-container {display:none;}
-.boilerplate.question-container > .panel-body > .answer-container {display:none;}
-.equation.question-container > .panel-body > .answer-container {display:none;}
-
 /* Submitted error */
 .submitted-error .ls-em-tip,.submitted-error .ls-question-mandatory {
     font-weight: bold;
@@ -384,5 +378,5 @@ input.hide-sibling:checked + .sibling-checked-hide { display: none; }
 
 /* Some tools */
 .skel-no-question.question-container > .question-title-container { display: none; } /* not needed : it's not display, more clear adding it here */
-.skel-help-nothelp.question-container > .question-help-container, .skel-help-nothelp.question-container > .panel-body > .question-help-container {margin-left:0;margin-right:0;}
-.skel-help-nothelp.question-container > .question-help-container:before,  .skel-help-nothelp.question-container > .panel-body > .question-help-container:before {content:"";display: none;}
+.skel-help-nothelp.question-container > .question-help-container, .skel-help-nothelp.question-container > .panel-body:not(.question-container) > .question-help-container {margin-left:0;margin-right:0;}
+.skel-help-nothelp.question-container > .question-help-container:before,  .skel-help-nothelp.question-container > .panel-body:not(.question-container) > .question-help-container:before {content:"";display: none;}
