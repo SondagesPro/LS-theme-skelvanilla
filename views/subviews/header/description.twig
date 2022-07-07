@@ -1,7 +1,7 @@
 {% if aSurveyInfo.options.titlelocation == 'content' %}
-<h1 class="{% if (aSurveyInfo.options.container == "on") %} container {% else %} container-fluid {% endif %}">
-{{ pagetitle ?: processString(aSurveyInfo.surveyls_title,1) }}
-</h1>
+    <h1 class="{% if (aSurveyInfo.options.container == "on") %} container {% else %} container-fluid {% endif %}">
+    {{ pagetitle ?: processString(aSurveyInfo.surveyls_title,1) }}
+    </h1>
 {% endif %}
 {% if aSurveyInfo.options.descriptiondisplay == 'all' %}
     {% if processString(aSurveyInfo.description,1) %}

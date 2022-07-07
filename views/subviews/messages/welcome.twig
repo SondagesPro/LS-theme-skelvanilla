@@ -24,9 +24,11 @@
 <div id="{{ aSurveyInfo.id.welcomecontainer  | trim }}" class="{{ aSurveyInfo.class.welcomecontainer }}" {{ aSurveyInfo.attr.welcomecontainer }}>
 
     <!-- Survey Name -->
-    <h1 class="{{ aSurveyInfo.class.surveyname }} text-center" {{ aSurveyInfo.attr.surveyname }} >
-        {{ processString(aSurveyInfo.name,1) }}
-    </h1>
+    {% if aSurveyInfo.options.titlelocation != 'content' %}
+        <div class="h1 {{ aSurveyInfo.class.surveyname }} text-center" {{ aSurveyInfo.attr.surveyname }} >
+            {{ processString(aSurveyInfo.name,1) }}
+        </div>
+    {% endif %}
     {% if (aSurveyInfo.options.descriptiondisplay == 'welcome' or aSurveyInfo.options.descriptiondisplay is empty) %}
         <!-- Survey description -->
         <div class="{{ aSurveyInfo.class.description }} text-info" {{ aSurveyInfo.attr.description }}>
