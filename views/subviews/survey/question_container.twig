@@ -16,12 +16,39 @@
     So we separate it
 #}
 {# Start of Options #}
+{# skel-value Class management #}
+{% set aQuestionsClasses = aQuestion.class|split(' ') %}
+
 {% set tagSection = 'div' %}
 {% set tagHeader = 'div' %}
 {% if ( aSurveyInfo.options.questionhtag == 'on' ) %}
     {% set tagSection = 'section' %}
     {% set tagHeader = 'header' %}
+    {% if ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) %}
+        {% set tagQuestionH = 'h3' %}
+    {% else %}
+        {% set tagQuestionH = 'h2' %}
+    {% endif %}
+    {% if(in_array('skel-tagnoheader',aQuestionsClasses)) %}
+        {% set tagSection = 'div' %}
+        {% set tagHeader = 'div' %}
+        {% set tagQuestionH = '' %}
+    {% endif %}
 {% endif %}
+{% if(in_array('skel-tagheader',aQuestionsClasses)) %}
+    {% set tagSection = 'section' %}
+    {% set tagHeader = 'header' %}
+    {% set tagQuestionH = 'h2' %}
+{% endif %}
+{% if tagQuestionH %}
+    {% if(in_array('skel-tagH2',aQuestionsClasses)) %}
+        {% set tagQuestionH = 'h2' %}
+    {% endif %}
+    {% if(in_array('skel-tagH3',aQuestionsClasses)) %}
+        {% set tagQuestionH = 'h3' %}
+    {% endif %}
+{% endif %}
+
 {% set questionwrap = aSurveyInfo.options.questionwrap %}
 {% set questioncolor = '' %}
 {% set questioncontainerclass = '' %}
@@ -35,8 +62,7 @@
     {% set questioncolor = aSurveyInfo.options.questioncolor %}
 {% endif %}
 
-{# skel-value Class management #}
-{% set aQuestionsClasses = aQuestion.class|split(' ') %}
+
 {% if(in_array('skel-wrap-well',aQuestionsClasses)) %}
     {% set questionwrap = 'well' %}
 {% endif %}

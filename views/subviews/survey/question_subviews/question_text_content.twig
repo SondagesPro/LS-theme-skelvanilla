@@ -26,14 +26,9 @@
         {{ aQuestion.code }}
     </span>
 {% endif %}
-
 {% set tagQuestion = 'div' %}
-{% if ( aSurveyInfo.options.questionhtag == 'on' ) %}
-    {% if ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) %}
-        {% set tagQuestion = 'h3' %}
-    {% else %}
-        {% set tagQuestion = 'h2' %}
-    {% endif %}
+{% if ( tagQuestionH ) %}
+    {% set tagQuestion = tagQuestionH %}
 {% endif %}
 
 {# The question text as entered by the survey creator in question editing #}
