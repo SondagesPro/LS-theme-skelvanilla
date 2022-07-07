@@ -8,7 +8,7 @@
  * Copyright 2018-2022 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 4.0.0
+ * @version 4.0.1
  */
 /** ~ 43% lighten(@gray-base, 46.7%); // #777 */
 /* For the button item of LimeSurvey core */
@@ -6082,10 +6082,6 @@ table.ls-answers {
 /* We need complete width in array , but don't touch to padding-(top|bottom) */
 .ls-label-xs-visibility {
   white-space: normal;
-}
-/* hide answers for text-display question */
-.boilerplate .answer-container {
-  display: none;
 }
 /* .navbar-brand with little screen */
 @media only screen and (max-width: 48em) {
