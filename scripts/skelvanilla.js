@@ -121,14 +121,23 @@ var skelVanilla = {
     errorTopLinks: function() {
         $(function() {
             if($('.submitted-error').length > 0 && $(".ls-questions-have-errors".length)) {
-                $(".ls-questions-have-errors");
+                var haveList = $(".ls-questions-have-errors > ul > li").length > 0;
+                if($("p.ls-questions-have-errors").length < 1) {
+                    $("p.ls-questions-have-errors").replaceWith(function(){
+                        return $("<div />", {html: $(this).html()});
+                    });
+                }
                 var mandatoryList = "";
                 $('.submitted-error .ls-question-mandatory').each( function() {
                     var linkName = $(this).closest("[id^='question']").attr('id');
                     mandatoryList += "<li><a href='#" + linkName + "' class='text-danger'>" + $(this).text() + "</a></li>";
                 });
                 if(mandatoryList) {
-                    $("<ul>" + mandatoryList + "</ul>").appendTo(".ls-questions-have-errors > ul > li:first()");
+                    if(haveList) {
+                        $("<ul>" + mandatoryList + "</ul>").appendTo(".ls-questions-have-errors > ul > li:first()");
+                    } else {
+                        $("<ul>" + mandatoryList + "</ul>").appendTo(".ls-questions-have-errors");
+                    }
                 }
                 var errorList = "";
                 $('.submitted-error .ls-em-error').each( function() {
@@ -136,7 +145,11 @@ var skelVanilla = {
                     errorList += "<li><a href='#" + linkName + "' class='text-danger'>" + $(this).text() + "</a></li>";
                 });
                 if(errorList) {
-                    $("<ul>" + errorList + "</ul>").appendTo(".ls-questions-have-errors > ul > li:last()");
+                    if(haveList) {
+                        $("<ul>" + errorList + "</ul>").appendTo(".ls-questions-have-errors > ul > li:first()");
+                    } else {
+                        $("<ul>" + errorList + "</ul>").appendTo(".ls-questions-have-errors");
+                    }
                 }
             }
         });
