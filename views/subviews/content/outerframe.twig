@@ -1,5 +1,5 @@
 <!-- outer frame container -->
-<main class="{{ aSurveyInfo.class.outerframe }} {% if (aSurveyInfo.options.container == "on") %} container {% else %} container-fluid {% endif %} " id="{{ aSurveyInfo.id.outerframe }}" role="main" {{ aSurveyInfo.attr.outerframe }} >
+<main class="{{ aSurveyInfo.class.outerframe }} {% if (aSurveyInfo.options.container == "on") %} container {% else %} container-fluid {% endif %} " id="{{ aSurveyInfo.id.outerframe }}" {{ aSurveyInfo.attr.outerframe }} >
     {# Wich file to include for content is decided inside the layout #}
     {% include './subviews/content/mainrow.twig' with {'include_content': include_content } %}
 </main>
