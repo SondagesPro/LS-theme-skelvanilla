@@ -8,7 +8,7 @@
  * Copyright 2018-2022 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 4.0.2
+ * @version 4.0.3
  */
 /** ~ 43% lighten(@gray-base, 46.7%); // #777 */
 /* For the button item of LimeSurvey core */
@@ -6510,13 +6510,13 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
   .no-more-table table.ls-answers {
     border-collapse: separate;
   }
-  .no-more-table .ls-answers th {
+  .no-more-table .ls-answers .control-label {
     font-weight: 700;
   }
-  .no-more-table table.ls-answers thead {
+  .no-more-table table.ls-answers thead,
+  .no-more-table table.ls-answers .ls-heading {
     display: none;
   }
-  /* We don't need it for accessibility : we already have the label */
   .no-more-table table.ls-answers .information-item:empty {
     display: none;
   }
