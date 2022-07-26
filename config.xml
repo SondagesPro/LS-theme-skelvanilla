@@ -104,6 +104,167 @@
     "button": "1",
     "awesome": "1",
     "button_awesome": "1"
+  },
+  "cerulean": {
+    "name": "Cerulean",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "cosmo": {
+    "name": "Cosmo",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "cyborg": {
+    "name": "Cyborg",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "darkly": {
+    "name": "Darkly",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "flatly": {
+    "name": "Flatly",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "journal": {
+    "name": "Journal",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "lumen": {
+    "name": "Lumen",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "paper": {
+    "name": "Paper",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "readable": {
+    "name": "Readable",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "sandstone": {
+    "name": "Sandstone",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "simplex": {
+    "name": "Simplex",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "slate": {
+    "name": "Slate",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "spacelab": {
+    "name": "Spacelab",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "superhero": {
+    "name": "Superhero",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "united": {
+    "name": "United",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "yeti": {
+    "name": "Yeti",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-apple_blossom": {
+    "name": "(Fruity) Apple Blossom",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-black_pearl": {
+    "name": "(Fruity) Black Pearl",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-free_magenta": {
+    "name": "(Fruity) Free magenta",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-purple_tentacle": {
+    "name": "(Fruity) Purple Tentacle",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-sea_green": {
+    "name": "(Fruity) Sea Green",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-skyline_blue": {
+    "name": "(Fruity) Skyline Blue",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "fruity-sunset_orange": {
+    "name": "(Fruity) Sunset Orange",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
   }
 }</availablevariations>
     </options>
