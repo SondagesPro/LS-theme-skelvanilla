@@ -72,7 +72,7 @@
             </div>
         </div>
     {% endif %}
-    <header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" role="banner" {{ aSurveyInfo.attr.navbar }}>
+    <header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" {{ aSurveyInfo.attr.navbar }}>
         <div class="{{ containerclass }}" role="navigation">
             {% if brandlogo == "banner" %}
                 {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo-as-banner banner img-responsive"}) }}

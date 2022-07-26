@@ -1,4 +1,4 @@
-/* @version 10.6.4 */
+/* @version 10.8.3 */
 var skelVanilla = {
     init : function (options) {
         this.languageChanger();
@@ -21,15 +21,21 @@ var skelVanilla = {
         this.fixedHeaderRelated();
     },
     languageChanger : function () {
-         $('form#limesurvey .form-change-lang [name="lang"] option:not(selected)').on('click', function(event) {
+        $('.form-change-lang [name="lang"]').on('change', function(event) {
+            console.warn($(this).data("limesurvey-lastkey"));
+            if( $(this).data("limesurvey-lastkey") == 38 || $(this).data("limesurvey-lastkey") == 40 || $(this).data("limesurvey-lastkey") == 9) {
+                $(this).data("limesurvey-lastkey", 38)
+            }
+        });
+        $('form#limesurvey .form-change-lang [name="lang"] option:not(selected)').on('click', function(event) {
             $(this).closest(".form-change-lang").find('button:[value="changelang"]').trigger('click');
-         });
-         $('form#limesurvey button[value="changelang"]').on('click', function(event) {
+        });
+        $('form#limesurvey button[value="changelang"]').on('click', function(event) {
             $("form#limesurvey").find(":required").removeAttr("required");
             $("form#limesurvey").find(":invalid").each(function(){
                 $(this)[0].setCustomValidity('');
             });
-         });
+        });
     },
     addCheckedClass : function () {
         /* radio in table */
