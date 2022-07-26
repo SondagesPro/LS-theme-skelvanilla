@@ -8,7 +8,7 @@
  * Copyright 2018-2022 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 4.0.3
+ * @version 4.0.4
  */
 /** ~ 43% lighten(@gray-base, 46.7%); // #777 */
 /* For the button item of LimeSurvey core */
@@ -6247,10 +6247,10 @@ fieldset[disabled] .button-item.btn-primary.active.focus {
 }
 /* Basic question css */
 .question-container {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5em;
 }
 .skel-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5em;
 }
 .question-container.no-footer-spacer {
   margin-bottom: 0;
@@ -6355,7 +6355,7 @@ select[multiple].radio-text-item .input-sm {
 .radio-list .radio-item label,
 .checkbox-list .checkbox-item label,
 .answers-list .radio-item label {
-  padding: 0.71rem 1.14rem;
+  padding: 0.923rem 1.14rem;
 }
 .dir-ltr .radio-list .radio-item label,
 .dir-ltr .checkbox-list .checkbox-item label,
@@ -6368,7 +6368,7 @@ select[multiple].radio-text-item .input-sm {
   padding-right: 2.28rem;
 }
 .checkbox-text-item .checkbox-item label {
-  padding: 0.71rem 2.28rem;
+  padding: 0.923rem 2.28rem;
 }
 .radio-item label,
 .checkbox-item label,
@@ -6939,8 +6939,8 @@ li.noanswer-item input[type="radio"]:checked + label {
   border-radius: 0.2rem;
 }
 .radio-item label::after {
-  background: #265680;
-  color: #265680;
+  background: #1C5F74;
+  color: #1C5F74;
   font-family: "FontAwesome";
   content: "\f111";
   font-size: 12px;
@@ -6948,7 +6948,7 @@ li.noanswer-item input[type="radio"]:checked + label {
   text-indent: 0.1em;
 }
 .checkbox-item label::after {
-  background: #265680;
+  background: #1C5F74;
   color: #fff;
   font-family: "FontAwesome";
   content: "\f00c";
@@ -6982,7 +6982,7 @@ li.noanswer-item input[type="radio"]:checked + label {
   opacity: 1;
 }
 .checkbox-item input[type="checkbox"]:checked + label::before {
-  background: #265680;
+  background: #1C5F74;
 }
 /* for table only if bigger but 1px broke if use max and min width … */
 .radio-item label.ls-label-xs-visibility,
@@ -7042,7 +7042,7 @@ td.checkbox-item input[type="checkbox"] {
     line-height: 1.5;
     text-indent: 0;
     text-indent: initial;
-    padding: 0.71rem 20px;
+    padding: 0.923rem 20px;
     top: auto;
     clip: unset;
   }
@@ -8500,15 +8500,15 @@ li.slider-item {
   display: none;
 }
 .select2-container--bootstrap .select2-dropdown {
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
   border-color: #12538B;
   overflow-x: hidden;
   margin-top: -1px;
 }
 .select2-container--bootstrap .select2-dropdown--above {
-  -webkit-box-shadow: 0px -6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0px -6px 12px rgba(0, 0, 0, 0.175);
+  -webkit-box-shadow: 0px -0.5rem 1rem rgba(0, 0, 0, 0.175);
+  box-shadow: 0px -0.5rem 1rem rgba(0, 0, 0, 0.175);
   margin-top: 1px;
 }
 .select2-container--bootstrap .select2-results > .select2-results__options {
