@@ -1,20 +1,8 @@
 {#
-    LimeSurvey
-    Copyright (C) 2007-2017 The LimeSurvey Project Team / Louis Gac
-    All rights reserved.
-    License: GNU/GPL License v2 or later, see LICENSE.php
-    LimeSurvey is free software. This version may have been modified pursuant
-    to the GNU General Public License, and as distributed it includes or
-    is derivative of works licensed under the GNU General Public License or
-    other free or open source software licenses.
-    See COPYRIGHT.php for copyright notices and details.
-
-    (¯`·._.·(¯`·._.· Bootstrap Navigation Bar ·._.·´¯)·._.·´¯)
-
+    Bootstrap Navigation Bar
     This file renders a typical bootstrap navigation bar.
     See: https://getbootstrap.com/components/#navbar
-
-    For the survey navigator ("Next", "Back", etc.), see: navigation/navigator.twig
+    @version 10.9.0
 #}
 {% set havepreviouslink = (aSurveyInfo.options.previouslink == 'on' and aSurveyInfo.aNavigator.aMovePrev.show) %}
 {% set havenextsubmitlink = (aSurveyInfo.options.nextsubmitlink == 'on' and aSurveyInfo.aNavigator.aMoveNext.show) %}
@@ -28,17 +16,34 @@
 {% if (aSurveyInfo.options.brandlogo == "off" or not imageSrc(aSurveyInfo.options.brandlogofile)) %}
     {% set brandlogo = "off" %}
 {% else %}
+    {% set brandlogofile = aSurveyInfo.options.brandlogofile %}
+    {% set brandlogalt = "" %}
+    {% if aSurveyInfo.options.brandlogobylang == "on" %}
+        {% if(processString("strpos('"~brandlogofile~"','.')")) %}
+            {% set brandlogoExt = processString("{substr('"~brandlogofile~"',strpos('"~brandlogofile~"','.'))}") %}
+            {% set brandlogoName = processString("{substr('"~brandlogofile~"',0,strpos('"~brandlogofile~"','.'))}") %}
+            {% set brandlogolang = imageSrc(brandlogoName ~ "-" ~ aSurveyInfo.languagecode ~ brandlogoExt, false) %}
+            {% if brandlogolang %}
+                {% set brandlogofile = brandlogoName ~ "-" ~ aSurveyInfo.languagecode ~ brandlogoExt %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    {% if(aSurveyInfo.options.brandlogalt and aSurveyInfo.options.brandlogalt != 'false') %}
+        {% set brandlogalt = aSurveyInfo.options.brandlogalt %}
+    {% endif %}
     {%if aSurveyInfo.options.brandlogoasbanner == "on" %}
         {% set brandlogo = "banner" %}
     {% endif %}
+
 {% endif %}
+
 <!-- Bootstrap Navigation Bar -->
 {% if(aSurveyInfo.class.navbar) %}
     {% if(aSurveyInfo.options.fixedheader == 'on') %}
         <div class="invisible navbar navbar-inverse navbar-static-top" aria-hidden="true">
             <div class="{{ containerclass }}">
                 {% if brandlogo == "banner" %}
-                    {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo-as-banner banner img-responsive"}) }}
+                    {{ image(brandlogofile, "", {"class": "logo-as-banner banner img-responsive"}) }}
                 {% endif %}
                 <div class="{{ aSurveyInfo.class.navbarheader }}">
                     {% if(hasMenu) %}
@@ -52,7 +57,7 @@
                         <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
                             {% if( brandlogo == "on") %}
                                 <span class="logo-container">
-                                {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
                                 </span>
                             {% endif %}
                             {% if(aSurveyInfo.options.titlelocation == 'hidden') %}<div class="sr-only">{% endif %}
@@ -63,7 +68,7 @@
                         {% if( brandlogo == "on") %}
                         <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
                             <span class="logo-container">
-                            {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
+                            {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
                             </span>
                         </div>
                         {% endif %}
@@ -75,7 +80,7 @@
     <header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" {{ aSurveyInfo.attr.navbar }}>
         <div class="{{ containerclass }}" role="navigation">
             {% if brandlogo == "banner" %}
-                {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo-as-banner banner img-responsive"}) }}
+                {{ image(brandlogofile, brandlogalt, {"class": "logo-as-banner banner img-responsive"}) }}
             {% endif %}
             <div class="{{ aSurveyInfo.class.navbarheader }}" {{ aSurveyInfo.attr.navbarheader }} >
                 {{ include('./subviews/navigation/shortcuts_links.twig') }}
@@ -90,7 +95,7 @@
                     <h1 class="{{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
                         {% if( brandlogo == "on") %}
                             <span class="logo-container">
-                            {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
+                            {{ image(brandlogofile, brandlogalt, {"class": "logo img-responsive"}) }}
                             </span>
                         {% endif %}
                         {% if(aSurveyInfo.options.titlelocation == 'hidden') %}<div class="sr-only">{% endif %}
@@ -101,7 +106,7 @@
                     {% if( brandlogo == "on") %}
                         <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
                             <span class="logo-container">
-                            {{ image(aSurveyInfo.options.brandlogofile, "", {"class": "logo img-responsive"}) }}
+                            {{ image(brandlogofile, brandlogalt, {"class": "logo img-responsive"}) }}
                             </span>
                         </div>
                     {% endif %}
