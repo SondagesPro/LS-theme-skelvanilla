@@ -1,0 +1,15 @@
+{#
+/**
+ * @var $no_answer
+ */
+#}
+
+<!-- thead -->
+<td></td>
+<td class="answer-text">{{ gT('Yes') }}</td>
+<td class="answer-text">{{ gT('Uncertain') }}</td>
+<td class="answer-text">{{ gT('No') }}</td>
+{% if no_answer %}
+    <td class="answer-text noanswer-text">{{ gT('No answer') }}</td>
+{% endif %}
+<!-- end of  thead -->

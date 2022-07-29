@@ -230,7 +230,7 @@ var skelVanilla = {
         $(function() {
             if($("header.navbar-fixed-top").length) {
                 var fixedHeaderHeight = $("header.navbar-fixed-top").height();
-                $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th').each(function() {
+                $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th, .table-fixed-header .ls-answers > tbody > tr.ls-header > td').each(function() {
                     $(this).css("top",fixedHeaderHeight+"px");
                     $(this).css("z-index",1040);
                 });
@@ -239,7 +239,7 @@ var skelVanilla = {
         $( window ).resize(function() {
             if($("header.navbar-fixed-top").length) {
                 var fixedHeaderHeight = $("header.navbar-fixed-top").height();
-                $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th').each(function() {
+                $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th, .table-fixed-header .ls-answers > tbody > tr.ls-header > td').each(function() {
                     $(this).css("top",fixedHeaderHeight+"px");
                 });
             }
