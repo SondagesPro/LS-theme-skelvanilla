@@ -1,0 +1,4 @@
+<div class='ls-question-mandatory ls-question-mandatory-{{ part ?: 'nosubmit'}} {% if part %} ls-em-error text-danger {% endif %}' {% if part %}role='alert'{% endif %}>
+    <span class='fa fa-exclamation-circle' aria-hidden="true"></span>
+    {{ sMandatoryText ?: gT("This question is mandatory")}}
+</div>
