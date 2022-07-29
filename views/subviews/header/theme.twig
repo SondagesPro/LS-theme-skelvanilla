@@ -8,5 +8,9 @@
 {% if aSurveyInfo.dir == 'rtl' %}
     {{ registerTemplateCssFile('css/bootstrap-rtl.css') }}
 {% endif %}
+{# fix for repeatHeading #}
+{{ registerTemplateScript('./scripts/tablerole-fix.js') }}
+
+{{ registerTemplateCssFile('css/theme.css') }}
 {{ registerTemplateCssFile('css/theme.css') }}
 {{ registerTemplateCssFile('css/custom.css') }}

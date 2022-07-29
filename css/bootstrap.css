@@ -8,7 +8,7 @@
  * Copyright 2018-2022 Denis Chenu
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @version 4.0.4
+ * @version 4.0.5
  */
 /** ~ 43% lighten(@gray-base, 46.7%); // #777 */
 /* For the button item of LimeSurvey core */
@@ -930,7 +930,7 @@ textarea {
 }
 a {
   color: #12538B;
-  text-decoration: underline;
+  text-decoration: "underline";
   display: inline-block;
   border-radius: 0.2rem;
 }
@@ -4577,7 +4577,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-brand:focus-visible {
   border-color: #12538B;
-  border-color: rgba(18, 83, 139, 0.3);
+  border-color: rgba(18, 83, 139, 0.5);
 }
 .navbar-default .navbar-text {
   color: #333333;
@@ -4691,7 +4691,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-nav > li > a {
   color: #969696;
-  border-color: navbar-inverse-bg;
+  border-color: #222;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -6612,7 +6612,8 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
   border-top: 0;
 }
 .table-fixed-header table.ls-answers > thead > tr > td,
-.table-fixed-header table.ls-answers > thead > tr > th {
+.table-fixed-header table.ls-answers > thead > tr > th,
+.table-fixed-header table.ls-answers > tbody > tr.ls-header > td {
   box-sizing: border-box;
   position: sticky;
   top: 0;
@@ -6620,22 +6621,30 @@ For iPads specifically : add this : (min-device-width: 768px) and (max-device-wi
   z-index: 2000;
 }
 .table-fixed-header table.ls-answers > thead > tr > td,
-.table-fixed-header table.ls-answers > thead > tr > th {
+.table-fixed-header table.ls-answers > thead > tr > th,
+.table-fixed-header table.ls-answers > tbody > tr.ls-header > td {
   background-color: #fff;
 }
 .table-fixed-header .well table.ls-answers > thead > tr > td,
 .table-fixed-header .well table.ls-answers > thead > tr > th,
+.table-fixed-header .well table.ls-answers > tbody > tr.ls-header > td,
 .table-fixed-header.well table.ls-answers > thead > tr > td,
-.table-fixed-header.well table.ls-answers > thead > tr > th {
+.table-fixed-header.well table.ls-answers > thead > tr > th,
+.table-fixed-header.well table.ls-answers > tbody > tr.ls-header > td {
   background-color: #f8f8f8;
 }
 .table-fixed-header .panel table.ls-answers > thead > tr > td,
 .table-fixed-header .panel table.ls-answers > thead > tr > th,
+.table-fixed-header .panel table.ls-answers > tbody > tr.ls-header > td,
 .table-fixed-header.panel table.ls-answers > thead > tr > td,
-.table-fixed-header.panel table.ls-answers > thead > tr > th {
+.table-fixed-header.panel table.ls-answers > thead > tr > th,
+.table-fixed-header.panel table.ls-answers > tbody > tr.ls-header > td {
   background-color: #fff;
 }
 .table-fixed-header .ls-heading-repeat {
+  display: none;
+}
+.table-fixed-header .ls-heading:not(.ls-header) {
   display: none;
 }
 /* radio list and checkbox list with border : WIP */
