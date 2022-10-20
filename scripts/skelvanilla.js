@@ -1,4 +1,4 @@
-/* @version 10.8.3 */
+/* @version 10.9.2 */
 var skelVanilla = {
     init : function (options) {
         this.languageChanger();
@@ -22,7 +22,6 @@ var skelVanilla = {
     },
     languageChanger : function () {
         $('.form-change-lang [name="lang"]').on('change', function(event) {
-            console.warn($(this).data("limesurvey-lastkey"));
             if( $(this).data("limesurvey-lastkey") == 38 || $(this).data("limesurvey-lastkey") == 40 || $(this).data("limesurvey-lastkey") == 9) {
                 $(this).data("limesurvey-lastkey", 38)
             }
@@ -230,7 +229,7 @@ var skelVanilla = {
         $(function() {
             if($("header.navbar-fixed-top").length) {
                 var fixedHeaderHeight = $("header.navbar-fixed-top").height();
-                $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th').each(function() {
+                $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th,.table-fixed-header .ls-answers > tbody > tr.ls-header > td').each(function() {
                     $(this).css("top",fixedHeaderHeight+"px");
                     $(this).css("z-index",1040);
                 });
@@ -239,7 +238,7 @@ var skelVanilla = {
         $( window ).resize(function() {
             if($("header.navbar-fixed-top").length) {
                 var fixedHeaderHeight = $("header.navbar-fixed-top").height();
-                $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th').each(function() {
+                $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th,.table-fixed-header .ls-answers > tbody > tr.ls-header > td').each(function() {
                     $(this).css("top",fixedHeaderHeight+"px");
                 });
             }
