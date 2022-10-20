@@ -37,17 +37,17 @@ var TemplateAccessible = {
     triggerEmClassChangeAccessible: function () {
         /* @todo : check :valid and setCustomValidity */
         $(document).on('classChangeError','.ls-em-tip', function () {
-            if($(this).attr("role") != "alert") {
-                parentId = $(this).parent('.ls-question-help').attr("id");
+            var parentId = $(this).parent('.ls-question-help').attr("id");
+            if($("#" + parentId).attr("role") != "alert") {
+                $("#" + parentId).attr("role","alert");
                 $("[aria-describedby*='"+parentId+"']").attr("aria-invalid",true);
                 $("[aria-labelledby*='"+parentId+"']").attr("aria-invalid",true);
-                $(this).attr("role","alert");
             }
         });
         $(document).on('classChangeGood','.ls-em-tip', function () {
-            $(this).removeAttr("role");
-            if($(this).parent('.ls-question-help').find(".ls-em-error").length == 0) {
-                parentId = $(this).parent('.ls-question-help').attr("id");
+            var parentId = $(this).parent('.ls-question-help').attr("id");
+            if($("#" + parentId).attr("role") == "alert" && $(this).parent('.ls-question-help').find(".ls-em-error").length == 0) {
+                $("#" + parentId).removeAttr("role");
                 $("[aria-describedby*='"+parentId+"']").removeAttr("aria-invalid");
                 $("[aria-labelledby*='"+parentId+"']").removeAttr("aria-invalid");
             }
