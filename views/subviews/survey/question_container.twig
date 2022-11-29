@@ -115,7 +115,7 @@
     {% set start_panel_body = 1 %}
     {% set close_panel_body = 1 %}
     {% set panel_heading = 1 %}
-    {% if ( questioncolor ) %}
+    {% if ( questioncolor and questioncolor != 'none' ) %}
         {% set questioncontainerclass = 'panel panel-'~questioncolor %}
         {% set questioncolor = '' %}
     {% else %}
