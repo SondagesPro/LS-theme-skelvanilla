@@ -34,6 +34,7 @@
             <remove>awesome-bootstrap-checkbox/awesome-bootstrap-checkbox-rtl.css</remove>
             <remove>css/noTablesOnMobile.css</remove>
             <remove>template-core.css</remove>
+            <remove>css/bootstrap.css</remove>
             <remove>css/theme.css</remove>
             <remove>css/custom.css</remove>
             <add>css/skelvanilla.css</add>
