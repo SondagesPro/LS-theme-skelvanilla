@@ -2,7 +2,7 @@
     Bootstrap Navigation Bar
     This file renders a typical bootstrap navigation bar.
     See: https://getbootstrap.com/components/#navbar
-    @version 10.9.0
+    @version 10.11.0
 #}
 {% set havepreviouslink = (aSurveyInfo.options.previouslink == 'on' and aSurveyInfo.aNavigator.aMovePrev.show) %}
 {% set havenextsubmitlink = (aSurveyInfo.options.nextsubmitlink == 'on' and aSurveyInfo.aNavigator.aMoveNext.show) %}
@@ -36,12 +36,11 @@
     {% endif %}
 {% endif %}
 {% set navbarclass = 'navbar navbar-default' %}
-{% if titlelocation == 'header' %}{% set navbarclass = navbarclass ~ ' navbar-with-title' %}{% endif %}
-{% if titlelocation == 'content' %}{% set navbarclass = navbarclass ~ ' navbar-no-title' %}{% endif %}
-{% if titlelocation == 'hidden' %}{% set navbarclass = navbarclass ~ ' navbar-with-hidden-title' %}{% endif %}
+{% if aSurveyInfo.options.titlelocation == 'header' %}{% set navbarclass = navbarclass ~ ' navbar-with-title' %}{% endif %}
+{% if aSurveyInfo.options.titlelocation == 'content' %}{% set navbarclass = navbarclass ~ ' navbar-no-title' %}{% endif %}
+{% if aSurveyInfo.options.titlelocation == 'hidden' %}{% set navbarclass = navbarclass ~ ' navbar-with-hidden-title' %}{% endif %}
 {% if brandlogo == 'on' %}{% set navbarclass = navbarclass ~ ' navbar-with-logo' %}{% endif %}
 {% if brandlogo == 'banner' %}{% set navbarclass = navbarclass ~ ' navbar-with-banner' %}{% endif %}
-
 <!-- Bootstrap Navigation Bar -->
 {% if(aSurveyInfo.class.navbar) %}
     {% if(aSurveyInfo.options.fixedheader == 'on') %}
@@ -82,7 +81,7 @@
                          </div>
                         {% endif %}
                     {% endif %}
-                    {% if(aSurveyInfo.options.titlelocation != 'content') %}
+                    {% if(aSurveyInfo.options.titlelocation == 'content') %}
                         {% if( brandlogo == "on") %}
                         <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
                             <span class="logo-container">
@@ -133,7 +132,7 @@
                          </h1>
                         {% endif %}
                     {% endif %}
-                    {% if(aSurveyInfo.options.titlelocation != 'content') %}
+                    {% if(aSurveyInfo.options.titlelocation == 'content') %}
                         {% if( brandlogo == "on") %}
                         <div class="{{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
                             <span class="logo-container">
@@ -142,26 +141,6 @@
                         </div>
                         {% endif %}
                     {% endif %}
-                {% if(aSurveyInfo.options.titlelocation != 'content') %}
-                    <h1 class="{{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
-                        {% if( brandlogo == "on") %}
-                            <span class="logo-container">
-                            {{ image(brandlogofile, brandlogalt, {"class": "logo img-responsive"}) }}
-                            </span>
-                        {% endif %}
-                        {% if(aSurveyInfo.options.titlelocation == 'hidden') %}<div class="sr-only">{% endif %}
-                            {{ pagetitle ?: processString(aSurveyInfo.surveyls_title,1) }}
-                        {% if(aSurveyInfo.options.titlelocation == 'hidden') %}</div>{% endif %}
-                    </h1>
-                {% else %}
-                    {% if( brandlogo == "on") %}
-                        <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
-                            <span class="logo-container">
-                            {{ image(brandlogofile, brandlogalt, {"class": "logo img-responsive"}) }}
-                            </span>
-                        </div>
-                    {% endif %}
-                {% endif %}
             </div>
             {% if(hasMenu) %}
                 <div id="{{ aSurveyInfo.id.navbar }}" class="{{ aSurveyInfo.class.navbarcollapse }}" {{ aSurveyInfo.attr.navbarcollapse }} >
