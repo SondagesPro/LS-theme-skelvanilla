@@ -34,13 +34,18 @@
     {%if aSurveyInfo.options.brandlogoasbanner == "on" %}
         {% set brandlogo = "banner" %}
     {% endif %}
-
 {% endif %}
+{% set navbarclass = 'navbar navbar-default' %}
+{% if titlelocation == 'header' %}{% set navbarclass = navbarclass ~ ' navbar-with-title' %}{% endif %}
+{% if titlelocation == 'content' %}{% set navbarclass = navbarclass ~ ' navbar-no-title' %}{% endif %}
+{% if titlelocation == 'hidden' %}{% set navbarclass = navbarclass ~ ' navbar-with-hidden-title' %}{% endif %}
+{% if brandlogo == 'on' %}{% set navbarclass = navbarclass ~ ' navbar-with-logo' %}{% endif %}
+{% if brandlogo == 'banner' %}{% set navbarclass = navbarclass ~ ' navbar-with-banner' %}{% endif %}
 
 <!-- Bootstrap Navigation Bar -->
 {% if(aSurveyInfo.class.navbar) %}
     {% if(aSurveyInfo.options.fixedheader == 'on') %}
-        <div class="invisible navbar navbar-inverse navbar-static-top" aria-hidden="true">
+        <div class="{{navbarclass}} invisible navbar-static-top" aria-hidden="true">
             <div class="{{ containerclass }}">
                 {% if brandlogo == "banner" %}
                     {{ image(brandlogofile, "", {"class": "logo-as-banner banner img-responsive"}) }}
@@ -53,22 +58,35 @@
                             <span class="icon-bar"></span>
                         </button>
                     {% endif %}
-                    {% if(aSurveyInfo.options.titlelocation != 'content') %}
+                    {% if(aSurveyInfo.options.titlelocation == 'header') %}
                         <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
                             {% if( brandlogo == "on") %}
                                 <span class="logo-container">
                                 {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
                                 </span>
                             {% endif %}
-                            {% if(aSurveyInfo.options.titlelocation == 'hidden') %}<div class="sr-only">{% endif %}
-                                {{ pagetitle ?: processString(aSurveyInfo.surveyls_title,1) }}
-                            {% if(aSurveyInfo.options.titlelocation == 'hidden') %}</div>{% endif %}
+                            {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}
                         </div>
-                    {% else %}
+                    {% endif %}
+                    {% if(aSurveyInfo.options.titlelocation == 'hidden') %}
+                        {% if( brandlogo == "on") %}
+                            <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
+                                <span class="logo-container">
+                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                </span>
+                                {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}
+                            </div>
+                        {% else %}
+                         <div class="h1 sr-only">
+                            {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}   
+                         </div>
+                        {% endif %}
+                    {% endif %}
+                    {% if(aSurveyInfo.options.titlelocation != 'content') %}
                         {% if( brandlogo == "on") %}
                         <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
                             <span class="logo-container">
-                            {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
                             </span>
                         </div>
                         {% endif %}
@@ -77,7 +95,7 @@
             </div>
         </div>
     {% endif %}
-    <header class="{{ aSurveyInfo.class.navbar }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" {{ aSurveyInfo.attr.navbar }}>
+    <header class="{{navbarclass}} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'navbar-fixed-top' : 'navbar-static-top' }} hidden-print" {{ aSurveyInfo.attr.navbar }}>
         <div class="{{ containerclass }}" role="navigation">
             {% if brandlogo == "banner" %}
                 {{ image(brandlogofile, brandlogalt, {"class": "logo-as-banner banner img-responsive"}) }}
@@ -91,6 +109,39 @@
                         <span class="icon-bar"></span>
                     </button>
                 {% endif %}
+                    {% if(aSurveyInfo.options.titlelocation == 'header') %}
+                        <h1 class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
+                            {% if( brandlogo == "on") %}
+                                <span class="logo-container">
+                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                </span>
+                            {% endif %}
+                            {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}
+                        </h1>
+                    {% endif %}
+                    {% if(aSurveyInfo.options.titlelocation == 'hidden') %}
+                        {% if( brandlogo == "on") %}
+                            <h1 class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
+                                <span class="logo-container">
+                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                </span>
+                                {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}
+                            </h1>
+                        {% else %}
+                         <h1 class="h1 sr-only">
+                            {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}   
+                         </h1>
+                        {% endif %}
+                    {% endif %}
+                    {% if(aSurveyInfo.options.titlelocation != 'content') %}
+                        {% if( brandlogo == "on") %}
+                        <div class="{{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
+                            <span class="logo-container">
+                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                            </span>
+                        </div>
+                        {% endif %}
+                    {% endif %}
                 {% if(aSurveyInfo.options.titlelocation != 'content') %}
                     <h1 class="{{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
                         {% if( brandlogo == "on") %}
