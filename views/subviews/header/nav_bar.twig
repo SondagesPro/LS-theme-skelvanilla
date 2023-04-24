@@ -2,7 +2,7 @@
     Bootstrap Navigation Bar
     This file renders a typical bootstrap navigation bar.
     See: https://getbootstrap.com/components/#navbar
-    @version 10.11.0
+    @version 10.11.1
 #}
 {% set havepreviouslink = (aSurveyInfo.options.previouslink == 'on' and aSurveyInfo.aNavigator.aMovePrev.show) %}
 {% set havenextsubmitlink = (aSurveyInfo.options.nextsubmitlink == 'on' and aSurveyInfo.aNavigator.aMoveNext.show) %}
@@ -58,14 +58,14 @@
                         </button>
                     {% endif %}
                     {% if(aSurveyInfo.options.titlelocation == 'header') %}
-                        <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
+                        <h1 class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == 'on') %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
                             {% if( brandlogo == "on") %}
                                 <span class="logo-container">
                                 {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
                                 </span>
                             {% endif %}
                             {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}
-                        </div>
+                        </h1>
                     {% endif %}
                     {% if(aSurveyInfo.options.titlelocation == 'hidden') %}
                         {% if( brandlogo == "on") %}
@@ -91,6 +91,30 @@
                         {% endif %}
                     {% endif %}
                 </div>
+                {% if(hasMenu) %}
+                    <div class="{{ aSurveyInfo.class.navbarcollapse }}" {{ aSurveyInfo.attr.navbarcollapse }} >
+                        <ul class="{{ aSurveyInfo.class.navbarlink }} navbar-right" {{ aSurveyInfo.attr.navbarlink }}>
+                            {% if(aSurveyInfo.options.savelink != 'off') %}
+                                {{ include('./subviews/navigation/save_links.twig') }}
+                            {% endif %}
+                            {% if(aSurveyInfo.options.clearalllink != 'off') %}
+                                {{ include('./subviews/navigation/clearall_links.twig') }}
+                            {% endif %}
+                            {% if(aSurveyInfo.options.indexlink != 'off') %}
+                                {{ include('./subviews/navigation/question_index_menu.twig') }}
+                            {% endif %}
+                            {% if(aSurveyInfo.options.languagelink != 'off') %}
+                                {{ include('./subviews/navigation/language_changer_top_menu.twig') }}
+                            {% endif %}
+                            {% if(aSurveyInfo.options.previouslink == 'on') %}
+                                {{ include('./subviews/navigation/previous_link.twig') }}
+                            {% endif %}
+                            {% if(aSurveyInfo.options.nextsubmitlink == 'on') %}
+                                {{ include('./subviews/navigation/nextsubmit_link.twig') }}
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
             </div>
         </div>
     {% endif %}
@@ -101,15 +125,15 @@
             {% endif %}
             <div class="{{ aSurveyInfo.class.navbarheader }}" {{ aSurveyInfo.attr.navbarheader }} >
                 {{ include('./subviews/navigation/shortcuts_links.twig') }}
-                {% if(hasMenu) %}
-                    <button type="button" class="{{ aSurveyInfo.class.navbartoggle }}" {{ aSurveyInfo.attr.navbartoggle }} aria-hidden="true" >
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                {% endif %}
+                    {% if(hasMenu) %}
+                        <button type="button" class="{{ aSurveyInfo.class.navbartoggle }}" {{ aSurveyInfo.attr.navbartoggle }} aria-hidden="true" >
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    {% endif %}
                     {% if(aSurveyInfo.options.titlelocation == 'header') %}
-                        <h1 class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
+                        <h1 class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == 'on') %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
                             {% if( brandlogo == "on") %}
                                 <span class="logo-container">
                                 {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}

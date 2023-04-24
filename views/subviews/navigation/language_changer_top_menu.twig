@@ -36,7 +36,7 @@
             <span class="{{ aSurveyInfo.class.lctspan }} caret" {{ aSurveyInfo.attr.lctspan }} ></span>
         </a>
 
-        <ul class="{{ aSurveyInfo.class.lctdropdown }} dropdown-menu" id="{{ aSurveyInfo.id.lctdropdown }}" role="listbox">
+        <ul class="{{ aSurveyInfo.class.lctdropdown }} dropdown-menu" role="listbox">
             {# List of available languages.  #}
             {% for value, lang in aLCD.aListLang %}
                 <li class="{{ aSurveyInfo.class.lctdropdownli }}" {{ aSurveyInfo.attr.lctdropdownli }} role="option">

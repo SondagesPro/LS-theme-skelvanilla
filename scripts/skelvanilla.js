@@ -1,4 +1,4 @@
-/* @version 10.9.2 */
+/* @version 10.11.1 */
 var skelVanilla = {
     init : function (options) {
         this.languageChanger();
@@ -231,7 +231,7 @@ var skelVanilla = {
                 var fixedHeaderHeight = $("header.navbar-fixed-top").height();
                 $('.table-fixed-header .ls-answers > thead > tr > td,.table-fixed-header .ls-answers > thead > tr > th,.table-fixed-header .ls-answers > tbody > tr.ls-header > td').each(function() {
                     $(this).css("top",fixedHeaderHeight+"px");
-                    $(this).css("z-index",1040);
+                    $(this).css("z-index",1025);
                 });
             }
         });
