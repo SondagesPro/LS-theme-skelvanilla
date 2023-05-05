@@ -154,7 +154,9 @@ var ThemeOptions = function(){
     var prepareTextField = function(){
         globalForm.find('.text_option_string_field').each(function(i,item){
             var itemValue = parseOptionValue(item);
-            $(item).val(itemValue);
+            if (itemValue != "inherit") {
+                $(item).val(itemValue);
+            }
         });
     };
 

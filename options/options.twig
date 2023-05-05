@@ -1,6 +1,6 @@
 {#
     SkelVanilla survey template options
-    @version 10.9.0
+    @version 10.12.0
 #}
 <div class="container-fluid" style="position:relative">
     <div class="row">
@@ -698,8 +698,6 @@
                         <p class="help-block col-xs-12">{{ gT("Make the top nav bar sticky, so it always remains on screen.") }}</p>
                     </div>
                 </div>
-            </div>
-            <div class="row action_hide_on_inherit">
                 {# Body loading loaded #}
                 <div class='col-sm-12 col-md-6 col-lg-3'>
                     <div class='form-group row'>
@@ -730,7 +728,22 @@
                     </div>
                 </div>
             </div>
-
+            <div class="row action_hide_on_inherit">
+                {# Inline style #}
+                <div class='col-sm-12 col-md-12 col-lg-12'>
+                    <div class='form-group row'>
+                            <label for='simple_edit_options_inlinestyle' class='control-label col-xs-4'>{{ gT("Inline style") }}</label>
+                            <div class='col-xs-8'>
+                                    <textarea id="simple_edit_options_inlinestyle" class="form-control text_option_string_field" name="inlinestyle"
+                                    {% if (templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty) %}
+                                        placeholder="{{ gT('Inherit') }}"
+                                    {% endif %}
+                                    ></textarea>
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Added inline after other css file, whoile string are escaped.") }}</p>
+                </div>
+            </div>
             <div class="row action_hide_on_inherit">
                 <hr/>
             </div>
