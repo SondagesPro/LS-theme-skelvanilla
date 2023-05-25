@@ -1,10 +1,7 @@
 {#
-    Copyright (C) 2007-2018 The LimeSurvey Project Team / Louis Gac / Denis Chenu
-
-    (¯`·._.·(¯`·._.· Registration form._.·´¯)·._.·´¯)
-
-    This is the registration form for participant registration on a survey.
-
+ This is the registration form for participant registration on a survey.
+ @copy 2007-2023 The LimeSurvey Project Team / Louis Gac / Denis Chenu
+ @version 10.12.1
 #}
 
 <div class="{{ aSurveyInfo.class.registerform }} row" {{ aSurveyInfo.attr.registerform }}>
@@ -72,7 +69,11 @@
         <div class='{{ aSurveyInfo.class.registermandatoryinfo }} row' {{ aSurveyInfo.attr.registermandatoryinfo }} >
                 {{ gT('Fields marked with an asterisk are mandatory.')}}
         </div>
-
+        {% if (aSurveyInfo.showsurveypolicynotice == 1) %}
+            {{include('./subviews/privacy/privacy_text.twig')}}
+        {% elseif (aSurveyInfo.showsurveypolicynotice == 2) %}
+            {{include( './subviews/privacy/privacy_modal_nowelcome.twig')}}
+        {% endif %}
         {# Submit register button #}
         <div class='{{ aSurveyInfo.class.registersave }} form-group row' {{ aSurveyInfo.attr.registersave }} >
             <div class='{{ aSurveyInfo.class.registersavediv }} col-md-offset-7' {{ aSurveyInfo.attr.registersavediv }} >
@@ -82,7 +83,6 @@
                 </button>
             </div>
         </div>
-
         {# If there is additional form parts, a.e. trhough a plugin render it out here #}
     </div>
     <div class='{{ aSurveyInfo.class.registerformcoladdidtions }} col-md-8 col-md-offset-2' {{ aSurveyInfo.attr.registerformcoladdidtions }}>
