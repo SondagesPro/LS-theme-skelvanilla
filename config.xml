@@ -16,12 +16,12 @@
         <supportUrl>https://extensions.sondages.pro/themes-and-templates/skelvanilla-a11y-and-usuability/</supportUrl>
         <copyright>Copyright (C) 2018-2023 Denis Chenu / Sondages Pro</copyright>
         <license>GNU General Public License version 3 or later</license>
-        <version>10.12.1</version>
+        <version>10.13.0</version>
         <apiVersion>3</apiVersion>
         <description><![CDATA[<strong>LimeSurvey Bootstrap Vanilla Survey Theme with Accessibility and Options</strong><br>Base on vanilla theme, usage of more aria, fix some role and aria from core.<br>Allow usage of variations, only two variation in this lignt version.]]></description>
         <extends>vanilla</extends>
-        <last_update>2023-05-05 12:13:00</last_update>
-        <lastUpdate>2023-05-05 12:13:00</lastUpdate>
+        <last_update>2023-05-05 18:43:00</last_update>
+        <lastUpdate>2023-06-19 18:43:00</lastUpdate>
     </metadata>
 
     <files>
@@ -92,6 +92,20 @@
         <showclearall>on</showclearall>
         <tableheader>on</tableheader>
         <availablevariations>{
+  "basic": {
+    "name": "Basic",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
+  "greybase": {
+    "name": "Basic (grey primary color)",
+    "base": "1",
+    "button": "1",
+    "awesome": "1",
+    "button_awesome": "1"
+  },
   "contrast": {
     "name": "Contrast",
     "base": "1",
