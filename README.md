@@ -1,4 +1,4 @@
-# SkelVanilla
+# SkelVanilla Ligth
 
 A LimeSurvey 3 and up theme with a11y improvement and other feature :
 
