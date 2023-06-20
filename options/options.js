@@ -105,7 +105,8 @@ var ThemeOptions = function(){
     var disableImagePreviewIfneeded = function(item){
         // Image selectors are disabled on inherit
         if($(item).hasClass('selector_image_selector')){
-            if($(item).val() == 'inherit'){
+            let selected = $(item).find('option:selected');
+            if(!$(selected).attr('data-lightbox-src')){
                 $('button[data-target="#'+$(item).attr('id')+'"]').prop('disabled',  true);
             } else {
                 $('button[data-target="#'+$(item).attr('id')+'"]').prop('disabled',  false);
@@ -300,6 +301,7 @@ $(document).off('pjax:scriptcomplete.templateOptions').on('ready pjax:scriptcomp
     $('.selector__open_lightbox').on('click', function(e){
         e.preventDefault();
         var imgSrc = $($(this).data('target')).find('option:selected').data('lightbox-src');
+        console.warn(imgSrc);
         var imgTitle = $($(this).data('target')).val();
         if(!imgSrc) {
             return;
@@ -307,13 +309,10 @@ $(document).off('pjax:scriptcomplete.templateOptions').on('ready pjax:scriptcomp
         if(imgTitle) {
             imgTitle = imgTitle.split('/').pop();
         }
-        if(imgTitle !== 'inherit'){
-            $('#lightbox-modal').find('.selector__title').text(imgTitle);
-            $('#lightbox-modal').find('.selector__image').attr({'src' : imgSrc, 'alt': imgTitle});
-        }
+        $('#lightbox-modal').find('.selector__title').text(imgTitle);
+        $('#lightbox-modal').find('.selector__image').attr({'src' : imgSrc, 'alt': imgTitle});
         $('#lightbox-modal').modal('show');
     });
-
     var uploadImageBind = new bindUpload({
         form: '#upload_frontend',
         input: '#upload_image_frontend',
