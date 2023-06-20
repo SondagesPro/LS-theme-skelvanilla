@@ -1,0 +1,250 @@
+          {# Functionnal #}
+            <h3 class="h3">{{ gT("Functionality") }}</h3>
+            <div class="row">
+              {# hideprivacyinfo #}
+              <div class='col-sm-12 col-md-6 col-lg-4'>
+                <div class='form-group row'>
+                  <label for='simple_edit_options_hideprivacyinfo' class='control-label col-xs-4'>{{ gT("Hide Anonymous notice") }}</label>
+                  <div class='col-xs-8'>
+                    <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default">
+                        <input type='radio' name='hideprivacyinfo' value='on' class='selector_option_radio_field simple_edit_options_hideprivacyinfo ' data-id='hideprivacyinfo'/>
+                        {{ gT("Yes") }}
+                      </label>
+                      <label class="btn btn-default">
+                        <input type='radio' name='hideprivacyinfo' value='off' class='selector_option_radio_field simple_edit_options_hideprivacyinfo ' data-id='hideprivacyinfo'/>
+                        {{ gT("No") }}
+                      </label>
+                      {# If this is a root template setting, don't show the inherit button #}
+                      {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                        <label class="btn btn-default">
+                          <input type='radio' name='hideprivacyinfo' value='inherit' class='selector_option_radio_field simple_edit_options_hideprivacyinfo ' data-id='hideprivacyinfo'/>
+                          {{ gT("Inherit") }}
+                        </label>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <p class="help-block col-xs-12">{{ gT("Hide the [This survey is anonymous] notice on the Welcome page.") }}</p>
+                </div>
+              </div>
+              {# Clear all #}
+              <div class='col-sm-12 col-md-6 col-lg-4'>
+                <div class='form-group row'>
+                  <label id='simple_edit_options_showclearall' class='control-label col-xs-4'> {{ gT("Show clear all") }} </label>
+                  <div class='col-xs-8'>
+                    <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_showclearall' data-default='on'>
+                      <label class="btn btn-default">
+                        <input type='radio' name='showclearall' value='on' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                        {{ gT("Yes") }}
+                      </label>
+                      <label class="btn btn-default">
+                        <input type='radio' name='showclearall' value='off' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                        {{ gT("No") }}
+                      </label>
+                      {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                        <label class="btn btn-default">
+                          <input type='radio' name='showclearall' value='inherit' class='selector_option_radio_field simple_edit_options_showclearall ' data-id='showclearall'/>
+                          {{ gT("Inherit") }}
+                        </label>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <p class="help-block col-xs-12">{{ gT("Hide the [Clear All/Delete my Response] from the top nav") }}</p>
+                </div>
+              </div>
+              {# Show popups #}
+              <div class='col-sm-12 col-md-6 col-lg-4'>
+                <div class='form-group row'>
+                  <label for='simple_edit_options_showpopups' class='control-label col-xs-4'>{{ gT("Show Alert Messages") }}</label>
+                  <div class='col-xs-8'>
+                    <select class='form-control selector_option_value_field' id='simple_edit_options_showpopups' name='showpopups'>
+                      {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                        <option value="inherit"> {{ gT('Inherit') }}</option>
+                      {% endif %}
+                      <option value="1">{{ gT("Popup") }}</option>
+                      <option value="0">{{ gT("On page") }}</option>
+                      <option value="-1">{{ gT("Off") }}</option>
+                    </select>
+                  </div>
+                  <p class="help-block col-xs-12">{{ gT("Setting to Popup will display error messages in a modal popup. If set to On Page or Off, then errors displayed on-screen after page refresh. Note setting Dynamic Validity to Yes will override these settings") }}</p>
+                </div>
+              </div>
+            </div><!-- end row -->
+            <div class="row">
+              {# Dynamic validity #}
+              <div class='col-sm-12 col-md-6 col-lg-4'>
+                  <div class='form-group row'>
+                      <label for='simple_edit_options_dynamicvalidity' class='control-label col-xs-4'> {{ gT("Dynamic validity") }} </label>
+                      <div class='col-xs-8'>
+                          <div class="btn-group" data-toggle="buttons">
+                              <label class="btn btn-default">
+                                  <input type='radio' name='dynamicvalidity' value='on' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
+                                  {{ gT("Yes") }}
+                              </label>
+                              <label class="btn btn-default">
+                                  <input type='radio' name='dynamicvalidity' value='off' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
+                                  {{ gT("No") }}
+                              </label>
+                              {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                  <label class="btn btn-default">
+                                      <input type='radio' name='dynamicvalidity' value='inherit' class='selector_option_radio_field simple_edit_options_dynamicvalidity ' data-id='dynamicvalidity'/>
+                                      {{ gT("Inherit") }}
+                                  </label>
+                              {% endif %}
+                          </div>{% if(not oParentOptions.dynamicvalidity) %}
+                          <p class="col-xs-12 text-warning">{{ gT("You need to reset template to use this option.") }}</p>
+                      {% else %}
+                      {% endif %}
+                      </div>
+                      <p class="col-xs-12 help-block">This uses HTML5 <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Constraint_validation" target="_blank">constraint validation</a> to refocus user to the first question that fails validation. This is still experimental. Please report any issues.</p>
+                  </div>
+              </div>
+              {# Position of Mandatory Notice#}
+              <div class='col-sm-12 col-md-6 col-lg-4'>
+                  <div class='form-group row'>
+                      <label for='simple_edit_options_mandatoryposition' class='control-label col-xs-4'>{{ gT("Mandatory position") }}</label>
+                      <div class='col-xs-8'>
+                          <select class='form-control selector_option_value_field' id='simple_edit_options_mandatoryposition' name='mandatoryposition'  data-default='astip'>
+                              {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                  <option value="inherit"> {{ gT('Inherit') }}</option>
+                              {% endif %}
+                              <option value="off"}>{{ gT("Only show asterisk and hidden aria help") }}</option>
+                              <option value="block">{{ gT("Show both asterisk and mandatory text") }}</option>
+                              <option value="astip">{{ gT("Show like  tips: just before answers.") }}</option>
+                          </select>
+                      </div>
+                     <p class="col-xs-12 help-block">{{ gT("Asterisk will be shown in all cases. Choice of showing Mandatory text label or not.") }}</p>
+                  </div>
+              </div>
+              
+              {# errorTopLinks #}
+              <div class='col-sm-12 col-md-6 col-lg-4'>
+                  <div class='form-group row'>
+                      <label for='simple_edit_options_errorattop' class='control-label col-xs-4'> {{ gT("Add links to errors.") }} </label>
+                      <div class='col-xs-8'>
+                          <div class="btn-group" data-toggle="buttons" role="radiogroup" data-default='on'>
+                              <label class="btn btn-default">
+                                  <input type='radio' name='errorattop' value='on' class='selector_option_radio_field simple_edit_options_errorattop ' data-id='errorattop'/>
+                                  {{ gT("Yes") }}
+                              </label>
+                              <label class="btn btn-default">
+                                  <input type='radio' name='errorattop' value='off' class='selector_option_radio_field simple_edit_options_errorattop ' data-id='errorattop'/>
+                                  {{ gT("No") }}
+                              </label>
+                              {# If this is a root template setting, don't show the inherit button #}
+                              {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                  <label class="btn btn-default">
+                                      <input type='radio' name='errorattop' value='inherit' class='selector_option_radio_field simple_edit_options_errorattop ' data-id='errorattop'/>
+                                      {{ gT("Inherit") }}
+                                  </label>
+                              {% endif %}
+                          </div>
+
+                      </div>
+                      <p class="help-block">{{ gT("If Show Popups is set to [On page], then display the list of errors in the error alert.") }}</p>	
+                  </div>
+              </div>
+            </div><!-- end row -->
+            <div class="row">
+                {# Fix num auto (and real num value) #}
+                <div class='col-sm-12 col-md-6 col-lg-4 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_fixnumauto' class='control-label col-xs-4'>{{ gT("Automatically fix numeric values") }}</label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_fixnumauto' name='fixnumauto'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% else %}
+                                    <option value="off"> {{ gT('Default') }}</option>
+                                {% endif %}
+                                <option value="enable">{{ gT("Yes") }}</option>
+                                <option value="partial">{{ gT("For expression") }}</option>
+                                <option value="disable">{{ gT("No") }}</option>
+                            </select>
+                            <p class="help-block">{{ gT("If set to [Yes], numeric fields with alpha input will have the alpha portion removed (eg ABC22 becomes 22)") }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end row -->
+            <div class="row">
+                {# Tag for question #}
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_questionhtag' class='control-label col-xs-4'> {{ gT("Use H2 or H3 tag for questions") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role="radiogroup" data-default='off'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='questionhtag' value='on' class='selector_option_radio_field simple_edit_options_questionhtag ' data-id='questionhtag'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='questionhtag' value='off' class='selector_option_radio_field simple_edit_options_questionhtag ' data-id='questionhtag'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='questionhtag' value='inherit' class='selector_option_radio_field simple_edit_options_questionhtag ' data-id='questionhtag'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                            <p class="help-block">{{ gT("If set to [Yes], questions will be wrapped in H2 or H3 tags. For maximum compliance, use plain text for your questions") }}</p>
+                        </div>
+                    </div>
+                </div>
+                {# Set hash to disable previous navigator#}
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_removeback' class='control-label col-xs-4'> {{ gT("Disable back button") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='removeback' value='on' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='removeback' value='off' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='removeback' value='inherit' class='selector_option_radio_field simple_edit_options_removeback ' data-id='removeback'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if(not oParentOptions.removeback) %}
+                            <p class="col-xs-12 text-warning">{{ gT("You need to reset the template to use this option.") }}</p>
+                        {% else %}
+                            <p class="col-xs-12 help-block">{{ gT("Add JavaScript to prevent use of Back button in web browser.") }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {# Fixed header for table #}
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_tableheader' class='control-label col-xs-4'> {{ gT("Use fixed static header in table") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_tableheader' data-default='on'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='tableheader' value='on' class='selector_option_radio_field simple_edit_options_tableheader ' data-id='tableheader'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='tableheader' value='off' class='selector_option_radio_field simple_edit_options_tableheader ' data-id='tableheader'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='tableheader' value='inherit' class='selector_option_radio_field simple_edit_options_tableheader ' data-id='tableheader'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Enable CSS to always show Table Header  at top of table") }}</p>
+                    </div>
+                </div>
+            </div><!-- end row -->

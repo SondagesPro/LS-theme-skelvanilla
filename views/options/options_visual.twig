@@ -1,0 +1,156 @@
+            <h3 class="h3">{{ gT("Visual") }}</h3>
+
+            <div class="row  ">
+                {# Container #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_container' class='control-label col-xs-4'> {{ gT("Survey container") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='container' value='on' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='container' value='off' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='container' value='inherit' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="col-xs-12 help-block">{{ gT("Add left and right margins to the survey so that it isn't rendered full browser width.") }}</p>
+                    </div>
+                </div>
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_headercontainer' class='control-label col-xs-4'> {{ gT("Header container") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons"  data-default='off'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='headercontainer' value='on' class='selector_option_radio_field simple_edit_options_headercontainer ' data-id='headercontainer'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='headercontainer' value='off' class='selector_option_radio_field simple_edit_options_headercontainer ' data-id='headercontainer'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='headercontainer' value='inherit' class='selector_option_radio_field simple_edit_options_headercontainer ' data-id='headercontainer'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Force nav bar to be same width as survey container (if Survey container set to [Yes], then margins are applied to top nav bar, else nav bar will be full width.") }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row  ">
+                {# Help color #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_helpcolor' class='control-label col-xs-4'> {{ gT("Help colour") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_helpcolor' name='helpcolor'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="body-color">{{ gT("Body color") }}</option>
+                                <option value="text-muted">{{ gT("Text muted") }}</option>
+                                <option value="text-primary">{{ gT("Text primary") }}</option>
+                                <option value="text-info">{{ gT("Text info") }}</option>
+                                <option value="text-success">{{ gT("Text success") }}</option>
+                                <option value="text-warning">{{ gT("Text warning") }}</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Colour to use to display question help messages") }}</p>
+                    </div>
+                </div>
+                {# Help color #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_validitycolor' class='control-label col-xs-4'> {{ gT("Dynamic help color (Validity)") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_validitycolor' name='validitycolor'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="body-color">{{ gT("Body color") }}</option>
+                                <option value="text-muted">{{ gT("Text muted") }}</option>
+                                <option value="text-primary">{{ gT("Text primary") }}</option>
+                                <option value="text-info">{{ gT("Text info") }}</option>
+                                <option value="text-success">{{ gT("Text success") }}</option>
+                                <option value="text-warning">{{ gT("Text warning") }}</option>
+                            </select>
+                        </div>
+            <p class="help-block col-xs-12">{{ gT("Style to use to dynamic JavaScript validity/error messages.") }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row  ">
+                {# Fixed header #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_fixedheader' class='control-label col-xs-4'> {{ gT("Fixed header") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='fixedheader' value='on' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='fixedheader' value='off' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='fixedheader' value='inherit' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Make the top nav bar sticky, so it always remains on screen.") }}</p>
+                    </div>
+                </div>
+                {# Body loading loaded #}
+                <div class='col-sm-12 col-md-6 col-lg-3'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_bodyloaded' class='control-label col-xs-4'> {{ gT("Page Preloader") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='bodyloaded' value='on' class='selector_option_radio_field simple_edit_options_bodyloaded ' data-id='bodyloaded'/>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='bodyloaded' value='off' class='selector_option_radio_field simple_edit_options_bodyloaded ' data-id='bodyloaded'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='bodyloaded' value='inherit' class='selector_option_radio_field simple_edit_options_bodyloaded ' data-id='bodyloaded'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if(not oParentOptions.bodyloaded) %}
+                            <p class="col-xs-12 text-warning">{{ gT("You need to reset the template to use this option.") }}</p>
+                        {% else %}
+                            <p class="help-block col-xs-12">{{ gT("Show spinner animation and delay page rendering until content has fully loaded into browser.") }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>

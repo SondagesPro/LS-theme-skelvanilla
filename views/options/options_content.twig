@@ -1,0 +1,36 @@
+            <h3 class="h3  ">{{ gT("Content") }}</h3>
+            <div class="row  ">
+                {# Description #}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_descriptiondisplay' class='control-label col-xs-4'> {{ gT("Display survey Description text") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_descriptiondisplay' name='descriptiondisplay' data-default="welcome">
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="welcome">{{ gT("Only on welcome page") }}</option>
+                                <option value="all">{{ gT("All page") }}</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("By default, Survey Description text is shown on all pages. Use this to restrict it to only the welcome page.") }}</p>
+                    </div>
+                </div>
+                {# Title location #}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_titlelocation' class='control-label col-xs-4'>{{ gT("Title location and display") }}</label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_titlelocation' name='titlelocation' data-default="header">
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="header">{{ gT("In header") }}</option>
+                                <option value="content">{{ gT("In content") }}</option>
+                                <option value="hidden">{{ gT("Hidden (in header for accessibility)") }}</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Specify how to display the Survey Title. By default, it is displayed at top left of nav bar ") }}</p>
+                    </div>
+                </div>
+            </div>

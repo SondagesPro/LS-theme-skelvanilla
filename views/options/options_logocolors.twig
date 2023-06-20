@@ -1,0 +1,303 @@
+            <!-- Brand Logo -->
+            <h3 class="h3  ">{{ gT("Logo") }}</h3>
+            <div class="row ">
+              <div class="col-sm-12 col-md-4">{# Brandlogo #}
+                <div class="form-group row"><label class="control-label" for="simple_edit_options_brandlogo"> Brandlogo </label>
+                  <div class="col-sm-12">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default">
+                          <input class="selector_option_radio_field " name="brandlogo" type="radio" value="on" data-id="simple_edit_options_brandlogo" />
+                          {{gT("Yes" )}}
+                        </label>
+                        <label class="btn btn-default">
+                          <input class="selector_option_radio_field " name="brandlogo" type="radio" value="off" data-id="simple_edit_options_brandlogo" />
+                          {{ gT("No") }}
+                        </label>
+                        {# If this is a root template setting, don't show the inherit button #}
+                        {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                          <label class="btn btn-default">
+                            <input class="selector_option_radio_field " name="brandlogo" type="radio" value="inherit" data-id="simple_edit_options_brandlogo" />
+                            {{ gT("Inherit") }}
+                          </label>
+                        {% endif %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8 col-md-6">{# Brandlogo file selector #}
+                <div class="form-group row"><label class="control-label" for="simple_edit_options_brandlogofile"> Brandlogo file </label>
+                  <div class="col-sm-12">
+                    <select id="simple_edit_options_brandlogofile" class="form-control selector_option_value_field selector_radio_childfield selector_image_selector" name="brandlogofile" data-parent="brandlogo">
+                        {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                        {% set inherited = { 'preview' : imageSrc('./files/logo.png'), 'filename' : gT('Default') } %}
+                        {% for image in templateConfiguration.imageFileList %}
+                          {% if (oParentOptions.brandlogofile == image.filepath) %}
+                            {% set inherited = { 'preview' : image.preview, 'filename' : image.filename } %}
+                          {% endif %}
+                        {% endfor %}
+                        <option value="inherit" data-lightbox-src="{{ inherited.preview }}">{{ gT('Inherit') }} [{{ inherited.filename }}]</option>
+                      {% else %}
+                        <option value="./files/logo.png" data-lightbox-src="{{ imageSrc('./files/logo.png') }}">{{ gT('Default') }}</option>
+                      {% endif %}
+                      {% set optgroup = '' %}
+                      {% for image in templateConfiguration.imageFileList %}
+                      {% if image.group != optgroup %}
+                      {% if optgroup != '' %}
+                          </optgroup>
+                      {% endif %}
+                          <optgroup label="{{image.group}}">
+                      {% set optgroup = image.group %}
+                      {% endif %}
+                              <option data-lightbox-src="{{image.preview}}" value="{{image.filepath}}">{{image.filename}}</option>
+                      {% endfor %}
+                          </optgroup>
+                    </select><!-- an hidden element to get variations --></div>
+                </div>
+              </div>
+              <div class="col-sm-4 col-md-2"><br /> <button class="btn btn-default selector__open_lightbox" data-target="#simple_edit_options_brandlogofile"> {{ gT('Preview image')}} </button></div>
+            </div>
+
+        <div class="row ">
+          {# Upload an image #}
+          <div class="col-sm-6">
+              {{ sprintf( gT("Upload an image (maximum size: %d MB):"), (templateConfiguration.maxFileSize/1024/1024) ) }}
+          </div>
+          <div class="col-sm-6">
+          {{ C.Html.form(createUrl('/admin/themes/sa/upload'), 'post', { 'id' : 'upload_frontend', 'name' : 'upload_frontend', 'enctype' :'multipart/form-data' }) }}
+              <span id="fileselector_frontend">
+                  <label class="btn btn-default col-xs-8" for="upload_image_frontend">
+                      <input class="hidden" id="upload_image_frontend" name="upload_image_frontend" type="file">
+                      <i class="fa fa-upload ls-space margin right-10"></i>
+                      {{ gT("Upload") }}
+                  </label>
+              </span>
+                  <input type='hidden' name='templatename' value='{{ templateConfiguration.template_name }}' />
+                  <input type='hidden' name='templateconfig' value='{{ templateConfiguration.id }}' />
+                  <input type='hidden' name='action' value='templateuploadimagefile' />
+                  {% if templateConfiguration.sid is not empty %}
+                      <input type='hidden' name='surveyid' value='{{ templateConfiguration.sid }}' />
+                  {% endif %}
+              </form>
+          </div>
+        </div>
+        <div class="row">
+            <div class="progress">
+                <div id="upload_progress_frontend" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                    <span class="sr-only">0%</span>
+                </div>
+            </div>
+        </div>
+    
+            <div class="row  ">
+                <div class='col-sm-12 col-md-6'>
+                    {# Brandlogo by language #}
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_brandlogobylang' class='control-label'>{{ gT("Search language logo") }}</label>
+                        <div class='col-sm-12'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='brandlogobylang' value='on' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogobylang'/>
+                                    {{gT("Yes" )}}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='brandlogobylang' value='off' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogobylang'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='brandlogobylang' value='inherit' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogobylang'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Image by language with the name of selected image and language code separated with dash (logo-en.png).") }}</p>
+                    </div>
+                </div>
+                <div class='col-sm-12 col-md-6'>
+                    {# Brandlogo as banner #}
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_brandlogoasbanner' class='control-label'>{{ gT("Use logo as banner") }}</label>
+                        <div class='col-sm-12'>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type='radio' name='brandlogoasbanner' value='on' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogoasbanner'/>
+                                    {{gT("Yes" )}}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='brandlogoasbanner' value='off' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogoasbanner'/>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='brandlogoasbanner' value='inherit' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogoasbanner'/>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Logo is centered on page, menu and title are shown after the logo.") }}</p>
+                    </div>
+                </div>
+                <div class='col-xs-12 col-sm-12'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_brandlogalt' class='control-label col-xs-4'>Alt text for logo</label>
+                        <div class='col-xs-8'>
+                                <input type='text' id="simple_edit_options_brandlogalt" class="form-control text_option_string_field" name="brandlogalt"
+                                {% if (templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty) %}
+                                    placeholder="{{ gT('Inherit') }}"
+                                {% endif %}
+                                >
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Use this for alternative text for logo if not as banner, else an empty alt is added (image as decoration).") }}</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <h3 class="h3">{{ gT("Style and colors") }}</h3>
+            <div class="row">
+                <div class='col-sm-12'>
+                    <div class='panel panel-default'>
+                        <div class='panel-heading'>{{ sprintf( gT("%s variations"), templateConfiguration.template_name) }} </div>
+                        <div class='panel-body'>
+                            <div class='form-group row'>
+                                <label for='simple_edit_options_theme' class='control-label'>{{ gT("Select variation:") }}</label>
+                                <div class='col-sm-12'>
+                                    <select class='form-control selector_option_value_field' id='simple_edit_options_theme' name='theme'>
+                                        <option value="off">{{ gT('None') }} - {{ gT('bootstrap.css updatable via theme editor') }}</option>
+                                        {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                            <option value="inherit"> {{ gT('Inherit') }}</option>
+                                        {% endif %}
+                                        {% for variation,oVariation in json_decode(sAvailableVariations) %}
+                                            {% set aVariation = json_decode(json_encode(oVariation)) %}
+                                            {% if not aVariation.disable %}
+                                                <optgroup label="{{ aVariation.name }}">
+                                                    {% if aVariation.base %}
+                                                        <option value="css/variations/{{ variation }}-base.min.css"> {{ aVariation.name }} - Base</option>
+                                                    {% endif %}
+                                                    {% if aVariation.button %}
+                                                        <option value="css/variations/{{ variation }}-button.min.css">{{ aVariation.name }} - Button for radio and checkbox</option>
+                                                    {% endif %}
+                                                    {% if aVariation.awesome %}
+                                                        <option value="css/variations/{{ variation }}-awesome.min.css">{{ aVariation.name }} - Awesome checkbox and radio</option>
+                                                    {% endif %}
+                                                    {% if aVariation.button_awesome %}
+                                                        <option value="css/variations/{{ variation }}-button_awesome.min.css">{{ aVariation.name }} -  Button &amp; awesome checkbox and radio</option>
+                                                    {% endif %}
+                                                </optgroup>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                    <p class="help-block">Contrast uses contrasted color and uses the default browser font and font size. <br>Fruity variations are based on core Fruity theme. Other variations are based on <a href="https://bootswatch.com/3/">bootswatch</a>.</p>
+                                    {% if templateConfiguration.sid is not empty %}
+                                        <div class='hidden' id='inherited-available-variation'></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if templateConfiguration.sid is empty %}
+                <div class='col-sm-12'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_json_availablevariation' class='control-label'>{{ gT("Available variation:") }}</label>
+                        <textarea class='form-control text_option_json_field' id='edit_json_availablevariations' name='availablevariations'>{{ sAvailableVariations }}</textarea>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="row  ">
+                {# Question text size #}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_questionsize' class='control-label col-xs-4'> {{ gT("Question size") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_questionsize' name='questionsize'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="body-copy">{{ gT('Body copy') }}</option>
+                                <option value="h5">h5</option>
+                                <option value="h4">h4</option>
+                                <option value="h3">h3</option>
+                                <option value="h2">h2</option>
+                                <option value="lead">lead</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Select text style for question text to inherit. Size is defined by bootstrap theme.") }}</p>
+                    </div>
+                </div>
+                {# Question colour #}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_questioncolor' class='control-label col-xs-4'> {{ gT("Question colour") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_questioncolor' name='questioncolor'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="none">{{ gT("Body color (no color)") }}</option>
+                                <option value="primary">{{ gT("Primary color") }}</option>
+                                <option value="info">{{ gT("Info color") }}</option>
+                                <option value="success">{{ gT("Success color") }}</option>
+                                <option value="warning">{{ gT("Warning color") }}</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Colours are inherited from your bootstrap theme.") }}</p>
+                    </div>
+                </div>
+                {# Question color on error#}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_dangercolor' class='control-label col-xs-4'> {{ gT("Use danger color") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_dangercolor' name='dangercolor'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="on">{{ gT("Yes") }}</option>
+                                <option value="off">{{ gT("No") }}</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Style to apply when survey is submitted and there are on-page errors. Use the theme's danger colour to highlight the question.") }}</p>
+                    </div>
+                </div>
+                {# Question wrapper #}
+                <div class='col-sm-12 col-md-6 col-lg-3 container-fluid'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_questionwrap' class='control-label col-xs-4'> {{ gT("Question wrapper") }} </label>
+                        <div class='col-xs-8'>
+                            <select class='form-control selector_option_value_field' id='simple_edit_options_questionwrap' name='questionwrap'>
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                {% endif %}
+                                <option value="none">{{ gT("No wrapper") }}</option>
+                                <option value="well">{{ gT("Wells wrapper") }}</option>
+                                <option value="panel">{{ gT("Panel wrapper") }}</option>
+                            </select>
+                        </div>
+                        <p class="help-block col-xs-12">Option to add border and colour for questions. <a href="https://getbootstrap.com/docs/3.3/components/#wells" target="_blank">Wells wrapper</a> uses rounded border. <a href="https://getbootstrap.com/docs/3.3/components/#panels-alternatives" target="blank">Panel wrapper</a> includes background colour.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {# Inline style #}
+                <div class='col-sm-12 col-md-12 col-lg-12'>
+                    <div class='form-group row'>
+                            <label for='simple_edit_options_inlinestyle' class='control-label col-xs-4'>{{ gT("Inline style") }}</label>
+                            <div class='col-xs-8'>
+                                    <textarea rows=8 id="simple_edit_options_inlinestyle" class="form-control text_option_string_field" name="inlinestyle"
+                                    {% if (templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty) %}
+                                        placeholder="{{ gT('Inherit') }}"
+                                    {% endif %}
+                                    ></textarea>
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Added inline after other css file, whoile string are escaped.") }}</p>
+                </div>
+            </div>

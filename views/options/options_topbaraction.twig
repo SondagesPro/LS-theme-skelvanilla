@@ -1,0 +1,153 @@
+            <h3 class="h4  ">{{ gT("Top nav actions") }}</h3>
+            <div class="row  ">
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_savelink' class='control-label col-xs-4'> {{ gT("Save Response") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_savelink' data-default='on'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='savelink' value='on' class='selector_option_radio_field simple_edit_options_savelink ' data-id='savelink'>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='savelink' value='off' class='selector_option_radio_field simple_edit_options_savelink ' data-id='savelink'>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='savelink' value='inherit' class='selector_option_radio_field simple_edit_options_savelink ' data-id='savelink'>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="help-block col-xs-12">{{ gT("Show Save My Response button in header.") }}</p>	
+                </div>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_clearalllink' class='control-label col-xs-4'> {{ gT("Clear All/Delete Response") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_clearalllink' data-default='on'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='clearalllink' value='on' class='selector_option_radio_field simple_edit_options_clearalllink ' data-id='clearalllink'>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='clearalllink' value='off' class='selector_option_radio_field simple_edit_options_clearalllink ' data-id='clearalllink'>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='clearalllink' value='inherit' class='selector_option_radio_field simple_edit_options_clearalllink ' data-id='clearalllink'>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Hide the Clear All/Delete my Response button in nav bar.") }}</p>			 
+                    </div>
+                </div>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_indexlink' class='control-label col-xs-4'> {{ gT("Index links") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_indexlink' data-default='on'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='indexlink' value='on' class='selector_option_radio_field simple_edit_options_indexlink ' data-id='indexlink'>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='indexlink' value='off' class='selector_option_radio_field simple_edit_options_indexlink ' data-id='indexlink'>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='indexlink' value='inherit' class='selector_option_radio_field simple_edit_options_indexlink ' data-id='indexlink'>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Show the survey question index (allows users to jump to specific part of a survey") }}</p>
+                    </div>
+                </div>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_languagelink' class='control-label col-xs-4'> {{ gT("Language changer links") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_languagelink' data-default='on'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='languagelink' value='on' class='selector_option_radio_field simple_edit_options_languagelink ' data-id='languagelink'>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='languagelink' value='off' class='selector_option_radio_field simple_edit_options_languagelink ' data-id='languagelink'>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='languagelink' value='inherit' class='selector_option_radio_field simple_edit_options_languagelink ' data-id='languagelink'>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Show the Language Changer in the top nav bar.") }}</p>
+                    </div>
+                </div>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_previouslink' class='control-label col-xs-4'> {{ gT("Display Previous button") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_previouslink' data-default='off'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='previouslink' value='on' class='selector_option_radio_field simple_edit_options_previouslink ' data-id='languagelink'>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='previouslink' value='off' class='selector_option_radio_field simple_edit_options_previouslink ' data-id='languagelink'>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='previouslink' value='inherit' class='selector_option_radio_field simple_edit_options_previouslink ' data-id='languagelink'>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="col-xs-12 help-block">{{ gT("Show the Previous button in the top nav bar.") }}</p>
+                    </div>
+                </div>
+                <div class='col-sm-12 col-md-6 col-lg-4'>
+                    <div class='form-group row'>
+                        <label id='simple_edit_options_nextsubmitlink' class='control-label col-xs-4'> {{ gT("Display Next and Submit buttons") }} </label>
+                        <div class='col-xs-8'>
+                            <div class="btn-group" data-toggle="buttons" role='radiogroup' aria-labelledby='simple_edit_options_nextsubmitlink' data-default='off'>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='nextsubmitlink' value='on' class='selector_option_radio_field simple_edit_options_nextsubmitlink ' data-id='languagelink'>
+                                    {{ gT("Yes") }}
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type='radio' name='nextsubmitlink' value='off' class='selector_option_radio_field simple_edit_options_nextsubmitlink ' data-id='languagelink'>
+                                    {{ gT("No") }}
+                                </label>
+                                {# If this is a root template setting, don't show the inherit button #}
+                                {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                                    <label class="btn btn-default">
+                                        <input type='radio' name='nextsubmitlink' value='inherit' class='selector_option_radio_field simple_edit_options_nextsubmitlink ' data-id='languagelink'>
+                                        {{ gT("Inherit") }}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p class="help-block col-xs-12">{{ gT("Show Next and Submit buttons in the top nav bar") }}</p>			
+                    </div>
+                </div>
+            </div>
