@@ -1,0 +1,143 @@
+            <h3 class="h3  ">{{ gT("Survey list images") }}</h3>
+
+
+            <div class="row ">
+              <div class="col-sm-12 col-md-4">{# Survey list #}
+                <div class="form-group row"><label class="control-label" for="simple_edit_options_poweredlogo">Powered link</label>
+                  <div class="col-sm-12">
+                    <div class="btn-group" data-toggle="buttons"><label class="btn btn-default"> <input class="selector_option_radio_field " name="poweredlogo" type="radio" value="on" data-id="simple_edit_options_poweredlogo" /> {{gT("Yes" )}} </label> <label class="btn btn-default"> <input class="selector_option_radio_field " name="poweredlogo" type="radio" value="off" data-id="simple_edit_options_poweredlogo" /> {{ gT("No") }} </label> {# If this is a root template setting, don't show the inherit button #} {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %} <label class="btn btn-default"> <input class="selector_option_radio_field " name="poweredlogo" type="radio" value="inherit" data-id="simple_edit_options_poweredlogo" /> {{ gT("Inherit") }} </label> {% endif %}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8 col-md-6">{# poweredlogo file selector #}
+                <div class="form-group row"><label class="control-label" for="simple_edit_options_poweredlogofile">poweredlogo file</label>
+                  <div class="col-sm-12">
+                    <select id="simple_edit_options_poweredlogofile" class="form-control selector_option_value_field selector_radio_childfield selector_image_selector" name="poweredlogofile" data-parent="poweredlogo">
+                      {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                        {% set inherited = { 'preview' : imageSrc('./files/logo.png'), 'filename' : gT('Default') } %}
+                        {% for image in templateConfiguration.imageFileList %}
+                          {% if (oParentOptions.poweredlogofile == image.filepath) %}
+                            {% set inherited = { 'preview' : image.preview, 'filename' : image.filename } %}
+                          {% endif %}
+                        {% endfor %}
+                        <option value="inherit" data-lightbox-src="{{ inherited.preview }}">{{ gT('Inherit') }} [{{ inherited.filename }}]</option>
+                      {% else %}
+                        <option value="./files/poweredby.png" data-lightbox-src="{{ imageSrc('./files/poweredby.png') }}">{{ gT('Default') }}</option>
+                      {% endif %}
+                      {% set optgroup = '' %}
+                      {% for image in templateConfiguration.imageFileList %}
+                      {% if image.group != optgroup %}
+                      {% if optgroup != '' %}
+                          </optgroup>
+                      {% endif %}
+                          <optgroup label="{{image.group}}">
+                      {% set optgroup = image.group %}
+                      {% endif %}
+                              <option data-lightbox-src="{{image.preview}}" value="{{image.filepath}}">{{image.filename}}</option>
+                      {% endfor %}
+                          </optgroup>
+                    </select></div>
+                </div>
+              </div>
+              <div class="col-sm-4 col-md-2"><br /> <button class="btn btn-default selector__open_lightbox" data-target="#simple_edit_options_poweredlogofile"> {{ gT('Preview image')}}</button></div>
+            </div>
+
+            <div class="row ">
+              <div class="col-sm-12 col-md-4">
+                {# Survey list #}
+                <div class="form-group row">
+                  <label class="control-label" for="simple_edit_options_surveylistlogo">
+                    Survey list logo
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default">
+                        <input class="selector_option_radio_field " name="surveylistlogo" type="radio" value="on" data-id="simple_edit_options_surveylistlogo" />
+                         {{gT("Yes" )}}
+                      </label>
+                      <label class="btn btn-default">
+                        <input class="selector_option_radio_field " name="surveylistlogo" type="radio" value="off" data-id="simple_edit_options_surveylistlogo" />
+                         {{ gT("No") }}
+                      </label>
+                       {# If this is a root template setting, don't show the inherit button #} {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                      <label class="btn btn-default">
+                        <input class="selector_option_radio_field " name="surveylistlogo" type="radio" value="inherit" data-id="simple_edit_options_surveylistlogo" />
+                         {{ gT("Inherit") }}
+                      </label>
+                       {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8 col-md-6">
+                {# surveylistlogo file selector #}
+                <div class="form-group row">
+                  <label class="control-label" for="simple_edit_options_surveylistlogofile">
+                    surveylistlogo file
+                  </label>
+                  <div class="col-sm-12">
+                    <select id="simple_edit_options_surveylistlogofile" class="form-control selector_option_value_field selector_radio_childfield selector_image_selector" name="surveylistlogofile" data-parent="surveylistlogo">
+                      {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                        {% set inherited = { 'preview' : imageSrc('./files/logo.png'), 'filename' : gT('Default') } %}
+                        {% for image in templateConfiguration.imageFileList %}
+                          {% if (oParentOptions.surveylistlogofile == image.filepath) %}
+                            {% set inherited = { 'preview' : image.preview, 'filename' : image.filename } %}
+                          {% endif %}
+                        {% endfor %}
+                          <option value="inherit" data-lightbox-src="{{ inherited.preview }}">{{ gT('Inherit') }} [{{ inherited.filename }}]</option>
+                        {% else %}
+                          <option value="./files/survey_list_header.png" data-lightbox-src="{{ imageSrc('./files/survey_list_header.png') }}">
+                            {{ gT('Default') }}
+                          </option>
+                        {% endif %}
+                        {% set optgroup = '' %}
+                        {% for image in templateConfiguration.imageFileList %}
+                        {% if image.group != optgroup %}
+                        {% if optgroup != '' %}
+                            </optgroup>
+                        {% endif %}
+                            <optgroup label="{{image.group}}">
+                        {% set optgroup = image.group %}
+                        {% endif %}
+                                <option data-lightbox-src="{{image.preview}}" value="{{image.filepath}}">{{image.filename}}</option>
+                        {% endfor %}
+                            </optgroup>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 col-md-2">
+                <br />
+                <button class="btn btn-default selector__open_lightbox" data-target="#simple_edit_options_surveylistlogofile">
+                   {{ gT('Preview image')}}
+                </button>
+              </div>
+            </div>
+
+            <!-- Powered link , leave it for allowing usage in footer for example -->
+            <div class="row  ">
+                <div class='col-xs-12 col-sm-6'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_poweredlink' class='control-label col-xs-4'>Powered link</label>
+                        <div class='col-xs-8'>
+                                <input type='text' id="simple_edit_options_poweredlink" class="form-control text_option_string_field" name="poweredlink"
+                                {% if (templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty) %}
+                                    placeholder="{{ gT('Inherit') }}"
+                                {% endif %}
+                                >
+                        </div>
+                    </div>
+                </div>
+                <div class='col-xs-12 col-sm-6'>
+                    <div class='form-group row'>
+                        <label for='simple_edit_options_poweredtext' class='control-label col-xs-4'>Powered text</label>
+                        <div class='col-xs-8'>
+                                <input type='text' id="simple_edit_options_poweredtext" class="form-control text_option_string_field" name="poweredtext"
+                                {% if (templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty) %}
+                                    placeholder="{{ gT('Inherit') }}"
+                                {% endif %}
+                                >
+                        </div>
+                    </div>
+                </div>
+            </div>

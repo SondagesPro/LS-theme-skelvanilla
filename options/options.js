@@ -62,7 +62,7 @@ var ThemeOptions = function(){
         globalForm.find('.selector_option_value_field').each(function(i,item){
             //disabled items should be inherit or false
             if($(item).prop('disabled')){
-                $(item).val((inheritPossible ? 'inherit' : false));
+                $(item).val((inheritPossible ? 'inherit' : ''));
             }
             optionObject[$(item).attr('name')] = $(item).val();
         });
@@ -70,7 +70,7 @@ var ThemeOptions = function(){
         globalForm.find('.selector_option_radio_field').each(function(i,item){
             //disabled items should be inherit or false
             if($(item).prop('disabled')){
-                $(item).val((inheritPossible ? 'inherit' : false));
+                $(item).val((inheritPossible ? 'inherit' : ''));
             }
             if($(item).attr('type') == 'radio'){
                 if($(item).prop('checked')){
@@ -116,7 +116,7 @@ var ThemeOptions = function(){
 
     //Parses the option value for an item
     var parseOptionValue = function(item, fallbackValue){
-        fallbackValue = fallbackValue || false;
+        fallbackValue = fallbackValue || '';
         // If general inherit, then the value of the dropdown is inherit, else it's the value defined in advanced options
         var itemValue = generalInherit() ? 'inherit' : optionObject[$(item).attr('name')];
         // If anything goes wrong (manual edit or anything else), we make sure it will have a correct value
@@ -301,8 +301,8 @@ $(document).off('pjax:scriptcomplete.templateOptions').on('ready pjax:scriptcomp
     $('.selector__open_lightbox').on('click', function(e){
         e.preventDefault();
         var imgSrc = $($(this).data('target')).find('option:selected').data('lightbox-src');
-        console.warn(imgSrc);
         var imgTitle = $($(this).data('target')).val();
+        console.warn(imgSrc);
         if(!imgSrc) {
             return;
         }
