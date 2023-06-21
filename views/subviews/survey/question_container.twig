@@ -55,13 +55,19 @@
 {% set questionsize = aSurveyInfo.options.questionsize %}
 {% set start_group = 0 %}
 {% set end_group = 0 %}
-{% if questionwrap is empty %}
+{% if questionwrap is empty or questionwrap == 'panelgroup' %}
     {% set questionwrap = 'none' %}
 {% endif %}
 {% if ( aSurveyInfo.options.questioncolor and aSurveyInfo.options.questioncolor !='none' ) %}
     {% set questioncolor = aSurveyInfo.options.questioncolor %}
 {% endif %}
 
+{% if aSurveyInfo.options.questionwrap == 'panelgroup' and aQuestion.type == 'X' %}
+    {% set questionwrap = 'panel' %}
+    {% set questioncolor = 'info' %}
+    {% set questionsize = 'h4 panel-title' %}
+    {% set tagQuestionH = 'h2' %}
+{% endif %}
 
 {% if(in_array('skel-wrap-well',aQuestionsClasses)) %}
     {% set questionwrap = 'well' %}

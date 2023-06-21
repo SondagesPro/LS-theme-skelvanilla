@@ -1,5 +1,13 @@
 <!-- START OF GROUP: {{ aGroup.name }} {{ aGroup.gseq }}  -->
-<section id='group-{{ aGroup.gseq }}' class="{{ aSurveyInfo.class.groupoutercontainer }}{{ aGroup.class }} {{ aSurveyInfo.class.groupcontainer }}" {{ aSurveyInfo.attr.questiongroup }}>
+{% set themeclass = '' %}
+{% if aSurveyInfo.options.questionwrap == 'panelgroup' %}
+    {% set panelcolor = aSurveyInfo.options.questioncolor %}
+    {% if panelcolor == 'none' %}
+        {% set panelcolor = 'default' %}
+    {% endif  %}
+    {% set themeclass = 'wrap-panel panel panel-' ~ panelcolor %}
+{% endif %}
+<section id='group-{{ aGroup.gseq }}' class="{{ aSurveyInfo.class.groupoutercontainer }}{{ aGroup.class }} {{ aSurveyInfo.class.groupcontainer }} {{ themeclass }}" {{ aSurveyInfo.attr.questiongroup }}>
     {# The container div itself could often change from a template to another, so we clearly separate it. #}
     {{ include('./subviews/survey/group_subviews/group_container.twig') }}
 </section>

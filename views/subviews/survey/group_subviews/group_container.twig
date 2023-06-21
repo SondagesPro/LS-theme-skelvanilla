@@ -1,10 +1,16 @@
-{% if ( ( (aGroup.showgroupinfo == 'D' or aGroup.showgroupinfo == 'B' ) and aGroup.description ) or ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) ) %}
-    <header>
+{% if ( ( (aGroup.showgroupinfo == 'D' or aGroup.showgroupinfo == 'B' ) and aGroup.description and aSurveyInfo.options.questionwrap != 'panelgroup') or ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) ) %}
+    <header class=" {% if aSurveyInfo.options.questionwrap == 'panelgroup' %} panel-heading{% endif %}">
         {# Group Name #}
         {{ include('./subviews/survey/group_subviews/group_name.twig') }}
-        {# Group Description #}
-        {{ include('./subviews/survey/group_subviews/group_desc.twig') }}
+        {% if aSurveyInfo.options.questionwrap != 'panelgroup' %}
+            {# Group Description #}
+            {{ include('./subviews/survey/group_subviews/group_desc.twig') }}
+        {% endif %}
     </header>
+{% endif %}
+{% if aSurveyInfo.options.questionwrap == 'panelgroup' %}
+    {# Group Description #}
+    {{ include('./subviews/survey/group_subviews/group_desc.twig') }}
 {% endif %}
 {# PRESENT THE QUESTIONS #}
 
