@@ -29,7 +29,7 @@
         {% endif %}
     {% endif %}
     {% if(aSurveyInfo.options.brandlogalt and aSurveyInfo.options.brandlogalt != 'false') %}
-        {% set brandlogalt = aSurveyInfo.options.brandlogalt %}
+        {% set brandlogalt = aSurveyInfo.options.brandlogalt|escape %}
     {% endif %}
     {%if aSurveyInfo.options.brandlogoasbanner == "on" %}
         {% set brandlogo = "banner" %}
@@ -61,7 +61,7 @@
                         <h1 class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == 'on') %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
                             {% if( brandlogo == "on") %}
                                 <span class="logo-container">
-                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                {{ image(brandlogofile, brandlogalt, {"class": "logo img-responsive"}) }}
                                 </span>
                             {% endif %}
                             {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}
@@ -71,7 +71,7 @@
                         {% if( brandlogo == "on") %}
                             <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
                                 <span class="logo-container">
-                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                {{ image(brandlogofile, brandlogalt, {"class": "logo img-responsive"}) }}
                                 </span>
                                 {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}
                             </div>
@@ -85,7 +85,7 @@
                         {% if( brandlogo == "on") %}
                         <div class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
                             <span class="logo-container">
-                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                {{ image(brandlogofile, brandlogalt, {"class": "logo img-responsive"}) }}
                             </span>
                         </div>
                         {% endif %}
@@ -136,7 +136,7 @@
                         <h1 class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == 'on') %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }}  >
                             {% if( brandlogo == "on") %}
                                 <span class="logo-container">
-                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                {{ image(brandlogofile, brandlogalt, {"class": "logo img-responsive"}) }}
                                 </span>
                             {% endif %}
                             {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}
@@ -146,7 +146,7 @@
                         {% if( brandlogo == "on") %}
                             <h1 class="h1 {{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
                                 <span class="logo-container">
-                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                {{ image(brandlogofile, brandlogalt, {"class": "logo img-responsive"}) }}
                                 </span>
                                 {{ pagetitle ?: processString(aSurveyInfo.surveyls_title) }}
                             </h1>
@@ -160,7 +160,7 @@
                         {% if( brandlogo == "on") %}
                         <div class="{{ aSurveyInfo.class.navbarbrand }} {% if( brandlogo == "on") %}with-logo{% endif %}"  {{ aSurveyInfo.attr.navbarbrand }} aria-hidden="true" >
                             <span class="logo-container">
-                                {{ image(brandlogofile, "", {"class": "logo img-responsive"}) }}
+                                {{ image(brandlogofile, brandlogalt, {"class": "logo img-responsive"}) }}
                             </span>
                         </div>
                         {% endif %}

@@ -19,12 +19,12 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='container' value='inherit' class='selector_option_radio_field simple_edit_options_container ' data-id='container'/>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.container == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
                         </div>
-                        <p class="col-xs-12 help-block">{{ gT("Add left and right margins to the survey so that it isn't rendered full browser width.") }}</p>
+                        <p class="col-xs-12 help-block">{{ gT("Set a maximum width to the surey content, else use all width of browser.") }}</p>
                     </div>
                 </div>
                 <div class='col-sm-12 col-md-6 col-lg-3'>
@@ -44,12 +44,12 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='headercontainer' value='inherit' class='selector_option_radio_field simple_edit_options_headercontainer ' data-id='headercontainer'/>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.headercontainer == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Force nav bar to be same width as survey container (if Survey container set to [Yes], then margins are applied to top nav bar, else nav bar will be full width.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Add container class to nav bar: force to have a fixd width against all screen width.") }}</p>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_helpcolor' name='helpcolor'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                    <option value="inherit"> {{ gT('Inherit') }} [{{ oParentOptions.helpcolor }}]</option>
                                 {% endif %}
                                 <option value="body-color">{{ gT("Body color") }}</option>
                                 <option value="text-muted">{{ gT("Text muted") }}</option>
@@ -82,7 +82,7 @@
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_validitycolor' name='validitycolor'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                    <option value="inherit"> {{ gT('Inherit') }} [{{ oParentOptions.validitycolor }}]</option>
                                 {% endif %}
                                 <option value="body-color">{{ gT("Body color") }}</option>
                                 <option value="text-muted">{{ gT("Text muted") }}</option>
@@ -92,7 +92,7 @@
                                 <option value="text-warning">{{ gT("Text warning") }}</option>
                             </select>
                         </div>
-            <p class="help-block col-xs-12">{{ gT("Style to use to dynamic JavaScript validity/error messages.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Style to use to dynamic validity/error messages.") }}</p>
                     </div>
                 </div>
             </div>
@@ -116,12 +116,12 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='fixedheader' value='inherit' class='selector_option_radio_field simple_edit_options_fixedheader ' data-id='fixedheader'/>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.fixedheader == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Make the top nav bar sticky, so it always remains on screen.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Make the top nav bar sticky.") }}</p>
                     </div>
                 </div>
                 {# Body loading loaded #}
@@ -141,16 +141,12 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='bodyloaded' value='inherit' class='selector_option_radio_field simple_edit_options_bodyloaded ' data-id='bodyloaded'/>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.bodyloaded == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
                         </div>
-                        {% if(not oParentOptions.bodyloaded) %}
-                            <p class="col-xs-12 text-warning">{{ gT("You need to reset the template to use this option.") }}</p>
-                        {% else %}
-                            <p class="help-block col-xs-12">{{ gT("Show spinner animation and delay page rendering until content has fully loaded into browser.") }}</p>
-                        {% endif %}
+                        <p class="help-block col-xs-12">{{ gT("Show spinner animation and delay page rendering until content has fully loaded into browser.") }}</p>
                     </div>
                 </div>
             </div>

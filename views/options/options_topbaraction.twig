@@ -17,7 +17,7 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='savelink' value='inherit' class='selector_option_radio_field simple_edit_options_savelink ' data-id='savelink'>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.savelink == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
@@ -42,7 +42,7 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='clearalllink' value='inherit' class='selector_option_radio_field simple_edit_options_clearalllink ' data-id='clearalllink'>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.clearalllink == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
@@ -67,7 +67,7 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='indexlink' value='inherit' class='selector_option_radio_field simple_edit_options_indexlink ' data-id='indexlink'>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.indexlink == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
@@ -92,7 +92,7 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='languagelink' value='inherit' class='selector_option_radio_field simple_edit_options_languagelink ' data-id='languagelink'>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.languagelink == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
@@ -117,7 +117,7 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='previouslink' value='inherit' class='selector_option_radio_field simple_edit_options_previouslink ' data-id='languagelink'>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.previouslink == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
@@ -142,7 +142,7 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='nextsubmitlink' value='inherit' class='selector_option_radio_field simple_edit_options_nextsubmitlink ' data-id='languagelink'>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.nextsubmitlink == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>

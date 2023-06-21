@@ -7,7 +7,7 @@
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default">
                           <input class="selector_option_radio_field " name="brandlogo" type="radio" value="on" data-id="simple_edit_options_brandlogo" />
-                          {{gT("Yes" )}}
+                          {{ gT("Yes" )}}
                         </label>
                         <label class="btn btn-default">
                           <input class="selector_option_radio_field " name="brandlogo" type="radio" value="off" data-id="simple_edit_options_brandlogo" />
@@ -15,9 +15,9 @@
                         </label>
                         {# If this is a root template setting, don't show the inherit button #}
                         {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                          <label class="btn btn-default">
+                          <label class="btn btn-default"> 
                             <input class="selector_option_radio_field " name="brandlogo" type="radio" value="inherit" data-id="simple_edit_options_brandlogo" />
-                            {{ gT("Inherit") }}
+                            {{ gT("Inherit") }} [{% if oParentOptions.brandlogo == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                           </label>
                         {% endif %}
                       </div>
@@ -107,7 +107,7 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='brandlogobylang' value='inherit' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogobylang'/>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.brandlogobylang == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
@@ -133,7 +133,7 @@
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                                     <label class="btn btn-default">
                                         <input type='radio' name='brandlogoasbanner' value='inherit' class='selector_option_radio_field ' data-id='simple_edit_options_brandlogoasbanner'/>
-                                        {{ gT("Inherit") }}
+                                        {{ gT("Inherit") }} [{% if oParentOptions.brandlogoasbanner == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                                     </label>
                                 {% endif %}
                             </div>
@@ -147,11 +147,11 @@
                         <div class='col-xs-8'>
                                 <input type='text' id="simple_edit_options_brandlogalt" class="form-control text_option_string_field" name="brandlogalt"
                                 {% if (templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty) %}
-                                    placeholder="{{ gT('Inherit') }}"
+                                    placeholder="{{ gT('Inherit') }} [{{ oParentOptions.brandlogalt|escape }}]"
                                 {% endif %}
                                 >
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Use this for alternative text for logo if not as banner, else an empty alt is added (image as decoration).") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Use this for alternative text for logo, else an empty alt is added (image as decoration).") }}</p>
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                                     <select class='form-control selector_option_value_field' id='simple_edit_options_theme' name='theme'>
                                         <option value="off">{{ gT('None') }} - {{ gT('bootstrap.css updatable via theme editor') }}</option>
                                         {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                            <option value="inherit"> {{ gT('Inherit') }}</option>
+                                            <option value="inherit"> {{ gT('Inherit') }} [{{ oParentOptions.theme }}]</option>
                                         {% endif %}
                                         {% for variation,oVariation in json_decode(sAvailableVariations) %}
                                             {% set aVariation = json_decode(json_encode(oVariation)) %}
@@ -218,7 +218,7 @@
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_questionsize' name='questionsize'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                    <option value="inherit"> {{ gT('Inherit') }} [{{ oParentOptions.questionsize }}]</option>
                                 {% endif %}
                                 <option value="body-copy">{{ gT('Body copy') }}</option>
                                 <option value="h5">h5</option>
@@ -228,7 +228,7 @@
                                 <option value="lead">lead</option>
                             </select>
                         </div>
-                        <p class="help-block col-xs-12">{{ gT("Select text style for question text to inherit. Size is defined by bootstrap theme.") }}</p>
+                        <p class="help-block col-xs-12">{{ gT("Size of the question text. Size is defined by bootstrap theme.") }}</p>
                     </div>
                 </div>
                 {# Question colour #}
@@ -238,7 +238,7 @@
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_questioncolor' name='questioncolor'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                    <option value="inherit"> {{ gT('Inherit') }} [{{ oParentOptions.questioncolor }}]</option>
                                 {% endif %}
                                 <option value="none">{{ gT("Body color (no color)") }}</option>
                                 <option value="primary">{{ gT("Primary color") }}</option>
@@ -257,7 +257,7 @@
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_dangercolor' name='dangercolor'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                    <option value="inherit"> {{ gT('Inherit') }} [{% if oParentOptions.dangercolor == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]</option>
                                 {% endif %}
                                 <option value="on">{{ gT("Yes") }}</option>
                                 <option value="off">{{ gT("No") }}</option>
@@ -273,7 +273,7 @@
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_questionwrap' name='questionwrap'>
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                    <option value="inherit"> {{ gT('Inherit') }} [{{ oParentOptions.questionwrap }}]</option>
                                 {% endif %}
                                 <option value="none">{{ gT("No wrapper") }}</option>
                                 <option value="well">{{ gT("Wells wrapper") }}</option>
@@ -293,7 +293,8 @@
                             <div class='col-xs-8'>
                                     <textarea rows=8 id="simple_edit_options_inlinestyle" class="form-control text_option_string_field" name="inlinestyle"
                                     {% if (templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty) %}
-                                        placeholder="{{ gT('Inherit') }}"
+                                        placeholder="{{ gT('Inherit') }} :
+{{ oParentOptions.inlinestyle|escape }}"
                                     {% endif %}
                                     ></textarea>
                             </div>

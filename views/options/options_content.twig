@@ -7,7 +7,7 @@
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_descriptiondisplay' name='descriptiondisplay' data-default="welcome">
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                    <option value="inherit"> {{ gT('Inherit') }}  [{% if oParentOptions.descriptiondisplay == 'all' %}{{ gT("All page" )}}{% else %}{{ gT("Only on welcome page" )}}{% endif %}]</option>
                                 {% endif %}
                                 <option value="welcome">{{ gT("Only on welcome page") }}</option>
                                 <option value="all">{{ gT("All page") }}</option>
@@ -23,7 +23,9 @@
                         <div class='col-xs-8'>
                             <select class='form-control selector_option_value_field' id='simple_edit_options_titlelocation' name='titlelocation' data-default="header">
                                 {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
-                                    <option value="inherit"> {{ gT('Inherit') }}</option>
+                                    <option value="inherit"> {{ gT('Inherit') }}  [{% if oParentOptions.titlelocation == 'header' %}{{ gT("In header" )}}{% endif %}
+                                        {% if oParentOptions.titlelocation == 'content' %}{{ gT("In content" )}}{% endif %}
+                                        {% if oParentOptions.titlelocation == 'hidden' %}{{ gT("Hidden" )}}{% endif %}]</option>
                                 {% endif %}
                                 <option value="header">{{ gT("In header") }}</option>
                                 <option value="content">{{ gT("In content") }}</option>

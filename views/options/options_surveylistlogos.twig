@@ -5,7 +5,19 @@
               <div class="col-sm-12 col-md-4">{# Survey list #}
                 <div class="form-group row"><label class="control-label" for="simple_edit_options_poweredlogo">Powered link</label>
                   <div class="col-sm-12">
-                    <div class="btn-group" data-toggle="buttons"><label class="btn btn-default"> <input class="selector_option_radio_field " name="poweredlogo" type="radio" value="on" data-id="simple_edit_options_poweredlogo" /> {{gT("Yes" )}} </label> <label class="btn btn-default"> <input class="selector_option_radio_field " name="poweredlogo" type="radio" value="off" data-id="simple_edit_options_poweredlogo" /> {{ gT("No") }} </label> {# If this is a root template setting, don't show the inherit button #} {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %} <label class="btn btn-default"> <input class="selector_option_radio_field " name="poweredlogo" type="radio" value="inherit" data-id="simple_edit_options_poweredlogo" /> {{ gT("Inherit") }} </label> {% endif %}</div>
+                    <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default"> 
+                        <input class="selector_option_radio_field " name="poweredlogo" type="radio" value="on" data-id="simple_edit_options_poweredlogo" /> 
+                        {{gT("Yes" )}} 
+                      </label> 
+                      <label class="btn btn-default"> <input class="selector_option_radio_field " name="poweredlogo" type="radio" value="off" data-id="simple_edit_options_poweredlogo" /> {{ gT("No") }} </label> 
+                      {# If this is a root template setting, don't show the inherit button #} 
+                      {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
+                        <label class="btn btn-default"> <input class="selector_option_radio_field " name="poweredlogo" type="radio" value="inherit" data-id="simple_edit_options_poweredlogo" />
+                          {{ gT("Inherit") }} [{% if oParentOptions.poweredlogo == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
+                        </label> 
+                      {% endif %}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -47,7 +59,7 @@
                 {# Survey list #}
                 <div class="form-group row">
                   <label class="control-label" for="simple_edit_options_surveylistlogo">
-                    Survey list logo
+                    {{ gT("Survey list logo") }}
                   </label>
                   <div class="col-sm-12">
                     <div class="btn-group" data-toggle="buttons">
@@ -62,7 +74,7 @@
                        {# If this is a root template setting, don't show the inherit button #} {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
                       <label class="btn btn-default">
                         <input class="selector_option_radio_field " name="surveylistlogo" type="radio" value="inherit" data-id="simple_edit_options_surveylistlogo" />
-                         {{ gT("Inherit") }}
+                         {{ gT("Inherit") }} [{% if oParentOptions.surveylistlogo == 'on' %}{{ gT("Yes" )}}{% else %}{{ gT("No" )}}{% endif %}]
                       </label>
                        {% endif %}
                     </div>
@@ -73,7 +85,7 @@
                 {# surveylistlogo file selector #}
                 <div class="form-group row">
                   <label class="control-label" for="simple_edit_options_surveylistlogofile">
-                    surveylistlogo file
+                    {{ gT("Image") }}
                   </label>
                   <div class="col-sm-12">
                     <select id="simple_edit_options_surveylistlogofile" class="form-control selector_option_value_field selector_radio_childfield selector_image_selector" name="surveylistlogofile" data-parent="surveylistlogo">
@@ -118,11 +130,11 @@
             <div class="row  ">
                 <div class='col-xs-12 col-sm-6'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_poweredlink' class='control-label col-xs-4'>Powered link</label>
+                        <label for='simple_edit_options_poweredlink' class='control-label col-xs-4'>{{gT("Powered link")}}</label>
                         <div class='col-xs-8'>
                                 <input type='text' id="simple_edit_options_poweredlink" class="form-control text_option_string_field" name="poweredlink"
                                 {% if (templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty) %}
-                                    placeholder="{{ gT('Inherit') }}"
+                                    placeholder="{{ gT('Inherit') }} :  [{{ oParentOptions.poweredlink|escape }}]"
                                 {% endif %}
                                 >
                         </div>
@@ -130,11 +142,11 @@
                 </div>
                 <div class='col-xs-12 col-sm-6'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_poweredtext' class='control-label col-xs-4'>Powered text</label>
+                        <label for='simple_edit_options_poweredtext' class='control-label col-xs-4'>{{ gT("Powered text") }}</label>
                         <div class='col-xs-8'>
                                 <input type='text' id="simple_edit_options_poweredtext" class="form-control text_option_string_field" name="poweredtext"
                                 {% if (templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty) %}
-                                    placeholder="{{ gT('Inherit') }}"
+                                    placeholder="{{ gT('Inherit') }} :  [{{ oParentOptions.poweredtext|escape }}]"
                                 {% endif %}
                                 >
                         </div>
