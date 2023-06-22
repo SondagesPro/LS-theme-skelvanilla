@@ -6270,7 +6270,9 @@ fieldset[disabled] .button-item.btn-primary.active.focus {
   margin-top: 0;
   margin-bottom: 0.32rem;
 }
-.panel-heading > .question-text ,.panel-heading > .question-text h2,.panel-heading > .question-text h3,
+.panel-heading > .question-text,
+.panel-heading > .question-text h2,
+.panel-heading > .question-text h3,
 .panel-heading > .lead.question-text,
 .panel-heading > .h2.question-text,
 .panel-heading > .h3.question-text,
