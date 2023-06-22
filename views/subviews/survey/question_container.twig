@@ -40,6 +40,7 @@
     {% set tagHeader = 'header' %}
     {% set tagQuestionH = 'h2' %}
 {% endif %}
+{% set tagSectionGroup = tagSection %}
 {% if tagQuestionH %}
     {% if(in_array('skel-tagH2',aQuestionsClasses)) %}
         {% set tagQuestionH = 'h2' %}
@@ -53,9 +54,10 @@
 {% set questioncolor = '' %}
 {% set questioncontainerclass = '' %}
 {% set questionsize = aSurveyInfo.options.questionsize %}
+{% set close_previous_group = 0 %}
 {% set start_group = 0 %}
-{% set end_group = 0 %}
-{% if questionwrap is empty or questionwrap == 'panelgroup' %}
+{% set close_group = 0 %}
+{% if questionwrap is empty or questionwrap == 'panelgroup' or questionwrap == 'panelgroupq' %}
     {% set questionwrap = 'none' %}
 {% endif %}
 {% if ( aSurveyInfo.options.questioncolor and aSurveyInfo.options.questioncolor !='none' ) %}
@@ -67,6 +69,15 @@
     {% set questioncolor = 'info' %}
     {% set questionsize = 'h4 panel-title' %}
     {% set tagQuestionH = 'h2' %}
+{% endif %}
+{% if aSurveyInfo.options.questionwrap == 'panelgroupq' and aQuestion.type == 'X' %}
+    {% set questionwrap = 'panel' %}
+    {% set questioncolor = 'primary' %}
+    {% set questionsize = 'h4 panel-title' %}
+    {% set tagQuestionH = 'h2' %}
+    {% set close_previous_group = 1 %}
+    {% set start_group = 1 %}
+    {% set tagSectionGroup = "section" %}
 {% endif %}
 
 {% if(in_array('skel-wrap-well',aQuestionsClasses)) %}
@@ -128,6 +139,9 @@
         {% set questioncontainerclass = 'panel panel-default' %}
     {% endif %}
     {% set containererrorclass = 'panel-danger' %}
+    {% if(in_array('skel-size-panel-title',aQuestionsClasses)) %}
+        {% set questionsize = questionsize ~ ' panel-title' %}
+    {% endif %}
 {% else %}
     {% set questioncolor = 'text-'~questioncolor %}
     {% set errorclass = 'text-danger' %}
@@ -139,7 +153,7 @@
     {% set no_close = 1 %}
 {% endif %}
 {% if(in_array('skel-end-group',aQuestionsClasses)) %}
-    {% set end_group = 1 %}
+    {% set close_group = 1 %}
 {% endif %}
 {% if(in_array('skel-no-question',aQuestionsClasses)) %}
     {% set no_include_text = 1 %}
@@ -165,8 +179,11 @@
 
 {% if displayhtml %}
 <!-- Question {{ aQuestion.qid  }}  -->
+{% if (close_previous_group) %}
+    </{{ tagSectionGroup }} >
+{% endif %}
 {% if (start_group) %}
-    <{{ tagSection }} class="{{ questioncontainerclass }} skel-group">
+    <{{ tagSectionGroup }} class="{{ questioncontainerclass }} skel-group">
     {% if(panel) %}
         {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
         {% set no_include_text = 1 %}
@@ -176,8 +193,8 @@
     <{{ tagSection }} {{ aQuestion.attributes }} class="{{ questioncontainerclass }} {{ aQuestion.class }} {% if aQuestion.input_error_class %}submitted-error {{ containererrorclass }}{% endif %} {{ aSurveyInfo.class.questioncontainer }}" {{ aSurveyInfo.attr.questioncontainer }}>
 {% endif %}
     {{ include('./subviews/survey/question.twig') }}
-{% if (end_group) %}
-    </{{ tagSection }} >
+{% if close_group %}
+    </{{ tagSectionGroup }} >
 {% endif %}
 {% if not no_close %}
 </{{ tagSection }}>

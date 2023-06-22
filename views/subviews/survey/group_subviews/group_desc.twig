@@ -1,7 +1,7 @@
 {% if ((aGroup.showgroupinfo == 'D' or aGroup.showgroupinfo == 'B' ) and aGroup.description)%}
     {% if aGroup.description != '' %}
         <!-- Group description -->
-        <div class="{{ aSurveyInfo.class.groupdesc }} well {% if aSurveyInfo.options.questionwrap == 'panelgroup' %}panel-body{% endif %}" {{ aSurveyInfo.attr.groupdesc }}>
+        <div class="{{ aSurveyInfo.class.groupdesc }} well {% if aSurveyInfo.options.questionwrap == 'panelgroup' or aSurveyInfo.options.questionwrap == 'panelgroupq' %}panel-body{% endif %}" {{ aSurveyInfo.attr.groupdesc }}>
             {{ processString(aGroup.description) }}
         </div>
     {% endif %}

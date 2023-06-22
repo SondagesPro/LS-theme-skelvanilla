@@ -1,6 +1,6 @@
 <!-- START OF GROUP: {{ aGroup.name }} {{ aGroup.gseq }}  -->
 {% set themeclass = '' %}
-{% if aSurveyInfo.options.questionwrap == 'panelgroup' %}
+{% if aSurveyInfo.options.questionwrap == 'panelgroup' or aSurveyInfo.options.questionwrap == 'panelgroupq' %}
     {% set panelcolor = aSurveyInfo.options.questioncolor %}
     {% if panelcolor == 'none' %}
         {% set panelcolor = 'default' %}

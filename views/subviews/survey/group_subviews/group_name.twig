@@ -1,6 +1,6 @@
 <!-- Group Name -->
 {% if ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) %}
-    <h2 class="{{ aSurveyInfo.class.grouptitle }} text-center {% if aSurveyInfo.options.questionwrap == 'panelgroup' %}panel-title{% else %}h3{% endif %}" {{ aSurveyInfo.attr.grouptitle }}>
+    <h2 class="{{ aSurveyInfo.class.grouptitle }} text-center {% if aSurveyInfo.options.questionwrap == 'panelgroup' or aSurveyInfo.options.questionwrap == 'panelgroupq' %}panel-title{% else %}h3{% endif %}" {{ aSurveyInfo.attr.grouptitle }}>
         {{ processString(aGroup.name) }}
     </h2>
 {% endif %}
