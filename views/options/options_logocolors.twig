@@ -2,7 +2,7 @@
             <h3 class="h3  ">{{ gT("Logo") }}</h3>
             <div class="row ">
               <div class="col-sm-12 col-md-4">{# Brandlogo #}
-                <div class="form-group row"><label class="control-label" for="simple_edit_options_brandlogo"> Brandlogo </label>
+                <div class="form-group row"><label class="control-label" for="simple_edit_options_brandlogo">{{ gT("Brandlogo") }} </label>
                   <div class="col-sm-12">
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default">
@@ -25,7 +25,7 @@
                 </div>
               </div>
               <div class="col-sm-8 col-md-6">{# Brandlogo file selector #}
-                <div class="form-group row"><label class="control-label" for="simple_edit_options_brandlogofile"> Brandlogo file </label>
+                <div class="form-group row"><label class="control-label" for="simple_edit_options_brandlogofile">{{ gT("Brandlogo file") }}</label>
                   <div class="col-sm-12">
                     <select id="simple_edit_options_brandlogofile" class="form-control selector_option_value_field selector_radio_childfield selector_image_selector" name="brandlogofile" data-parent="brandlogo">
                         {% if templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty %}
@@ -143,7 +143,7 @@
                 </div>
                 <div class='col-xs-12 col-sm-12'>
                     <div class='form-group row'>
-                        <label for='simple_edit_options_brandlogalt' class='control-label col-xs-4'>Alt text for logo</label>
+                        <label for='simple_edit_options_brandlogalt' class='control-label col-xs-4'>{{ gT("Alt text for logo") }}</label>
                         <div class='col-xs-8'>
                                 <input type='text' id="simple_edit_options_brandlogalt" class="form-control text_option_string_field" name="brandlogalt"
                                 {% if (templateConfiguration.sid is not empty or templateConfiguration.gsid is not empty) %}
@@ -155,7 +155,7 @@
                     </div>
                 </div>
             </div>
-
+            <pre>{{ dump(json_decode(sAvailableVariations)) }}</pre>
 
             <h3 class="h3">{{ gT("Style and colors") }}</h3>
             <div class="row">
