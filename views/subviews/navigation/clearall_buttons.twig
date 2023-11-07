@@ -1,5 +1,8 @@
 {% if aSurveyInfo.options.showclearall != 'off' %}
     <div class="{{ aSurveyInfo.class.clearallwrapper }} form-inline">
+        <label class="form-group {{ aSurveyInfo.class.clearalllabel }}">
+            <input {{ aSurveyInfo.attr.clearallconfirm }} class="{{ aSurveyInfo.class.clearallconfirm }}"><span class="control-label">{{gT("Please confirm you want to clear your response?")}}</span>
+        </label>
         <button value="clearall" name="clearall" type="submit" class="{{ aSurveyInfo.class.clearallbutton }} btn btn-warning">{{gT("Exit and clear survey")}}</button>
     </div>
 {% endif %}
