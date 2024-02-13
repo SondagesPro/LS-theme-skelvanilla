@@ -12,28 +12,14 @@
     - Contribution are welcome : https://gitlab.com/SondagesPro/SurveyThemes/accessible_vanilla/merge_requests
     Remind A11Y issue can be reported to LimeSurvey core too : https://www.limesurvey.org/community/bug-tracker
 #}<!DOCTYPE html>
-<html lang="{{ aSurveyInfo.languagecode }}" dir="{{ aSurveyInfo.dir }}" class="{{ aSurveyInfo.languagecode }} dir-{{ aSurveyInfo.dir }} {{ aSurveyInfo.class.html }}" {{ aSurveyInfo.attr.html }}>
+<html lang="{{ aSurveyInfo.languagecode }}" dir="{{ aSurveyInfo.dir }}" class="{{ aSurveyInfo.languagecode }} dir-{{ aSurveyInfo.dir }} {{ aSurveyInfo.class.html }}" {{ aSurveyInfo.attr.html }} data-bs-theme="light">
     {% block head %}
     {# Headers, metadata, etc #}
     {{ include('./subviews/header/head.twig') }}
     {% endblock %}
-    {% set theme = aSurveyInfo.options.theme %}
-    {% if (theme == "off" or theme == "") %}
-        {% set theme = 'css/bootstrap.css' %}
-    {% endif %}
-    {% set bodyClass = aSurveyInfo.class.body ~ " " ~ str_replace(['variations/','css/', '.css','.min','-','_'],['skelvanilla-','', '','',' skelvanilla-',' skelvanilla-'],theme) %}
+    {% set bodyClass = aSurveyInfo.class.body %}
     <body class="{% if(aSurveyInfo.options.bodyloaded == 'on' or not aSurveyInfo.options.bodyloaded) %}body-loading {% endif %}{{ bodyClass }} lang-{{aSurveyInfo.languagecode}} {{aSurveyInfo.surveyformat}} {{ ( aSurveyInfo.options.brandlogo == 'on') ? 'with-brand-logo' : '' }} {{ (aSurveyInfo.options.fixedheader == 'on') ? 'with-navbar-fixed-top ' }}{{ (aSurveyInfo.options.tableheader != 'off') ? 'table-fixed-header ' }}" >
         <div id="{{ aSurveyInfo.id.dynamicreload }}">
-            {# Fix LimeSurvey issue 17623, need to remove all POST action to keed data #}
-            {% if(getPost('clearall') == 'clearall' and getPost('move') != 'clearcancel') %}
-                   {% set aSurveyInfo = aSurveyInfo|merge({
-                        "include_content": 'clearall_confirm',
-                        "aNavigator": { },
-                        "aQuestionIndex": { },
-                        "bShowClearAll": false,
-                        "alanguageChanger": {}
-                    }) %}
-            {% endif %}
             {% block body %}
                 {# Bootstrap Navigation Bar: the top menu #}
                 {% block nav_bar %}

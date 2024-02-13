@@ -16,13 +16,13 @@
 {% set aShow        = aSurveyInfo.aShow   %}
 {# If the question number is to be shown (set in survey settings) #}
 {% if (aShow.question_number) %}
-    <span class='label label-default question-number pull-left' {{ aSurveyInfo.attr.questionnumber }} >
+    <span class='badge bg-secondary question-number float-start' {{ aSurveyInfo.attr.questionnumber }} >
         {{ aQuestion.number }}
     </span>
 {% endif %}
 {# If the question code is to be shown (set in survey settings) #}
 {% if (aShow.question_code) %}
-    <span class='label label-info question-number pull-left' {{ aSurveyInfo.attr.questioncode }}>
+    <span class='badge bg-info question-number float-start' {{ aSurveyInfo.attr.questioncode }}>
         {{ aQuestion.code }}
     </span>
 {% endif %}

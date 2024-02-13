@@ -1,12 +1,10 @@
 {# theme file #}
-{% set theme = aSurveyInfo.options.theme %}
-{% if (theme == "off" or theme == "") %}
-    {% set theme = 'css/bootstrap.css' %}
-{% endif %}
-{% set theme = str_replace('image::theme::','',theme) %}
-{{ registerTemplateCssFile(theme) }}
+
+{% set theme = 'css/bootstrap.css' %}
 {% if aSurveyInfo.dir == 'rtl' %}
     {{ registerTemplateCssFile('css/bootstrap-rtl.css') }}
 {% endif %}
+{{ registerTemplateCssFile(theme) }}
+{{ registerTemplateCssFile('css/vanilla.css') }}
 {{ registerTemplateCssFile('css/theme.css') }}
 {{ registerTemplateCssFile('css/custom.css') }}
