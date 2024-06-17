@@ -2,7 +2,7 @@
     This a copy of Vanilla theme.js file with some update for skelvanilla
     Broke dependency of Vanilla template
     Please, use theme.js or custom.js
-    @version 6.3.2
+    @version 10.14.4
 */
 
 /**
@@ -50,24 +50,24 @@ var ThemeScripts = function(){
     {
         $('.question-help-container').each(function(){
             /* Only if have only script tag inside or empty tag */
-            if($(this).text().trim()=='' && !/<img/.test($(this).html())){
+            if($(this).text().trim()=='' && /<script/.test($(this).html())){
                 $(this).addClass('hidden');
             }
         });
         $('.group-description').each(function(){
             /* Only if have only script tag inside or empty tag */
-            if($(this).text().trim()=='' && !/<img/.test($(this).html())){
+            if($(this).text().trim()=='' && /<script/.test($(this).html())){
                 $(this).addClass('hidden');
             }
         });
         $('.question-help-container.hidden').on('html:updated',function(){
-            if($(this).text().trim()!=''  && !/<img/.test($(this).html())){
+            if($(this).text().trim()!='' && !/<script/.test($(this).html())){
                 $(this).removeClass('hidden');
             }
         });
         // .question-help-container:not(.hidden) don't work ?
         $('.question-help-container').on('html:updated',function(){ 
-            if($(this).text().trim()==''  && !/<img/.test($(this).html())){
+            if($(this).text().trim()==''  && /<script/.test($(this).html())){
                 $(this).addClass('hidden');
             }
         });
