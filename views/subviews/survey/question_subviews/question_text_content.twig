@@ -1,5 +1,5 @@
 {# If the question is mandatory, the asterisk will be shown  #}
-{% if mandatory %}
+{% if mandatory or showasmandatory %}
     <!-- Add a visual information + just Mandatory string for aria if not shown -->
     <div id="question-asterisk-{{ aQuestion.qid }}" class="{{ aSurveyInfo.class.questionasterix }}{% if mandatoryposition != 'block' %} pull-left{% endif %}" {{ aSurveyInfo.attr.questionasterix }}{% if mandatoryposition == 'astip' %} aria-hidden="true"{% endif %}>
         <small class="{{ aSurveyInfo.class.questionasterixsmall }} text-danger fa fa-asterisk small" {{ aSurveyInfo.attr.questionasterixsmall }}

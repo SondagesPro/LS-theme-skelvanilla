@@ -1,5 +1,5 @@
 {% if ( ( (aGroup.showgroupinfo == 'D' or aGroup.showgroupinfo == 'B' ) and aGroup.description and (aSurveyInfo.options.questionwrap != 'panelgroup' or aSurveyInfo.options.questionwrap != 'panelgroupq')) or ( (aGroup.showgroupinfo == 'N' or aGroup.showgroupinfo == 'B') and aGroup.name ) ) %}
-    <header class=" {% if aSurveyInfo.options.questionwrap == 'panelgroup' or aSurveyInfo.options.questionwrap == 'panelgroupq' %} panel-heading{% endif %}">
+    <header class=" {% if aSurveyInfo.options.questionwrap == 'panelgroup' or aSurveyInfo.options.questionwrap == 'panelgroupq' %} panel-heading{% endif %} clearfix">
         {# Group Name #}
         {{ include('./subviews/survey/group_subviews/group_name.twig') }}
         {% if aSurveyInfo.options.questionwrap != 'panelgroup' and aSurveyInfo.options.questionwrap != 'panelgroupq'  %}

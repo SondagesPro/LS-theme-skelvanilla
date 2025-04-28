@@ -50,6 +50,10 @@
     {% endif %}
 {% endif %}
 
+{% if(in_array('showasmandatory',aQuestionsClasses)) %}
+    {% set showasmandatory = true %}
+{% endif %}
+
 {% set questionwrap = aSurveyInfo.options.questionwrap %}
 {% set questioncolor = '' %}
 {% set questioncontainerclass = '' %}
@@ -168,7 +172,7 @@
 {% endif %}
 {% set questioncontainerclass = questioncontainerclass ~ ' wrap-' ~ questionwrap %}
 {% set mandatory = (aQuestion.mandatory != '' and aQuestion.mandatory  != 'N') %}
-{% if mandatory %}
+{% if mandatory or showasmandatory %}
     {% set mandatoryposition = 'astip' %}
     {% if ( aSurveyInfo.options.mandatoryposition) %}
         {% set mandatoryposition = aSurveyInfo.options.mandatoryposition %}
@@ -183,7 +187,7 @@
     </{{ tagSectionGroup }} >
 {% endif %}
 {% if (start_group) %}
-    <{{ tagSectionGroup }} class="{{ questioncontainerclass }} skel-group">
+    <{{ tagSectionGroup }} class="{{ questioncontainerclass }} skel-group clearfix">
     {% if(panel) %}
         {{ include('./subviews/survey/question_subviews/question_text_container.twig') }}
         {% set no_include_text = 1 %}
